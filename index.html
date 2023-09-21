@@ -2,6 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap" media="print" onload="this.media='all'">
+  	<!-- <link rel="stylesheet" href="/css/vendor-bundle.min.047268c6dd09ad74ba54a0ba71837064.css" media="print" onload="this.media='all'">
+	<link rel="stylesheet" href="/css/wowchemy.042e26407c9e383d96a1f26d6787c686.css" />
+	<link rel="stylesheet" href="/css/libs/chroma/github-light.min.css" title="hl-light" media="print" onload="this.media='all'" >
+	<link rel="stylesheet" href="/css/libs/chroma/dracula.min.css" title="hl-dark" media="print" onload="this.media='all'" disabled> -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.2/css/academicons.min.css" integrity="sha512-KlJCpRsLf+KKu2VQa5vmRuClRFjxc5lXO03ixZt82HZUk41+1I0bD8KBSA0fY290ayMfWYI9udIqeOWSu1/uZg==" crossorigin="anonymous" media="print" onload="this.media='all'">
+	<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
     <link rel="apple-touch-icon" sizes="57x57" href="icon/apple-icon-57x57.png">
 	<link rel="apple-touch-icon" sizes="60x60" href="icon/apple-icon-60x60.png">
 	<link rel="apple-touch-icon" sizes="72x72" href="icon/apple-icon-72x72.png">
@@ -62,6 +71,101 @@
 			background: #fdfdfd;
 		}
 		</style>
+		<!-- <style>
+			body {
+			  color: #333;
+			  background-color: #eee;
+			}
+			@media (prefers-color-scheme: dark) {
+			  body {
+				color: #ccc;
+				background-color: #1f1f1f;
+			  }
+			}
+		</style> -->
+		<style>
+			/* 普通模式下颜色 */
+			:root {
+				--color-bg: #ffffff;
+				--color-ch: #30303a;
+				--color-btn: #f0f0fa;
+				--color-link: #1565c0;
+			}
+	
+			/* 黑暗模式下颜色 */
+			:root[theme='dark'] {
+				--color-bg: #272935;
+				--color-ch: #e3e3f1;
+				--color-btn: #30303a;
+				--color-link: #a2bfd9;
+			}
+	
+			:root * {
+				/* 过渡动画效果 */
+				transition: background-color 0.3s, color 0.3s;
+			}
+	
+			body {
+				position: relative;
+				background-color: var(--color-bg);
+				/* transition: 0.3s; */
+			}
+	
+			button {
+				position: absolute;
+				top: -1%;
+				right: -5%;
+				height: 48px;
+				width: 48px;
+				border-radius: 50%;
+				border: none;
+				outline: none;
+				background-color: var(--color-btn);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				/* transition: 0.3s; */
+			}
+			p,b,td,h2,i,a {
+				color: var(--color-ch);
+				font-family:Arial,Times,serif;
+				/* transition: 0.3s; */
+			}
+			i,a {
+				color: var(--color-link);
+				font-family:Arial,Times,serif;
+				/* transition: 0.3s; */
+			}
+	
+			button>svg {
+				height: 36px;
+				width: 36px;
+				fill: var(--color-ch);
+				stroke: none;
+			}
+	
+			button>svg:nth-child(2) {
+				display: none;
+			}
+			@media (prefers-color-scheme: dark) {
+				/* 普通模式下颜色 */
+				:root {
+					--color-bg: #272935;
+					--color-ch: #e3e3f1;
+					--color-btn: #30303a;
+					--color-link: #a2bfd9;
+				}
+		
+				/* 黑暗模式下颜色 */
+				:root[theme='dark'] {
+					--color-bg: #ffffff;
+					--color-ch: #30303a;
+					--color-btn: #f0f0fa;
+					--color-link: #1565c0;
+				}
+			  }
+			
+		</style>
 
 	<script>
 		var _hmt = _hmt || [];
@@ -72,77 +176,54 @@
 			s.parentNode.insertBefore(hm, s);
 		})();
 	</script>
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-	<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap" media="print" onload="this.media='all'">
-	<link rel="stylesheet" href="/css/vendor-bundle.min.047268c6dd09ad74ba54a0ba71837064.css" media="print" onload="this.media='all'">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.2/css/academicons.min.css" integrity="sha512-KlJCpRsLf+KKu2VQa5vmRuClRFjxc5lXO03ixZt82HZUk41+1I0bD8KBSA0fY290ayMfWYI9udIqeOWSu1/uZg==" crossorigin="anonymous" media="print" onload="this.media='all'">
-	<link rel="stylesheet" href="/css/wowchemy.042e26407c9e383d96a1f26d6787c686.css" />
-  	<link rel="stylesheet" href="/css/libs/chroma/github-light.min.css" title="hl-light" media="print" onload="this.media='all'" >
-  	<link rel="stylesheet" href="/css/libs/chroma/dracula.min.css" title="hl-dark" media="print" onload="this.media='all'" disabled>
-
-
+	<script type="text/javascript" src="./js/dark.js"></script>
 </head>
 
 <body>
-	<header>
-	  <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
-	    <div class="container-xl">
-	      <div class="d-none d-lg-inline-flex">
-	        <a class="navbar-brand" href="/">Huanxuan Liao (廖桓萱)</a>
-	      </div>      
-	      <button type="button" class="navbar-toggler" data-toggle="collapse"
-	              data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
-	      <span><i class="fas fa-bars"></i></span>
-	      </button>     
-	      <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
-	        <a class="navbar-brand" href="/">Huanxuan Liao (廖桓萱)</a>
-	      </div>    
-	      <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">        
-	        <ul class="navbar-nav d-md-inline-flex">
-	          <li class="nav-item">
-	            <a class="nav-link " href="/#about" data-target="#about"><span>Home</span></a>
-	          </li>
-	          <li class="nav-item">
-	            <a class="nav-link " href="/#featured" data-target="#featured"><span>Publications</span></a>
-	          </li>   
-	        </ul>
-	      </div>
-	      <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">        
-	        <li class="nav-item">
-	          <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
-	        </li>        
-	        <li class="nav-item dropdown theme-dropdown">
-	          <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="Display preferences">
-	            <i class="fas fa-moon" aria-hidden="true"></i>
-	          </a>
-	          <div class="dropdown-menu">
-	            <a href="#" class="dropdown-item js-set-theme-light">
-	              <span>Light</span>
-	            </a>
-	            <a href="#" class="dropdown-item js-set-theme-dark">
-	              <span>Dark</span>
-	            </a>
-	            <a href="#" class="dropdown-item js-set-theme-auto">
-	              <span>Automatic</span>
-	            </a>
-	          </div>
-	        </li>
-	      </ul>
-	    </div>
-	  </nav>
-</header>
+	<button>
+        <svg viewBox="0 0 24 24">
+            <path
+                d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z">
+            </path>
+        </svg>
+        <svg viewBox="0 0 24 24">
+            <path
+                d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z">
+            </path>
+        </svg>
+    </button>
+    <script>
+        const root = document.documentElement;
+        const button = document.querySelector('button');
+        const svgs = document.querySelectorAll('button>svg');
+        const text = document.querySelector('p');
+
+        button.onclick = () => {
+            if (!root.hasAttribute('theme')) { // 检查当前主题
+                root.setAttribute('theme', 'dark'); // 向根节点插入theme属性，值为dark
+                // 这样页面中颜色就会匹配 :root[theme='dark'] { ... } 这一套
+                svgs[0].style.display = 'none';
+                svgs[1].style.display = 'block';
+                
+            } else {
+                root.removeAttribute('theme'); // 移除根节点theme属性
+                svgs[1].style.display = 'none';
+                svgs[0].style.display = 'block';
+                
+            }
+        };
+    </script>
 	<table align="center">
 	<tr>
 	<td align="center"><img border=0 style="border-radius:8px;" height="218" width="188" src="img/profile.jpeg"></td>
 	<td align="center">&nbsp</td>
 	<td align="center">&nbsp</td>
 	<td align="center">
-		<td align="center"><h2>Huanxuan Liao</h2>
-		     <p><font size=+1><b>廖 桓萱</b><br><br>NLPer<br>&#x1F30F <a href="http://www.ia.cas.cn/" target="_blank"><b>Institute of Automation, Chinese Academy of Sciences</b></a>, Beijing, China</font></p>
+		<td align="center"><h2><font face="Arial" size=+2>Huanxuan Liao</font></h2>
+		     <p><font size=+1><b><font face="楷体" size=+2>廖 桓萱</font></b><br><br><font size=+2 face="Arial">NLPer</font><br>&#x1F30F <a href="http://www.ia.cas.cn/" target="_blank"><b>Institute of Automation, Chinese Academy of Sciences</b></a><font face="Arial">, Beijing, China</font></font></p>
 		     <p><font size=+1>&#x2709 <a href="liaohuanxuan2023@ia.ac.cn"><i>liaohuanxuan2023@ia.ac.cn</i></a></font><br></p>
 		     <p align="center">
-			    &nbsp;&nbsp;&nbsp;&nbsp;
+			    &nbsp;&nbsp;&nbsp;
 				<!-- GitHub -->
 					<a href="https://github.com/Xnhyacinth" target="_blank">
 					  <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/GitHub_Invertocat_Logo.svg" alt="Github" width="40px"/>
@@ -150,12 +231,12 @@
 					&emsp;
 				<!-- Google Scholar -->
 					<a href= "https://scholar.google.com.hk/citations?user=sRcWOKUAAAAJ&hl=zh-CN" target="_blank">
-						<img src="img/google_scholar_logo.png" alt="Google Scholar" width="75px"/>
+						<img src="img/google-scholar.png" alt="Google Scholar" width="95px"/>
 					</a>
 					&emsp;
 			     	<!-- Semantic Scholar -->
 					<a href="https://www.semanticscholar.org/author/Huanxuan-Liao/2232817310" target="_blank">
-						<img src="img/semantic-scholar.png" alt="Semantic Scholar" width="75px"/>
+						<img src="https://miro.medium.com/v2/resize:fit:1400/1*wuOik0-WI97IW86STIR6Gg.png" style="position:relative;top: 20px" alt="Semantic Scholar" width="100px"/>
 					</a>
 					&emsp;
             </p>
@@ -164,36 +245,77 @@
 	</tr>
 	</table>
 	<br>
-	
-	<h2>Biography</h2>
+<div>
+	<h2><font face="Arial" size=+3.5>Biography</font></h2>
 	<hr/>
 	<p>
-	    <font size="4">
-		    I’m the first year M.A student at the Institute of Automation, Chinese Academy of Sciences, supervised by A.P. <a href="http://www.nlpr.ia.ac.cn/cip/shizhuhe/">Shizhu He </a>. 
+	    <font size="4.5" face="Arial">
+		    I’m the first year M.S student at the Institute of Automation, Chinese Academy of Sciences, supervised by A.P. <a href="http://www.nlpr.ia.ac.cn/cip/shizhuhe/">Shizhu He </a>. 
 		    Before that, I have received B.Eng. from <a href="http://www.nlpr.ia.ac.cn/cip/shizhuhe/">North China Electric Power University (NCEPU)</a> in 2023, under the supervision of
 		    A.P. Min Shi and A.P. Yun Ju.
 		    
-		    <br><br>My research interests lie at <b>Natural Language Processing</b> and <b>Reasoning</b>. 
+		    <br><br>My research interests lie at <b>Natural Language Processing</b> and <b>Reasoning</b>.
 	    </font>
         </p>
 	<br>
 
-	<h2>Research Interests</h2>
+	<div class="app">
+		<div style="float:left;width:50%;">
+			<h2><b><font face="Arial" size=+2>Interests</font></b></h2>
+			<p>
+				<font size="4">
+					&emsp;&emsp;<i class="fa fa-file-text-o"></i>
+					Natural Language Processing
+					<br><br>
+					&emsp;&emsp;<i class="fa fa-file-text-o"></i>
+					Reasoning
+					<br><br>
+					&emsp;&emsp;<i class="fa fa-file-text-o"></i>
+					<a href="https://github.com/Xnhyacinth/Long_Text_Modeling_Papers" target="_blank">Long Context Modeling & Length Extrapolation</a>
+				</font>
+			</p>
+		</div>
+		<div style="float:left;width:50%;">
+			<h2><font face="Arial" size=+2>Education</font></h2>
+			<p>
+				<font size="4">
+					&emsp;&emsp;<i class="fa fa-graduation-cap"></i>
+					M.S in Computer Science, 2023-now
+					<br>
+					<font size="3">&emsp;&emsp;&emsp;&emsp;</font><font size="4" color="a9a9ae">Institute of Automation, Chinese Academy of Sciences</font>
+					<br><br>
+					&emsp;&emsp;<i class="fa fa-graduation-cap"></i>
+					Bachelor's in Computer Science, 2019-2023
+					<br>
+					<font size="3">&emsp;&emsp;&emsp;&emsp;</font><font size="4" color="a9a9ae">North China Electric Power University, China</font>
+				</font>
+			</p>
+		</div>
+		
+	</div>
+	<br>
+</div>
+	<!-- <h2><font face="Arial" size=+3.5>Research Interests</font></h2>
 	<hr/>
 	<p>
 		<font size="4">
-			Natural Language Processing, 
-			Reasoning, 
+			&emsp;&emsp;<i class="fa fa-file-text-o"></i>
+			Natural Language Processing
+			<br><br>
+			&emsp;&emsp;<i class="fa fa-file-text-o"></i>
+			Reasoning
+			<br><br>
+			&emsp;&emsp;<i class="fa fa-file-text-o"></i>
 			<a href="https://github.com/Xnhyacinth/Long_Text_Modeling_Papers" target="_blank">Long Context Modeling & Length Extrapolation</a>
 		</font>
 	</p>
-	<br>
-
-	<h2>Publications &nbsp;<a href="https://scholar.google.com.hk/citations?user=sRcWOKUAAAAJ&hl=zh-CN" target="_blank"><img src="img/google-scholar.png" alt="Google Scholar" width="64px"/></a></h2>
+	<br> -->
+<div>
+	<h2><font face="Arial" size=+3.5>Publications</font> &nbsp;<a href="https://scholar.google.com.hk/citations?user=sRcWOKUAAAAJ&hl=zh-CN" target="_blank"><img src="img/google-scholar.png" alt="Google Scholar" width="90px"/></a></h2>
 	<hr/>
 	<table>
 		<tr>
-			<td><br><font size="4"><b>2023</b></font></td>
+			<td><br><font size="5"><b>2023</b></font></td>
 		</tr>
 		<tr>
 			<td><font size="4">1.&nbsp</font></td>
@@ -203,15 +325,16 @@
 					<b>Dynamic Weighted Neural Bellman-Ford Network for Knowledge Graph Reasoning</b>
 				</font>
 				<font size="3">
-					&nbsp;&nbsp; <br><br><b>Huanxuan Liao</b>, Shizhu He，Yao Xu，Kang Liu，Jun Zhao
+					&nbsp;&nbsp; <br><br><b>Huanxuan Liao</b><font face="Arial">, Shizhu He，Yao Xu，Kang Liu，Jun Zhao</font>
 					&nbsp;&nbsp; <br> <i><b>The 8th China Conference on Knowledge Graph and Semantic Computing (CCKS 2023)</b>. 
 				</font>
 			</td>
 		</tr>
 	</table>
+</div>
 	<br>
 	
-  	<h2>Website visit statistics</h2>
+  	<h2><font face="Arial" size=+3.5>Website visit statistics</font></h2>
 	<hr/>
 	<script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=500&t=tt&d=RDwpltapRj65Q7UM5LGnBHaIr57MgblmTCDCr6fHKo0'></script>
 
