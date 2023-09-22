@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap" media="print" onload="this.media='all'">
+    <!-- <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap"> -->
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap" media="print" onload="this.media='all'"> -->
   	<!-- <link rel="stylesheet" href="/css/vendor-bundle.min.047268c6dd09ad74ba54a0ba71837064.css" media="print" onload="this.media='all'"> -->
 	<!-- <link rel="stylesheet" href="/css/wowchemy.042e26407c9e383d96a1f26d6787c686.css" /> -->
 	<!-- <link rel="stylesheet" href="/css/libs/chroma/github-light.min.css" title="hl-light" media="print" onload="this.media='all'" > -->
 	<!-- <link rel="stylesheet" href="/css/libs/chroma/dracula.min.css" title="hl-dark" media="print" onload="this.media='all'" disabled> -->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.2/css/academicons.min.css" integrity="sha512-KlJCpRsLf+KKu2VQa5vmRuClRFjxc5lXO03ixZt82HZUk41+1I0bD8KBSA0fY290ayMfWYI9udIqeOWSu1/uZg==" crossorigin="anonymous" media="print" onload="this.media='all'">
+	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.2/css/academicons.min.css" integrity="sha512-KlJCpRsLf+KKu2VQa5vmRuClRFjxc5lXO03ixZt82HZUk41+1I0bD8KBSA0fY290ayMfWYI9udIqeOWSu1/uZg==" crossorigin="anonymous" media="print" onload="this.media='all'"> -->
 	<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
     <link rel="apple-touch-icon" sizes="57x57" href="icon/apple-icon-57x57.png">
 	<link rel="apple-touch-icon" sizes="60x60" href="icon/apple-icon-60x60.png">
@@ -28,6 +28,7 @@
 	<meta name="msapplication-TileColor" content="#ffffff">
 	<meta name="msapplication-TileImage" content="icon/ms-icon-144x144.png">
 	<meta name="theme-color" content="#ffffff">
+	<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
     <title>Huanxuan Liao</title>
     <style type="text/css">
         h1{
@@ -176,7 +177,6 @@
 			s.parentNode.insertBefore(hm, s);
 		})();
 	</script>
-	<script type="text/javascript" src="./js/dark.js"></script>
 	<script src="http://cdn.staticfile.org/jquery/2.0.0/jquery.min.js">
     </script>
     <!-- <script>$(document).ready(function () {
@@ -191,7 +191,6 @@
 	<script>
 		$(function(){
 			$(".bu").click(function(){
-				console.log("1111111111111")
 				if ($('.bib' + $(this).attr("id")).css("display") != "none") {
                     $('.bib' + $(this).attr("id")).css("display", "none");
                 } else {
