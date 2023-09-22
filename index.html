@@ -126,7 +126,7 @@
 				justify-content: center;
 				/* transition: 0.3s; */
 			}
-			p,b,td,h2,i,a {
+			p,b,td,h2,i,a,pre {
 				color: var(--color-ch);
 				font-family:Arial,Times,serif;
 				/* transition: 0.3s; */
@@ -177,6 +177,41 @@
 		})();
 	</script>
 	<script type="text/javascript" src="./js/dark.js"></script>
+	<script src="http://cdn.staticfile.org/jquery/2.0.0/jquery.min.js">
+    </script>
+    <!-- <script>$(document).ready(function () {
+            $(".bu").click(function () {
+                if ($("pre").css("display") != "none") {
+                    $("pre").css("display", "none");
+                } else {
+                    $("pre").css("display", "block");
+                }
+            });
+        });</script> -->
+	<script>
+		$(function(){
+			$(".bu").click(function(){
+				if ($('.bib' + $(this).attr("id")).css("display") != "none") {
+                    $('.bib' + $(this).attr("id")).css("display", "none");
+                } else {
+					if ($('.ab' + $(this).attr("id")).css("display") != "none") {
+						$('.ab' + $(this).attr("id")).css("display", "none");
+					}
+                    $('.bib' + $(this).attr("id")).css("display", "block");
+                }
+			})
+			$(".au").click(function(){
+				if ($('.ab' + $(this).attr("id")).css("display") != "none") {
+                    $('.ab' + $(this).attr("id")).css("display", "none");
+                } else {
+					if ($('.bib' + $(this).attr("id")).css("display") != "none") {
+						$('.bib' + $(this).attr("id")).css("display", "none");
+					}
+                    $('.ab' + $(this).attr("id")).css("display", "block");
+                }
+			})
+		})
+	</script>
 </head>
 
 <body>
@@ -220,23 +255,23 @@
 	<td align="center">&nbsp</td>
 	<td align="center">
 		<td align="center"><h2><font face="Arial" size=+2>Huanxuan Liao</font></h2>
-		     <p><font size=+1><b><font face="楷体" size=+2>廖 桓萱</font></b><br><br><font size=+2 face="Arial">NLPer</font><br>&#x1F30F <a href="http://www.ia.cas.cn/" target="_blank"><b>Institute of Automation, Chinese Academy of Sciences</b></a><font face="Arial">, Beijing, China</font></font></p>
-		     <p><font size=+1>&#x2709 <a href="liaohuanxuan2023@ia.ac.cn"><i>liaohuanxuan2023@ia.ac.cn</i></a></font><br></p>
+		     <p><font size=+1><b><font face="楷体" size=+2>廖 桓萱</font></b><br><br><font size=+2 face="Arial">NLPer</font><br><font size=+2>&#x1F30F</font> <a href="http://www.ia.cas.cn/" target="_blank"><b>Institute of Automation, Chinese Academy of Sciences</b></a><font face="Arial">, Beijing, China</font></font></p>
+		     <p><font size=+1><font size=+3>&#x2709</font> <a href="liaohuanxuan2023@ia.ac.cn"><i>liaohuanxuan2023@ia.ac.cn</i></a></font></p>
 		     <p align="center">
-			    &nbsp;&nbsp;&nbsp;
+			    &nbsp;&nbsp;&nbsp;&nbsp;
 				<!-- GitHub -->
 					<a href="https://github.com/Xnhyacinth" target="_blank">
-					  <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/GitHub_Invertocat_Logo.svg" alt="Github" width="40px"/>
+					  <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/GitHub_Invertocat_Logo.svg" alt="Github" title="Github" width="40px"/>
 					</a>
 					&emsp;
 				<!-- Google Scholar -->
 					<a href= "https://scholar.google.com.hk/citations?user=sRcWOKUAAAAJ&hl=zh-CN" target="_blank">
-						<img src="img/google-scholar.png" alt="Google Scholar" width="95px"/>
+						<img src="img/google-scholar.png" alt="Google Scholar" title="Google Scholar" width="95px"/>
 					</a>
 					&emsp;
 			     	<!-- Semantic Scholar -->
 					<a href="https://www.semanticscholar.org/author/Huanxuan-Liao/2232817310" target="_blank">
-						<img src="https://miro.medium.com/v2/resize:fit:1400/1*wuOik0-WI97IW86STIR6Gg.png" style="position:relative;top: 20px" alt="Semantic Scholar" width="100px"/>
+						<img src="img/semantic.png" style="position:relative;top: 20px" alt="Semantic Scholar" title="Semantic Scholar" width="100px"/>
 					</a>
 					&emsp;
             </p>
@@ -250,7 +285,7 @@
 	<hr/>
 	<p>
 	    <font size="4.5" face="Arial">
-		    I’m the first year M.S student at the Institute of Automation, Chinese Academy of Sciences, supervised by A.P. <a href="http://www.nlpr.ia.ac.cn/cip/shizhuhe/">Shizhu He </a>. 
+		    I’m the first year M.S student at the Institute of Automation, Chinese Academy of Sciences (CASIA), supervised by A.P. <a href="http://www.nlpr.ia.ac.cn/cip/shizhuhe/">Shizhu He </a>. 
 		    Before that, I have received B.Eng. from <a href="http://www.nlpr.ia.ac.cn/cip/shizhuhe/">North China Electric Power University (NCEPU)</a> in 2023, under the supervision of
 		    A.P. Min Shi and A.P. Yun Ju.
 		    
@@ -318,7 +353,52 @@
 		<tr>
 			<td><br><font size="5"><b>2023</b></font></td>
 		</tr>
-		<tr>
+		<tr style="display:block; margin-bottom: 35px; margin-top: 15px; width:1050px">
+			<td><font size="4">2.&nbsp</font></td>
+			<td><center><img width="300" height="170" src="img/publication/LMTuner.jpg"></center></td>
+			<td>
+				<font size="4">
+					<b>LMTuner: An user-friendly and highly-integrable Training Framework for fine-tuning Large Language Models</b>
+				</font>
+				<font size="3">
+					&nbsp;&nbsp; <br><br><font face="Arial">Yixuan Weng, Zhiqi Wang, </font><b>Huanxuan Liao</b><font face="Arial">, Shizhu He, Shengping Liu, Kang Liu, Jun Zhao</font>
+					<!-- &nbsp;&nbsp; <br> <i><b>The 8th China Conference on Knowledge Graph and Semantic Computing (CCKS 2023).</b> -->
+				</font>
+				<br>
+				<img class="bu" id="2" alt="Static Badge" src="https://img.shields.io/badge/Bib-5cb85c" style="width: 35px;">
+				<img class="au" id="2" alt="Static Badge" src="https://img.shields.io/badge/Abstract-f9adad" style="width: 70px;">
+				<a href="https://arxiv.org/abs/2308.10252"><img alt="Static Badge" src="https://img.shields.io/badge/Arxiv-428BCA" style="width: 50px;"></a>
+				<a href="https://github.com/WENGSYX/LMTuner"><img alt="Static Badge" src="https://img.shields.io/badge/Code-d9534f" style="width: 50px;"></a>
+				<div class="bib2" style="display:none; height:150px; border:1px solid #e8dada">
+					<pre>
+@misc{weng2023lmtuner,
+	title={LMTuner: An user-friendly and highly-integrable Training Framework for fine-tuning Large Language Models}, 
+	author={Yixuan Weng and Zhiqi Wang and Huanxuan Liao and Shizhu He and Shengping Liu and Kang Liu and Jun Zhao},
+	year={2023},
+	eprint={2308.10252},
+	archivePrefix={arXiv},
+	primaryClass={cs.CL}
+}
+					</pre>
+				</div>
+				<div class="ab2" style="display:none; height:185px; border:1px solid #e8dada">
+					<pre>
+With the burgeoning development in the realm of large language models (LLMs), the demand for efficient incre-
+mental training tailored to specific industries and domains continues to increase. Currently, the predominantly
+employed frameworks lack modular design, it often takes a lot of coding work to kickstart the training of LLM. To
+address this, we present "LMTuner", a highly usable, integrable, and scalable system for training LLMs expedi-
+tiously and with minimal user-input. LMTuner comprises three main modules - the Interaction, Training, and Infer-
+ence Modules. We advocate that LMTuner’s usability and integrality alleviate the complexities in training large
+language models. Remarkably, even a novice user could commence training large language models within five
+minutes. Furthermore, it integrates DeepSpeed frameworks and supports Efficient Fine-Tuning methodologies
+like Low Rank Adaptation (LoRA),Quantized LoRA (QLoRA), etc., enabling the training of language models scal-
+ing from 300M to a whopping 130B parameters using a single server.
+					</pre>
+				</div>
+			</td>
+		</tr>
+
+		<tr style="display:block; width:1050px">
 			<td><font size="4">1.&nbsp</font></td>
 			<td><center><img width="300" height="170" src="img/publication/model_DyNBF.png"></center></td>
 			<td>
@@ -326,12 +406,31 @@
 					<b>Dynamic Weighted Neural Bellman-Ford Network for Knowledge Graph Reasoning</b>
 				</font>
 				<font size="3">
-					&nbsp;&nbsp; <br><br><b>Huanxuan Liao</b><font face="Arial">, Shizhu He，Yao Xu，Kang Liu，Jun Zhao</font>
+					&nbsp;&nbsp; <br><br><b>Huanxuan Liao</b><font face="Arial">, Shizhu He, Yao Xu, Kang Liu, Jun Zhao</font>
 					&nbsp;&nbsp; <br> <i><b>The 8th China Conference on Knowledge Graph and Semantic Computing (CCKS 2023).</b> 
 				</font>
 				<br>
+				<img class="au" id="1" alt="Static Badge" src="https://img.shields.io/badge/Abstract-f9adad" style="width: 70px;">
 				<a href=""><img alt="Static Badge" src="https://img.shields.io/badge/Arxiv-428BCA" style="width: 50px;"></a>
-
+				<div class="ab1" style="display:none; height:270px; width:710px; border:1px solid #e8dada">
+					<pre>
+Recent studies have shown that subgraphs of the head entity, such as related relations and neighborhoods, are
+helpful for Knowledge Graph Reasoning (KGR). However, prior studies tend to focus solelyon enhancing entity
+representations using related relations, with little attention paid to the impact of different relations on different e-
+ntities and their importance in various reasoning paths. Meanwhile, conventional Graph Neural Networks (GNNs)
+utilized for KGR consider simultaneously neighboring nodes and connected relations of the head entity but typi-
+cally use a standard message-passing paradigm over the entire Knowledge Graph (KG). This results in over-
+smoothed representations and limits efficiency. To address the above-mentioned limitations of existing methods,
+we propose a Dynamic Weighted Neural Bellman-Ford Network (DyNBF) for KGR, which utilizes relation weights
+generated from subgraphs to compute only the most relevant relations and entities. This way, we can integrate 
+multiple reasoning paths more flexibly to achieve better interpretable reasoning, while scaling more easily to more
+complex and larger KGs. DyNBF consists of two key modules: 1) a transformer-based relation weights generator
+module, which computes the weights of different relations on the path with a sequence-to-sequence model, and
+2) an NBFNet-based logic reasoner module, which obtains entity representations and conducts fact prediction
+with dynamic weights from the previous module. Empirical results on three standard KGR datasets demonstrate
+that the proposed approach can generate explainable reasoning paths and obtain competitive performance.
+					</pre>
+				</div>
 			</td>
 		</tr>
 	</table>
