@@ -3,6 +3,10 @@
 
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<link rel="stylesheet" type="text/css" media="screen and (max-device-width:400px)" href="tinyScreen.css" />
+	<link rel="stylesheet" type="text/css" media="screen and (min-width: 400px)and (max-device-width: 600px)"
+		href="smallScreen.css" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	<!-- <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap"> -->
 	<!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap" media="print" onload="this.media='all'"> -->
@@ -41,7 +45,7 @@
 	<style type="text/css">
 		h1 {
 			text-align: center;
-			font-size: 50px;
+			font-size: 1.5em;
 		}
 	</style>
 	<script async defer src="https://buttons.github.io/buttons.js"></script>
@@ -78,9 +82,9 @@
 		body {
 			position: relative;
 			margin: 3em auto 2em auto;
-			width: 1080px;
+			width: 68em;
 			font-family: Times New Roman, Lato, Verdana, Helvetica, sans-serif;
-			font-size: 14px;
+			font-size: 1.0em;
 			background: #fdfdfd;
 		}
 	</style>
@@ -99,7 +103,7 @@
 	<style>
 		/* 普通模式下颜色 */
 		:root {
-			--color-bg: #ffffff;
+			--color-bg: #7b7b7b;
 			--color-ch: #30303a;
 			--color-btn: #f0f0fa;
 			--color-link: #1565c0;
@@ -128,8 +132,8 @@
 			position: absolute;
 			top: -1%;
 			right: -5%;
-			height: 48px;
-			width: 48px;
+			height: 3em;
+			width: 3em;
 			border-radius: 50%;
 			border: none;
 			outline: none;
@@ -152,7 +156,7 @@
 		}
 
 		a:hover {
-			color: rgb(201, 74, 10);
+			color: #ec8435;
 			text-decoration: underline;
 			TEXT-DECORATION: none;
 		}
@@ -180,22 +184,12 @@
 			color: #0000ff
 		}
 
-		.cropped {
-			width: 60px;
-			height: 60px;
-			overflow: hidden;
-		}
-
-		.cropped img {
-			margin: 0px 0px 0px 0px;
-		}
-
 		pre {
-			font-size: 15px;
+			font-size: 0.76em;
 		}
 
 		ul li {
-			font-size: 20px;
+			font-size: 1.3em;
 		}
 
 		.dy {
@@ -212,14 +206,16 @@
 		}
 
 		i:hover {
+			color: #e66f6f
+		}
+
+		.aaa:hover {
 			color: #ec90c7
 		}
-		.aaa:hover{
-			color: #ec90c7
-		}
+
 		button>svg {
-			height: 36px;
-			width: 36px;
+			height: 3em;
+			width: 3em;
 			fill: var(--color-ch);
 			stroke: none;
 		}
@@ -240,7 +236,7 @@
 
 			/* 黑暗模式下颜色 */
 			:root[theme='dark'] {
-				--color-bg: #ffffff;
+				--color-bg: #f2f2f2;
 				--color-ch: #30303a;
 				--color-btn: #f0f0fa;
 				--color-link: #1573df;
@@ -330,7 +326,7 @@
 	</script>
 	<table align="center">
 		<tr>
-			<td align="center"><img border=0 style="border-radius:8px;" height="218" width="198" src="img/profile.jpg">
+			<td align="center"><img border=0 style="border-radius:8em;" height="218" width="198" src="img/profile.jpg">
 			</td>
 			<td align="center">&nbsp</td>
 			<td align="center">&nbsp</td>
@@ -437,20 +433,31 @@
 			<font face="Roboto" size=+3.5>Biography</font>
 		</h2>
 		<hr />
-		<p>
-			<font size="4.5" face="Georgia">
-				I’m the first year M.S student at the Institute of Automation, Chinese Academy of Sciences (CASIA),
-				supervised by A.P. <a href="http://www.nlpr.ia.ac.cn/cip/shizhuhe/"><font size="4" face="Georgia">Shizhu He</font> </a>.
-				Before that, I have received B.Eng. from <a href="https://www.ncepu.edu.cn/"><font size="4" face="Georgia">North China
-					Electric Power University (NCEPU)</font></a> in 2023, under the supervision of
-				A.P. Min Shi and A.P. Yun Ju.
-
-				<br><br>My research interests lie at <b><font size="4" face="Georgia">Large Language Model</font></b>, <b><font size="4" face="Georgia">Long Context Modeling</font></b> and
-				<b><font size="4" face="Georgia">Natural Language Reasoning</font></b>.
-			</font>
-		</p>
-
-		<div class="app">
+		<div class="app" style="margin-top: -0.0em">
+			<p>
+				<font size="4.5" face="Georgia">
+					I’m the first year M.S student at the Institute of Automation, Chinese Academy of Sciences (CASIA),
+					supervised by A.P. <a href="http://www.nlpr.ia.ac.cn/cip/shizhuhe/">
+						<font size="4" face="Georgia">Shizhu He</font>
+					</a>.
+					Before that, I have received B.Eng. from <a href="https://www.ncepu.edu.cn/">
+						<font size="4" face="Georgia">North China
+							Electric Power University (NCEPU)</font>
+					</a> in 2023, under the supervision of
+					A.P. Min Shi and A.P. Yun Ju.
+					<br><br>
+					My research interests lie at <b>
+						<font size="4" face="Georgia">Large Language Model</font>
+					</b>, <b>
+						<font size="4" face="Georgia">Long Context Modeling</font>
+					</b> and
+					<b>
+						<font size="4" face="Georgia">Natural Language Reasoning</font>
+					</b>.
+				</font>
+			</p>
+		</div>
+		<div class="app" style="margin-top: -1.2em">
 			<div style="float:left;width:50%;">
 				<h2><b>
 						<font face="Roboto" size=+2>Interests</font>
@@ -520,7 +527,7 @@
 		<h2>
 			<font face="Arial" size=+3.5>Publications</font> &nbsp;<a
 				href="https://scholar.google.com.hk/citations?user=sRcWOKUAAAAJ&hl=zh-CN" target="_self"><img
-					src="img/google-scholar.png" alt="Google Scholar" width="90px" /></a>
+					src="img/google-scholar.png" alt="Google Scholar" width="8%" /></a>
 		</h2>
 		<hr />
 		<br />
@@ -549,38 +556,38 @@
 				<div style="display: inline-block; margin-top:0.5%">
 					<div class="bu" id="3" style="display: inline-block; margin-top:0%">
 						<font size="2"><i class="fa fa-info fa-2x" aria-hidden="true"></i></font>&nbsp;<img
-							alt="Static Badge" src="https://img.shields.io/badge/Bib-5cb85c" style="height: 21px;">
+							alt="Static Badge" src="https://img.shields.io/badge/Bib-5cb85c" style="height: 1em;">
 					</div>
 					&nbsp;
-					<div class="au" id="3" style="display: inline-block; margin-top:0%; margin-left: -6px">
+					<div class="au" id="3" style="display: inline-block; margin-top:0%; margin-left: -1.5%">
 						<font size="5"><i class="fa fa-flag" aria-hidden="true"></i></font>&nbsp;<img alt="Static Badge"
-							src="https://img.shields.io/badge/Abstract-f9adad" style="height: 21px;">
+							src="https://img.shields.io/badge/Abstract-f9adad" style="height: 1em;">
 					</div>
 					&nbsp;
-					<div style="display: inline-block; margin-top:0%; margin-left: -6px;">
+					<div style="display: inline-block; margin-top:0%; margin-left: -1.5%;">
 						<a href="https://arxiv.org/abs/2403.15268">
 							<font size="5"><i class="ai ai-arxiv ai-1x"></i></font>&nbsp;<img alt="Static Badge"
-								src="https://img.shields.io/badge/Arxiv-f0ad4e" style="height: 20px;">
+								src="https://img.shields.io/badge/Arxiv-f0ad4e" style="height: 1em;">
 						</a>
 					</div>
 					&nbsp;
-					<div style="display: inline-block; margin-top:0%; margin-left: -6px;">
+					<div style="display: inline-block; margin-top:0%; margin-left: -1.5%;">
 						<a class="tag" href="cites/IAG.bib" target="_self">
 							<font size="2"><i class="fa fa-download fa-2x" aria-hidden="true"></i></font>&nbsp;<img
 								id="2" alt="Static Badge" src="https://img.shields.io/badge/Cite-edd7be"
-								style="height: 20px;">
+								style="height: 1.0em;">
 						</a>
 					</div>
 					&nbsp;
-					<div style="display: inline-block; margin-top:0%; margin-left: -6px;">
+					<div style="display: inline-block; margin-top:0%; margin-left: -1.5%;">
 						<a href="https://github.com/Xnhyacinth/IAG">
 							<font size="2"><i class="fa fa-github-alt  fa-2x" aria-hidden="true"></i></font>&nbsp;<img
 								alt="Static Badge" src="https://img.shields.io/badge/Code/data-d9534f"
-								style="height: 22px;">
+								style="height: 1em;">
 						</a>
 					</div>
 				</div>
-				<div class="bib3" style="display:none; width: 95%; border:1px solid #e8dada">
+				<div class="bib3" style="display:none; width: 48em; border:1px solid #e8dada">
 					<pre>
 @misc{liao2024imagination,
 	title={Imagination Augmented Generation: Learning to Imagine Richer Context for Question Answering over Large Language Models}, 
@@ -592,18 +599,18 @@
 }
 		</pre>
 				</div>
-				<div class="ab3" style="display:none; width: 95%; border:1px solid #e8dada">
+				<div class="ab3" style="display:none; width: 48em; border:1px solid #e8dada">
 					<pre>
-  Retrieval-Augmented-Generation and Gener-ation-Augmented-Generation have been proposed to enhance the knowledge required for question
-  answering over Large Language Models (LLMs). However, the former depends on external resources, and both require incorporating the explicit
-  documents into the context, which results in longer contexts that lead to more resource consumption. Recent works indicate that LLMs have
-  modeled rich knowledge, albeit not effectively triggered or activated. Inspired by this, we propose a novel knowledge-augmented framework, Imag-
-  ination-Augmented-Generation (IAG), which simulates the human capacity to compensate for knowledge deficits while answering questions solely
-  through imagination, without relying on external resources. Guided by IAG, we propose an imagine richer context method for question answering
-  (IMcQA), which obtains richer context through the following two modules: explicit imagination by generating a short dummy document with long con-
-  text compress and implicit imagination with HyperNetwork for generating adapter weights. Experimental results on three datasets demonstrate that
-  IMcQA exhibits significant advantages in both open-domain and closed-book settings, as well as in both in-distribution performance and out-of-
-  distribution generalizations. Our code will be available at this https URL.
+  Retrieval-Augmented-Generation and Gener-ation-Augmented-Generation have been proposed to enhance the knowledge required for
+  question answering over Large Language Models (LLMs). However, the former depends on external resources, and both require incorporat-
+  ing the explicit documents into the context, which results in longer contexts that lead to more resource consumption. Recent works indicate
+  that LLMs have modeled rich knowledge, albeit not effectively triggered or activated. Inspired by this, we propose a novel knowledge-aug-
+  mented framework, Imagination-Augmented-Generation (IAG), which simulates the human capacity to compensate for knowledge deficits 
+  while answering questions solely through imagination, without relying on external resources. Guided by IAG, we propose an imagine richer 
+  context method for question answering (IMcQA), which obtains richer context through the following two modules: explicit imagination by 
+  generating a short dummy document with long context compress and implicit imagination with HyperNetwork for generating adapter weights. 
+  Experimental results on three datasets demonstrate that IMcQA exhibits significant advantages in both open-domain and closed-book 
+  settings, as well as in both in-distribution performance and out-of-distribution generalizations. Our code will be available at this https URL.
 		</pre>
 				</div>
 			</li>
@@ -633,45 +640,45 @@
 				<div style="display: inline-block; margin-top:0.5%">
 					<div class="bu" id="2" style="display: inline-block; margin-top:0%">
 						<font size="2"><i class="fa fa-info fa-2x" aria-hidden="true"></i></font>&nbsp;<img
-							alt="Static Badge" src="https://img.shields.io/badge/Bib-5cb85c" style="height: 21px;">
+							alt="Static Badge" src="https://img.shields.io/badge/Bib-5cb85c" style="height: 1em;">
 					</div>
 					&nbsp;
-					<div class="au" id="2" style="display: inline-block; margin-top:0%; margin-left: -6px">
+					<div class="au" id="2" style="display: inline-block; margin-top:0%; margin-left: -1.5%">
 						<font size="5"><i class="fa fa-flag fa-1x" aria-hidden="true"></i></font>&nbsp;<img
-							alt="Static Badge" src="https://img.shields.io/badge/Abstract-f9adad" style="height: 21px;">
+							alt="Static Badge" src="https://img.shields.io/badge/Abstract-f9adad" style="height:  1em;">
 					</div>
 					&nbsp;
-					<div style="display: inline-block; margin-top:0%; margin-left: -6px;">
+					<div style="display: inline-block; margin-top:0%; margin-left: -1.5%;">
 						<a href="https://arxiv.org/abs/2308.10252">
 							<font size="5"><i class="ai ai-arxiv ai-1x"></i></font>&nbsp;<img alt="Static Badge"
-								src="https://img.shields.io/badge/Arxiv-f0ad4e" style="height: 20px;">
+								src="https://img.shields.io/badge/Arxiv-f0ad4e" style="height:  1em;">
 						</a>
 					</div>
 					&nbsp;
-					<div style="display: inline-block; margin-top:0%; margin-left: -6px;">
+					<div style="display: inline-block; margin-top:0%; margin-left: -1.5%;">
 						<a class="tag" href="cites/LMTuner.bib" target="_self">
 							<font size="5"><i class="fa fa-download" aria-hidden="true"></i></font>&nbsp;<img id="2"
-								alt="Static Badge" src="https://img.shields.io/badge/Cite-edd7be" style="height: 20px;">
+								alt="Static Badge" src="https://img.shields.io/badge/Cite-edd7be" style="height:  1em;">
 						</a>
 					</div>
 					&nbsp;
-					<div style="display: inline-block; margin-top:0%; margin-left: -6px;">
+					<div style="display: inline-block; margin-top:0%; margin-left: -1.5%;">
 						<a href="https://github.com/WENGSYX/LMTuner">
 							<font size="2"><i class="fa fa-github-alt fa-2x" aria-hidden="true"></i></font>&nbsp;<img
 								alt="Static Badge" src="https://img.shields.io/badge/Code/data-d9534f"
-								style="height: 22px;">
+								style="height:  1em;">
 						</a>
 					</div>
 					&nbsp;
-					<div style="display: inline-block; margin-top:0%; margin-left: -6px;">
+					<div style="display: inline-block; margin-top:0%; margin-left: -1.5%;">
 						<a href="https://wengsyx.github.io/LMTuner/">
 							<font size="2"><i class="fa fa-home fa-2x" aria-hidden="true"></i></font> <img id="2"
 								alt="Static Badge" src="https://img.shields.io/badge/Homepage-009fd0"
-								style="height: 22px;">
+								style="height:  1em;">
 						</a>
 					</div>
 				</div>
-				<div class="bib2" style="display:none; width: 95%; border:1px solid #e8dada">
+				<div class="bib2" style="display:none; width: 48em; border:1px solid #e8dada">
 					<pre>
   @misc{weng2023lmtuner,
 	title={LMTuner: An user-friendly and highly-integrable Training Framework for fine-tuning Large Language Models}, 
@@ -683,7 +690,7 @@
   }
 		</pre>
 				</div>
-				<div class="ab2" style="display:none; width: 95%; border:1px solid #e8dada">
+				<div class="ab2" style="display:none; width: 48em; border:1px solid #e8dada">
 					<pre>
   With the burgeoning development in the realm of large language models (LLMs), the demand for efficient incremental training tailored to
   specific industries and domains continues to increase. Currently, the predominantly employed frameworks lack modular design, it often 
@@ -720,24 +727,24 @@
 				<div style="display: inline-block; margin-top:0.5%">
 					<div class="bu" id="1" style="display: inline-block; margin-top:0%">
 						<font size="5"><i class="fa fa-info" aria-hidden="true"></i></font>&nbsp;<img alt="Static Badge"
-							src="https://img.shields.io/badge/Bib-5cb85c" style="height: 21px;">
+							src="https://img.shields.io/badge/Bib-5cb85c" style="height:  1em;">
 					</div>
 					&nbsp;
-					<div class="au" id="1" style="display: inline-block; margin-top:0%; margin-left: -6px;">
+					<div class="au" id="1" style="display: inline-block; margin-top:0%; margin-left: -1.5%;">
 						<font size="5"><i class="fa fa-flag" aria-hidden="true"></i></font>&nbsp;<img alt="Static Badge"
-							src="https://img.shields.io/badge/Abstract-f9adad" style="height: 21px;">
+							src="https://img.shields.io/badge/Abstract-f9adad" style="height:  1em;">
 					</div>
 					&nbsp;
-					<div style="display: inline-block; margin-top:0%; margin-left: -6px;">
+					<div style="display: inline-block; margin-top:0%; margin-left: -1.5%;">
 						<a class="tag" href="cites/DyNBF.bib" target="_self">
 							<font size="5"><i class="fa fa-download" aria-hidden="true"></i></font>&nbsp;<img id="2"
-								alt="Static Badge" src="https://img.shields.io/badge/Cite-edd7be" style="height: 20px;">
+								alt="Static Badge" src="https://img.shields.io/badge/Cite-edd7be" style="height: 1em;">
 						</a>
 					</div>
 				</div>
 				<!-- <a href=""><img alt="Static Badge" src="https://img.shields.io/badge/Arxiv-428BCA"
 						style="width: 50px;"></a> -->
-				<div class="bib1" style="display:none; width: 95%; border:1px solid #e8dada">
+				<div class="bib1" style="display:none; width: 48em; border:1px solid #e8dada">
 					<pre>
   @InProceedings{10.1007/978-981-99-7224-1_1,
 	author="Liao, Huanxuan
@@ -761,7 +768,7 @@
   }												
 					</pre>
 				</div>
-				<div class="ab1" style="display:none; width: 95%; border:1px solid #e8dada">
+				<div class="ab1" style="display:none; width: 48em; border:1px solid #e8dada">
 					<pre>
   Recent studies have shown that subgraphs of the head entity, such as related relations and neighborhoods, are helpful for Knowledge Graph
   Reasoning (KGR). However, prior studies tend to focus solelyon enhancing entity representations using related relations, with little attention 
