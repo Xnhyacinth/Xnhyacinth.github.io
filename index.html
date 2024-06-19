@@ -376,7 +376,7 @@
 				</h2>
 				<p>
 					<font size=+1>
-						<font size=+2 face="Georgia">👨‍💻 NLPer @ <a href="http://www.ia.cas.cn/"
+						<font size=+2 face="Georgia">👨‍💻 NLPer @ <a href="https://nlpr.ia.ac.cn/cn/index.html"
 								target="_self">NLPR</a>, CASIA 🎓</font><br />
 						<font size=+2>&#x1F30F</font> <b><a href="http://www.ia.cas.cn/" target="_self">
 								<font face="Georgia">Institute of
@@ -475,7 +475,7 @@
 		<div class="app" style="margin-top: -0.0em">
 			<p>
 				<font size="4.5" face="Georgia">
-					I’m the first year M.S student at the Institute of Automation, Chinese Academy of Sciences (CASIA),
+					I'm the first year M.S student at the Institute of Automation, Chinese Academy of Sciences (CASIA),
 					supervised by A.P. <a href="http://www.nlpr.ia.ac.cn/cip/shizhuhe/">
 						<font size="4" face="Georgia">Shizhu He</font>
 					</a>.
@@ -504,9 +504,6 @@
 				<p>
 					<font size="4" face="Georgia">
 						&emsp;&emsp;<i class="fa fa-file-text-o"></i>
-						Question Answering
-						<br><br>
-						&emsp;&emsp;<i class="fa fa-file-text-o"></i>
 						Large Language Model
 						<br><br>
 						&emsp;&emsp;<i class="fa fa-file-text-o"></i>
@@ -517,6 +514,9 @@
 							<font size="4" face="Georgia">Long Context
 								Modeling & Length Extrapolation</font>
 						</a>
+						<br><br>
+						&emsp;&emsp;<i class="fa fa-file-text-o"></i>
+						Compression & KV Cache
 					</font>
 				</p>
 			</div>
@@ -575,6 +575,85 @@
 		<font size="5"><b>2024</b></font>
 
 		<ul>
+			<li>
+				<b><a href="https://arxiv.org/pdf/2403.15268.pdf" "><font face=" Georgia" size="4">From Instance Training to Instruction Learning: Task Adapters Generation from Instructions</font></a></b>
+				&nbsp;&nbsp;
+				<br />
+				<font face="Georgia" font size=" 4">
+					<b class="myself">
+						<font size=" 4" face=" Georgia">Huanxuan Liao</font>
+					</b>
+					, Shizhu He, Yao Xu, Yuanzhe Zhang, Yanchao Hao, Shengping Liu, Kang Liu, Jun Zhao
+					&nbsp;&nbsp; <br>
+					<i><b>
+							<font face="Georgia" font size=" 4">Preprint</font>
+						</b></i>, 2024.
+				</font>
+				<br>
+				<div style="display: inline-block; margin-top:0.5%; width:50%">
+					<div class="bu" id="4" style="display: inline-block; margin-top:0%">
+						<font size="2"><i class="fa fa-info fa-2x" aria-hidden="true"></i></font>&nbsp;<img
+							alt="Static Badge" src="https://img.shields.io/badge/Bib-5cb85c" style="height: 1em;">
+					</div>
+					&nbsp;
+					<div class="au" id="4" style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+						<font size="5"><i class="fa fa-flag" aria-hidden="true"></i></font>&nbsp;<img alt="Static Badge"
+							src="https://img.shields.io/badge/Abstract-f9adad" style="height: 1em;">
+					</div>
+					&nbsp;
+					<div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+						<a href="https://arxiv.org/abs/2406.12382">
+							<font size="5"><i class="ai ai-arxiv ai-1x"></i></font>&nbsp;<img alt="Static Badge"
+								src="https://img.shields.io/badge/Arxiv-f0ad4e" style="height: 1em;">
+						</a>
+					</div>
+					&nbsp;
+					<div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+						<a class="tag" href="cites/TAGI.bib" target="_self">
+							<font size="2"><i class="fa fa-download fa-2x" aria-hidden="true"></i></font>&nbsp;<img
+								id="2" alt="Static Badge" src="https://img.shields.io/badge/Cite-edd7be"
+								style="height: 1em;">
+						</a>
+					</div>
+					&nbsp;
+					<div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+						<a href="https://github.com/Xnhyacinth/TAGI">
+							<font size="2"><i class="fa fa-github-alt  fa-2x" aria-hidden="true"></i></font>&nbsp;<img
+								alt="Static Badge" src="https://img.shields.io/badge/Code/data-d9534f"
+								style="height: 1em;">
+						</a>
+					</div>
+				</div>
+				<div class="bib4" style="display:none; width: 48em; border:1px solid #e8dada">
+					<pre>
+@misc{liao2024instance,
+	title={From Instance Training to Instruction Learning: Task Adapters Generation from Instructions}, 
+	author={Huanxuan Liao and Yao Xu and Shizhu He and Yuanzhe Zhang and Yanchao Hao and Shengping Liu and Kang Liu
+		and Jun Zhao},
+	year={2024},
+	eprint={2406.12382},
+	archivePrefix={arXiv},
+}
+		</pre>
+				</div>
+				<div class="ab4" style="display:none; width: 48em; border:1px solid #e8dada">
+					<pre>
+  Large language models (LLMs) have acquired the ability to solve general tasks by utilizing instruction finetuning (IFT). However, IFT still
+  relies heavily on instance training of extensive task data, which greatly limits the adaptability of LLMs to real-world scenarios where labeled
+  task instances are scarce and broader task generalization becomes paramount. Contrary to LLMs, humans acquire skills and complete tasks
+  not merely through repeated practice but also by understanding and following instructional guidelines. This paper is dedicated to simulating
+  human learning to address the shortcomings of instance training, focusing on instruction learning to enhance cross-task generalization.
+  Within this context, we introduce Task Adapters Generation from Instructions (TAGI), which automatically constructs the task-specific model
+  in a parameter generation manner based on the given task instructions without retraining for unseen tasks. Specifically, we utilize knowledge
+  distillation to enhance the consistency between TAGI developed through Learning with Instruction and task-specific models developed
+  through Training with Instance, by aligning the labels, output logits, and adapter parameters between them. TAGI is endowed with cross-task
+  generalization capabilities through a two-stage training process that includes hypernetwork pretraining and finetuning. We evaluate TAGI on
+  the Super-Natural Instructions and P3 datasets. The experimental results demonstrate that TAGI can match or even outperform traditional
+  meta-trained models and other hypernetwork models, while significantly reducing computational requirements.
+		</pre>
+				</div>
+			</li>
+			<br />
 			<li>
 				<b><a href="https://arxiv.org/pdf/2403.15268.pdf" "><font face=" Georgia" size="4">Imagination Augmented
 						Generation: Learning to Imagine Richer Context
