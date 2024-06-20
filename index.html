@@ -211,13 +211,31 @@
 
 		textarea {
 			background-color: var(--color-bg);
+			width: 63em;
+			font-size: 0.76em;
+			resize: none;
+			border: 1.8px solid var(--color-border);
+			padding-left: 0.6em;
+			padding-top: 0.5em;
+			min-height: 100px;
+        }
+		textarea_div {
+			background-color: var(--color-bg);
 			resize: none;
 			width: 63em;
 			font-size: 0.76em;
 			border: 1.8px solid var(--color-border);
 			padding-left: 0.6em;
 			padding-top: 0.5em;
-		}
+			min-height: 100px;
+			overflow-x: hidden;
+            overflow-y: auto;
+            
+        }
+        [contentEditable=true]:empty:not(:focus):before {
+            content: attr(data-text);
+        }
+		
 
 		i:hover {
 			color: #eb7f7f
@@ -261,6 +279,16 @@
 		}
 	</style>
 
+	<script type="text/javascript">
+		function autoResize(id) {
+			const textArea = document.getElementById(id);
+			textArea.style.height = "auto";
+			textArea.style.height = (textArea.scrollHeight) + "px";
+		}
+	</script>
+
+	
+
 	<script>
 		var _hmt = _hmt || [];
 		(function () {
@@ -292,8 +320,11 @@
 					}
 					$('.bib' + $(this).attr("id")).css("display", "block");
 				}
+				const textArea = document.getElementById('mybib'+ $(this).attr("id"));
+				textArea.style.height = "auto";
+				textArea.style.height = (textArea.scrollHeight) + "px";
 			})
-			$(".au").click(function () {
+			$(".au").click(function () {			
 				if ($('.ab' + $(this).attr("id")).css("display") != "none") {
 					$('.ab' + $(this).attr("id")).css("display", "none");
 				} else {
@@ -302,8 +333,28 @@
 					}
 					$('.ab' + $(this).attr("id")).css("display", "block");
 				}
-			})
+				const textArea = document.getElementById('myab'+ $(this).attr("id"));
+				textArea.style.height = "auto";
+				textArea.style.height = (textArea.scrollHeight) + "px";
+				})
 		})
+
+		$(function(){
+			$.fn.autoHeight = function(){
+			function autoHeight(elem){
+			elem.style.height = 'auto';
+			elem.scrollTop = 0; //防抖动
+			elem.style.height = elem.scrollHeight + 'px';
+			}
+			this.each(function(){
+			autoHeight(this);
+			$(this).on('keyup', function(){
+			autoHeight(this);
+			});
+			});
+			}
+			$('textarea[autoHeight]').autoHeight();
+			})
 	</script>
 </head>
 
@@ -341,8 +392,17 @@
 			}
 		};
 	</script>
-	<script type="text/javascript">
 
+	<!-- <script>
+		var textarea = document.querySelector('textarea');
+		
+		textarea.addEventListener('input', (e) => {
+			textarea.style.height = '100px';
+			textarea.style.height = e.target.scrollHeight + 'px';
+		});	
+	</script> -->
+
+	<script type="text/javascript">
 		//获取设备类型
 
 		var ua = navigator.userAgent;
@@ -372,6 +432,7 @@
 		} else {
 
 		}
+		
 
 	</script>
 	<table align="center">
@@ -642,19 +703,17 @@
 					</div>
 				</div>
 
-				<textarea name="textarea" disabled class="bib4" style="display:none; height:10.4em;">
+				<textarea id="mybib4" autoHeight="true" name="textarea" disabled class="bib4" style="display:none">
  @misc{liao2024instance,
 	title={From Instance Training to Instruction Learning: Task Adapters Generation from Instructions}, 
 	author={Huanxuan Liao and Yao Xu and Shizhu He and Yuanzhe Zhang and Yanchao Hao and Shengping Liu and Kang Liu and Jun Zhao},
 	year={2024},
 	eprint={2406.12382},
 	archivePrefix={arXiv}
- }
-				</textarea>
+ }</textarea>
 
-				<textarea name="textarea" disabled class="ab4" style="display:none; height:14.9em;">
-Large language models (LLMs) have acquired the ability to solve general tasks by utilizing instruction finetuning (IFT). However, IFT still relies heavily on instance training of extensive task data, which greatly limits the adaptability of LLMs to real-world scenarios where labeled task instances are scarce and broader task generalization becomes paramount. Contrary to LLMs, humans acquire skills and complete tasks not merely through repeated practice but also by understanding and following instructional guidelines. This paper is dedicated to simulating human learning to address the shortcomings of instance training, focusing on instruction learning to enhance cross-task generalization. Within this context, we introduce Task Adapters Generation from Instructions (TAGI), which automatically constructs the task-specific model in a parameter generation manner based on the given task instructions without retraining for unseen tasks. Specifically, we utilize knowledge distillation to enhance the consistency between TAGI developed through Learning with Instruction and task-specific models developed through Training with Instance, by aligning the labels, output logits, and adapter parameters between them. TAGI is endowed with cross-task generalization capabilities through a two-stage training process that includes hypernetwork pretraining and finetuning. We evaluate TAGI on the Super-Natural Instructions and P3 datasets. The experimental results demonstrate that TAGI can match or even outperform traditional meta-trained models and other hypernetwork models, while significantly reducing computational requirements.
-				</textarea>
+				<textarea id="myab4" autoHeight="true" name="textarea" disabled class="ab4" style="display:none">
+Large language models (LLMs) have acquired the ability to solve general tasks by utilizing instruction finetuning (IFT). However, IFT still relies heavily on instance training of extensive task data, which greatly limits the adaptability of LLMs to real-world scenarios where labeled task instances are scarce and broader task generalization becomes paramount. Contrary to LLMs, humans acquire skills and complete tasks not merely through repeated practice but also by understanding and following instructional guidelines. This paper is dedicated to simulating human learning to address the shortcomings of instance training, focusing on instruction learning to enhance cross-task generalization. Within this context, we introduce Task Adapters Generation from Instructions (TAGI), which automatically constructs the task-specific model in a parameter generation manner based on the given task instructions without retraining for unseen tasks. Specifically, we utilize knowledge distillation to enhance the consistency between TAGI developed through Learning with Instruction and task-specific models developed through Training with Instance, by aligning the labels, output logits, and adapter parameters between them. TAGI is endowed with cross-task generalization capabilities through a two-stage training process that includes hypernetwork pretraining and finetuning. We evaluate TAGI on the Super-Natural Instructions and P3 datasets. The experimental results demonstrate that TAGI can match or even outperform traditional meta-trained models and other hypernetwork models, while significantly reducing computational requirements.</textarea>
 
 			</li>
 			<br />
@@ -711,7 +770,7 @@ Large language models (LLMs) have acquired the ability to solve general tasks by
 					</div>
 				</div>
 
-				<textarea name="textarea" disabled class="bib3" style="display:none; height:10.4em;">
+				<textarea id="mybib3" autoHeight="true" name="textarea" disabled class="bib3" style="display:none">
 @misc{liao2024imagination,
 	title={Imagination Augmented Generation: Learning to Imagine Richer Context for Question Answering over Large Language Models}, 
 	author={Huanxuan Liao and Shizhu He and Yao Xu and Yuanzhe Zhang and Kang Liu and Shengping Liu and Jun Zhao},
@@ -719,12 +778,10 @@ Large language models (LLMs) have acquired the ability to solve general tasks by
 	eprint={2403.15268},
 	archivePrefix={arXiv},
 	primaryClass={cs.CL}
-}
-				</textarea>
+}</textarea>
 
-				<textarea name="textarea" disabled class="ab3" style="display:none; height:12.7em;">
-Retrieval-Augmented-Generation and Gener-ation-Augmented-Generation have been proposed to enhance the knowledge required for question answering over Large Language Models (LLMs). However, the former relies on external resources, and both require incorporating explicit documents into the context, which increases execution costs and susceptibility to noise data. Recent works indicate that LLMs have modeled rich knowledge, albeit not effectively triggered or awakened. Inspired by this, we propose a novel knowledge-augmented framework, Imagination-Augmented-Generation (IAG), which simulates the human capacity to compensate for knowledge deficits while answering questions solely through imagination, thereby awakening relevant knowledge in LLMs without relying on external resources. Guided by IAG, we propose an imagine richer context method for question answering (IMcQA). IMcQA consists of two modules: explicit imagination, which generates a short dummy document by learning from long context compression, and implicit imagination, which creates flexible adapters by distilling from a teacher model with a long context. Experimental results on three datasets demonstrate that IMcQA exhibits significant advantages in both open-domain and closed-book settings, as well as in out-of-distribution generalization.
-				</textarea>
+				<textarea id="myab3" autoHeight="true" name="textarea" disabled class="ab3" style="display:none">
+Retrieval-Augmented-Generation and Gener-ation-Augmented-Generation have been proposed to enhance the knowledge required for question answering over Large Language Models (LLMs). However, the former relies on external resources, and both require incorporating explicit documents into the context, which increases execution costs and susceptibility to noise data. Recent works indicate that LLMs have modeled rich knowledge, albeit not effectively triggered or awakened. Inspired by this, we propose a novel knowledge-augmented framework, Imagination-Augmented-Generation (IAG), which simulates the human capacity to compensate for knowledge deficits while answering questions solely through imagination, thereby awakening relevant knowledge in LLMs without relying on external resources. Guided by IAG, we propose an imagine richer context method for question answering (IMcQA). IMcQA consists of two modules: explicit imagination, which generates a short dummy document by learning from long context compression, and implicit imagination, which creates flexible adapters by distilling from a teacher model with a long context. Experimental results on three datasets demonstrate that IMcQA exhibits significant advantages in both open-domain and closed-book settings, as well as in out-of-distribution generalization.</textarea>
 			</li>
 			<br />
 		</ul>
@@ -792,7 +849,7 @@ Retrieval-Augmented-Generation and Gener-ation-Augmented-Generation have been pr
 					</div>
 				</div>
 
-				<textarea name="textarea" disabled class="bib2" style="display:none; height:10.4em;">
+				<textarea id="mybib2" autoHeight="true" name="textarea" disabled class="bib2" style="display:none">
 @misc{weng2023lmtuner,
 	title={LMTuner: An user-friendly and highly-integrable Training Framework for fine-tuning Large Language Models}, 
 	author={Yixuan Weng and Zhiqi Wang and Huanxuan Liao and Shizhu He and Shengping Liu and Kang Liu and Jun Zhao},
@@ -800,12 +857,13 @@ Retrieval-Augmented-Generation and Gener-ation-Augmented-Generation have been pr
 	eprint={2308.10252},
 	archivePrefix={arXiv},
 	primaryClass={cs.CL}
-}
-				</textarea>
+}</textarea>
 
-				<textarea name="textarea" disabled class="ab2" style="display:none; height:11.5em;">
-With the burgeoning development in the realm of large language models (LLMs), the demand for efficient incremental training tailored to specific industries and domains continues to increase. Currently, the predominantly employed frameworks lack modular design, it often takes a lot of coding work to kickstart the training of LLM. To address this, we present "LMTuner", a highly usable, integrable, and scalable system for training LLMs expeditiously and with minimal user-input. LMTuner comprises three main modules - the Interaction, Training, and Inference Modules. We advocate that LMTuner's usability and integrality alleviate the complexities in training large language models. Remarkably, even a novice user could commence training large language models within five minutes. Furthermore, it integrates DeepSpeed frameworks and supports Efficient Fine-Tuning methodologies like Low Rank Adaptation (LoRA), Quantized LoRA (QLoRA), etc., enabling the training of language models scaling from 300M to a whopping 130B parameters using a single server. The LMTuner's homepage (this https URL screencast video (this https URL) are now publicly available.
-				</textarea>
+				<textarea id="myab2" autoHeight="true" name="textarea" disabled class="ab2" style="display:none">
+With the burgeoning development in the realm of large language models (LLMs), the demand for efficient incremental training tailored to specific industries and domains continues to increase. Currently, the predominantly employed frameworks lack modular design, it often takes a lot of coding work to kickstart the training of LLM. To address this, we present "LMTuner", a highly usable, integrable, and scalable system for training LLMs expeditiously and with minimal user-input. LMTuner comprises three main modules - the Interaction, Training, and Inference Modules. We advocate that LMTuner's usability and integrality alleviate the complexities in training large language models. Remarkably, even a novice user could commence training large language models within five minutes. Furthermore, it integrates DeepSpeed frameworks and supports Efficient Fine-Tuning methodologies like Low Rank Adaptation (LoRA), Quantized LoRA (QLoRA), etc., enabling the training of language models scaling from 300M to a whopping 130B parameters using a single server. The LMTuner's homepage (this https URL screencast video (this https URL) are now publicly available.</textarea>
+				<!-- <div id="textarea" contenteditable="true" data-text="输入内容...">
+
+				</div> -->
 				<!-- <div class="ab2" style="display:none; width: 48em; border:1px solid #e8dada">
 					<pre>
   With the burgeoning development in the realm of large language models (LLMs), the demand for efficient incremental training tailored to
@@ -846,7 +904,7 @@ With the burgeoning development in the realm of large language models (LLMs), th
 							src="https://img.shields.io/badge/Bib-5cb85c" style="height:  1em;">
 					</div>
 					&nbsp;
-					<div class="au" id="1" style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+					<div class="au" id="1" style="display: inline-block; margin-top:0%; margin-left: -1.1%;" onclick="autoResize('my-textarea1')">
 						<font size="5"><i class="fa fa-flag" aria-hidden="true"></i></font>&nbsp;<img alt="Static Badge"
 							src="https://img.shields.io/badge/Abstract-f9adad" style="height:  1em;">
 					</div>
@@ -886,7 +944,7 @@ With the burgeoning development in the realm of large language models (LLMs), th
 					</pre>
 				</div> -->
 
-				<textarea name="textarea" disabled class="bib1" style="display:none; height:13.8em;">
+				<textarea id="mybib1" autoHeight="true" name="textarea" disabled class="bib1" style="display:none">
 @InProceedings{10.1007/978-981-99-7224-1_1,
 	author="Liao, Huanxuan and He, Shizhu and Xu, Yao and Liu, Kang and Zhao, Jun",
 	editor="Wang, Haofen and Han, Xianpei and Liu, Ming and Cheng, Gong and Liu, Yongbin and Zhang, Ningyu",
@@ -897,12 +955,13 @@ With the burgeoning development in the realm of large language models (LLMs), th
 	address="Singapore",
 	pages="3--16",
 	isbn="978-981-99-7224-1"
-}		
-				</textarea>
+}</textarea>
 
-				<textarea name="textarea" disabled class="ab1" style="display:none; height:14.9em;">
-Recent studies have shown that subgraphs of the head entity, such as related relations and neighborhoods, are helpful for Knowledge Graph Reasoning (KGR). However, prior studies tend to focus solely on enhancing entity representations using related relations, with little attention paid to the impact of different relations on different entities and their importance in various reasoning paths. Meanwhile, conventional Graph Neural Networks (GNNs) utilized for KGR consider simultaneously neighboring nodes and connected relations of the head entity but typically use a standard message-passing paradigm over the entire Knowledge Graph (KG). This results in over-smoothed representations and limits efficiency. To address the above-mentioned limitations of existing methods, we propose a Dynamic Weighted Neural Bellman-Ford Network (DyNBF) for KGR, which utilizes relation weights generated from subgraphs to compute only the most relevant relations and entities. This way, we can integrate multiple reasoning paths more flexibly to achieve better interpretable reasoning, while scaling more easily to more complex and larger KGs. DyNBF consists of two key modules: 1) a transformer-based relation weights generator module, which computes the weights of different relations on the path with a sequence-to-sequence model, and 2) an NBFNet-based logic reasoner module, which obtains entity representations and conducts fact prediction with dynamic weights from the previous module. Empirical results on three standard KGR datasets demonstrate that the proposed approach can generate explainable reasoning paths and obtain competitive performance.
-				</textarea>
+				<textarea id="myab1" class="ab1" style="display:none;"  autoHeight="true" readonly>
+Recent studies have shown that subgraphs of the head entity, such as related relations and neighborhoods, are helpful for Knowledge Graph Reasoning (KGR). However, prior studies tend to focus solely on enhancing entity representations using related relations, with little attention paid to the impact of different relations on different entities and their importance in various reasoning paths. Meanwhile, conventional Graph Neural Networks (GNNs) utilized for KGR consider simultaneously neighboring nodes and connected relations of the head entity but typically use a standard message-passing paradigm over the entire Knowledge Graph (KG). This results in over-smoothed representations and limits efficiency. To address the above-mentioned limitations of existing methods, we propose a Dynamic Weighted Neural Bellman-Ford Network (DyNBF) for KGR, which utilizes relation weights generated from subgraphs to compute only the most relevant relations and entities. This way, we can integrate multiple reasoning paths more flexibly to achieve better interpretable reasoning, while scaling more easily to more complex and larger KGs. DyNBF consists of two key modules: 1) a transformer-based relation weights generator module, which computes the weights of different relations on the path with a sequence-to-sequence model, and 2) an NBFNet-based logic reasoner module, which obtains entity representations and conducts fact prediction with dynamic weights from the previous module. Empirical results on three standard KGR datasets demonstrate that the proposed approach can generate explainable reasoning paths and obtain competitive performance.</textarea>
+				<!-- <div id="textarea_div" class="ab1" contenteditable="true" data-text="输入内容..." style="display:none;">
+					Recent studies have shown that subgraphs of the head entity, such as related relations and neighborhoods, are helpful for Knowledge Graph Reasoning (KGR). However, prior studies tend to focus solely on enhancing entity representations using related relations, with little attention paid to the impact of different relations on different entities and their importance in various reasoning paths. Meanwhile, conventional Graph Neural Networks (GNNs) utilized for KGR consider simultaneously neighboring nodes and connected relations of the head entity but typically use a standard message-passing paradigm over the entire Knowledge Graph (KG). This results in over-smoothed representations and limits efficiency. To address the above-mentioned limitations of existing methods, we propose a Dynamic Weighted Neural Bellman-Ford Network (DyNBF) for KGR, which utilizes relation weights generated from subgraphs to compute only the most relevant relations and entities. This way, we can integrate multiple reasoning paths more flexibly to achieve better interpretable reasoning, while scaling more easily to more complex and larger KGs. DyNBF consists of two key modules: 1) a transformer-based relation weights generator module, which computes the weights of different relations on the path with a sequence-to-sequence model, and 2) an NBFNet-based logic reasoner module, which obtains entity representations and conducts fact prediction with dynamic weights from the previous module. Empirical results on three standard KGR datasets demonstrate that the proposed approach can generate explainable reasoning paths and obtain competitive performance.
+				</div> -->
 				<!-- <div class="ab1" style="display:none; width: 48em; border:1px solid #e8dada">
 					<pre>
   Recent studies have shown that subgraphs of the head entity, such as related relations and neighborhoods, are helpful for Knowledge Graph
@@ -932,6 +991,7 @@ Recent studies have shown that subgraphs of the head entity, such as related rel
 	<div id="copyright" align="right">
 		<p>Copyright&copy; 2024 Huanxuan Liao(<font face="宋体">廖桓萱</font>).</p>
 	</div>
+
 </body>
 
 </html>
