@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description"
+    content="From Instance Training to Instruction Learning: Task Adapters Generation from Instructions">
+  <!-- <meta property="og:title" content="SOCIAL MEDIA TITLE TAG"/>
+  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/>
+  <meta property="og:url" content="/IAG"/> -->
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <!-- <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/> -->
+
+
+  <!-- <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
+  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG"> -->
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <!-- <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image"> -->
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="TAGI, Task Adapters, Instruction Learning">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>TAGI</title>
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+
+
+</head>
+
+<style>
+  .section {
+    margin-bottom: -30px;
+    /* Adjust this value as needed to reduce the space */
+  }
+
+  .expandable-card .card-text-container {
+    max-height: 200px;
+    overflow-y: hidden;
+    position: relative;
+  }
+
+  .expandable-card.expanded .card-text-container {
+    max-height: none;
+  }
+
+  .expand-btn {
+    position: relative;
+    display: none;
+    background-color: rgba(255, 255, 255, 0.8);
+    /* margin-top: -20px; */
+    /* justify-content: center; */
+    color: #510c75;
+    border-color: transparent;
+  }
+
+  .expand-btn:hover {
+    background-color: rgba(200, 200, 200, 0.8);
+    text-decoration: none;
+    border-color: transparent;
+    color: #510c75;
+  }
+
+  .expand-btn:focus {
+    outline: none;
+    text-decoration: none;
+  }
+
+  .expandable-card:not(.expanded) .card-text-container:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 90px;
+    background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 1));
+  }
+
+  .expandable-card:not(.expanded) .expand-btn {
+    margin-top: -40px;
+  }
+
+  .card-body {
+    padding-bottom: 5px;
+  }
+
+  .vertical-flex-layout {
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .figure-img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .adjustable-font-size {
+    font-size: calc(0.5rem + 2vw);
+  }
+
+  .chat-history {
+    flex-grow: 1;
+    overflow-y: auto;
+    /* overflow-x: hidden; */
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+  }
+
+  #gradio pre {
+    background-color: transparent;
+  }
+
+  /* 使用渐变颜色实现彩虹字体 */
+  .rainbow-text {
+    background: linear-gradient(to right, #3498db, #fe82cf);
+    -webkit-background-clip: text;
+    color: transparent;
+    display: inline-block;
+    font-weight: bold;
+  }
+</style>
+
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-2 publication-title"><span class="rainbow-text">TAGI</span>:From Instance Training to
+              Instruction Learning: Task Adapters
+              Generation from Instructions</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <a href="https://xnhyacinth.github.io/" target="_self">Huanxuan Liao</a><sup>1,2</sup>,</span>
+              <span class="author-block">
+                <a href="https://nlpr.ia.ac.cn/cip/shizhuhe/" target="_self">Shizhu
+                  He</a><sup>&dagger;1,2</sup>,</span>
+              <span class="author-block">
+                <a href="" target="_self">Yao Xu</a><sup>1,2</sup>,</span>
+              <span class="author-block">
+                <a href="" target="_self">Yuanzhe Zhang</a><sup>1,2</sup>
+                <a href="" target="_self">Yanchao Hao</a><sup>4</sup>
+                <a href="" target="_self">Shengping Liu</a><sup>3</sup>
+                <a href="https://nlpr.ia.ac.cn/cip/~liukang/index.html" target="_self">Kang Liu</a><sup>1,2</sup>
+                <a href="" target="_self">Jun Zhao</a><sup>1,2</sup>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>The Laboratory of Cognition and Decision Intelligence for Complex
+                Systems, Institute of Automation, Chinese Academy of Sciences, Beijing, China</span>
+              <span class="author-block"><sup>2</sup>School of Artificial Intelligence, University of Chinese Academy of
+                Sciences, Beijing, China</span>
+              <span class="author-block"><sup>3</sup>Unisound, Beijing, China</span>
+              <span class="author-block"><sup>4</sup>Platform and Content Group, Tencent, Beijing, China</span>
+              <!-- <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span> -->
+            </div>
+
+            <div class="is-size-6 publication-authors">
+              <span class="author-block"><sup>&dagger;</sup>Corresponding Author</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+
+                <!-- ArXiv abstract Link -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2406.12382" target="_self"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>ArXiv</span>
+                  </a>
+                </span>
+
+                <!-- Arxiv PDF link -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/pdf/2406.12382.pdf" target="_self"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+
+                <!-- Supplementary PDF link -->
+                <!-- <span class="link-block">
+                  <a href="static/pdfs/TAGI.pdf" target="_self"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span> -->
+
+                <!-- Github link -->
+                <span class="link-block">
+                  <a href="https://github.com/Xnhyacinth/TAGI" target="_self"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Teaser video-->
+  <!-- <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <video poster="" id="tree" autoplay controls muted loop height="100%">
+          Your video here
+          <source src="static/videos/banner_video.mp4" type="video/mp4">
+        </video>
+        <h2 class="subtitle has-text-centered">
+          Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat
+          pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus.
+        </h2>
+      </div>
+    </div>
+  </section> -->
+  <!-- End teaser video -->
+
+  <!-- Paper abstract -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Large language models (LLMs) have acquired the ability to solve general tasks by utilizing instruction
+              finetuning (IFT). However, IFT still relies heavily on instance training of extensive task data, which
+              greatly limits the adaptability of LLMs to real-world scenarios where labeled task instances are scarce
+              and broader task generalization becomes paramount. Contrary to LLMs, humans acquire skills and complete
+              tasks not merely through repeated practice but also by understanding and following instructional
+              guidelines. This paper is dedicated to simulating human learning to address the shortcomings of instance
+              training, focusing on instruction learning to enhance cross-task generalization. Within this context, we
+              introduce Task Adapters Generation from Instructions (TAGI), which automatically constructs the
+              task-specific model in a parameter generation manner based on the given task instructions without
+              retraining for unseen tasks. Specifically, we utilize knowledge distillation to enhance the consistency
+              between TAGI developed through Learning with Instruction and task-specific models developed through
+              Training with Instance, by aligning the labels, output logits, and adapter parameters between them. TAGI
+              is endowed with cross-task generalization capabilities through a two-stage training process that includes
+              hypernetwork pretraining and finetuning. We evaluate TAGI on the Super-Natural Instructions and P3
+              datasets. The experimental results demonstrate that TAGI can match or even outperform traditional
+              meta-trained models and other hypernetwork models, while significantly reducing computational
+              requirements.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- End paper abstract -->
+
+
+  <!-- Image carousel -->
+
+  <!-- End image carousel -->
+
+
+
+
+  <!-- Youtube video -->
+
+  <!-- End youtube video -->
+
+
+  <!-- Video carousel -->
+
+  <!-- End video carousel -->
+
+
+  <section class="section" id="TAGI Overview">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-six-fifths">
+          <h2 class="title is-3"> <span class="rainbow-text">TAGI</span> Overview</h2>
+        </div>
+      </div>
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column is-full-width">
+            <div class="content has-text-justified">
+              <p>
+                Comparison of the typical Training withInstance and the proposed Learning with Instruction: The former
+                involves training the model at the instance level with parameter updates, while the latter generates a
+                task-specific adapter at the task level with parameter generation.
+                <centering>
+                  <div style="text-align: center;">
+                    <img id="pipeline" width="100%" src="static/images/over.png">
+                  </div>
+              </p>
+            </div>
+            </b></font>
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <section class="section" id="TAGI Model">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-six-fifths">
+          <h2 class="title is-3"> <span class="rainbow-text">TAGI</span> Model</h2>
+        </div>
+      </div>
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column is-full-width">
+            <div class="content has-text-justified">
+              <p>
+                TAGI consists of two core components: a hypernetwork which receives task instructions and generates
+                parameter-efficient adapters, and a task-specific model which combines the vanilla LLM and the generated
+                adapters from hypernetwork.
+                <centering>
+                  <div style="text-align: center;">
+                    <img id="pipeline" width="100%" src="static/images/model.png">
+                  </div>
+              </p>
+            </div>
+            </b></font>
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <section class="section" id="TAGI Comparison">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-six-fifths">
+          <h2 class="title is-3"> <span class="rainbow-text">TAGI</span> Comparison</h2>
+        </div>
+      </div>
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column is-full-width">
+            <div class="content has-text-justified">
+              <p>
+                We compare the characteristics of all comparison methods and the proposed TAGI.
+                <centering>
+                  <div style="text-align: center;">
+                    <img id="pipeline" width="100%" src="static/images/com.png">
+                  </div>
+              </p>
+            </div>
+            </b></font>
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <section class="section" id="TAGI Evaluation">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-six-fifths">
+          <h2 class="title is-3"> <span class="rainbow-text">TAGI</span> Evaluation</h2>
+        </div>
+      </div>
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column is-full-width">
+            <div class="content has-text-justified">
+              <p>
+                Results of our main experiment on SNI dataset.
+                <centering>
+                  <div style="text-align: center;">
+                    <img id="pipeline" width="100%" src="static/images/sni.png">
+                  </div>
+              </p>
+
+              <p>
+                Results of our main experiment on P3 dataset.
+                <centering>
+                  <div style="text-align: center;">
+                    <img id="pipeline" width="100%" src="static/images/p3.png">
+                  </div>
+              </p>
+            </div>
+            </b></font>
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <!-- Paper poster -->
+  <!--End paper poster -->
+
+
+  <!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@article{liao2024instance,
+        title={From Instance Training to Instruction Learning: Task Adapters Generation from Instructions},
+        author={Liao, Huanxuan and Xu, Yao and He, Shizhu and Zhang, Yuanzhe and Hao, Yanchao and Liu, Shengping and Liu, Kang and Zhao, Jun},
+        journal={arXiv preprint arXiv:2406.12382},
+        year={2024}
+      }</code></pre>
+    </div>
+  </section>
+  <!--End BibTex citation -->
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+
+            <p>
+              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template"
+                target="_self">Academic Project Page Template</a> which was adopted from the <a
+                href="https://nerfies.github.io" target="_self">Nerfies</a> project page.
+              You are free to borrow the of this website, we just ask that you link back to this page in the footer.
+              <br> This website is licensed under a <a rel="license"
+                href="http://creativecommons.org/licenses/by-sa/4.0/" target="_self">Creative
+                Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Statcounter tracking code -->
+
+  <!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+  <!-- End of Statcounter Code -->
+
+</body>
+
+</html>
