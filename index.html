@@ -6,8 +6,9 @@
 	<meta name="viewport" id="view" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
 	<meta name="google-site-verification" content="GxaFv2GEAd_nIt2RJk2O1uJ6vcNiCshwywxJC2v2kQE" />
 	<meta name="msvalidate.01" content="67B155C505E04C672096FC5B5891EF73" />
-	<meta name="description" content="Here is Huanxuan Liao's personal homepage, including CV, papers, interests and so on.">
-  	<meta name="keywords" content="xnhyacinth, Huanxuan Liao, huanxuan, 廖桓萱">
+	<meta name="description"
+		content="Here is Huanxuan Liao's personal homepage, including CV, papers, interests and so on.">
+	<meta name="keywords" content="xnhyacinth, Huanxuan Liao, huanxuan, 廖桓萱">
 	<link rel="stylesheet" type="text/css" media="screen and (max-device-width:400px)" href="tinyScreen.css" />
 	<link rel="stylesheet" type="text/css" media="screen and (min-width: 400px)and (max-device-width: 600px)"
 		href="smallScreen.css" />
@@ -112,6 +113,7 @@
 			--color-btn: #f0f0fa;
 			--color-link: #1565c0;
 			--color-border: #f2d3d3;
+			--color-b: #292727;
 		}
 
 		/* 黑暗模式下颜色 */
@@ -121,6 +123,7 @@
 			--color-btn: #30303a;
 			--color-link: #a2bfd9;
 			--color-border: #0b46dc;
+			--color-b: #e9adad;
 		}
 
 		:root * {
@@ -212,6 +215,10 @@
 			/* transition: 0.3s; */
 		}
 
+		.news {
+			color: var(--color-b);
+		}
+
 		textarea {
 			background-color: var(--color-bg);
 			width: 63em;
@@ -221,7 +228,8 @@
 			padding-left: 0.6em;
 			padding-top: 0.5em;
 			min-height: 100px;
-        }
+		}
+
 		textarea_div {
 			background-color: var(--color-bg);
 			resize: none;
@@ -232,13 +240,14 @@
 			padding-top: 0.5em;
 			min-height: 100px;
 			overflow-x: hidden;
-            overflow-y: auto;
-            
-        }
-        [contentEditable=true]:empty:not(:focus):before {
-            content: attr(data-text);
-        }
-		
+			overflow-y: auto;
+
+		}
+
+		[contentEditable=true]:empty:not(:focus):before {
+			content: attr(data-text);
+		}
+
 
 		i:hover {
 			color: #eb7f7f
@@ -269,6 +278,7 @@
 				--color-btn: #30303a;
 				--color-link: #a2bfd9;
 				--color-border: #f2d3d3;
+				--color-b: #e9adad;
 				;
 			}
 
@@ -279,6 +289,7 @@
 				--color-btn: #f0f0fa;
 				--color-link: #1573df;
 				--color-border: #0b46dc;
+				--color-b: #292727;
 			}
 		}
 	</style>
@@ -291,7 +302,7 @@
 		}
 	</script>
 
-	
+
 
 	<script>
 		var _hmt = _hmt || [];
@@ -316,11 +327,11 @@
 					}
 					$('.bib' + $(this).attr("id")).css("display", "block");
 				}
-				const textArea = document.getElementById('mybib'+ $(this).attr("id"));
+				const textArea = document.getElementById('mybib' + $(this).attr("id"));
 				textArea.style.height = "auto";
 				textArea.style.height = (textArea.scrollHeight) + "px";
 			})
-			$(".au").click(function () {			
+			$(".au").click(function () {
 				if ($('.ab' + $(this).attr("id")).css("display") != "none") {
 					$('.ab' + $(this).attr("id")).css("display", "none");
 				} else {
@@ -329,28 +340,28 @@
 					}
 					$('.ab' + $(this).attr("id")).css("display", "block");
 				}
-				const textArea = document.getElementById('myab'+ $(this).attr("id"));
+				const textArea = document.getElementById('myab' + $(this).attr("id"));
 				textArea.style.height = "auto";
 				textArea.style.height = (textArea.scrollHeight) + "px";
-				})
+			})
 		})
 
-		$(function(){
-			$.fn.autoHeight = function(){
-			function autoHeight(elem){
-			elem.style.height = 'auto';
-			elem.scrollTop = 0; //防抖动
-			elem.style.height = elem.scrollHeight + 'px';
-			}
-			this.each(function(){
-			autoHeight(this);
-			$(this).on('keyup', function(){
-			autoHeight(this);
-			});
-			});
+		$(function () {
+			$.fn.autoHeight = function () {
+				function autoHeight(elem) {
+					elem.style.height = 'auto';
+					elem.scrollTop = 0; //防抖动
+					elem.style.height = elem.scrollHeight + 'px';
+				}
+				this.each(function () {
+					autoHeight(this);
+					$(this).on('keyup', function () {
+						autoHeight(this);
+					});
+				});
 			}
 			$('textarea[autoHeight]').autoHeight();
-			})
+		})
 	</script>
 </head>
 
@@ -428,7 +439,7 @@
 		} else {
 
 		}
-		
+
 
 	</script>
 	<table align="center">
@@ -565,7 +576,7 @@
 					</b> and
 					<b>
 						<font size="4" face="Georgia">Natural Language Reasoning</font>
-					</b>.
+					</b>. Check my <a href="#publications">publications</a> and <a href="assets/CV.pdf">CV (PDF)</a> for more information!
 				</font>
 			</p>
 		</div>
@@ -633,18 +644,46 @@
 		</font>
 	</p>
 	<br> -->
-	<br /> 
+	<br />
 	<!-- 🔥 📒📝📖💻 📚 -->
 	&nbsp;&nbsp;&nbsp;&nbsp;
+	<br />
+	<!-- 🔥 📒📝📖💻 📚 -->
+	<!-- &nbsp;&nbsp;&nbsp;&nbsp; -->
 	<div style="margin-top: -1em;">
 		<h2>
 			<b>
-				<font face="Roboto" size=+3.5>📒 Publications</font>
+				<font face="Roboto" size=+3.5>🔥 Recent News
+				</font>
+			</b>
+		</h2>
+		<hr />
+		<ul>
+			<li>Oct, 2023. <a href="https://link.springer.com/chapter/10.1007/978-981-99-7224-1_1"
+					target="_self">Dynamic Weighted Neural Bellman-Ford Network for Knowledge Graph Reasoning </a>
+				accepted to <b class="news">CCKS 2023</b>!</li>
+			<br>
+			<li>Jun, 2023. Graduated from NCEPU with honor: awarded <b class="news">Outstanding Graduate</b> by Beijing
+				Ministry of
+				Education, by NCEPU!</li>
+			<br>
+			<li>Dec, 2022. Awarded <b class="news">National Scholarship</b> by Ministry of Education!</li>
+			<br>
+			<li>Dec, 2021. Awarded <b class="news">National Scholarship</b> by Ministry of Education!</li>
+		</ul>
+	</div>
+
+	<br />
+	<!-- 🔥 📒📝📖💻 📚 -->
+	<!-- &nbsp;&nbsp;&nbsp;&nbsp; -->
+	<div style="margin-top: -1em;">
+		<h2>
+			<b>
+				<font face="Roboto" size=+3.5 id="publications">📒 Publications</font>
 			</b> &nbsp;<a href="https://scholar.google.com.hk/citations?user=sRcWOKUAAAAJ&hl=zh-CN" target="_self"><img
 					src="assets/img/google-scholar.png" alt="Google Scholar" width="9%" /></a>
 		</h2>
 		<hr />
-		<br />
 
 		<font size="5"><b>2024</b></font>
 
@@ -793,7 +832,7 @@ Large language models (LLMs) have acquired the ability to solve general tasks by
 				<textarea id="myab3" autoHeight="true" name="textarea" disabled class="ab3" style="display:none">
 Retrieval-Augmented-Generation and Gener-ation-Augmented-Generation have been proposed to enhance the knowledge required for question answering over Large Language Models (LLMs). However, the former relies on external resources, and both require incorporating explicit documents into the context, which increases execution costs and susceptibility to noise data. Recent works indicate that LLMs have modeled rich knowledge, albeit not effectively triggered or awakened. Inspired by this, we propose a novel knowledge-augmented framework, Imagination-Augmented-Generation (IAG), which simulates the human capacity to compensate for knowledge deficits while answering questions solely through imagination, thereby awakening relevant knowledge in LLMs without relying on external resources. Guided by IAG, we propose an imagine richer context method for question answering (IMcQA). IMcQA consists of two modules: explicit imagination, which generates a short dummy document by learning from long context compression, and implicit imagination, which creates flexible adapters by distilling from a teacher model with a long context. Experimental results on three datasets demonstrate that IMcQA exhibits significant advantages in both open-domain and closed-book settings, as well as in out-of-distribution generalization.</textarea>
 			</li>
-			<br />
+			<!-- <br /> -->
 		</ul>
 
 		<font size="5"><b>2023</b></font>
@@ -912,7 +951,8 @@ With the burgeoning development in the realm of large language models (LLMs), th
 							src="https://img.shields.io/badge/Bib-5cb85c" style="height:  1em;">
 					</div>
 					&nbsp;
-					<div class="au" id="1" style="display: inline-block; margin-top:0%; margin-left: -1.1%;" onclick="autoResize('my-textarea1')">
+					<div class="au" id="1" style="display: inline-block; margin-top:0%; margin-left: -1.1%;"
+						onclick="autoResize('my-textarea1')">
 						<font size="5"><i class="fa fa-flag" aria-hidden="true"></i></font>&nbsp;<img alt="Static Badge"
 							src="https://img.shields.io/badge/Abstract-f9adad" style="height:  1em;">
 					</div>
@@ -965,7 +1005,7 @@ With the burgeoning development in the realm of large language models (LLMs), th
 	isbn="978-981-99-7224-1"
 }</textarea>
 
-				<textarea id="myab1" class="ab1" style="display:none;"  autoHeight="true" disabled>
+				<textarea id="myab1" class="ab1" style="display:none;" autoHeight="true" disabled>
 Recent studies have shown that subgraphs of the head entity, such as related relations and neighborhoods, are helpful for Knowledge Graph Reasoning (KGR). However, prior studies tend to focus solely on enhancing entity representations using related relations, with little attention paid to the impact of different relations on different entities and their importance in various reasoning paths. Meanwhile, conventional Graph Neural Networks (GNNs) utilized for KGR consider simultaneously neighboring nodes and connected relations of the head entity but typically use a standard message-passing paradigm over the entire Knowledge Graph (KG). This results in over-smoothed representations and limits efficiency. To address the above-mentioned limitations of existing methods, we propose a Dynamic Weighted Neural Bellman-Ford Network (DyNBF) for KGR, which utilizes relation weights generated from subgraphs to compute only the most relevant relations and entities. This way, we can integrate multiple reasoning paths more flexibly to achieve better interpretable reasoning, while scaling more easily to more complex and larger KGs. DyNBF consists of two key modules: 1) a transformer-based relation weights generator module, which computes the weights of different relations on the path with a sequence-to-sequence model, and 2) an NBFNet-based logic reasoner module, which obtains entity representations and conducts fact prediction with dynamic weights from the previous module. Empirical results on three standard KGR datasets demonstrate that the proposed approach can generate explainable reasoning paths and obtain competitive performance.</textarea>
 				<!-- <div id="textarea_div" class="ab1" contenteditable="true" data-text="输入内容..." style="display:none;">
 					Recent studies have shown that subgraphs of the head entity, such as related relations and neighborhoods, are helpful for Knowledge Graph Reasoning (KGR). However, prior studies tend to focus solely on enhancing entity representations using related relations, with little attention paid to the impact of different relations on different entities and their importance in various reasoning paths. Meanwhile, conventional Graph Neural Networks (GNNs) utilized for KGR consider simultaneously neighboring nodes and connected relations of the head entity but typically use a standard message-passing paradigm over the entire Knowledge Graph (KG). This results in over-smoothed representations and limits efficiency. To address the above-mentioned limitations of existing methods, we propose a Dynamic Weighted Neural Bellman-Ford Network (DyNBF) for KGR, which utilizes relation weights generated from subgraphs to compute only the most relevant relations and entities. This way, we can integrate multiple reasoning paths more flexibly to achieve better interpretable reasoning, while scaling more easily to more complex and larger KGs. DyNBF consists of two key modules: 1) a transformer-based relation weights generator module, which computes the weights of different relations on the path with a sequence-to-sequence model, and 2) an NBFNet-based logic reasoner module, which obtains entity representations and conducts fact prediction with dynamic weights from the previous module. Empirical results on three standard KGR datasets demonstrate that the proposed approach can generate explainable reasoning paths and obtain competitive performance.
@@ -994,6 +1034,19 @@ Recent studies have shown that subgraphs of the head entity, such as related rel
 	<!-- <h2><font face="Arial" size=+3.5>Website visit statistics</font></h2>
 	<hr/>
 	<script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=500&t=tt&d=RDwpltapRj65Q7UM5LGnBHaIr57MgblmTCDCr6fHKo0'></script> -->
+	<!-- 🔥 📒📝📖💻 📚 -->
+	<!-- &nbsp;&nbsp;&nbsp;&nbsp; -->
+	<div style="margin-top: -1em;">
+		<h2>
+			<b>
+				<font face="Roboto" size=+3.5>💻 Professional Services</font>
+			</b>
+		</h2>
+		<hr />
+		<ul>
+			<li>Conference Reviewing: ACL ARR 2024</li>
+		</ul>
+	</div>
 
 	<br />
 	<div id="copyright" align="right">
