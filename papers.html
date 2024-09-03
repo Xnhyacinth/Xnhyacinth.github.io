@@ -46,7 +46,7 @@
     <meta name="msapplication-TileImage" content="assets/icon/favicon-32x32.pngg">
     <meta name="theme-color" content="#ffffff">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
-    <title>Huanxuan Liao | Homepage</title>
+    <title>Huanxuan Liao | Publications</title>
     <style type="text/css">
         h1 {
             text-align: center;
@@ -105,240 +105,240 @@
 			  }
 			}
 		</style> -->
-        <style>
+    <style>
+        /* 普通模式下颜色 */
+        :root {
+            --color-bg: #f2f2f2;
+            --color-xg: #cbcbcb;
+            --color-ch: #30303a;
+            --color-btn: #f0f0fa;
+            --color-link: #1565c0;
+            --color-border: #f2d3d3;
+            --color-b: #292727;
+        }
+
+        /* 黑暗模式下颜色 */
+        :root[theme='dark'] {
+            --color-bg: #272935;
+            --color-xg: #111217;
+            --color-ch: #e3e3f1;
+            --color-btn: #30303a;
+            --color-link: #a2bfd9;
+            --color-border: #0b46dc;
+            --color-b: #e9adad;
+        }
+
+        :root * {
+            /* 过渡动画效果 */
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body {
+            position: relative;
+            background: linear-gradient(to bottom,
+                    var(--color-bg) 0%,
+                    var(--color-bg) 94%,
+                    var(--color-xg) 94%,
+                    var(--color-xg) 200%);
+            /*background-color: var(--color-bg);*/
+            /* transition: 0.3s; */
+        }
+
+        button {
+            position: absolute;
+            top: -1%;
+            right: -4em;
+            height: 3em;
+            width: 3em;
+            border-radius: 50%;
+            border: none;
+            outline: none;
+            background-color: var(--color-btn);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* transition: 0.3s; */
+        }
+
+        a:link {
+            text-decoration: underline;
+            TEXT-DECORATION: none;
+        }
+
+        a:visited {
+            text-align: left;
+            text-decoration: underline;
+            TEXT-DECORATION: none;
+        }
+
+        a:hover {
+            color: #ec8435;
+            text-decoration: underline;
+            TEXT-DECORATION: none;
+        }
+
+        a:active {
+            color: #de123b;
+            text-decoration: none;
+        }
+
+        p,
+        b,
+        td,
+        h2,
+        i,
+        a,
+        ul,
+        ul li,
+        pre,
+        textarea {
+            color: var(--color-ch);
+            font-family: Georgia, Times, serif;
+            /* transition: 0.3s; */
+        }
+
+        .myself {
+            color: #0000ff
+        }
+
+        pre {
+            font-size: 0.76em;
+        }
+
+        ul li {
+            font-size: 1.3em;
+        }
+
+        .dy {
+            color: var(--color-link);
+            font-family: Georgia, Times, serif;
+            /* transition: 0.3s; */
+        }
+
+        i,
+        a {
+            color: var(--color-link);
+            font-family: Georgia, Times, serif;
+            /* transition: 0.3s; */
+        }
+
+        .news {
+            color: var(--color-b);
+        }
+
+        textarea {
+            background-color: var(--color-bg);
+            width: 63em;
+            font-size: 0.76em;
+            resize: none;
+            border: 1.8px solid var(--color-border);
+            padding-left: 0.6em;
+            padding-top: 0.5em;
+            min-height: 100px;
+        }
+
+        textarea_div {
+            background-color: var(--color-bg);
+            resize: none;
+            width: 63em;
+            font-size: 0.76em;
+            border: 1.8px solid var(--color-border);
+            padding-left: 0.6em;
+            padding-top: 0.5em;
+            min-height: 100px;
+            overflow-x: hidden;
+            overflow-y: auto;
+
+        }
+
+        [contentEditable=true]:empty:not(:focus):before {
+            content: attr(data-text);
+        }
+
+
+        i:hover {
+            color: #eb7f7f
+        }
+
+        .aaa:hover {
+            color: #ec90c7
+        }
+
+        button>svg {
+            height: 3em;
+            width: 3em;
+            fill: var(--color-ch);
+            stroke: none;
+        }
+
+        button>svg:nth-child(2) {
+            display: none;
+        }
+
+        nav {
+            background-color: var(--color-bg);
+            padding: 10px;
+            font-family: Georgia, Times, serif;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--color-link);
+            padding: 10px 20px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            text-decoration: none;
+        }
+
+        nav a::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: gray;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::before {
+            width: 100%;
+        }
+
+        .divider {
+            border-top: 1px solid #e0e0e0;
+            margin: 20px 0;
+        }
+
+        @media (prefers-color-scheme: dark) {
+
             /* 普通模式下颜色 */
             :root {
-                --color-bg: #f2f2f2;
-                --color-xg: #cbcbcb;
-                --color-ch: #30303a;
-                --color-btn: #f0f0fa;
-                --color-link: #1565c0;
-                --color-border: #f2d3d3;
-                --color-b: #292727;
-            }
-    
-            /* 黑暗模式下颜色 */
-            :root[theme='dark'] {
                 --color-bg: #272935;
                 --color-xg: #111217;
                 --color-ch: #e3e3f1;
                 --color-btn: #30303a;
                 --color-link: #a2bfd9;
-                --color-border: #0b46dc;
+                --color-border: #f2d3d3;
                 --color-b: #e9adad;
+                ;
             }
-    
-            :root * {
-                /* 过渡动画效果 */
-                transition: background-color 0.3s, color 0.3s;
+
+            /* 黑暗模式下颜色 */
+            :root[theme='dark'] {
+                --color-bg: #f2f2f2;
+                --color-xg: #cbcbcb;
+                --color-ch: #30303a;
+                --color-btn: #f0f0fa;
+                --color-link: #1573df;
+                --color-border: #0b46dc;
+                --color-b: #292727;
             }
-    
-            body {
-                position: relative;
-                background: linear-gradient(to bottom,
-                var(--color-bg) 0%,
-                var(--color-bg) 93%,
-                var(--color-xg) 93%,
-                var(--color-xg) 200%);
-                /*background-color: var(--color-bg);*/
-                /* transition: 0.3s; */
-            }
-    
-            button {
-                position: absolute;
-                top: -1%;
-                right: -4em;
-                height: 3em;
-                width: 3em;
-                border-radius: 50%;
-                border: none;
-                outline: none;
-                background-color: var(--color-btn);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                /* transition: 0.3s; */
-            }
-    
-            a:link {
-                text-decoration: underline;
-                TEXT-DECORATION: none;
-            }
-    
-            a:visited {
-                text-align: left;
-                text-decoration: underline;
-                TEXT-DECORATION: none;
-            }
-    
-            a:hover {
-                color: #ec8435;
-                text-decoration: underline;
-                TEXT-DECORATION: none;
-            }
-    
-            a:active {
-                color: #de123b;
-                text-decoration: none;
-            }
-    
-            p,
-            b,
-            td,
-            h2,
-            i,
-            a,
-            ul,
-            ul li,
-            pre,
-            textarea {
-                color: var(--color-ch);
-                font-family: Georgia, Times, serif;
-                /* transition: 0.3s; */
-            }
-    
-            .myself {
-                color: #0000ff
-            }
-    
-            pre {
-                font-size: 0.76em;
-            }
-    
-            ul li {
-                font-size: 1.3em;
-            }
-    
-            .dy {
-                color: var(--color-link);
-                font-family: Georgia, Times, serif;
-                /* transition: 0.3s; */
-            }
-    
-            i,
-            a {
-                color: var(--color-link);
-                font-family: Georgia, Times, serif;
-                /* transition: 0.3s; */
-            }
-    
-            .news {
-                color: var(--color-b);
-            }
-    
-            textarea {
-                background-color: var(--color-bg);
-                width: 63em;
-                font-size: 0.76em;
-                resize: none;
-                border: 1.8px solid var(--color-border);
-                padding-left: 0.6em;
-                padding-top: 0.5em;
-                min-height: 100px;
-            }
-    
-            textarea_div {
-                background-color: var(--color-bg);
-                resize: none;
-                width: 63em;
-                font-size: 0.76em;
-                border: 1.8px solid var(--color-border);
-                padding-left: 0.6em;
-                padding-top: 0.5em;
-                min-height: 100px;
-                overflow-x: hidden;
-                overflow-y: auto;
-    
-            }
-    
-            [contentEditable=true]:empty:not(:focus):before {
-                content: attr(data-text);
-            }
-    
-    
-            i:hover {
-                color: #eb7f7f
-            }
-    
-            .aaa:hover {
-                color: #ec90c7
-            }
-    
-            button>svg {
-                height: 3em;
-                width: 3em;
-                fill: var(--color-ch);
-                stroke: none;
-            }
-    
-            button>svg:nth-child(2) {
-                display: none;
-            }
-    
-            nav {
-                background-color: var(--color-bg);
-                padding: 10px;
-                font-family: Georgia, Times, serif;
-            }
-    
-            nav a {
-                text-decoration: none;
-                color: var(--color-link);
-                padding: 10px 20px;
-                position: relative;
-                transition: all 0.3s ease;
-            }
-    
-            nav a:hover {
-                text-decoration: none;
-            }
-    
-            nav a::before {
-                content: "";
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                width: 0;
-                height: 2px;
-                background-color: gray;
-                transition: width 0.3s ease;
-            }
-    
-            nav a:hover::before {
-                width: 100%;
-            }
-    
-            .divider {
-                border-top: 1px solid #e0e0e0;
-                margin: 20px 0;
-            }
-    
-            @media (prefers-color-scheme: dark) {
-    
-                /* 普通模式下颜色 */
-                :root {
-                    --color-bg: #272935;
-                    --color-xg: #111217;
-                    --color-ch: #e3e3f1;
-                    --color-btn: #30303a;
-                    --color-link: #a2bfd9;
-                    --color-border: #f2d3d3;
-                    --color-b: #e9adad;
-                    ;
-                }
-    
-                /* 黑暗模式下颜色 */
-                :root[theme='dark'] {
-                    --color-bg: #f2f2f2;
-                    --color-xg: #cbcbcb;
-                    --color-ch: #30303a;
-                    --color-btn: #f0f0fa;
-                    --color-link: #1573df;
-                    --color-border: #0b46dc;
-                    --color-b: #292727;
-                }
-            }
-        </style>
+        }
+    </style>
 
     <script type="text/javascript">
         function autoResize(id) {
@@ -478,58 +478,163 @@
     </script>
     <nav>
         <b>
-            <font size="4"><a href="index.html" target="_self">Huanxuan Liao (<font face="宋体">廖桓萱</font>)</a></font>
+            <font size="5"><a href="index.html" target="_self">Huanxuan Liao (<font face="宋体">廖桓萱</font>)</a></font>
         </b>
-        <font size="4"><a href="papers.html" target="_self">Publications</a></font>
+        <font size="5"><a href="papers.html" target="_self">Publications</a></font>
         <!-- <a href="#">Talks</a> -->
-        <font size="4"><a href="awards.html" target="_self">Awards</a></font>
+        <font size="5"><a href="awards.html" target="_self">Awards</a></font>
         <!-- <a href="#">Misc</a> -->
-        <font size="4"><a href="assets/CV.pdf" target="_self">CV (PDF)</a></font>
+        <font size="5"><a href="assets/CV.pdf" target="_self">CV (PDF)</a></font>
     </nav>
     <hr />
     <table align="center">
-        <div style="margin-top: -1em;">
-            <h2>
-                <b>
-                    <font face="Roboto" size=6 id="publications">📒 Publications</font>
-                </b> &nbsp;<a href="https://scholar.google.com.hk/citations?user=sRcWOKUAAAAJ&hl=zh-CN"
-                    target="_self"><img src="assets/img/google-scholar.png" alt="Google Scholar" width="8%" /></a>
-            </h2>
-            <!-- <hr /> -->
+		<!-- <tr> -->
+		<td align="center"><a href="assets/img/profile.jpg" target="_self"><img border=0 style="border-radius:15em;"
+					height="228em" src="assets/img/profile_compress.jpg"></a>
+		</td>
+		<!--height="218em" width="198em"-->
+		<td align="center">&nbsp</td>
+		<td align="center">&nbsp</td>
+		<td align="center">
+		<td align="center">
+			<h2>
+				<font face="Roboto" size=+3>Huanxuan Liao</font>&emsp;
+				<b>
+					<font face="宋体" size=+3>廖桓萱</font>
+				</b>
+			</h2>
+			<p>
+				<font size=+1>
+					<font size=+2 face="Georgia">👨‍💻 M.S. NLPer @ <a href="https://nlpr.ia.ac.cn/cn/index.html"
+							target="_self">NLPR</a>, CASIA focusing on LLM 🎓</font><br />
+					<font size=+1>&#x1F30F</font> <b><a href="http://www.ia.cas.cn/" target="_self">
+							<font face="Georgia">Institute of
+								Automation, Chinese Academy of Sciences</font>
+						</a></b>
+					<font face="Georgia">, Beijing, China</font>
+				</font>
+			</p>
+			<p style="margin-top: -0.4cm; margin-bottom: 0.2cm;">
+				<font size=+1>
+					<font size=+2>&#x2709</font> <i><b><a href="mailto:liaohuanxuan2023@ia.ac.cn">
+								<font size=+1 face="Georgia">liaohuanxuan2023@ia.ac.cn</font></b></i></a>
+				</font>
+			</p>
 
-            <p>
-                <font size="4" face="Georgia">Check my <a
-                        href="https://scholar.google.com.hk/citations?user=sRcWOKUAAAAJ&hl=zh-CN" target="_self">Google
-                        Scholar</a> for more information!
+			<!-- <div style="display: inline-block; margin-top:0%">
+					<a href="assets/CV.pdf" target="_self">
+						<font size=7><i class="fa fa-user-circle" aria-hidden="true"></i></font>
+						<font size=4><i class="ai ai-cv ai-3x"></i></font>
+					</a>
+				</div> -->
+			&emsp;
+			<!-- Google Scholar -->
+			<div style="display: inline-block; margin-top:0%">
+				<a href="https://scholar.google.com.hk/citations?user=sRcWOKUAAAAJ&hl=zh-CN" target="_self">
+					<font size=4><i class="ai ai-google-scholar ai-3x"></i></font>
+				</a>
+			</div>
+			<!-- <div style="display: inline-block; margin-right:0.0cm"">
+					<a href=" https://scholar.google.com.hk/citations?user=sRcWOKUAAAAJ&hl=zh-CN" target="_self">
+					<img src="assets/img/google-scholar-icon.png" alt="Google Scholar" title="Google Scholar" width="40px" />
+
+					</a>
+				</div> -->
+			&emsp;
+			<!-- Semantic Scholar -->
+			<div style="display: inline-block; margin-top:0%">
+				<a href="https://www.semanticscholar.org/author/Huanxuan-Liao/2232817310" target="_self">
+					<font size=4><i class="ai ai-semantic-scholar ai-3x"></i></font>
+				</a>
+			</div>
+			<!-- <div class="cropped" style="display: inline-block;">
+					<a href=" https://www.semanticscholar.org/author/Huanxuan-Liao/2232817310" target="_self">
+						<img src="assets/img/semantic-scholar-icon.png" style="position:relative;top: 20px;"
+							alt="Semantic Scholar" title="Semantic Scholar" width="220px" />
+					</a>
+				</div> -->
+			&emsp;
+			<!-- DBLP -->
+			<div style="display: inline-block; margin-top:0%">
+				<a href="https://dblp.org/pid/355/1072.html" target="_self">
+					<font size=4><i class="ai ai-dblp ai-3x"></i></font>
+				</a>
+			</div>
+			&emsp;
+			<!-- Mail -->
+			<!-- <div style="display: inline-block; margin-bottom:0.0cm">
+					<a href="mailto:huanxuanliao@gmail.com" target="_self">
+						<font size=7><i class="fa fa-envelope" aria-hidden="true"></i>
+						</font>
+					</a>
+				</div>
+				&emsp; -->
+			<!-- GitHub -->
+			<div style="display: inline-block; margin-bottom:0.0cm">
+				<a href="https://github.com/Xnhyacinth" target="_self">
+					<font size=4><i class="fa fa-github fa-3x" class="dy" aria-hidden="true"></i>
+					</font>
+				</a>
+			</div>
+			<!-- <div style="display: inline-block; margin-right:0.0cm">
+					<a href="https://github.com/Xnhyacinth" target="_self">
+						<img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/GitHub_Invertocat_Logo.svg"
+							alt="Github" title="Github" width="48px" />
+					</a>
+				</div> -->
+			&emsp;
+			<!-- twitter -->
+			<div style="display: inline-block; margin-top:0%">
+				<a href="https://twitter.com/xn_hyacinth" target="_self">
+					<font size=4><i aria-hidden="true" class="fa fa-twitter fa-3x"></i></font>
+				</a>
+			</div>
+		</td>
+		</td>
+		</tr>
+	</table>
+    <div style="margin-top: -1em;">
+        <h2>
+            <b>
+                <font face="Roboto" size=5 id="publications">📒 Publications</font>
+            </b> &nbsp;<a href="https://scholar.google.com.hk/citations?user=sRcWOKUAAAAJ&hl=zh-CN" target="_self"><img
+                    src="assets/img/google-scholar.png" alt="Google Scholar" width="8%" /></a>
+        </h2>
+        <!-- <hr /> -->
+
+        <p>
+            <font size="4" face="Georgia">Check my <a
+                    href="https://scholar.google.com.hk/citations?user=sRcWOKUAAAAJ&hl=zh-CN" target="_self">Google
+                    Scholar</a> for more information!
+            </font>
+        </p>
+        <p>
+            <font size="4" face="Georgia">(* stands for equal contribution. Listed in reverse chronological order.)
+            </font>
+        </p>
+        <br />
+        <font size="5"><b>2024</b></font>
+
+        <ul>
+            <li>
+                <b><a href="" "><font face=" Georgia" size="4">Neural-Symbolic
+                        Collaborative Distillation: Advancing Small Language Models for Complex Reasoning Tasks
+                        </font>
+                    </a></b>
+                &nbsp;&nbsp;
+                <br />
+                <font face="Georgia" font size=" 4">
+                    <b class="myself">
+                        <font size=" 4" face=" Georgia">Huanxuan Liao</font>
+                    </b>
+                    , Shizhu He, Yao Xu, Yuanzhe Zhang, Kang Liu, Jun Zhao
+                    &nbsp;&nbsp; <br>
+                    <i><b>
+                            <font face="Georgia" font size=" 4">Preprint</font>
+                        </b></i>, 2024.
                 </font>
-            </p>
-            <p>
-                <font size="4" face="Georgia">(* stands for equal contribution. Listed in reverse chronological order.)
-                </font>
-            </p>
-
-            <font size="5"><b>2024</b></font>
-
-            <ul>
-                <li>
-                    <b><a href="" "><font face=" Georgia" size="4">Neural-Symbolic
-                            Collaborative Distillation: Advancing Small Language Models for Complex Reasoning Tasks
-                            </font>
-                        </a></b>
-                    &nbsp;&nbsp;
-                    <br />
-                    <font face="Georgia" font size=" 4">
-                        <b class="myself">
-                            <font size=" 4" face=" Georgia">Huanxuan Liao</font>
-                        </b>
-                        , Shizhu He, Yao Xu, Yuanzhe Zhang, Kang Liu, Jun Zhao
-                        &nbsp;&nbsp; <br>
-                        <i><b>
-                                <font face="Georgia" font size=" 4">Preprint</font>
-                            </b></i>, 2024.
-                    </font>
-                    <br>
-                    <!-- <div style="display: inline-block; margin-top:0.5%; width:50%">
+                <br>
+                <!-- <div style="display: inline-block; margin-top:0.5%; width:50%">
 					<div class="bu" id="4" style="display: inline-block; margin-top:0%">
 						<font size="2"><i class="fa fa-info fa-2x" aria-hidden="true"></i></font>&nbsp;<img
 							alt="Static Badge" src="https://img.shields.io/badge/Bib-5cb85c" style="height: 1em;">
@@ -572,7 +677,7 @@
 					</div>
 				</div> -->
 
-                    <textarea id="mybib4" autoHeight="true" name="textarea" disabled class="bib4" style="display:none">
+                <textarea id="mybib6" autoHeight="true" name="textarea" disabled class="bib6" style="display:none">
 @article{liao2024instance,
 	title={From Instance Training to Instruction Learning: Task Adapters Generation from Instructions},
 	author={Liao, Huanxuan and Xu, Yao and He, Shizhu and Zhang, Yuanzhe and Hao, Yanchao and Liu, Shengping and Liu, Kang and Zhao, Jun},
@@ -580,30 +685,30 @@
 	year={2024}
 }</textarea>
 
-                    <textarea id="myab4" autoHeight="true" name="textarea" disabled class="ab4" style="display:none">
+                <textarea id="myab6" autoHeight="true" name="textarea" disabled class="ab6" style="display:none">
 Large language models (LLMs) have acquired the ability to solve general tasks by utilizing instruction finetuning (IFT). However, IFT still relies heavily on instance training of extensive task data, which greatly limits the adaptability of LLMs to real-world scenarios where labeled task instances are scarce and broader task generalization becomes paramount. Contrary to LLMs, humans acquire skills and complete tasks not merely through repeated practice but also by understanding and following instructional guidelines. This paper is dedicated to simulating human learning to address the shortcomings of instance training, focusing on instruction learning to enhance cross-task generalization. Within this context, we introduce Task Adapters Generation from Instructions (TAGI), which automatically constructs the task-specific model in a parameter generation manner based on the given task instructions without retraining for unseen tasks. Specifically, we utilize knowledge distillation to enhance the consistency between TAGI developed through Learning with Instruction and task-specific models developed through Training with Instance, by aligning the labels, output logits, and adapter parameters between them. TAGI is endowed with cross-task generalization capabilities through a two-stage training process that includes hypernetwork pretraining and finetuning. We evaluate TAGI on the Super-Natural Instructions and P3 datasets. The experimental results demonstrate that TAGI can match or even outperform traditional meta-trained models and other hypernetwork models, while significantly reducing computational requirements.</textarea>
 
-                </li>
+            </li>
+            <br />
+            <li>
+                <b><a href="" "><font face=" Georgia" size="4">CITI: Enhancing Tool
+                        Utilizing Ability in Large Language Models without Sacrificing General Performance</font>
+                    </a></b>
+                &nbsp;&nbsp;
                 <br />
-                <li>
-                    <b><a href="" "><font face=" Georgia" size="4">CITI: Enhancing Tool
-                            Utilizing Ability in Large Language Models without Sacrificing General Performance</font>
-                        </a></b>
-                    &nbsp;&nbsp;
-                    <br />
-                    <font face="Georgia" font size=" 4">
-                        Yupu Hao, Pengfei Cao, Zhuoran Jin,
-                        <b class="myself">
-                            <font size=" 4" face=" Georgia">Huanxuan Liao</font>
-                        </b>
-                        , Yubo Chen, Kang Liu, Jun Zhao
-                        &nbsp;&nbsp; <br>
-                        <i><b>
-                                <font face="Georgia" font size=" 4">Preprint</font>
-                            </b></i>, 2024.
-                    </font>
-                    <br>
-                    <!-- <div style="display: inline-block; margin-top:0.5%; width:50%">
+                <font face="Georgia" font size=" 4">
+                    Yupu Hao, Pengfei Cao, Zhuoran Jin,
+                    <b class="myself">
+                        <font size=" 4" face=" Georgia">Huanxuan Liao</font>
+                    </b>
+                    , Yubo Chen, Kang Liu, Jun Zhao
+                    &nbsp;&nbsp; <br>
+                    <i><b>
+                            <font face="Georgia" font size=" 4">Preprint</font>
+                        </b></i>, 2024.
+                </font>
+                <br>
+                <!-- <div style="display: inline-block; margin-top:0.5%; width:50%">
 					<div class="bu" id="4" style="display: inline-block; margin-top:0%">
 						<font size="2"><i class="fa fa-info fa-2x" aria-hidden="true"></i></font>&nbsp;<img
 							alt="Static Badge" src="https://img.shields.io/badge/Bib-5cb85c" style="height: 1em;">
@@ -646,7 +751,7 @@ Large language models (LLMs) have acquired the ability to solve general tasks by
 					</div>
 				</div> -->
 
-                    <textarea id="mybib4" autoHeight="true" name="textarea" disabled class="bib4" style="display:none">
+                <textarea id="mybib5" autoHeight="true" name="textarea" disabled class="bib5" style="display:none">
 @article{liao2024instance,
 	title={From Instance Training to Instruction Learning: Task Adapters Generation from Instructions},
 	author={Liao, Huanxuan and Xu, Yao and He, Shizhu and Zhang, Yuanzhe and Hao, Yanchao and Liu, Shengping and Liu, Kang and Zhao, Jun},
@@ -654,73 +759,72 @@ Large language models (LLMs) have acquired the ability to solve general tasks by
 	year={2024}
 }</textarea>
 
-                    <textarea id="myab4" autoHeight="true" name="textarea" disabled class="ab4" style="display:none">
+                <textarea id="myab5" autoHeight="true" name="textarea" disabled class="ab5" style="display:none">
 Large language models (LLMs) have acquired the ability to solve general tasks by utilizing instruction finetuning (IFT). However, IFT still relies heavily on instance training of extensive task data, which greatly limits the adaptability of LLMs to real-world scenarios where labeled task instances are scarce and broader task generalization becomes paramount. Contrary to LLMs, humans acquire skills and complete tasks not merely through repeated practice but also by understanding and following instructional guidelines. This paper is dedicated to simulating human learning to address the shortcomings of instance training, focusing on instruction learning to enhance cross-task generalization. Within this context, we introduce Task Adapters Generation from Instructions (TAGI), which automatically constructs the task-specific model in a parameter generation manner based on the given task instructions without retraining for unseen tasks. Specifically, we utilize knowledge distillation to enhance the consistency between TAGI developed through Learning with Instruction and task-specific models developed through Training with Instance, by aligning the labels, output logits, and adapter parameters between them. TAGI is endowed with cross-task generalization capabilities through a two-stage training process that includes hypernetwork pretraining and finetuning. We evaluate TAGI on the Super-Natural Instructions and P3 datasets. The experimental results demonstrate that TAGI can match or even outperform traditional meta-trained models and other hypernetwork models, while significantly reducing computational requirements.</textarea>
 
-                </li>
+            </li>
+            <br />
+            <li>
+                <b><a href="https://arxiv.org/pdf/2406.12382" "><font face=" Georgia" size="4">From Instance
+                        Training to
+                        Instruction Learning: Task Adapters Generation from Instructions</font></a></b>
+                &nbsp;&nbsp;
                 <br />
-                <li>
-                    <b><a href="https://arxiv.org/pdf/2406.12382" "><font face=" Georgia" size="4">From Instance
-                            Training to
-                            Instruction Learning: Task Adapters Generation from Instructions</font></a></b>
-                    &nbsp;&nbsp;
-                    <br />
-                    <font face="Georgia" font size=" 4">
-                        <b class="myself">
-                            <font size=" 4" face=" Georgia">Huanxuan Liao</font>
-                        </b>
-                        , Shizhu He, Yao Xu, Yuanzhe Zhang, Yanchao Hao, Shengping Liu, Kang Liu, Jun Zhao
-                        &nbsp;&nbsp; <br>
-                        <i><b>
-                                <font face="Georgia" font size=" 4">Preprint</font>
-                            </b></i>, 2024.
-                    </font>
-                    <br>
-                    <div style="display: inline-block; margin-top:0.5%; width:50%">
-                        <div class="bu" id="4" style="display: inline-block; margin-top:0%">
-                            <font size="2"><i class="fa fa-info fa-2x" aria-hidden="true"></i></font>&nbsp;<img
-                                alt="Static Badge" src="https://img.shields.io/badge/Bib-5cb85c" style="height: 1em;">
-                        </div>
-                        &nbsp;
-                        <div class="au" id="4" style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
-                            <font size="5"><i class="fa fa-flag" aria-hidden="true"></i></font>&nbsp;<img
-                                alt="Static Badge" src="https://img.shields.io/badge/Abstract-f9adad"
-                                style="height: 1em;">
-                        </div>
-                        &nbsp;
-                        <div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
-                            <a href="https://arxiv.org/abs/2406.12382">
-                                <font size="5"><i class="ai ai-arxiv ai-1x"></i></font>&nbsp;<img alt="Static Badge"
-                                    src="https://img.shields.io/badge/Arxiv-f0ad4e" style="height: 1em;">
-                            </a>
-                        </div>
-                        &nbsp;
-                        <div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
-                            <a class="tag" href="cites/TAGI.bib" target="_self">
-                                <font size="2"><i class="fa fa-download fa-2x" aria-hidden="true"></i></font>&nbsp;<img
-                                    id="2" alt="Static Badge" src="https://img.shields.io/badge/Cite-edd7be"
-                                    style="height: 1em;">
-                            </a>
-                        </div>
-                        &nbsp;
-                        <div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
-                            <a href="https://github.com/Xnhyacinth/TAGI">
-                                <font size="2"><i class="fa fa-github-alt  fa-2x" aria-hidden="true"></i></font>
-                                &nbsp;<img alt="Static Badge" src="https://img.shields.io/badge/Code/data-d9534f"
-                                    style="height: 1em;">
-                            </a>
-                        </div>
-                        &nbsp;
-                        <div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
-                            <a href="https://xnhyacinth.github.io/TAGI">
-                                <font size="2"><i class="fa fa-home fa-2x" aria-hidden="true"></i></font> <img id="2"
-                                    alt="Static Badge" src="https://img.shields.io/badge/Homepage-009fd0"
-                                    style="height: 1em;">
-                            </a>
-                        </div>
+                <font face="Georgia" font size=" 4">
+                    <b class="myself">
+                        <font size=" 4" face=" Georgia">Huanxuan Liao</font>
+                    </b>
+                    , Shizhu He, Yao Xu, Yuanzhe Zhang, Yanchao Hao, Shengping Liu, Kang Liu, Jun Zhao
+                    &nbsp;&nbsp; <br>
+                    <i><b>
+                            <font face="Georgia" font size=" 4">Preprint</font>
+                        </b></i>, 2024.
+                </font>
+                <br>
+                <div style="display: inline-block; margin-top:0.5%; width:50%">
+                    <div class="bu" id="4" style="display: inline-block; margin-top:0%">
+                        <font size="2"><i class="fa fa-info fa-2x" aria-hidden="true"></i></font>&nbsp;<img
+                            alt="Static Badge" src="https://img.shields.io/badge/Bib-5cb85c" style="height: 1em;">
                     </div>
+                    &nbsp;
+                    <div class="au" id="4" style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+                        <font size="5"><i class="fa fa-flag" aria-hidden="true"></i></font>&nbsp;<img alt="Static Badge"
+                            src="https://img.shields.io/badge/Abstract-f9adad" style="height: 1em;">
+                    </div>
+                    &nbsp;
+                    <div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+                        <a href="https://arxiv.org/abs/2406.12382">
+                            <font size="5"><i class="ai ai-arxiv ai-1x"></i></font>&nbsp;<img alt="Static Badge"
+                                src="https://img.shields.io/badge/Arxiv-f0ad4e" style="height: 1em;">
+                        </a>
+                    </div>
+                    &nbsp;
+                    <div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+                        <a class="tag" href="cites/TAGI.bib" target="_self">
+                            <font size="2"><i class="fa fa-download fa-2x" aria-hidden="true"></i></font>&nbsp;<img
+                                id="2" alt="Static Badge" src="https://img.shields.io/badge/Cite-edd7be"
+                                style="height: 1em;">
+                        </a>
+                    </div>
+                    &nbsp;
+                    <div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+                        <a href="https://github.com/Xnhyacinth/TAGI">
+                            <font size="2"><i class="fa fa-github-alt  fa-2x" aria-hidden="true"></i></font>
+                            &nbsp;<img alt="Static Badge" src="https://img.shields.io/badge/Code/data-d9534f"
+                                style="height: 1em;">
+                        </a>
+                    </div>
+                    &nbsp;
+                    <div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+                        <a href="https://xnhyacinth.github.io/TAGI">
+                            <font size="2"><i class="fa fa-home fa-2x" aria-hidden="true"></i></font> <img id="2"
+                                alt="Static Badge" src="https://img.shields.io/badge/Homepage-009fd0"
+                                style="height: 1em;">
+                        </a>
+                    </div>
+                </div>
 
-                    <textarea id="mybib4" autoHeight="true" name="textarea" disabled class="bib4" style="display:none">
+                <textarea id="mybib4" autoHeight="true" name="textarea" disabled class="bib4" style="display:none">
 @article{liao2024instance,
 	title={From Instance Training to Instruction Learning: Task Adapters Generation from Instructions},
 	author={Liao, Huanxuan and Xu, Yao and He, Shizhu and Zhang, Yuanzhe and Hao, Yanchao and Liu, Shengping and Liu, Kang and Zhao, Jun},
@@ -728,75 +832,74 @@ Large language models (LLMs) have acquired the ability to solve general tasks by
 	year={2024}
 }</textarea>
 
-                    <textarea id="myab4" autoHeight="true" name="textarea" disabled class="ab4" style="display:none">
+                <textarea id="myab4" autoHeight="true" name="textarea" disabled class="ab4" style="display:none">
 Large language models (LLMs) have acquired the ability to solve general tasks by utilizing instruction finetuning (IFT). However, IFT still relies heavily on instance training of extensive task data, which greatly limits the adaptability of LLMs to real-world scenarios where labeled task instances are scarce and broader task generalization becomes paramount. Contrary to LLMs, humans acquire skills and complete tasks not merely through repeated practice but also by understanding and following instructional guidelines. This paper is dedicated to simulating human learning to address the shortcomings of instance training, focusing on instruction learning to enhance cross-task generalization. Within this context, we introduce Task Adapters Generation from Instructions (TAGI), which automatically constructs the task-specific model in a parameter generation manner based on the given task instructions without retraining for unseen tasks. Specifically, we utilize knowledge distillation to enhance the consistency between TAGI developed through Learning with Instruction and task-specific models developed through Training with Instance, by aligning the labels, output logits, and adapter parameters between them. TAGI is endowed with cross-task generalization capabilities through a two-stage training process that includes hypernetwork pretraining and finetuning. We evaluate TAGI on the Super-Natural Instructions and P3 datasets. The experimental results demonstrate that TAGI can match or even outperform traditional meta-trained models and other hypernetwork models, while significantly reducing computational requirements.</textarea>
 
-                </li>
+            </li>
+            <br />
+            <li>
+                <b><a href="https://arxiv.org/pdf/2403.15268.pdf" "><font face=" Georgia" size="4">Imagination
+                        Augmented
+                        Generation: Learning to Imagine Richer Context
+                        for Question Answering over Large Language Models</font></a></b>
+                &nbsp;&nbsp;
                 <br />
-                <li>
-                    <b><a href="https://arxiv.org/pdf/2403.15268.pdf" "><font face=" Georgia" size="4">Imagination
-                            Augmented
-                            Generation: Learning to Imagine Richer Context
-                            for Question Answering over Large Language Models</font></a></b>
-                    &nbsp;&nbsp;
-                    <br />
-                    <font face="Georgia" font size=" 4">
-                        <b class="myself">
-                            <font size=" 4" face=" Georgia">Huanxuan Liao</font>
-                        </b>
-                        , Shizhu He, Yao Xu, Yuanzhe Zhang, Kang Liu, Shengping Liu, Jun
-                        Zhao
-                        &nbsp;&nbsp; <br>
-                        <i><b>
-                                <font face="Georgia" font size=" 4">Preprint</font>
-                            </b></i>, 2024.
-                    </font>
-                    <br>
-                    <div style="display: inline-block; margin-top:0.5%; width:50%">
-                        <div class="bu" id="3" style="display: inline-block; margin-top:0%">
-                            <font size="2"><i class="fa fa-info fa-2x" aria-hidden="true"></i></font>&nbsp;<img
-                                alt="Static Badge" src="https://img.shields.io/badge/Bib-5cb85c" style="height: 1em;">
-                        </div>
-                        &nbsp;
-                        <div class="au" id="3" style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
-                            <font size="5"><i class="fa fa-flag" aria-hidden="true"></i></font>&nbsp;<img
-                                alt="Static Badge" src="https://img.shields.io/badge/Abstract-f9adad"
-                                style="height: 1em;">
-                        </div>
-                        &nbsp;
-                        <div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
-                            <a href="https://arxiv.org/abs/2403.15268">
-                                <font size="5"><i class="ai ai-arxiv ai-1x"></i></font>&nbsp;<img alt="Static Badge"
-                                    src="https://img.shields.io/badge/Arxiv-f0ad4e" style="height: 1em;">
-                            </a>
-                        </div>
-                        &nbsp;
-                        <div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
-                            <a class="tag" href="cites/IAG.bib" target="_self">
-                                <font size="2"><i class="fa fa-download fa-2x" aria-hidden="true"></i></font>&nbsp;<img
-                                    id="2" alt="Static Badge" src="https://img.shields.io/badge/Cite-edd7be"
-                                    style="height: 1em;">
-                            </a>
-                        </div>
-                        &nbsp;
-                        <div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
-                            <a href="https://github.com/Xnhyacinth/IAG">
-                                <font size="2"><i class="fa fa-github-alt  fa-2x" aria-hidden="true"></i></font>
-                                &nbsp;<img alt="Static Badge" src="https://img.shields.io/badge/Code/data-d9534f"
-                                    style="height: 1em;">
-                            </a>
-                        </div>
-                        &nbsp;
-                        <div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
-                            <a href="https://xnhyacinth.github.io/IAG">
-                                <font size="2"><i class="fa fa-home fa-2x" aria-hidden="true"></i></font> <img id="2"
-                                    alt="Static Badge" src="https://img.shields.io/badge/Homepage-009fd0"
-                                    style="height: 1em;">
-                            </a>
-                        </div>
+                <font face="Georgia" font size=" 4">
+                    <b class="myself">
+                        <font size=" 4" face=" Georgia">Huanxuan Liao</font>
+                    </b>
+                    , Shizhu He, Yao Xu, Yuanzhe Zhang, Kang Liu, Shengping Liu, Jun
+                    Zhao
+                    &nbsp;&nbsp; <br>
+                    <i><b>
+                            <font face="Georgia" font size=" 4">Preprint</font>
+                        </b></i>, 2024.
+                </font>
+                <br>
+                <div style="display: inline-block; margin-top:0.5%; width:50%">
+                    <div class="bu" id="3" style="display: inline-block; margin-top:0%">
+                        <font size="2"><i class="fa fa-info fa-2x" aria-hidden="true"></i></font>&nbsp;<img
+                            alt="Static Badge" src="https://img.shields.io/badge/Bib-5cb85c" style="height: 1em;">
                     </div>
+                    &nbsp;
+                    <div class="au" id="3" style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+                        <font size="5"><i class="fa fa-flag" aria-hidden="true"></i></font>&nbsp;<img alt="Static Badge"
+                            src="https://img.shields.io/badge/Abstract-f9adad" style="height: 1em;">
+                    </div>
+                    &nbsp;
+                    <div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+                        <a href="https://arxiv.org/abs/2403.15268">
+                            <font size="5"><i class="ai ai-arxiv ai-1x"></i></font>&nbsp;<img alt="Static Badge"
+                                src="https://img.shields.io/badge/Arxiv-f0ad4e" style="height: 1em;">
+                        </a>
+                    </div>
+                    &nbsp;
+                    <div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+                        <a class="tag" href="cites/IAG.bib" target="_self">
+                            <font size="2"><i class="fa fa-download fa-2x" aria-hidden="true"></i></font>&nbsp;<img
+                                id="2" alt="Static Badge" src="https://img.shields.io/badge/Cite-edd7be"
+                                style="height: 1em;">
+                        </a>
+                    </div>
+                    &nbsp;
+                    <div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+                        <a href="https://github.com/Xnhyacinth/IAG">
+                            <font size="2"><i class="fa fa-github-alt  fa-2x" aria-hidden="true"></i></font>
+                            &nbsp;<img alt="Static Badge" src="https://img.shields.io/badge/Code/data-d9534f"
+                                style="height: 1em;">
+                        </a>
+                    </div>
+                    &nbsp;
+                    <div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+                        <a href="https://xnhyacinth.github.io/IAG">
+                            <font size="2"><i class="fa fa-home fa-2x" aria-hidden="true"></i></font> <img id="2"
+                                alt="Static Badge" src="https://img.shields.io/badge/Homepage-009fd0"
+                                style="height: 1em;">
+                        </a>
+                    </div>
+                </div>
 
-                    <textarea id="mybib3" autoHeight="true" name="textarea" disabled class="bib3" style="display:none">
+                <textarea id="mybib3" autoHeight="true" name="textarea" disabled class="bib3" style="display:none">
 @article{liao2024imagination,
 	title={Imagination Augmented Generation: Learning to Imagine Richer Context for Question Answering over Large Language Models},
 	author={Liao, Huanxuan and He, Shizhu and Xu, Yao and Zhang, Yuanzhe and Liu, Kang and Liu, Shengping and Zhao, Jun},
@@ -804,77 +907,76 @@ Large language models (LLMs) have acquired the ability to solve general tasks by
 	year={2024}
 }</textarea>
 
-                    <textarea id="myab3" autoHeight="true" name="textarea" disabled class="ab3" style="display:none">
+                <textarea id="myab3" autoHeight="true" name="textarea" disabled class="ab3" style="display:none">
 Retrieval-Augmented-Generation and Gener-ation-Augmented-Generation have been proposed to enhance the knowledge required for question answering over Large Language Models (LLMs). However, the former relies on external resources, and both require incorporating explicit documents into the context, which increases execution costs and susceptibility to noise data. Recent works indicate that LLMs have modeled rich knowledge, albeit not effectively triggered or awakened. Inspired by this, we propose a novel knowledge-augmented framework, Imagination-Augmented-Generation (IAG), which simulates the human capacity to compensate for knowledge deficits while answering questions solely through imagination, thereby awakening relevant knowledge in LLMs without relying on external resources. Guided by IAG, we propose an imagine richer context method for question answering (IMcQA). IMcQA consists of two modules: explicit imagination, which generates a short dummy document by learning from long context compression, and implicit imagination, which creates flexible adapters by distilling from a teacher model with a long context. Experimental results on three datasets demonstrate that IMcQA exhibits significant advantages in both open-domain and closed-book settings, as well as in out-of-distribution generalization.</textarea>
-                </li>
-                <!-- <br /> -->
-            </ul>
+            </li>
+            <!-- <br /> -->
+        </ul>
 
-            <font size="5"><b>2023</b></font>
+        <font size="5"><b>2023</b></font>
 
-            <ul>
-                <li>
-                    <b><a href="https://arxiv.org/pdf/2308.10252.pdf" "><font face=" Georgia" size="4">LMTuner: An
-                            user-friendly and
-                            highly-integrable Training Framework for fine-tuning
-                            Large Language Models</font></a></b>
-                    <font size=" 4" face="Georgia">
-                        &nbsp;&nbsp;
-                        <br />
-                        <font face="Georgia">Yixuan Weng, Zhiqi Wang, </font><b class="myself">
-                            <font face="Georgia">Huanxuan Liao</font>
-                        </b>
-                        , Shizhu He, Shengping Liu, Kang Liu, Jun Zhao
-                        &nbsp;&nbsp; <br> <i><b>
-                                <font size=" 4" face="Georgia">Preprint</font>
-                            </b></i>, 2023.
-                    </font>
-                    <br>
-                    <div style="display: inline-block; margin-top:0.5%; width:50%">
-                        <div class="bu" id="2" style="display: inline-block; margin-top:0%">
-                            <font size="2"><i class="fa fa-info fa-2x" aria-hidden="true"></i></font>&nbsp;<img
-                                alt="Static Badge" src="https://img.shields.io/badge/Bib-5cb85c" style="height: 1em;">
-                        </div>
-                        &nbsp;
-                        <div class="au" id="2" style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
-                            <font size="5"><i class="fa fa-flag" aria-hidden="true"></i></font>&nbsp;<img
-                                alt="Static Badge" src="https://img.shields.io/badge/Abstract-f9adad"
-                                style="height: 1em;">
-                        </div>
-                        &nbsp;
-                        <div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
-                            <a href="https://arxiv.org/abs/2308.10252">
-                                <font size="5"><i class="ai ai-arxiv ai-1x"></i></font>&nbsp;<img alt="Static Badge"
-                                    src="https://img.shields.io/badge/Arxiv-f0ad4e" style="height: 1em;">
-                            </a>
-                        </div>
-                        &nbsp;
-                        <div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
-                            <a class="tag" href="cites/LMTuner.bib" target="_self">
-                                <font size="2"><i class="fa fa-download fa-2x" aria-hidden="true"></i></font>&nbsp;<img
-                                    id="2" alt="Static Badge" src="https://img.shields.io/badge/Cite-edd7be"
-                                    style="height: 1em;">
-                            </a>
-                        </div>
-                        &nbsp;
-                        <div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
-                            <a href="https://github.com/WENGSYX/LMTuner">
-                                <font size="2"><i class="fa fa-github-alt fa-2x" aria-hidden="true"></i></font>
-                                &nbsp;<img alt="Static Badge" src="https://img.shields.io/badge/Code/data-d9534f"
-                                    style="height: 1em;">
-                            </a>
-                        </div>
-                        &nbsp;
-                        <div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
-                            <a href="https://wengsyx.github.io/LMTuner/">
-                                <font size="2"><i class="fa fa-home fa-2x" aria-hidden="true"></i></font> <img id="2"
-                                    alt="Static Badge" src="https://img.shields.io/badge/Homepage-009fd0"
-                                    style="height: 1em;">
-                            </a>
-                        </div>
+        <ul>
+            <li>
+                <b><a href="https://arxiv.org/pdf/2308.10252.pdf" "><font face=" Georgia" size="4">LMTuner: An
+                        user-friendly and
+                        highly-integrable Training Framework for fine-tuning
+                        Large Language Models</font></a></b>
+                <font size=" 4" face="Georgia">
+                    &nbsp;&nbsp;
+                    <br />
+                    <font face="Georgia">Yixuan Weng, Zhiqi Wang, </font><b class="myself">
+                        <font face="Georgia">Huanxuan Liao</font>
+                    </b>
+                    , Shizhu He, Shengping Liu, Kang Liu, Jun Zhao
+                    &nbsp;&nbsp; <br> <i><b>
+                            <font size=" 4" face="Georgia">Preprint</font>
+                        </b></i>, 2023.
+                </font>
+                <br>
+                <div style="display: inline-block; margin-top:0.5%; width:50%">
+                    <div class="bu" id="2" style="display: inline-block; margin-top:0%">
+                        <font size="2"><i class="fa fa-info fa-2x" aria-hidden="true"></i></font>&nbsp;<img
+                            alt="Static Badge" src="https://img.shields.io/badge/Bib-5cb85c" style="height: 1em;">
                     </div>
+                    &nbsp;
+                    <div class="au" id="2" style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+                        <font size="5"><i class="fa fa-flag" aria-hidden="true"></i></font>&nbsp;<img alt="Static Badge"
+                            src="https://img.shields.io/badge/Abstract-f9adad" style="height: 1em;">
+                    </div>
+                    &nbsp;
+                    <div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+                        <a href="https://arxiv.org/abs/2308.10252">
+                            <font size="5"><i class="ai ai-arxiv ai-1x"></i></font>&nbsp;<img alt="Static Badge"
+                                src="https://img.shields.io/badge/Arxiv-f0ad4e" style="height: 1em;">
+                        </a>
+                    </div>
+                    &nbsp;
+                    <div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+                        <a class="tag" href="cites/LMTuner.bib" target="_self">
+                            <font size="2"><i class="fa fa-download fa-2x" aria-hidden="true"></i></font>&nbsp;<img
+                                id="2" alt="Static Badge" src="https://img.shields.io/badge/Cite-edd7be"
+                                style="height: 1em;">
+                        </a>
+                    </div>
+                    &nbsp;
+                    <div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+                        <a href="https://github.com/WENGSYX/LMTuner">
+                            <font size="2"><i class="fa fa-github-alt fa-2x" aria-hidden="true"></i></font>
+                            &nbsp;<img alt="Static Badge" src="https://img.shields.io/badge/Code/data-d9534f"
+                                style="height: 1em;">
+                        </a>
+                    </div>
+                    &nbsp;
+                    <div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+                        <a href="https://wengsyx.github.io/LMTuner/">
+                            <font size="2"><i class="fa fa-home fa-2x" aria-hidden="true"></i></font> <img id="2"
+                                alt="Static Badge" src="https://img.shields.io/badge/Homepage-009fd0"
+                                style="height: 1em;">
+                        </a>
+                    </div>
+                </div>
 
-                    <textarea id="mybib2" autoHeight="true" name="textarea" disabled class="bib2" style="display:none">
+                <textarea id="mybib2" autoHeight="true" name="textarea" disabled class="bib2" style="display:none">
 @article{weng2023lmtuner,
 	title={LMTuner: An user-friendly and highly-integrable Training Framework for fine-tuning Large Language Models},
 	author={Weng, Yixuan and Wang, Zhiqi and Liao, Huanxuan and He, Shizhu and Liu, Shengping and Liu, Kang and Zhao, Jun},
@@ -882,12 +984,12 @@ Retrieval-Augmented-Generation and Gener-ation-Augmented-Generation have been pr
 	year={2023}
 }</textarea>
 
-                    <textarea id="myab2" autoHeight="true" name="textarea" disabled class="ab2" style="display:none">
+                <textarea id="myab2" autoHeight="true" name="textarea" disabled class="ab2" style="display:none">
 With the burgeoning development in the realm of large language models (LLMs), the demand for efficient incremental training tailored to specific industries and domains continues to increase. Currently, the predominantly employed frameworks lack modular design, it often takes a lot of coding work to kickstart the training of LLM. To address this, we present "LMTuner", a highly usable, integrable, and scalable system for training LLMs expeditiously and with minimal user-input. LMTuner comprises three main modules - the Interaction, Training, and Inference Modules. We advocate that LMTuner's usability and integrality alleviate the complexities in training large language models. Remarkably, even a novice user could commence training large language models within five minutes. Furthermore, it integrates DeepSpeed frameworks and supports Efficient Fine-Tuning methodologies like Low Rank Adaptation (LoRA), Quantized LoRA (QLoRA), etc., enabling the training of language models scaling from 300M to a whopping 130B parameters using a single server. The LMTuner's homepage (this https URL screencast video (this https URL) are now publicly available.</textarea>
-                    <!-- <div id="textarea" contenteditable="true" data-text="输入内容...">
+                <!-- <div id="textarea" contenteditable="true" data-text="输入内容...">
 
 				</div> -->
-                    <!-- <div class="ab2" style="display:none; width: 48em; border:1px solid #e8dada">
+                <!-- <div class="ab2" style="display:none; width: 48em; border:1px solid #e8dada">
 					<pre>
   With the burgeoning development in the realm of large language models (LLMs), the demand for efficient incremental training tailored to
   specific industries and domains continues to increase. Currently, the predominantly employed frameworks lack modular design, it often 
@@ -899,52 +1001,51 @@ With the burgeoning development in the realm of large language models (LLMs), th
   enabling the training of language models scaling from 300M to a whopping 130B parameters using a single server.
 		</pre>
 				</div> -->
-                </li>
-                <br />
-                <li>
-                    <b><a href="https://link.springer.com/chapter/10.1007/978-981-99-7224-1_1">
-                            <font face="Georgia" size="4">Dynamic Weighted
-                                Neural Bellman-Ford Network for Knowledge Graph Reasoning</font>
-                        </a></b>
-                    <font size=" 4" face="Georgia">
-                        &nbsp;&nbsp; <br />
-                        <b class="myself">
-                            <font face="Georgia">Huanxuan Liao</font>
-                        </b>
-                        , Shizhu He, Yao Xu, Kang Liu, Jun Zhao
-                        &nbsp;&nbsp; <br> Accepted to <b>
-                            <i>
-                                <font face="Georgia">the 8th China Conference on Knowledge Graph and Semantic
-                                    Computing</font>
-                            </i>
-                            <font face="Georgia">(CCKS)</font>
-                        </b>, 2023.
-                    </font>
-                    <br>
-                    <div style="display: inline-block; margin-top:0.5%; width:50%">
-                        <div class="bu" id="1" style="display: inline-block; margin-top:0%">
-                            <font size="5"><i class="fa fa-info" aria-hidden="true"></i></font>&nbsp;<img
-                                alt="Static Badge" src="https://img.shields.io/badge/Bib-5cb85c" style="height:  1em;">
-                        </div>
-                        &nbsp;
-                        <div class="au" id="1" style="display: inline-block; margin-top:0%; margin-left: -1.1%;"
-                            onclick="autoResize('my-textarea1')">
-                            <font size="5"><i class="fa fa-flag" aria-hidden="true"></i></font>&nbsp;<img
-                                alt="Static Badge" src="https://img.shields.io/badge/Abstract-f9adad"
-                                style="height:  1em;">
-                        </div>
-                        &nbsp;
-                        <div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
-                            <a class="tag" href="cites/DyNBF.bib" target="_self">
-                                <font size="2"><i class="fa fa-download fa-2x" aria-hidden="true"></i></font>&nbsp;<img
-                                    id="2" alt="Static Badge" src="https://img.shields.io/badge/Cite-edd7be"
-                                    style="height: 1em;">
-                            </a>
-                        </div>
+            </li>
+            <br />
+            <li>
+                <b><a href="https://link.springer.com/chapter/10.1007/978-981-99-7224-1_1">
+                        <font face="Georgia" size="4">Dynamic Weighted
+                            Neural Bellman-Ford Network for Knowledge Graph Reasoning</font>
+                    </a></b>
+                <font size=" 4" face="Georgia">
+                    &nbsp;&nbsp; <br />
+                    <b class="myself">
+                        <font face="Georgia">Huanxuan Liao</font>
+                    </b>
+                    , Shizhu He, Yao Xu, Kang Liu, Jun Zhao
+                    &nbsp;&nbsp; <br> Accepted to <b>
+                        <i>
+                            <font face="Georgia">the 8th China Conference on Knowledge Graph and Semantic
+                                Computing</font>
+                        </i>
+                        <font face="Georgia">(CCKS)</font>
+                    </b>, 2023.
+                </font>
+                <br>
+                <div style="display: inline-block; margin-top:0.5%; width:50%">
+                    <div class="bu" id="1" style="display: inline-block; margin-top:0%">
+                        <font size="5"><i class="fa fa-info" aria-hidden="true"></i></font>&nbsp;<img alt="Static Badge"
+                            src="https://img.shields.io/badge/Bib-5cb85c" style="height:  1em;">
                     </div>
-                    <!-- <a href=""><img alt="Static Badge" src="https://img.shields.io/badge/Arxiv-428BCA"
+                    &nbsp;
+                    <div class="au" id="1" style="display: inline-block; margin-top:0%; margin-left: -1.1%;"
+                        onclick="autoResize('my-textarea1')">
+                        <font size="5"><i class="fa fa-flag" aria-hidden="true"></i></font>&nbsp;<img alt="Static Badge"
+                            src="https://img.shields.io/badge/Abstract-f9adad" style="height:  1em;">
+                    </div>
+                    &nbsp;
+                    <div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+                        <a class="tag" href="cites/DyNBF.bib" target="_self">
+                            <font size="2"><i class="fa fa-download fa-2x" aria-hidden="true"></i></font>&nbsp;<img
+                                id="2" alt="Static Badge" src="https://img.shields.io/badge/Cite-edd7be"
+                                style="height: 1em;">
+                        </a>
+                    </div>
+                </div>
+                <!-- <a href=""><img alt="Static Badge" src="https://img.shields.io/badge/Arxiv-428BCA"
 						style="width: 50px;"></a> -->
-                    <!-- <div class="bib1" style="display:none; width: 48em; border:1px solid #e8dada">
+                <!-- <div class="bib1" style="display:none; width: 48em; border:1px solid #e8dada">
 					<pre>
   @InProceedings{10.1007/978-981-99-7224-1_1,
 	author="Liao, Huanxuan
@@ -969,7 +1070,7 @@ With the burgeoning development in the realm of large language models (LLMs), th
 					</pre>
 				</div> -->
 
-                    <textarea id="mybib1" autoHeight="true" name="textarea" disabled class="bib1" style="display:none">
+                <textarea id="mybib1" autoHeight="true" name="textarea" disabled class="bib1" style="display:none">
 @InProceedings{10.1007/978-981-99-7224-1_1,
 	author="Liao, Huanxuan and He, Shizhu and Xu, Yao and Liu, Kang and Zhao, Jun",
 	editor="Wang, Haofen and Han, Xianpei and Liu, Ming and Cheng, Gong and Liu, Yongbin and Zhang, Ningyu",
@@ -982,12 +1083,12 @@ With the burgeoning development in the realm of large language models (LLMs), th
 	isbn="978-981-99-7224-1"
 }</textarea>
 
-                    <textarea id="myab1" class="ab1" style="display:none;" autoHeight="true" disabled>
+                <textarea id="myab1" class="ab1" style="display:none;" autoHeight="true" disabled>
 Recent studies have shown that subgraphs of the head entity, such as related relations and neighborhoods, are helpful for Knowledge Graph Reasoning (KGR). However, prior studies tend to focus solely on enhancing entity representations using related relations, with little attention paid to the impact of different relations on different entities and their importance in various reasoning paths. Meanwhile, conventional Graph Neural Networks (GNNs) utilized for KGR consider simultaneously neighboring nodes and connected relations of the head entity but typically use a standard message-passing paradigm over the entire Knowledge Graph (KG). This results in over-smoothed representations and limits efficiency. To address the above-mentioned limitations of existing methods, we propose a Dynamic Weighted Neural Bellman-Ford Network (DyNBF) for KGR, which utilizes relation weights generated from subgraphs to compute only the most relevant relations and entities. This way, we can integrate multiple reasoning paths more flexibly to achieve better interpretable reasoning, while scaling more easily to more complex and larger KGs. DyNBF consists of two key modules: 1) a transformer-based relation weights generator module, which computes the weights of different relations on the path with a sequence-to-sequence model, and 2) an NBFNet-based logic reasoner module, which obtains entity representations and conducts fact prediction with dynamic weights from the previous module. Empirical results on three standard KGR datasets demonstrate that the proposed approach can generate explainable reasoning paths and obtain competitive performance.</textarea>
-                    <!-- <div id="textarea_div" class="ab1" contenteditable="true" data-text="输入内容..." style="display:none;">
+                <!-- <div id="textarea_div" class="ab1" contenteditable="true" data-text="输入内容..." style="display:none;">
 					Recent studies have shown that subgraphs of the head entity, such as related relations and neighborhoods, are helpful for Knowledge Graph Reasoning (KGR). However, prior studies tend to focus solely on enhancing entity representations using related relations, with little attention paid to the impact of different relations on different entities and their importance in various reasoning paths. Meanwhile, conventional Graph Neural Networks (GNNs) utilized for KGR consider simultaneously neighboring nodes and connected relations of the head entity but typically use a standard message-passing paradigm over the entire Knowledge Graph (KG). This results in over-smoothed representations and limits efficiency. To address the above-mentioned limitations of existing methods, we propose a Dynamic Weighted Neural Bellman-Ford Network (DyNBF) for KGR, which utilizes relation weights generated from subgraphs to compute only the most relevant relations and entities. This way, we can integrate multiple reasoning paths more flexibly to achieve better interpretable reasoning, while scaling more easily to more complex and larger KGs. DyNBF consists of two key modules: 1) a transformer-based relation weights generator module, which computes the weights of different relations on the path with a sequence-to-sequence model, and 2) an NBFNet-based logic reasoner module, which obtains entity representations and conducts fact prediction with dynamic weights from the previous module. Empirical results on three standard KGR datasets demonstrate that the proposed approach can generate explainable reasoning paths and obtain competitive performance.
 				</div> -->
-                    <!-- <div class="ab1" style="display:none; width: 48em; border:1px solid #e8dada">
+                <!-- <div class="ab1" style="display:none; width: 48em; border:1px solid #e8dada">
 					<pre>
   Recent studies have shown that subgraphs of the head entity, such as related relations and neighborhoods, are helpful for Knowledge Graph
   Reasoning (KGR). However, prior studies tend to focus solelyon enhancing entity representations using related relations, with little attention 
@@ -1003,21 +1104,19 @@ Recent studies have shown that subgraphs of the head entity, such as related rel
   ard KGR datasets demonstratethat the proposed approach can generate explainable reasoning paths and obtain competitive performance.
 			</pre>
 				</div> -->
-                </li>
-            </ul>
-        </div>
-        <br />
+            </li>
+        </ul>
+    </div>
+    <br />
 
-        <!-- <h2><font face="Arial" size=+3.5>Website visit statistics</font></h2>
+    <!-- <h2><font face="Arial" size=+3.5>Website visit statistics</font></h2>
 	<hr/>
 	<script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=500&t=tt&d=RDwpltapRj65Q7UM5LGnBHaIr57MgblmTCDCr6fHKo0'></script> -->
-        <!-- 🔥 📒📝📖💻 📚 -->
-        <!-- &nbsp;&nbsp;&nbsp;&nbsp; -->
-
-        <br />
-        <div id="copyright" align="right">
-            <p>Copyright&copy; 2024 Huanxuan Liao(<font face="宋体">廖桓萱</font>).</p>
-        </div>
+    <!-- 🔥 📒📝📖💻 📚 -->
+    <!-- &nbsp;&nbsp;&nbsp;&nbsp; -->
+    <div id="copyright" align="right">
+        <p>Copyright&copy; 2024 Huanxuan Liao(<font face="宋体">廖桓萱</font>).</p>
+    </div>
 </body>
 
 </html>
