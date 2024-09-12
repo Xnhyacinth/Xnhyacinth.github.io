@@ -137,8 +137,8 @@
 			position: relative;
 			background: linear-gradient(to bottom,
 					var(--color-bg) 0%,
-					var(--color-bg) 94%,
-					var(--color-xg) 94%,
+					var(--color-bg) 96.5%,
+					var(--color-xg) 96.5%,
 					var(--color-xg) 100%);
 			/*background-color: var(--color-bg);*/
 			/* transition: 0.3s; */
@@ -309,8 +309,13 @@
 		}
 
 		.divider {
-			border-top: 1px solid #e0e0e0;
-			margin: 20px 0;
+			border-top: 1px solid #4b4b4b;
+			margin: 10px 0 -5px -100%;
+		}
+
+		.divide {
+			border-top: 1px solid #4b4b4b;
+			margin: 10px 0 -5px 0;
 		}
 
 		@media (prefers-color-scheme: dark) {
@@ -478,15 +483,17 @@
 	</script>
 	<nav>
 		<b>
-			<font size="5"><a href="https://xnhyacinth.github.io" target="_self">Huanxuan Liao (<font face="宋体">廖桓萱</font>)</a></font>
+			<font size="5"><a href="https://xnhyacinth.github.io" target="_self">Huanxuan Liao (<font face="宋体">廖桓萱
+					</font>)</a></font>
 		</b>
-		<font size="5"><a href="https://xnhyacinth.github.io/publications" target="_self">Publications</a></font>
+		<font size="5"><a href="#publications" target="_self">Publications</a></font>
 		<!-- <a href="#">Talks</a> -->
-		<font size="5"><a href="https://xnhyacinth.github.io/awards" target="_self">Awards</a></font>
+		<font size="5"><a href="#awards" target="_self">Awards</a></font>
 		<!-- <a href="#">Misc</a> -->
 		<font size="5"><a href="https://xnhyacinth.github.io/CV.pdf" target="_self">CV (PDF)</a></font>
 	</nav>
-	<hr />
+	<!-- <hr /> -->
+	<div class="divider" style="width: 300%;"></div>
 	<table align="center">
 		<!-- <tr> -->
 		<td align="center"><a href="assets/img/profile.jpg" target="_self"><img border=0 style="border-radius:15em;"
@@ -600,7 +607,8 @@
 				<font face="Roboto" size=+2>📝 Biography</font>
 			</b>
 		</h2>
-		<hr />
+		<!-- <hr /> -->
+		<div class="divide"></div>
 		<div class="app" style="margin-top: -0.0em">
 			<p>
 				<font size="4.5" face="Georgia">
@@ -621,7 +629,8 @@
 					</b> and
 					<b>
 						<font face="Georgia">Natural Language Reasoning</font>
-					</b>. Check my <a href="https://xnhyacinth.github.io/publications">publications</a> and <a href="assets/CV.pdf">CV (PDF)</a> for
+					</b>. Check my <a href="https://xnhyacinth.github.io/publications">publications</a> and <a
+						href="assets/CV.pdf">CV (PDF)</a> for
 					more information!
 				</font>
 			</p>
@@ -703,7 +712,8 @@
 				</font>
 			</b>
 		</h2>
-		<hr />
+		<!-- <hr /> -->
+		<div class="divide"></div>
 		<ul>
 			<li>
 				<font size="4.5" face="Georgia">Oct, 2023. <a
@@ -732,6 +742,665 @@
 	</div>
 
 	<br />
+
+	<div style="margin-top: -1em;">
+		<h2>
+			<b>
+				<font face="Roboto" size=5 id="publications">📒 Publications</font>
+			</b> &nbsp;<a href="https://scholar.google.com.hk/citations?user=sRcWOKUAAAAJ&hl=zh-CN" target="_self"><img
+					src="../assets/img/google-scholar.png" alt="Google Scholar" width="8%" /></a>
+		</h2>
+		<!-- <hr /> -->
+		<div class="divide"></div>
+		<p>
+			<font size="4" face="Georgia">Check my <a
+					href="https://scholar.google.com.hk/citations?user=sRcWOKUAAAAJ&hl=zh-CN" target="_self">Google
+					Scholar</a> for more information!
+			</font>
+		</p>
+		<p>
+			<font size="4" face="Georgia">(* stands for equal contribution. Listed in reverse chronological order.)
+			</font>
+		</p>
+		<!-- <br /> -->
+		<font size="5"><b>2024</b></font>
+
+		<ul>
+			<li>
+				<b><a href="" "><font face=" Georgia" size="4">SKIntern: Internalizing Symbolic Knowledge for Distilling
+						Better CoT Capabilities into Small Language Models
+						</font>
+					</a></b>
+				&nbsp;&nbsp;
+				<br />
+				<font face="Georgia" font size=" 4">
+					<b class="myself">
+						<font size=" 4" face=" Georgia">Huanxuan Liao</font>
+					</b>
+					, Shizhu He, Yupu Hao, Yuanzhe Zhang, Kang Liu, Jun Zhao
+					&nbsp;&nbsp; <br>
+					<i><b>
+							<font face="Georgia" font size=" 4">Preprint</font>
+						</b></i>, 2024.
+				</font>
+				<br>
+				<!-- <div style="display: inline-block; margin-top:0.5%; width:50%">
+					<div class="bu" id="4" style="display: inline-block; margin-top:0%">
+						<font size="2"><i class="fa fa-info fa-2x" aria-hidden="true"></i></font>&nbsp;<img
+							alt="Static Badge" src="https://img.shields.io/badge/Bib-5cb85c" style="height: 1em;">
+					</div>
+					&nbsp;
+					<div class="au" id="4" style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+						<font size="5"><i class="fa fa-flag" aria-hidden="true"></i></font>&nbsp;<img alt="Static Badge"
+							src="https://img.shields.io/badge/Abstract-f9adad" style="height: 1em;">
+					</div>
+					&nbsp;
+					<div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+						<a href="https://arxiv.org/abs/2406.12382">
+							<font size="5"><i class="ai ai-arxiv ai-1x"></i></font>&nbsp;<img alt="Static Badge"
+								src="https://img.shields.io/badge/Arxiv-f0ad4e" style="height: 1em;">
+						</a>
+					</div>
+					&nbsp;
+					<div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+						<a class="tag" href="cites/TAGI.bib" target="_self">
+							<font size="2"><i class="fa fa-download fa-2x" aria-hidden="true"></i></font>&nbsp;<img
+								id="2" alt="Static Badge" src="https://img.shields.io/badge/Cite-edd7be"
+								style="height: 1em;">
+						</a>
+					</div>
+					&nbsp;
+					<div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+						<a href="https://github.com/Xnhyacinth/TAGI">
+							<font size="2"><i class="fa fa-github-alt  fa-2x" aria-hidden="true"></i></font>&nbsp;<img
+								alt="Static Badge" src="https://img.shields.io/badge/Code/data-d9534f"
+								style="height: 1em;">
+						</a>
+					</div>
+					&nbsp;
+					<div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+						<a href="https://xnhyacinth.github.io/TAGI">
+							<font size="2"><i class="fa fa-home fa-2x" aria-hidden="true"></i></font> <img id="2"
+								alt="Static Badge" src="https://img.shields.io/badge/Homepage-009fd0"
+								style="height: 1em;">
+						</a>
+					</div>
+				</div> -->
+
+				<textarea id="mybib7" autoHeight="true" name="textarea" disabled class="bib7" style="display:none">
+@article{liao2024instance,
+	title={From Instance Training to Instruction Learning: Task Adapters Generation from Instructions},
+	author={Liao, Huanxuan and Xu, Yao and He, Shizhu and Zhang, Yuanzhe and Hao, Yanchao and Liu, Shengping and Liu, Kang and Zhao, Jun},
+	journal={arXiv preprint arXiv:2406.12382},
+	year={2024}
+}</textarea>
+
+				<textarea id="myab7" autoHeight="true" name="textarea" disabled class="ab7" style="display:none">
+Large language models (LLMs) have acquired the ability to solve general tasks by utilizing instruction finetuning (IFT). However, IFT still relies heavily on instance training of extensive task data, which greatly limits the adaptability of LLMs to real-world scenarios where labeled task instances are scarce and broader task generalization becomes paramount. Contrary to LLMs, humans acquire skills and complete tasks not merely through repeated practice but also by understanding and following instructional guidelines. This paper is dedicated to simulating human learning to address the shortcomings of instance training, focusing on instruction learning to enhance cross-task generalization. Within this context, we introduce Task Adapters Generation from Instructions (TAGI), which automatically constructs the task-specific model in a parameter generation manner based on the given task instructions without retraining for unseen tasks. Specifically, we utilize knowledge distillation to enhance the consistency between TAGI developed through Learning with Instruction and task-specific models developed through Training with Instance, by aligning the labels, output logits, and adapter parameters between them. TAGI is endowed with cross-task generalization capabilities through a two-stage training process that includes hypernetwork pretraining and finetuning. We evaluate TAGI on the Super-Natural Instructions and P3 datasets. The experimental results demonstrate that TAGI can match or even outperform traditional meta-trained models and other hypernetwork models, while significantly reducing computational requirements.</textarea>
+
+			</li>
+			<br />
+			<li>
+				<b><a href="" "><font face=" Georgia" size="4">Neural-Symbolic
+						Collaborative Distillation: Advancing Small Language Models for Complex Reasoning Tasks
+						</font>
+					</a></b>
+				&nbsp;&nbsp;
+				<br />
+				<font face="Georgia" font size=" 4">
+					<b class="myself">
+						<font size=" 4" face=" Georgia">Huanxuan Liao</font>
+					</b>
+					, Shizhu He, Yao Xu, Yuanzhe Zhang, Kang Liu, Jun Zhao
+					&nbsp;&nbsp; <br>
+					<i><b>
+							<font face="Georgia" font size=" 4">Preprint</font>
+						</b></i>, 2024.
+				</font>
+				<br>
+				<!-- <div style="display: inline-block; margin-top:0.5%; width:50%">
+					<div class="bu" id="4" style="display: inline-block; margin-top:0%">
+						<font size="2"><i class="fa fa-info fa-2x" aria-hidden="true"></i></font>&nbsp;<img
+							alt="Static Badge" src="https://img.shields.io/badge/Bib-5cb85c" style="height: 1em;">
+					</div>
+					&nbsp;
+					<div class="au" id="4" style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+						<font size="5"><i class="fa fa-flag" aria-hidden="true"></i></font>&nbsp;<img alt="Static Badge"
+							src="https://img.shields.io/badge/Abstract-f9adad" style="height: 1em;">
+					</div>
+					&nbsp;
+					<div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+						<a href="https://arxiv.org/abs/2406.12382">
+							<font size="5"><i class="ai ai-arxiv ai-1x"></i></font>&nbsp;<img alt="Static Badge"
+								src="https://img.shields.io/badge/Arxiv-f0ad4e" style="height: 1em;">
+						</a>
+					</div>
+					&nbsp;
+					<div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+						<a class="tag" href="cites/TAGI.bib" target="_self">
+							<font size="2"><i class="fa fa-download fa-2x" aria-hidden="true"></i></font>&nbsp;<img
+								id="2" alt="Static Badge" src="https://img.shields.io/badge/Cite-edd7be"
+								style="height: 1em;">
+						</a>
+					</div>
+					&nbsp;
+					<div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+						<a href="https://github.com/Xnhyacinth/TAGI">
+							<font size="2"><i class="fa fa-github-alt  fa-2x" aria-hidden="true"></i></font>&nbsp;<img
+								alt="Static Badge" src="https://img.shields.io/badge/Code/data-d9534f"
+								style="height: 1em;">
+						</a>
+					</div>
+					&nbsp;
+					<div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+						<a href="https://xnhyacinth.github.io/TAGI">
+							<font size="2"><i class="fa fa-home fa-2x" aria-hidden="true"></i></font> <img id="2"
+								alt="Static Badge" src="https://img.shields.io/badge/Homepage-009fd0"
+								style="height: 1em;">
+						</a>
+					</div>
+				</div> -->
+
+				<textarea id="mybib6" autoHeight="true" name="textarea" disabled class="bib6" style="display:none">
+@article{liao2024instance,
+	title={From Instance Training to Instruction Learning: Task Adapters Generation from Instructions},
+	author={Liao, Huanxuan and Xu, Yao and He, Shizhu and Zhang, Yuanzhe and Hao, Yanchao and Liu, Shengping and Liu, Kang and Zhao, Jun},
+	journal={arXiv preprint arXiv:2406.12382},
+	year={2024}
+}</textarea>
+
+				<textarea id="myab6" autoHeight="true" name="textarea" disabled class="ab6" style="display:none">
+Large language models (LLMs) have acquired the ability to solve general tasks by utilizing instruction finetuning (IFT). However, IFT still relies heavily on instance training of extensive task data, which greatly limits the adaptability of LLMs to real-world scenarios where labeled task instances are scarce and broader task generalization becomes paramount. Contrary to LLMs, humans acquire skills and complete tasks not merely through repeated practice but also by understanding and following instructional guidelines. This paper is dedicated to simulating human learning to address the shortcomings of instance training, focusing on instruction learning to enhance cross-task generalization. Within this context, we introduce Task Adapters Generation from Instructions (TAGI), which automatically constructs the task-specific model in a parameter generation manner based on the given task instructions without retraining for unseen tasks. Specifically, we utilize knowledge distillation to enhance the consistency between TAGI developed through Learning with Instruction and task-specific models developed through Training with Instance, by aligning the labels, output logits, and adapter parameters between them. TAGI is endowed with cross-task generalization capabilities through a two-stage training process that includes hypernetwork pretraining and finetuning. We evaluate TAGI on the Super-Natural Instructions and P3 datasets. The experimental results demonstrate that TAGI can match or even outperform traditional meta-trained models and other hypernetwork models, while significantly reducing computational requirements.</textarea>
+
+			</li>
+			<br />
+			<li>
+				<b><a href="" "><font face=" Georgia" size="4">CITI: Enhancing Tool
+						Utilizing Ability in Large Language Models without Sacrificing General Performance</font>
+					</a></b>
+				&nbsp;&nbsp;
+				<br />
+				<font face="Georgia" font size=" 4">
+					Yupu Hao, Pengfei Cao, Zhuoran Jin,
+					<b class="myself">
+						<font size=" 4" face=" Georgia">Huanxuan Liao</font>
+					</b>
+					, Yubo Chen, Kang Liu, Jun Zhao
+					&nbsp;&nbsp; <br>
+					<i><b>
+							<font face="Georgia" font size=" 4">Preprint</font>
+						</b></i>, 2024.
+				</font>
+				<br>
+				<!-- <div style="display: inline-block; margin-top:0.5%; width:50%">
+					<div class="bu" id="4" style="display: inline-block; margin-top:0%">
+						<font size="2"><i class="fa fa-info fa-2x" aria-hidden="true"></i></font>&nbsp;<img
+							alt="Static Badge" src="https://img.shields.io/badge/Bib-5cb85c" style="height: 1em;">
+					</div>
+					&nbsp;
+					<div class="au" id="4" style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+						<font size="5"><i class="fa fa-flag" aria-hidden="true"></i></font>&nbsp;<img alt="Static Badge"
+							src="https://img.shields.io/badge/Abstract-f9adad" style="height: 1em;">
+					</div>
+					&nbsp;
+					<div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+						<a href="https://arxiv.org/abs/2406.12382">
+							<font size="5"><i class="ai ai-arxiv ai-1x"></i></font>&nbsp;<img alt="Static Badge"
+								src="https://img.shields.io/badge/Arxiv-f0ad4e" style="height: 1em;">
+						</a>
+					</div>
+					&nbsp;
+					<div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+						<a class="tag" href="cites/TAGI.bib" target="_self">
+							<font size="2"><i class="fa fa-download fa-2x" aria-hidden="true"></i></font>&nbsp;<img
+								id="2" alt="Static Badge" src="https://img.shields.io/badge/Cite-edd7be"
+								style="height: 1em;">
+						</a>
+					</div>
+					&nbsp;
+					<div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+						<a href="https://github.com/Xnhyacinth/TAGI">
+							<font size="2"><i class="fa fa-github-alt  fa-2x" aria-hidden="true"></i></font>&nbsp;<img
+								alt="Static Badge" src="https://img.shields.io/badge/Code/data-d9534f"
+								style="height: 1em;">
+						</a>
+					</div>
+					&nbsp;
+					<div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+						<a href="https://xnhyacinth.github.io/TAGI">
+							<font size="2"><i class="fa fa-home fa-2x" aria-hidden="true"></i></font> <img id="2"
+								alt="Static Badge" src="https://img.shields.io/badge/Homepage-009fd0"
+								style="height: 1em;">
+						</a>
+					</div>
+				</div> -->
+
+				<textarea id="mybib5" autoHeight="true" name="textarea" disabled class="bib5" style="display:none">
+@article{liao2024instance,
+	title={From Instance Training to Instruction Learning: Task Adapters Generation from Instructions},
+	author={Liao, Huanxuan and Xu, Yao and He, Shizhu and Zhang, Yuanzhe and Hao, Yanchao and Liu, Shengping and Liu, Kang and Zhao, Jun},
+	journal={arXiv preprint arXiv:2406.12382},
+	year={2024}
+}</textarea>
+
+				<textarea id="myab5" autoHeight="true" name="textarea" disabled class="ab5" style="display:none">
+Large language models (LLMs) have acquired the ability to solve general tasks by utilizing instruction finetuning (IFT). However, IFT still relies heavily on instance training of extensive task data, which greatly limits the adaptability of LLMs to real-world scenarios where labeled task instances are scarce and broader task generalization becomes paramount. Contrary to LLMs, humans acquire skills and complete tasks not merely through repeated practice but also by understanding and following instructional guidelines. This paper is dedicated to simulating human learning to address the shortcomings of instance training, focusing on instruction learning to enhance cross-task generalization. Within this context, we introduce Task Adapters Generation from Instructions (TAGI), which automatically constructs the task-specific model in a parameter generation manner based on the given task instructions without retraining for unseen tasks. Specifically, we utilize knowledge distillation to enhance the consistency between TAGI developed through Learning with Instruction and task-specific models developed through Training with Instance, by aligning the labels, output logits, and adapter parameters between them. TAGI is endowed with cross-task generalization capabilities through a two-stage training process that includes hypernetwork pretraining and finetuning. We evaluate TAGI on the Super-Natural Instructions and P3 datasets. The experimental results demonstrate that TAGI can match or even outperform traditional meta-trained models and other hypernetwork models, while significantly reducing computational requirements.</textarea>
+
+			</li>
+			<br />
+			<li>
+				<b><a href="https://arxiv.org/pdf/2406.12382" "><font face=" Georgia" size="4">From Instance
+						Training to
+						Instruction Learning: Task Adapters Generation from Instructions</font></a></b>
+				&nbsp;&nbsp;
+				<br />
+				<font face="Georgia" font size=" 4">
+					<b class="myself">
+						<font size=" 4" face=" Georgia">Huanxuan Liao</font>
+					</b>
+					, Shizhu He, Yao Xu, Yuanzhe Zhang, Yanchao Hao, Shengping Liu, Kang Liu, Jun Zhao
+					&nbsp;&nbsp; <br>
+					<i><b>
+							<font face="Georgia" font size=" 4">Preprint</font>
+						</b></i>, 2024.
+				</font>
+				<br>
+				<div style="display: inline-block; margin-top:0.5%; width:50%">
+					<div class="bu" id="4" style="display: inline-block; margin-top:0%">
+						<font size="2"><i class="fa fa-info fa-2x" aria-hidden="true"></i></font>&nbsp;<img
+							alt="Static Badge" src="https://img.shields.io/badge/Bib-5cb85c" style="height: 1em;">
+					</div>
+					&nbsp;
+					<div class="au" id="4" style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+						<font size="5"><i class="fa fa-flag" aria-hidden="true"></i></font>&nbsp;<img alt="Static Badge"
+							src="https://img.shields.io/badge/Abstract-f9adad" style="height: 1em;">
+					</div>
+					&nbsp;
+					<div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+						<a href="https://arxiv.org/abs/2406.12382">
+							<font size="5"><i class="ai ai-arxiv ai-1x"></i></font>&nbsp;<img alt="Static Badge"
+								src="https://img.shields.io/badge/Arxiv-f0ad4e" style="height: 1em;">
+						</a>
+					</div>
+					&nbsp;
+					<div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+						<a class="tag" href="cites/TAGI.bib" target="_self">
+							<font size="2"><i class="fa fa-download fa-2x" aria-hidden="true"></i></font>&nbsp;<img
+								id="2" alt="Static Badge" src="https://img.shields.io/badge/Cite-edd7be"
+								style="height: 1em;">
+						</a>
+					</div>
+					&nbsp;
+					<div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+						<a href="https://github.com/Xnhyacinth/TAGI">
+							<font size="2"><i class="fa fa-github-alt  fa-2x" aria-hidden="true"></i></font>
+							&nbsp;<img alt="Static Badge" src="https://img.shields.io/badge/Code/data-d9534f"
+								style="height: 1em;">
+						</a>
+					</div>
+					&nbsp;
+					<div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+						<a href="https://xnhyacinth.github.io/TAGI">
+							<font size="2"><i class="fa fa-home fa-2x" aria-hidden="true"></i></font> <img id="2"
+								alt="Static Badge" src="https://img.shields.io/badge/Homepage-009fd0"
+								style="height: 1em;">
+						</a>
+					</div>
+				</div>
+
+				<textarea id="mybib4" autoHeight="true" name="textarea" disabled class="bib4" style="display:none">
+@article{liao2024instance,
+	title={From Instance Training to Instruction Learning: Task Adapters Generation from Instructions},
+	author={Liao, Huanxuan and Xu, Yao and He, Shizhu and Zhang, Yuanzhe and Hao, Yanchao and Liu, Shengping and Liu, Kang and Zhao, Jun},
+	journal={arXiv preprint arXiv:2406.12382},
+	year={2024}
+}</textarea>
+
+				<textarea id="myab4" autoHeight="true" name="textarea" disabled class="ab4" style="display:none">
+Large language models (LLMs) have acquired the ability to solve general tasks by utilizing instruction finetuning (IFT). However, IFT still relies heavily on instance training of extensive task data, which greatly limits the adaptability of LLMs to real-world scenarios where labeled task instances are scarce and broader task generalization becomes paramount. Contrary to LLMs, humans acquire skills and complete tasks not merely through repeated practice but also by understanding and following instructional guidelines. This paper is dedicated to simulating human learning to address the shortcomings of instance training, focusing on instruction learning to enhance cross-task generalization. Within this context, we introduce Task Adapters Generation from Instructions (TAGI), which automatically constructs the task-specific model in a parameter generation manner based on the given task instructions without retraining for unseen tasks. Specifically, we utilize knowledge distillation to enhance the consistency between TAGI developed through Learning with Instruction and task-specific models developed through Training with Instance, by aligning the labels, output logits, and adapter parameters between them. TAGI is endowed with cross-task generalization capabilities through a two-stage training process that includes hypernetwork pretraining and finetuning. We evaluate TAGI on the Super-Natural Instructions and P3 datasets. The experimental results demonstrate that TAGI can match or even outperform traditional meta-trained models and other hypernetwork models, while significantly reducing computational requirements.</textarea>
+
+			</li>
+			<br />
+			<li>
+				<b><a href="https://arxiv.org/pdf/2403.15268.pdf" "><font face=" Georgia" size="4">Imagination
+						Augmented
+						Generation: Learning to Imagine Richer Context
+						for Question Answering over Large Language Models</font></a></b>
+				&nbsp;&nbsp;
+				<br />
+				<font face="Georgia" font size=" 4">
+					<b class="myself">
+						<font size=" 4" face=" Georgia">Huanxuan Liao</font>
+					</b>
+					, Shizhu He, Yao Xu, Yuanzhe Zhang, Kang Liu, Shengping Liu, Jun
+					Zhao
+					&nbsp;&nbsp; <br>
+					<i><b>
+							<font face="Georgia" font size=" 4">Preprint</font>
+						</b></i>, 2024.
+				</font>
+				<br>
+				<div style="display: inline-block; margin-top:0.5%; width:50%">
+					<div class="bu" id="3" style="display: inline-block; margin-top:0%">
+						<font size="2"><i class="fa fa-info fa-2x" aria-hidden="true"></i></font>&nbsp;<img
+							alt="Static Badge" src="https://img.shields.io/badge/Bib-5cb85c" style="height: 1em;">
+					</div>
+					&nbsp;
+					<div class="au" id="3" style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+						<font size="5"><i class="fa fa-flag" aria-hidden="true"></i></font>&nbsp;<img alt="Static Badge"
+							src="https://img.shields.io/badge/Abstract-f9adad" style="height: 1em;">
+					</div>
+					&nbsp;
+					<div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+						<a href="https://arxiv.org/abs/2403.15268">
+							<font size="5"><i class="ai ai-arxiv ai-1x"></i></font>&nbsp;<img alt="Static Badge"
+								src="https://img.shields.io/badge/Arxiv-f0ad4e" style="height: 1em;">
+						</a>
+					</div>
+					&nbsp;
+					<div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+						<a class="tag" href="cites/IAG.bib" target="_self">
+							<font size="2"><i class="fa fa-download fa-2x" aria-hidden="true"></i></font>&nbsp;<img
+								id="2" alt="Static Badge" src="https://img.shields.io/badge/Cite-edd7be"
+								style="height: 1em;">
+						</a>
+					</div>
+					&nbsp;
+					<div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+						<a href="https://github.com/Xnhyacinth/IAG">
+							<font size="2"><i class="fa fa-github-alt  fa-2x" aria-hidden="true"></i></font>
+							&nbsp;<img alt="Static Badge" src="https://img.shields.io/badge/Code/data-d9534f"
+								style="height: 1em;">
+						</a>
+					</div>
+					&nbsp;
+					<div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+						<a href="https://xnhyacinth.github.io/IAG">
+							<font size="2"><i class="fa fa-home fa-2x" aria-hidden="true"></i></font> <img id="2"
+								alt="Static Badge" src="https://img.shields.io/badge/Homepage-009fd0"
+								style="height: 1em;">
+						</a>
+					</div>
+				</div>
+
+				<textarea id="mybib3" autoHeight="true" name="textarea" disabled class="bib3" style="display:none">
+@article{liao2024imagination,
+	title={Imagination Augmented Generation: Learning to Imagine Richer Context for Question Answering over Large Language Models},
+	author={Liao, Huanxuan and He, Shizhu and Xu, Yao and Zhang, Yuanzhe and Liu, Kang and Liu, Shengping and Zhao, Jun},
+	journal={arXiv preprint arXiv:2403.15268},
+	year={2024}
+}</textarea>
+
+				<textarea id="myab3" autoHeight="true" name="textarea" disabled class="ab3" style="display:none">
+Retrieval-Augmented-Generation and Gener-ation-Augmented-Generation have been proposed to enhance the knowledge required for question answering over Large Language Models (LLMs). However, the former relies on external resources, and both require incorporating explicit documents into the context, which increases execution costs and susceptibility to noise data. Recent works indicate that LLMs have modeled rich knowledge, albeit not effectively triggered or awakened. Inspired by this, we propose a novel knowledge-augmented framework, Imagination-Augmented-Generation (IAG), which simulates the human capacity to compensate for knowledge deficits while answering questions solely through imagination, thereby awakening relevant knowledge in LLMs without relying on external resources. Guided by IAG, we propose an imagine richer context method for question answering (IMcQA). IMcQA consists of two modules: explicit imagination, which generates a short dummy document by learning from long context compression, and implicit imagination, which creates flexible adapters by distilling from a teacher model with a long context. Experimental results on three datasets demonstrate that IMcQA exhibits significant advantages in both open-domain and closed-book settings, as well as in out-of-distribution generalization.</textarea>
+			</li>
+			<!-- <br /> -->
+		</ul>
+
+		<font size="5"><b>2023</b></font>
+
+		<ul>
+			<li>
+				<b><a href="https://arxiv.org/pdf/2308.10252.pdf" "><font face=" Georgia" size="4">LMTuner: An
+						user-friendly and
+						highly-integrable Training Framework for fine-tuning
+						Large Language Models</font></a></b>
+				<font size=" 4" face="Georgia">
+					&nbsp;&nbsp;
+					<br />
+					<font face="Georgia">Yixuan Weng, Zhiqi Wang, </font><b class="myself">
+						<font face="Georgia">Huanxuan Liao</font>
+					</b>
+					, Shizhu He, Shengping Liu, Kang Liu, Jun Zhao
+					&nbsp;&nbsp; <br> <i><b>
+							<font size=" 4" face="Georgia">Preprint</font>
+						</b></i>, 2023.
+				</font>
+				<br>
+				<div style="display: inline-block; margin-top:0.5%; width:50%">
+					<div class="bu" id="2" style="display: inline-block; margin-top:0%">
+						<font size="2"><i class="fa fa-info fa-2x" aria-hidden="true"></i></font>&nbsp;<img
+							alt="Static Badge" src="https://img.shields.io/badge/Bib-5cb85c" style="height: 1em;">
+					</div>
+					&nbsp;
+					<div class="au" id="2" style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+						<font size="5"><i class="fa fa-flag" aria-hidden="true"></i></font>&nbsp;<img alt="Static Badge"
+							src="https://img.shields.io/badge/Abstract-f9adad" style="height: 1em;">
+					</div>
+					&nbsp;
+					<div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+						<a href="https://arxiv.org/abs/2308.10252">
+							<font size="5"><i class="ai ai-arxiv ai-1x"></i></font>&nbsp;<img alt="Static Badge"
+								src="https://img.shields.io/badge/Arxiv-f0ad4e" style="height: 1em;">
+						</a>
+					</div>
+					&nbsp;
+					<div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+						<a class="tag" href="cites/LMTuner.bib" target="_self">
+							<font size="2"><i class="fa fa-download fa-2x" aria-hidden="true"></i></font>&nbsp;<img
+								id="2" alt="Static Badge" src="https://img.shields.io/badge/Cite-edd7be"
+								style="height: 1em;">
+						</a>
+					</div>
+					&nbsp;
+					<div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+						<a href="https://github.com/WENGSYX/LMTuner">
+							<font size="2"><i class="fa fa-github-alt fa-2x" aria-hidden="true"></i></font>
+							&nbsp;<img alt="Static Badge" src="https://img.shields.io/badge/Code/data-d9534f"
+								style="height: 1em;">
+						</a>
+					</div>
+					&nbsp;
+					<div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+						<a href="https://wengsyx.github.io/LMTuner/">
+							<font size="2"><i class="fa fa-home fa-2x" aria-hidden="true"></i></font> <img id="2"
+								alt="Static Badge" src="https://img.shields.io/badge/Homepage-009fd0"
+								style="height: 1em;">
+						</a>
+					</div>
+				</div>
+
+				<textarea id="mybib2" autoHeight="true" name="textarea" disabled class="bib2" style="display:none">
+@article{weng2023lmtuner,
+	title={LMTuner: An user-friendly and highly-integrable Training Framework for fine-tuning Large Language Models},
+	author={Weng, Yixuan and Wang, Zhiqi and Liao, Huanxuan and He, Shizhu and Liu, Shengping and Liu, Kang and Zhao, Jun},
+	journal={arXiv preprint arXiv:2308.10252},
+	year={2023}
+}</textarea>
+
+				<textarea id="myab2" autoHeight="true" name="textarea" disabled class="ab2" style="display:none">
+With the burgeoning development in the realm of large language models (LLMs), the demand for efficient incremental training tailored to specific industries and domains continues to increase. Currently, the predominantly employed frameworks lack modular design, it often takes a lot of coding work to kickstart the training of LLM. To address this, we present "LMTuner", a highly usable, integrable, and scalable system for training LLMs expeditiously and with minimal user-input. LMTuner comprises three main modules - the Interaction, Training, and Inference Modules. We advocate that LMTuner's usability and integrality alleviate the complexities in training large language models. Remarkably, even a novice user could commence training large language models within five minutes. Furthermore, it integrates DeepSpeed frameworks and supports Efficient Fine-Tuning methodologies like Low Rank Adaptation (LoRA), Quantized LoRA (QLoRA), etc., enabling the training of language models scaling from 300M to a whopping 130B parameters using a single server. The LMTuner's homepage (this https URL screencast video (this https URL) are now publicly available.</textarea>
+				<!-- <div id="textarea" contenteditable="true" data-text="输入内容...">
+
+				</div> -->
+				<!-- <div class="ab2" style="display:none; width: 48em; border:1px solid #e8dada">
+					<pre>
+  With the burgeoning development in the realm of large language models (LLMs), the demand for efficient incremental training tailored to
+  specific industries and domains continues to increase. Currently, the predominantly employed frameworks lack modular design, it often 
+  takes a lot of coding work to kickstart the training of LLM. To address this, we present "LMTuner", a highly usable, integrable, and scal-
+  able system for training LLMs expeditiously and with minimal user-input. LMTuner comprises three main modules - the Interaction, Train-
+  ing, and Inference Modules. We advocate that LMTuner’s usability and integrality alleviate the complexities in training large language 
+  models. Remarkably, even a novice user could commence raining large language models within five minutes. Furthermore, it integrates
+  DeepSpeed frameworks and supports Efficient Fine-Tuning methodologies like Low Rank Adaptation (LoRA),Quantized LoRA (QLoRA), etc., 
+  enabling the training of language models scaling from 300M to a whopping 130B parameters using a single server.
+		</pre>
+				</div> -->
+			</li>
+			<br />
+			<li>
+				<b><a href="https://link.springer.com/chapter/10.1007/978-981-99-7224-1_1">
+						<font face="Georgia" size="4">Dynamic Weighted
+							Neural Bellman-Ford Network for Knowledge Graph Reasoning</font>
+					</a></b>
+				<font size=" 4" face="Georgia">
+					&nbsp;&nbsp; <br />
+					<b class="myself">
+						<font face="Georgia">Huanxuan Liao</font>
+					</b>
+					, Shizhu He, Yao Xu, Kang Liu, Jun Zhao
+					&nbsp;&nbsp; <br> Accepted to <b>
+						<i>
+							<font face="Georgia">the 8th China Conference on Knowledge Graph and Semantic
+								Computing</font>
+						</i>
+						<font face="Georgia">(CCKS)</font>
+					</b>, 2023.
+				</font>
+				<br>
+				<div style="display: inline-block; margin-top:0.5%; width:50%">
+					<div class="bu" id="1" style="display: inline-block; margin-top:0%">
+						<font size="5"><i class="fa fa-info" aria-hidden="true"></i></font>&nbsp;<img alt="Static Badge"
+							src="https://img.shields.io/badge/Bib-5cb85c" style="height:  1em;">
+					</div>
+					&nbsp;
+					<div class="au" id="1" style="display: inline-block; margin-top:0%; margin-left: -1.1%;"
+						onclick="autoResize('my-textarea1')">
+						<font size="5"><i class="fa fa-flag" aria-hidden="true"></i></font>&nbsp;<img alt="Static Badge"
+							src="https://img.shields.io/badge/Abstract-f9adad" style="height:  1em;">
+					</div>
+					&nbsp;
+					<div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+						<a class="tag" href="cites/DyNBF.bib" target="_self">
+							<font size="2"><i class="fa fa-download fa-2x" aria-hidden="true"></i></font>&nbsp;<img
+								id="2" alt="Static Badge" src="https://img.shields.io/badge/Cite-edd7be"
+								style="height: 1em;">
+						</a>
+					</div>
+				</div>
+				<!-- <a href=""><img alt="Static Badge" src="https://img.shields.io/badge/Arxiv-428BCA"
+						style="width: 50px;"></a> -->
+				<!-- <div class="bib1" style="display:none; width: 48em; border:1px solid #e8dada">
+					<pre>
+  @InProceedings{10.1007/978-981-99-7224-1_1,
+	author="Liao, Huanxuan
+	and He, Shizhu
+	and Xu, Yao
+	and Liu, Kang
+	and Zhao, Jun",
+	editor="Wang, Haofen
+	and Han, Xianpei
+	and Liu, Ming
+	and Cheng, Gong
+	and Liu, Yongbin
+	and Zhang, Ningyu",
+	title="Dynamic Weighted Neural Bellman-Ford Network for Knowledge Graph Reasoning",
+	booktitle="Knowledge Graph and Semantic Computing: Knowledge Graph Empowers Artificial General Intelligence",
+	year="2023",
+	publisher="Springer Nature Singapore",
+	address="Singapore",
+	pages="3--16",
+	isbn="978-981-99-7224-1"
+  }												
+					</pre>
+				</div> -->
+
+				<textarea id="mybib1" autoHeight="true" name="textarea" disabled class="bib1" style="display:none">
+@InProceedings{10.1007/978-981-99-7224-1_1,
+	author="Liao, Huanxuan and He, Shizhu and Xu, Yao and Liu, Kang and Zhao, Jun",
+	editor="Wang, Haofen and Han, Xianpei and Liu, Ming and Cheng, Gong and Liu, Yongbin and Zhang, Ningyu",
+	title="Dynamic Weighted Neural Bellman-Ford Network for Knowledge Graph Reasoning",
+	booktitle="Knowledge Graph and Semantic Computing: Knowledge Graph Empowers Artificial General Intelligence",
+	year="2023",
+	publisher="Springer Nature Singapore",
+	address="Singapore",
+	pages="3--16",
+	isbn="978-981-99-7224-1"
+}</textarea>
+
+				<textarea id="myab1" class="ab1" style="display:none;" autoHeight="true" disabled>
+Recent studies have shown that subgraphs of the head entity, such as related relations and neighborhoods, are helpful for Knowledge Graph Reasoning (KGR). However, prior studies tend to focus solely on enhancing entity representations using related relations, with little attention paid to the impact of different relations on different entities and their importance in various reasoning paths. Meanwhile, conventional Graph Neural Networks (GNNs) utilized for KGR consider simultaneously neighboring nodes and connected relations of the head entity but typically use a standard message-passing paradigm over the entire Knowledge Graph (KG). This results in over-smoothed representations and limits efficiency. To address the above-mentioned limitations of existing methods, we propose a Dynamic Weighted Neural Bellman-Ford Network (DyNBF) for KGR, which utilizes relation weights generated from subgraphs to compute only the most relevant relations and entities. This way, we can integrate multiple reasoning paths more flexibly to achieve better interpretable reasoning, while scaling more easily to more complex and larger KGs. DyNBF consists of two key modules: 1) a transformer-based relation weights generator module, which computes the weights of different relations on the path with a sequence-to-sequence model, and 2) an NBFNet-based logic reasoner module, which obtains entity representations and conducts fact prediction with dynamic weights from the previous module. Empirical results on three standard KGR datasets demonstrate that the proposed approach can generate explainable reasoning paths and obtain competitive performance.</textarea>
+				<!-- <div id="textarea_div" class="ab1" contenteditable="true" data-text="输入内容..." style="display:none;">
+					Recent studies have shown that subgraphs of the head entity, such as related relations and neighborhoods, are helpful for Knowledge Graph Reasoning (KGR). However, prior studies tend to focus solely on enhancing entity representations using related relations, with little attention paid to the impact of different relations on different entities and their importance in various reasoning paths. Meanwhile, conventional Graph Neural Networks (GNNs) utilized for KGR consider simultaneously neighboring nodes and connected relations of the head entity but typically use a standard message-passing paradigm over the entire Knowledge Graph (KG). This results in over-smoothed representations and limits efficiency. To address the above-mentioned limitations of existing methods, we propose a Dynamic Weighted Neural Bellman-Ford Network (DyNBF) for KGR, which utilizes relation weights generated from subgraphs to compute only the most relevant relations and entities. This way, we can integrate multiple reasoning paths more flexibly to achieve better interpretable reasoning, while scaling more easily to more complex and larger KGs. DyNBF consists of two key modules: 1) a transformer-based relation weights generator module, which computes the weights of different relations on the path with a sequence-to-sequence model, and 2) an NBFNet-based logic reasoner module, which obtains entity representations and conducts fact prediction with dynamic weights from the previous module. Empirical results on three standard KGR datasets demonstrate that the proposed approach can generate explainable reasoning paths and obtain competitive performance.
+				</div> -->
+				<!-- <div class="ab1" style="display:none; width: 48em; border:1px solid #e8dada">
+					<pre>
+  Recent studies have shown that subgraphs of the head entity, such as related relations and neighborhoods, are helpful for Knowledge Graph
+  Reasoning (KGR). However, prior studies tend to focus solelyon enhancing entity representations using related relations, with little attention 
+  paid to the impact of different relations on different entities and their importance in various reasoning paths. Meanwhile, conventional Graph
+  Neural Networks (GNNs) utilized for KGR consider simultaneously neighboring nodes and connected relations of the head entity but typically 
+  use a standard message-passing paradigm over the entire Knowledge Graph (KG). This results in oversmoothed representations and limits 
+  efficiency. To address the above-mentioned limitations of existing methods, we propose a Dynamic Weighted Neural Bellman-Ford Network 
+  (DyNBF) for KGR, which utilizes relation weights generated from subgraphs to compute only the most relevant relations and entities. This 
+  way, we can integrate multiple reasoning paths more flexibly to achieve better interpretable reasoning, while scaling more easily to more
+  complex and larger KGs. DyNBF consists of two key modules: 1) a transformer-based relation weights generator module, which computes
+  the weights of different relations on the path with a sequence-to-sequence model, and 2) an NBFNet-based logic reasoner module, which 
+  obtains entity representations and conducts fact prediction with dynamic weights from the previous module. Empirical results on three stand-
+  ard KGR datasets demonstratethat the proposed approach can generate explainable reasoning paths and obtain competitive performance.
+			</pre>
+				</div> -->
+			</li>
+		</ul>
+	</div>
+	<br />
+
+	<div style="margin-top: -1em;">
+		<h2>
+			<b>
+				<font face="Roboto" size=6 id="awards">Awards</font>
+			</b>
+		</h2>
+		<!-- <hr /> -->
+		<div class="divide"></div>
+		<br />
+		<font size="5"><b>Scholarship & Awards</b></font>
+
+		<ul>
+			<li>
+				<font face=" Georgia" size="4"><b>Beijing Outstanding Graduate Awards</b> (<font face="宋体">北京市优秀毕业生
+					</font>
+					), Beijing Ministry of Education, 2023.
+					<br>
+					<i>Top graduate in Beijing.</i>
+				</font>
+			</li>
+			<br>
+			<li>
+				<font face=" Georgia" size="4"><b>National Scholarship</b> (<font face="宋体">国家奖学金</font>), Ministry
+					of Education, 2022.
+					<br>
+					<i>Top scholarship in China; 0.2% domestically.</i>
+				</font>
+			</li>
+			<br>
+			<li>
+				<font face=" Georgia" size="4"><b>National Scholarship</b> (<font face="宋体">国家奖学金</font>), Ministry
+					of Education, 2021.
+					<br>
+					<i>Top scholarship in China; 0.2% domestically.</i>
+				</font>
+			</li>
+			<br>
+			<li>
+				<font face=" Georgia" size="4"><b>SiFang Society Scholarship</b> (<font face="宋体">四方社会奖学金</font>), North
+					China Electric Power University, 2020.
+					<br>
+					<i>Top society scholarship in NCEPU.</i>
+				</font>
+			</li>
+		</ul>
+	</div>
+	<!-- <br /> -->
+	<font size="5"><b>Competition</b></font>
+
+	<ul>
+		<li>
+			<font face=" Georgia" size="4"><b>National Third Prize</b> in Information Security Competition, 2022.
+			</font>
+		</li>
+		<br>
+		<li>
+			<font face=" Georgia" size="4"><b>National Excellence</b> in College Student Innovation and Entrepreneurship
+				Project, 2021.
+			</font>
+		</li>
+		<br>
+		<li>
+			<font face=" Georgia" size="4"><b>Beijing Third Prize</b> in Internet +, 2021.
+			</font>
+		</li>
+	</ul>
+	</div>
+	<br />
 	<!-- 🔥 📒📝📖💻 📚 -->
 	<!-- &nbsp;&nbsp;&nbsp;&nbsp; -->
 	<!-- <h2><font face="Arial" size=+3.5>Website visit statistics</font></h2>
@@ -745,7 +1414,8 @@
 				<font face="Roboto" size=+2.5>💻 Professional Services</font>
 			</b>
 		</h2>
-		<hr />
+		<!-- <hr /> -->
+		<div class="divide"></div>
 		<ul>
 			<li><b>
 					<font size="4.5" face="Georgia">Conference Reviewing
@@ -756,8 +1426,11 @@
 
 	<br />
 	<div id="copyright" align="right">
+		<br />
+		<br />
 		<p>Copyright&copy; 2024 Huanxuan Liao(<font face="宋体">廖桓萱</font>).</p>
 	</div>
+	<br />
 
 </body>
 
