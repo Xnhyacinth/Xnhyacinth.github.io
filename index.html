@@ -115,6 +115,7 @@
 			--color-link: #1565c0;
 			--color-border: #f2d3d3;
 			--color-b: #292727;
+			--color-div: #d0d0d0;
 		}
 
 		/* 黑暗模式下颜色 */
@@ -126,6 +127,7 @@
 			--color-link: #a2bfd9;
 			--color-border: #0b46dc;
 			--color-b: #e9adad;
+			--color-div: #4b4b4b;
 		}
 
 		:root * {
@@ -309,12 +311,13 @@
 		}
 
 		.divider {
-			border-top: 1px solid #4b4b4b;
-			margin: 10px 0 -5px -45%;
+			border-top: 1px solid var(--color-div);
+			margin: 10px 0 0px 0;
+			width: 100%;
 		}
 
 		.divide {
-			border-top: 1px solid #4b4b4b;
+			border-top: 1px solid var(--color-div);
 			margin: 10px 0 -5px 0;
 		}
 
@@ -329,6 +332,7 @@
 				--color-link: #a2bfd9;
 				--color-border: #f2d3d3;
 				--color-b: #e9adad;
+				--color-div: #4b4b4b;
 				;
 			}
 
@@ -341,6 +345,7 @@
 				--color-link: #1573df;
 				--color-border: #0b46dc;
 				--color-b: #292727;
+				--color-div: #d0d0d0;
 			}
 		}
 	</style>
@@ -492,7 +497,7 @@
 		<font size="5"><a href="https://xnhyacinth.github.io/CV.pdf" target="_self">CV (PDF)</a></font>
 	</nav>
 	<!-- <hr /> -->
-	<div class="divider" style="width: 190%;"></div>
+	<div class="divider"></div>
 	<table align="center">
 		<!-- <tr> -->
 		<td align="center"><a href="assets/img/profile.jpg" target="_self"><img border=0 style="border-radius:15em;"
