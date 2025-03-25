@@ -829,13 +829,21 @@
 
 		<ul>
 			<li>
-				<b><a href="https://github.com/LCLM-Horizon/A-Comprehensive-Survey-For-Long-Context-Language-Modeling/blob/main/assets/lclm-survey.pdf" class="paper">
+				<b><a href="https://arxiv.org/pdf/2503.17407"
+						class="paper">
 						<font face=" Georgia" size="4">A Comprehensive Survey on Long Context Language Modeling</font>
 					</a></b>
 				<font size=" 4" face="Georgia">
 					&nbsp;&nbsp;
 					<br />
-					LCLM-Horizon
+					LCLM-Horizon: Jiaheng Liu, Dawei Zhu, Zhiqi Bai, Yancheng He,
+					<b class="myself">
+						<font size=" 4" face=" Georgia">Huanxuan Liao</font>
+					</b>
+					, Haoran Que, Zekun Wang, Chenchen Zhang, Ge Zhang, Jiebin Zhang, Yuanxing Zhang, Zhuo Chen, Hangyu
+					Guo, Shilong Li, Ziqiang Liu, Yong Shan, Yifan Song, Jiayi Tian, Wenhao Wu, Zhejian Zhou, Ruijie
+					Zhu, Junlan Feng, Yang Gao, Shizhu He, Zhoujun Li, Tianyu Liu, Fanyu Meng, Wenbo Su, Yingshui Tan,
+					Zili Wang, Jian Yang, Wei Ye, Bo Zheng, Wangchunshu Zhou, Wenhao Huang, Sujian Li, Zhaoxiang Zhang
 					<!-- <b class="myself">
 						<font size=" 4" face=" Georgia">Huanxuan Liao</font>
 					</b>
@@ -857,7 +865,8 @@
 					</div>
 					&nbsp;
 					<div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
-						<a href="https://github.com/LCLM-Horizon/A-Comprehensive-Survey-For-Long-Context-Language-Modeling/blob/main/assets/lclm-survey.pdf">
+						<a
+							href="https://arxiv.org/abs/2503.17407">
 							<font size="5"><i class="ai ai-arxiv ai-1x"></i></font>&nbsp;<img alt="Static Badge"
 								src="https://img.shields.io/badge/Arxiv-f0ad4e" style="height: 1em;">
 						</a>
@@ -872,7 +881,8 @@
 					</div>
 					&nbsp;
 					<div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
-						<a href="https://github.com/LCLM-Horizon/A-Comprehensive-Survey-For-Long-Context-Language-Modeling">
+						<a
+							href="https://github.com/LCLM-Horizon/A-Comprehensive-Survey-For-Long-Context-Language-Modeling">
 							<font size="2"><i class="fa fa-github-alt fa-2x" aria-hidden="true"></i></font>
 							&nbsp;<img alt="Static Badge" src="https://img.shields.io/badge/Code/data-d9534f"
 								style="height: 1em;">
@@ -888,31 +898,16 @@
 				</div> -->
 				</div>
 
-				<!-- <textarea id="mybib12" autoHeight="true" name="textarea" disabled class="bib9" style="display:none">
-@article{liao2025data,
-title={DATA: Decomposed Attention-based Task Adaptation for Rehearsal-Free Continual Learning},
-author={Liao, Huanxuan and He, Shizhu and Hao, Yupu and Zhao, Jun and Liu, Kang},
-journal={arXiv preprint arXiv:2502.11482},
-year={2025}
+				<textarea id="mybib12" autoHeight="true" name="textarea" disabled class="bib12" style="display:none">
+@article{liu2025a,
+	title={A Comprehensive Survey on Long Context Language Modeling},
+	author={Liu, Jiaheng and Zhu, Dawei and Bai, Zhiqi and He, Yancheng and Liao, Huanxuan and Que, Haoran and Wang, Zekun and Zhang, Chenchen and Zhang, Ge and Zhang, Jiebin and Zhang, Yuanxing and Chen, Zhuo and Guo, Hangyu and Li, Shilong and Liu, Ziqiang and Shan, Yong and Song, Yifan and Tian, Jiayi and Wu, Wenhao and Zhou, Zhejian and Zhu, Ruijie and Feng, Junlan and Gao, Yang and He, Shizhu and Li, Zhoujun and Liu, Tianyu and Meng, Fanyu and Su, Wenbo and Tan, Yingshui and Wang, Zili and Yang, Jian and Ye, Wei and Zheng, Bo and Zhou, Wangchunshu and Huang, Wenhao and Li, Sujian and Zhang, Zhaoxiang},
+	journal={arXiv preprint arXiv:2503.17407},
+	year={2025}
 }</textarea>
 
-				<textarea id="myab12" autoHeight="true" name="textarea" disabled class="ab9" style="display:none">
-Continual learning (CL) is essential for Large Language Models (LLMs) to adapt to evolving real-world demands, yet they are susceptible to catastrophic forgetting (CF). While traditional CF solutions rely on expensive data rehearsal, recent rehearsal-free methods employ model-based and regularization-based strategies to address this issue. However, these approaches often neglect the model's plasticity, which is crucial to achieving optimal performance on newly learned tasks. Consequently, a key challenge in CL is striking a balance between preserving plasticity and mitigating CF. To tackle this challenge, we propose the Decomposed Attention-based Task Adaptation (DATA), which explicitly decouples and learns both task-specific and task-shared knowledge using high-rank and low-rank task adapters (e.g., LoRAs). For new tasks, DATA dynamically adjusts the weights of adapters of different ranks based on their relevance and distinction from previous tasks, allowing the model to acquire new task-specific skills while effectively retaining previously learned knowledge. Specifically, we implement a decomposed component weighting strategy comprising learnable components that collectively generate attention-based weights, allowing the model to integrate and utilize diverse knowledge from each DATA. Extensive experiments on three widely used benchmarks demonstrate that our proposed method achieves state-of-the-art performance. Notably, our approach significantly enhances model plasticity and mitigates CF by extending learnable components and employing stochastic restoration during training iterations.</textarea> -->
-				<!-- <div id="textarea" contenteditable="true" data-text="输入内容...">
-
-			</div> -->
-				<!-- <div class="ab2" style="display:none; width: 48em; border:1px solid #e8dada">
-				<pre>
-With the burgeoning development in the realm of large language models (LLMs), the demand for efficient incremental training tailored to
-specific industries and domains continues to increase. Currently, the predominantly employed frameworks lack modular design, it often 
-takes a lot of coding work to kickstart the training of LLM. To address this, we present "LMTuner", a highly usable, integrable, and scal-
-able system for training LLMs expeditiously and with minimal user-input. LMTuner comprises three main modules - the Interaction, Train-
-ing, and Inference Modules. We advocate that LMTuner’s usability and integrality alleviate the complexities in training large language 
-models. Remarkably, even a novice user could commence raining large language models within five minutes. Furthermore, it integrates
-DeepSpeed frameworks and supports Efficient Fine-Tuning methodologies like Low Rank Adaptation (LoRA),Quantized LoRA (QLoRA), etc., 
-enabling the training of language models scaling from 300M to a whopping 130B parameters using a single server.
-	</pre>
-			</div> -->
+				<textarea id="myab12" autoHeight="true" name="textarea" disabled class="ab12" style="display:none">
+Efficient processing of long contexts has been a persistent pursuit in Natural Language Processing. With the growing number of long documents, dialogues, and other textual data, it is important to develop Long Context Language Models (LCLMs) that can process and analyze extensive inputs in an effective and efficient way. In this paper, we present a comprehensive survey on recent advances in long-context modeling for large language models. Our survey is structured around three key aspects: how to obtain effective and efficient LCLMs, how to train and deploy LCLMs efficiently, and how to evaluate and analyze LCLMs comprehensively. For the first aspect, we discuss data strategies, architectural designs, and workflow approaches oriented with long context processing. For the second aspect, we provide a detailed examination of the infrastructure required for LCLM training and inference. For the third aspect, we present evaluation paradigms for long-context comprehension and long-form generation, as well as behavioral analysis and mechanism interpretability of LCLMs. Beyond these three key aspects, we thoroughly explore the diverse application scenarios where existing LCLMs have been deployed and outline promising future development directions. This survey provides an up-to-date review of the literature on long-context LLMs, which we wish to serve as a valuable resource for both researchers and engineers.</textarea>
 			</li>
 			<br />
 			<li>
@@ -985,21 +980,6 @@ enabling the training of language models scaling from 300M to a whopping 130B pa
 
 				<textarea id="myab9" autoHeight="true" name="textarea" disabled class="ab9" style="display:none">
 Continual learning (CL) is essential for Large Language Models (LLMs) to adapt to evolving real-world demands, yet they are susceptible to catastrophic forgetting (CF). While traditional CF solutions rely on expensive data rehearsal, recent rehearsal-free methods employ model-based and regularization-based strategies to address this issue. However, these approaches often neglect the model's plasticity, which is crucial to achieving optimal performance on newly learned tasks. Consequently, a key challenge in CL is striking a balance between preserving plasticity and mitigating CF. To tackle this challenge, we propose the Decomposed Attention-based Task Adaptation (DATA), which explicitly decouples and learns both task-specific and task-shared knowledge using high-rank and low-rank task adapters (e.g., LoRAs). For new tasks, DATA dynamically adjusts the weights of adapters of different ranks based on their relevance and distinction from previous tasks, allowing the model to acquire new task-specific skills while effectively retaining previously learned knowledge. Specifically, we implement a decomposed component weighting strategy comprising learnable components that collectively generate attention-based weights, allowing the model to integrate and utilize diverse knowledge from each DATA. Extensive experiments on three widely used benchmarks demonstrate that our proposed method achieves state-of-the-art performance. Notably, our approach significantly enhances model plasticity and mitigates CF by extending learnable components and employing stochastic restoration during training iterations.</textarea>
-				<!-- <div id="textarea" contenteditable="true" data-text="输入内容...">
-
-				</div> -->
-				<!-- <div class="ab2" style="display:none; width: 48em; border:1px solid #e8dada">
-					<pre>
-  With the burgeoning development in the realm of large language models (LLMs), the demand for efficient incremental training tailored to
-  specific industries and domains continues to increase. Currently, the predominantly employed frameworks lack modular design, it often 
-  takes a lot of coding work to kickstart the training of LLM. To address this, we present "LMTuner", a highly usable, integrable, and scal-
-  able system for training LLMs expeditiously and with minimal user-input. LMTuner comprises three main modules - the Interaction, Train-
-  ing, and Inference Modules. We advocate that LMTuner’s usability and integrality alleviate the complexities in training large language 
-  models. Remarkably, even a novice user could commence raining large language models within five minutes. Furthermore, it integrates
-  DeepSpeed frameworks and supports Efficient Fine-Tuning methodologies like Low Rank Adaptation (LoRA),Quantized LoRA (QLoRA), etc., 
-  enabling the training of language models scaling from 300M to a whopping 130B parameters using a single server.
-		</pre>
-				</div> -->
 			</li>
 			<br />
 			<li>
@@ -1147,7 +1127,7 @@ How to interact with LLMs through \emph{instructions} has been widely studied by
 			</li>
 			<br />
 			<li>
-				<b><a href="" class="paper">
+				<b><a href="https://arxiv.org/pdf/2503.00771" class="paper">
 						<font face=" Georgia" size="4">Evaluating Personalized Tool-Augmented LLMs from the Perspectives
 							of Personalization and Proactivity</font>
 					</a></b>
@@ -1162,9 +1142,9 @@ How to interact with LLMs through \emph{instructions} has been widely studied by
 							<font size=" 4" face="Georgia">Preprint</font>
 						</b></i>, 2025.
 				</font>
-				<!-- <br> -->
+				<br>
 				<div style="display: inline-block; margin-top:0.5%; width:50%">
-					<!-- <div class="bu" id="10" style="display: inline-block; margin-top:0%">
+					<div class="bu" id="10" style="display: inline-block; margin-top:0%">
 						<font size="2"><i class="fa fa-info fa-2x" aria-hidden="true"></i></font>&nbsp;<img
 							alt="Static Badge" src="https://img.shields.io/badge/Bib-5cb85c" style="height: 1em;">
 					</div>
@@ -1175,14 +1155,14 @@ How to interact with LLMs through \emph{instructions} has been widely studied by
 					</div>
 					&nbsp;
 					<div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
-						<a href="https://arxiv.org/abs/2502.02315">
+						<a href="https://arxiv.org/abs/2503.00771">
 							<font size="5"><i class="ai ai-arxiv ai-1x"></i></font>&nbsp;<img alt="Static Badge"
 								src="https://img.shields.io/badge/Arxiv-f0ad4e" style="height: 1em;">
 						</a>
 					</div>
 					&nbsp;
 					<div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
-						<a class="tag" href="cites/VaiBot.bib" target="_self">
+						<a class="tag" href="cites/ETAPP.bib" target="_self">
 							<font size="2"><i class="fa fa-download fa-2x" aria-hidden="true"></i></font>&nbsp;<img
 								id="2" alt="Static Badge" src="https://img.shields.io/badge/Cite-edd7be"
 								style="height: 1em;">
@@ -1190,12 +1170,12 @@ How to interact with LLMs through \emph{instructions} has been widely studied by
 					</div>
 					&nbsp;
 					<div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
-						<a href="https://anonymous.4open.science/r/VaiBot-021F">
+						<a href="https://github.com/hypasd-art/ETAPP">
 							<font size="2"><i class="fa fa-github-alt fa-2x" aria-hidden="true"></i></font>
 							&nbsp;<img alt="Static Badge" src="https://img.shields.io/badge/Code/data-d9534f"
 								style="height: 1em;">
 						</a>
-					</div> -->
+					</div>
 					<!-- &nbsp;
 					<div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
 						<a href="https://wengsyx.github.io/LMTuner/">
@@ -1207,15 +1187,15 @@ How to interact with LLMs through \emph{instructions} has been widely studied by
 				</div>
 
 				<textarea id="mybib10" autoHeight="true" name="textarea" disabled class="bib10" style="display:none">
-@inproceedings{Sun2025VaiBotSB,
-	title={VaiBot: Shuttle Between the Instructions and Parameters of Large Language Models},
-	author={Wangtao Sun and Haotian Xu and Huanxuan Liao and Xuanqing Yu and Zhongtao Jiang and Shizhu He and Jun Zhao and Kang Liu},
-	year={2025},
-	url={https://api.semanticscholar.org/CorpusID:276106789}
+@article{hao2025evaluating,
+	title={Evaluating Personalized Tool-Augmented LLMs from the Perspectives of Personalization and Proactivity},
+	author={Hao, Yupu and Cao, Pengfei and Jin, Zhuoran and Liao, Huanxuan and Chen, Yubo and Liu, Kang and Zhao, Jun},
+	journal={arXiv preprint arXiv:2503.00771},
+	year={2025}
 }</textarea>
 
 				<textarea id="myab10" autoHeight="true" name="textarea" disabled class="ab10" style="display:none">
-How to interact with LLMs through \emph{instructions} has been widely studied by researchers. However, previous studies have treated the emergence of instructions and the training of LLMs on task data as separate processes, overlooking the inherent unity between the two. This paper proposes a neural network framework, VaiBot, that integrates VAE and VIB, designed to uniformly model, learn, and infer both deduction and induction tasks under LLMs. Through experiments, we demonstrate that VaiBot performs on par with existing baseline methods in terms of deductive capabilities while significantly surpassing them in inductive capabilities. We also find that VaiBot can scale up using general instruction-following data and exhibits excellent one-shot induction abilities. We finally synergistically integrate the deductive and inductive processes of VaiBot. Through T-SNE dimensionality reduction, we observe that its inductive-deductive process significantly improves the distribution of training parameters, enabling it to outperform baseline methods in inductive reasoning tasks. </textarea>
+Personalized tool utilization is essential for aligning large language models (LLMs) with user preference in interaction scenarios with various tools. However, most of the current benchmarks primarily focus on either personalization of text generation or direct tool-utilizing, without considering both. In this work, we introduce a novel benchmark ETAPP for evaluating personalized tool invocation, establishing a sandbox environment, and a comprehensive dataset of 800 testing cases covering diverse user profiles. To improve the accuracy of our evaluation, we propose a key-point-based LLM evaluation method, mitigating biases in the LLM-as-a-judge system by manually annotating key points for each test case and providing them to LLM as the reference. Additionally, we evaluate the excellent LLMs and provide an in-depth analysis. Furthermore, we investigate the impact of different tool-invoking strategies on LLMs' personalization performance and the effects of fine-tuning in our task. The effectiveness of our preference-setting and key-point-based evaluation method is also validated. Our findings offer insights into improving personalized LLM agents.</textarea>
 			</li>
 			<br />
 			<li>
