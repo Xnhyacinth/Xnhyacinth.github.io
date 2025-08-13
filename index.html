@@ -84,13 +84,46 @@
 			vertical-align: baseline;
 		}
 
-		body {
+		/* body {
 			position: relative;
 			margin: 3em auto 2em auto;
 			width: 68em;
 			font-family: Times New Roman, Lato, Verdana, Helvetica, sans-serif;
 			font-size: 1.0em;
 			background: #fdfdfd;
+		} */
+		/* 替换原有的 body 样式 */
+		body {
+			position: relative;
+			max-width: 70%;
+
+			margin: 3em auto 2em;
+			padding: 0 10px;
+			font-family: Times New Roman, Lato, Verdana, Helvetica, sans-serif;
+			font-size: 1.0em;
+			background: #fdfdfd;
+		}
+
+
+		@media (max-width: 1200px) {
+			body {
+				max-width: 92%;
+			}
+		}
+
+		@media (max-width: 768px) {
+			body {
+				max-width: 95%;
+				margin: 2em auto;
+			}
+		}
+
+		@media (max-width: 480px) {
+			body {
+				max-width: 100%;
+				padding: 0 10px;
+				margin: 1em 0;
+			}
 		}
 	</style>
 	<!-- <style>
@@ -118,7 +151,8 @@
 			--color-b: #292727;
 			--color-div: #d0d0d0;
 			--color-my: #0000ff;
-			--color-p: #0caddf;
+			--color-p: #1198c1;
+			--color-low: #65656e;
 		}
 
 		/* 黑暗模式下颜色 */
@@ -133,6 +167,7 @@
 			--color-div: #4b4b4b;
 			--color-my: #2d67db;
 			--color-p: #86abcb;
+			--color-low: #d0cccc;
 		}
 
 		:root * {
@@ -142,12 +177,12 @@
 
 		body {
 			position: relative;
-			background: linear-gradient(to bottom,
+			/* background: linear-gradient(to bottom,
 					var(--color-bg) 0%,
 					var(--color-bg) 96.5%,
 					var(--color-xg) 96.5%,
-					var(--color-xg) 100%);
-			/*background-color: var(--color-bg);*/
+					var(--color-xg) 100%); */
+			background-color: var(--color-bg);
 			/* transition: 0.3s; */
 		}
 
@@ -240,6 +275,8 @@
 		textarea {
 			background-color: var(--color-bg);
 			width: 63em;
+			/* width: 100%; */
+			/* box-sizing: border-box; */
 			font-size: 0.76em;
 			resize: none;
 			border: 1.8px solid var(--color-border);
@@ -321,13 +358,13 @@
 
 		.divider {
 			border-top: 1px solid var(--color-div);
-			margin: 10px 0 0px 0;
+			margin: 10px 0 10px 0;
 			width: 100%;
 		}
 
 		.divide {
 			border-top: 1px solid var(--color-div);
-			margin: 10px 0 -5px 0;
+			margin: -5px 0 -5px 0;
 		}
 
 		@media (prefers-color-scheme: dark) {
@@ -344,6 +381,7 @@
 				--color-div: #4b4b4b;
 				--color-my: #2d67db;
 				--color-p: #86abcb;
+				--color-low: #d0cccc;
 				;
 			}
 
@@ -359,7 +397,8 @@
 				--color-b: #292727;
 				--color-div: #d0d0d0;
 				--color-my: #0000ff;
-				--color-p: #0caddf;
+				--color-p: #1198c1;
+				--color-low: #65656e;
 			}
 		}
 	</style>
@@ -381,7 +420,8 @@
 			s.parentNode.insertBefore(hm, s);
 		})();
 	</script>
-	<script src="http://cdn.staticfile.org/jquery/2.0.0/jquery.min.js">
+	
+	<script src="https://cdn.staticfile.org/jquery/2.0.0/jquery.min.js">
 	</script>
 
 	<script>
@@ -501,21 +541,32 @@
 
 	</script>
 	<nav>
+		<!-- <b>
+			<font size="5"><a href="https://xnhyacinth.github.io" target="_self">Huanxuan Liao (<font face="宋体">廖桓萱</font>)</a></font>
+		</b> -->
 		<b>
-			<font size="5"><a href="https://xnhyacinth.github.io" target="_self">Huanxuan Liao (<font face="宋体">廖桓萱
-					</font>)</a></font>
+			<font size="5"><a href="https://xnhyacinth.github.io" target="_self">Biography</a></font>
 		</b>
-		<font size="5"><a href="#publications" target="_self">Publications</a></font>
+		<b>
+			<font size="5"><a href="#publications" target="_self">Publications</a></font>
+		</b>
 		<!-- <a href="#">Talks</a> -->
-		<font size="5"><a href="#awards" target="_self">Awards</a></font>
+		<b>
+			<font size="5"><a href="#awards" target="_self">Awards</a></font>
+		</b>
+		<b>
+			<font size="5"><a href="#services" target="_self">Services</a></font>
+		</b>
 		<!-- <a href="#">Misc</a> -->
-		<font size="5"><a href="https://xnhyacinth.github.io/CV.pdf" target="_self">CV (PDF)</a></font>
+		<b>
+			<font size="5"><a href="https://xnhyacinth.github.io/CV.pdf" target="_self">CV (PDF)</a></font>
+		</b>
 	</nav>
 	<!-- <hr /> -->
 	<div class="divider"></div>
 	<table align="center">
 		<!-- <tr> -->
-		<td align="center"><a href="assets/img/profile.jpg" target="_self"><img border=0 style="border-radius:10em;"
+		<td align="center"><a href="assets/img/profile.jpg" target="_self"><img border=0 style="border-radius:50%;"
 					height="228em" src="assets/img/profile_compress.jpg"></a>
 		</td>
 		<!--height="218em" width="198em"-->
@@ -657,16 +708,18 @@
 						<font face="Georgia">North China
 							Electric Power University (NCEPU)</font>
 					</a> in 2023, under the supervision of
-					Prof. Min Shi and Prof. Yun Ju.
+					Prof. Min Shi.
 					<br><br>
 					My research interests lie at <b>
-						<font face="Georgia">Large Language Model</font>
-					</b>, <b>
 						<font face="Georgia">Long Context Modeling</font>
+					</b>, <b>
+						<font face="Georgia">Efficient Reasoning</font>
 					</b> and
 					<b>
-						<font face="Georgia">Efficient Reasoning</font>
-					</b>. Check my <a href="#publications">publications</a> and <a href="assets/CV.pdf">CV (PDF)</a> for
+						<font face="Georgia">Efficient VLM</font>
+					</b>.
+					<br><br>
+					Check my <a href="#publications">publications</a> and <a href="assets/CV.pdf">CV (PDF)</a> for
 					more information!
 				</font>
 			</p>
@@ -681,19 +734,19 @@
 						&emsp;&emsp;<font size="4"><i class="fa fa-file-text-o"></i> Long Context Modeling</font>
 					</div>
 					&emsp;&emsp;&emsp;&emsp;<i class="fa fa-angle-right" style="color: #888;"></i>
-					<font size="3.5" color="a9a9ae"> Survey: <a
+					<font size="3.5" style="color: var(--color-low);"> Survey: <a
 							href="https://github.com/Xnhyacinth/Long_Text_Modeling_Papers" target="_self"
 							style="text-decoration: underline; color: inherit;">Awesome-LLM-LCLM</a>
-						(Github Star > 1.5K)</font>
+						(Github Star > 1.7K)</font>
 					<br>
 					&emsp;&emsp;&emsp;&emsp;<i class="fa fa-angle-right" style="color: #888;"></i>
-					<font size="3.5" color="a9a9ae"> Long Context Compression: <a
+					<font size="3.5" style="color: var(--color-low);"> Long Context Compression: <a
 							href="https://arxiv.org/abs/2505.15774" target="_self"
 							style="text-decoration: underline; color: inherit;">HyCo2</a> (Arxiv 2025)</font>
 					<br>
 					&emsp;&emsp;&emsp;&emsp;<i class="fa fa-angle-right" style="color: #888;"></i>
-					<font size="3.5" color="a9a9ae"> KV Compression <a href="" target="_self"
-							style="text-decoration: underline; color: inherit;"></a></font>
+					<font size="3.5" style="color: var(--color-low);"> KV Compression <a href="" target="_self"
+							style="text-decoration: underline; color: inherit;">SparK</a> (Arxiv 2025)</font>
 					<br>
 
 
@@ -701,28 +754,38 @@
 						&emsp;&emsp;<font size="4"><i class="fa fa-file-text-o"></i> Efficient Reasoning</font>
 					</div>
 					&emsp;&emsp;&emsp;&emsp;<i class="fa fa-angle-right" style="color: #888;"></i>
-					<font size="3.5" color="a9a9ae"> Internalizing CoT: <a href="https://arxiv.org/abs/2409.13183"
-							target="_self" style="text-decoration: underline; color: inherit;"> SKIntern</a> (COLING
-						2025)</font>
-					<br>
-					&emsp;&emsp;&emsp;&emsp;<i class="fa fa-angle-right" style="color: #888;"></i>
-					<font size="3.5" color="a9a9ae"> Instruction Learning: <a href="https://arxiv.org/abs/2406.12382"
-							target="_self" style="text-decoration: underline; color: inherit;"> TAGI</a> (NeurIPS 2024)
+					<font size="3.5" style="color: var(--color-low);"> Instruction Learning: <a
+							href="https://arxiv.org/abs/2406.12382" target="_self"
+							style="text-decoration: underline; color: inherit;"> TAGI</a> (NeurIPS 2024)
 					</font>
 					<br>
 					&emsp;&emsp;&emsp;&emsp;<i class="fa fa-angle-right" style="color: #888;"></i>
-					<font size="3.5" color="a9a9ae"> Neural-Symbolic Distillation: <a
+					<font size="3.5" style="color: var(--color-low);"> Knowledge Internalization: <a
+							href="https://arxiv.org/abs/2409.13183" target="_self"
+							style="text-decoration: underline; color: inherit;"> SKIntern</a> (COLING
+						2025)</font>
+					<br>
+					&emsp;&emsp;&emsp;&emsp;<i class="fa fa-angle-right" style="color: #888;"></i>
+					<font size="3.5" style="color: var(--color-low);"> Knowledge Awakening: <a
+							href="https://aclanthology.org/2025.coling-main.89/" target="_self"
+							style="text-decoration: underline; color: inherit;"> AAG</a> (COLING
+						2025)</font>
+					<br>
+
+					&emsp;&emsp;&emsp;&emsp;<i class="fa fa-angle-right" style="color: #888;"></i>
+					<font size="3.5" style="color: var(--color-low);"> Knowledge Collaboration: <a
 							href="https://arxiv.org/abs/2409.13203" target="_self"
 							style="text-decoration: underline; color: inherit;"> NesyCD</a> (AAAI 2025)
 					</font>
 					<br>
 
-					<div style="margin-bottom:1%; margin-top:1.3%">
+					<!-- <div style="margin-bottom:1%; margin-top:1.3%">
 						&emsp;&emsp;<font size="4"><i class="fa fa-file-text-o"></i> Continual Learning</font>
-					</div>
+					</div> -->
 					&emsp;&emsp;&emsp;&emsp;<i class="fa fa-angle-right" style="color: #888;"></i>
-					<font size="3.5" color="a9a9ae"> Rehearsal-Free CL: <a href="https://arxiv.org/abs/2409.13183"
-							target="_self" style="text-decoration: underline; color: inherit;"> DATA</a> (Arxiv
+					<font size="3.5" style="color: var(--color-low);"> Knowledge Transfer (CL): <a
+							href="https://arxiv.org/abs/2502.11482" target="_self"
+							style="text-decoration: underline; color: inherit;"> DATA</a> (Arxiv
 						2025)</font>
 					<br>
 
@@ -733,7 +796,7 @@
 
 
 					<!-- &emsp;&emsp;&emsp;&emsp;<i class="fa fa-angle-right" style="color: #888;"></i>
-					<font size="3.5" color="a9a9ae"> Dynamic Encoding  <a href="https://arxiv.org/abs/2409.13183"
+					<font size="3.5" style="color: var(--color-low);"> Dynamic Encoding  <a href="https://arxiv.org/abs/2409.13183"
 							target="_self" style="text-decoration: underline; color: inherit;"></a></font>
 					<br><br> -->
 				</font>
@@ -747,32 +810,32 @@
 						Long Context Modeling
 						<br>
 						&emsp;&emsp;&emsp;&emsp;<i class="fa fa-angle-right" style="color: #888;"></i>
-						<font size="3.5" color="a9a9ae"> Survey: <a
+						<font size="3.5" style="color: var(--color-low);"> Survey: <a
 								href="https://github.com/Xnhyacinth/Long_Text_Modeling_Papers" target="_self"
 								style="text-decoration: underline; color: inherit;">Awesome-LLM-LCLM</a>
 							(Github Star > 1.5K)</font>
 						<br>
 						&emsp;&emsp;&emsp;&emsp;<i class="fa fa-angle-right" style="color: #888;"></i>
-						<font size="3.5" color="a9a9ae"> Long Context Compression: <a
+						<font size="3.5" style="color: var(--color-low);"> Long Context Compression: <a
 								href="https://arxiv.org/abs/2505.15774" target="_self"
 								style="text-decoration: underline; color: inherit;">HyCo2</a></font>
 						<br>
 						&emsp;&emsp;&emsp;&emsp;<i class="fa fa-angle-right" style="color: #888;"></i>
-						<font size="3.5" color="a9a9ae"> KV Compression <a href="" target="_self"
+						<font size="3.5" style="color: var(--color-low);"> KV Compression <a href="" target="_self"
 								style="text-decoration: underline; color: inherit;"></a></font>
 						<br><br>
 						&emsp;&emsp;<i class="fa fa-file-text-o"></i>
 						Efficient Reasoning
 						<br>
 						&emsp;&emsp;&emsp;&emsp;<i class="fa fa-angle-right" style="color: #888;"></i>
-						<font size="3.5" color="a9a9ae"> Internalizing CoT: <a href="https://arxiv.org/abs/2409.13183"
+						<font size="3.5" style="color: var(--color-low);"> Internalizing CoT: <a href="https://arxiv.org/abs/2409.13183"
 								target="_self" style="text-decoration: underline; color: inherit;">SKIntern</a></font>
 						<br><br>
 						&emsp;&emsp;<i class="fa fa-file-text-o"></i>
 						Efficient VLM
 						<br>
 						&emsp;&emsp;&emsp;&emsp;<i class="fa fa-angle-right" style="color: #888;"></i>
-						<font size="3.5" color="a9a9ae"> Internalizing CoT: <a href="https://arxiv.org/abs/2409.13183"
+						<font size="3.5" style="color: var(--color-low);"> Internalizing CoT: <a href="https://arxiv.org/abs/2409.13183"
 								target="_self" style="text-decoration: underline; color: inherit;"></a></font>
 						<br><br>
 						<a href="https://github.com/Xnhyacinth/Long_Text_Modeling_Papers" target="_self">
@@ -792,28 +855,55 @@
 				<p>
 					<font size="4" face="Georgia">
 						&emsp;&emsp;<i class="fa fa-briefcase"></i>
-						Research Intern at <a href="https://www.antgroup.com/" target="_self">
+						Research Intern at <a href="https://www.bytedance.com" target="_self"><img
+								src="assets/img/ByteDance_logo_English.svg" alt="bytedance Logo"
+								style="border-radius: 10%; height: 22px; vertical-align: middle; margin: 0 5px;"
+								border="0">
+							<font size="4" face="Georgia">ByteDance</font>
+						</a>, 2025.06-now
+						<br>
+						<font size="3">&emsp;&emsp;&emsp;&emsp;</font>
+						<font size="4" style="color: var(--color-low);">Efficient VLM and Long Video Understanding
+						</font>
+						<br><br>
+						&emsp;&emsp;<i class="fa fa-briefcase"></i>
+						Research Intern at <a href="https://www.antgroup.com/" target="_self"><img
+								src="assets/img/Ant_Group_logo.png" alt="Ant Group Logo"
+								style="border-radius: 10%; height: 28px; vertical-align: middle; margin: 0 5px;"
+								border="0">
 							<font size="4" face="Georgia">Ant Group</font>
-						</a>, 2025.03-2025.06
+						</a>, 2025.02-2025.06
 						<br>
 						<font size="3">&emsp;&emsp;&emsp;&emsp;</font>
-						<font size="4" color="a9a9ae">Long Context Compression</font>
+						<font size="4" style="color: var(--color-low);">Long Context Compression</font>
 						<br><br>
 						&emsp;&emsp;<i class="fa fa-graduation-cap"></i>
-						PhD in Computer Science, 2023-now
+						PhD in Computer Science <a href="https://www.ucas.ac.cn" target="_self"><img
+								src="assets/img/ucas.png" alt="ucas logo"
+								style="border-radius: 10%; height: 32px; vertical-align: middle; margin: 0 5px 0 0; object-position: 0px 0; overflow: hidden; object-fit: cover;"
+								border="0"></a>
+						<a href="http://www.ia.cas.cn" target="_self"><img src="assets/img/casia.svg" alt="casia logo"
+								style="border-radius: 10%; height: 32px; vertical-align: middle; margin: 0 5px 0 0; object-position: 0 0; overflow: hidden;"
+								border="0"></a>, 2023-now
 						<br>
 						<font size="3">&emsp;&emsp;&emsp;&emsp;</font>
-						<font size="4" color="a9a9ae">Institute of Automation, Chinese Academy of Sciences</font>
+						<font size="4" style="color: var(--color-low);">Institute of Automation, Chinese Academy of
+							Sciences</font>
 						<br><br>
 						&emsp;&emsp;<i class="fa fa-graduation-cap"></i>
-						B.Eng. in Intelligence Science and Technology, 2019-2023
+						B.Eng. in Intelligence Science and Technology <a href="https://www.ncepu.edu.cn/"
+							target="_self"><img src="assets/img/North_China_Electric_Power_University_logo.png"
+								alt="ncepu logo"
+								style="border-radius: 10%; height: 32px; vertical-align: middle; margin: 0 5px 0 0; object-position: 0 0; overflow: hidden;"
+								border="0"></a>, 2019-2023
 						<br>
 						<font size="3">&emsp;&emsp;&emsp;&emsp;</font>
-						<font size="4" color="a9a9ae">North China Electric Power University, China</font>
+						<font size="4" style="color: var(--color-low);">North China Electric Power University, China
+						</font>
 					</font>
-					<br><br><br>
+					<!-- <br><br> -->
 					<!-- <br><br><br> -->
-				<p>&emsp;&emsp;</p>
+					<!-- <p>&emsp;&emsp;</p> -->
 				</p>
 			</div>
 
@@ -928,6 +1018,72 @@
 		<font size="5"><b>2025</b></font>
 
 		<ul>
+			<li>
+				<b><a href="" class="paper">
+						<font face=" Georgia" size="4">SparK: Query-Aware Unstructured Sparsity with Recoverable KV Cache Channel Pruning</font>
+					</a></b>
+				<font size=" 4" face="Georgia">
+					&nbsp;&nbsp;
+					<br />
+					<b class="myself">
+						<font size=" 4" face=" Georgia">Huanxuan Liao</font>
+					</b>
+					, Yixing Xu, Shizhu He, Guanchen Li, Xuanwu Yin, Dong Li, Emad Barsoum, Jun Zhao, Kang Liu
+					&nbsp;&nbsp; <br> <i><b>
+							<font size=" 4" face="Georgia">Preprint</font>
+						</b></i>, 2025.
+				</font>
+				<br>
+				<div style="display: inline-block; margin-top:0.5%; width:50%">
+					<div class="bu" id="15" style="display: inline-block; margin-top:0%">
+						<font size="2"><i class="fa fa-info fa-2x" aria-hidden="true"></i></font>&nbsp;<img
+							alt="Static Badge" src="https://img.shields.io/badge/Bib-5cb85c" style="height: 1em;">
+					</div>
+					&nbsp;
+					<div class="au" id="15" style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+						<font size="5"><i class="fa fa-flag" aria-hidden="true"></i></font>&nbsp;<img alt="Static Badge"
+							src="https://img.shields.io/badge/Abstract-f9adad" style="height: 1em;">
+					</div>
+					&nbsp;
+					<div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+						<a href="">
+							<font size="5"><i class="ai ai-arxiv ai-1x"></i></font>&nbsp;<img alt="Static Badge"
+								src="https://img.shields.io/badge/Arxiv-f0ad4e" style="height: 1em;">
+						</a>
+					</div>
+					&nbsp;
+					<div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+						<a class="tag" href="cites/spark.bib" target="_self">
+							<font size="2"><i class="fa fa-download fa-2x" aria-hidden="true"></i></font>&nbsp;<img
+								id="2" alt="Static Badge" src="https://img.shields.io/badge/Cite-edd7be"
+								style="height: 1em;">
+						</a>
+					</div>
+					&nbsp;
+					<div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+						<a href="https://github.com/Xnhyacinth/SparK">
+							<font size="2"><i class="fa fa-github-alt fa-2x" aria-hidden="true"></i></font>
+							&nbsp;<img alt="Static Badge" src="https://img.shields.io/badge/Code/data-d9534f"
+								style="height: 1em;">
+						</a>
+					</div>
+					<!-- &nbsp;
+					<div style="display: inline-block; margin-top:0%; margin-left: -1.1%;">
+						<a href="https://trae1oung.github.io/DyPRAG/">
+							<font size="2"><i class="fa fa-home fa-2x" aria-hidden="true"></i></font> <img id="2"
+								alt="Static Badge" src="https://img.shields.io/badge/Homepage-009fd0"
+								style="height: 1em;">
+						</a>
+					</div> -->
+				</div>
+
+				<textarea id="mybib15" autoHeight="true" name="textarea" disabled class="bib15" style="display:none">
+None</textarea>
+
+				<textarea id="myab15" autoHeight="true" name="textarea" disabled class="ab15" style="display:none">
+Long-context inference in large language models (LLMs) is increasingly constrained by the KV cache bottleneck: memory usage grows linearly with sequence length, while attention computation scales quadratically. Existing approaches address this issue by compressing the KV cache along the \textit{temporal} axis through strategies such as token eviction or merging to reduce memory and computational overhead. However, these methods often neglect fine-grained importance variations across feature dimensions (i.e., the \textit{channel axis}), thereby limiting their ability to effectively balance efficiency and model accuracy.In reality, we observe that channel saliency varies dramatically across both queries and positions: certain feature channels carry near-zero information for a given query, while others spike in relevance. To address this oversight, we propose \our, a training-free plug-and-play method that applies unstructured sparsity by pruning KV at the channel level, while dynamically restoring the pruned entries during attention score computation. Notably, our approach is orthogonal to existing KV compression and quantization techniques, making it compatible for integration with them to achieve further acceleration. By reducing channel-level redundancy, \our{} enables processing of longer sequences within the same memory budget. For sequences of equal length, \our{} not only preserves or improves model accuracy but also reduces KV cache storage by over $30\%$ compared to eviction-based methods. Furthermore, even in an aggressive pruning ratio of $80\%$, \our{} maintains performance with less degradation than $5\%$ compared to the based eviction method, demonstrating its robustness and effectiveness.</textarea>
+			</li>
+			<br />
 			<li>
 				<b><a href="https://arxiv.org/pdf/2505.15774" class="paper">
 						<font face=" Georgia" size="4">Beyond Hard and Soft: Hybrid Context Compression for Balancing
@@ -2113,10 +2269,10 @@ Recent studies have shown that subgraphs of the head entity, such as related rel
 	<script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=500&t=tt&d=RDwpltapRj65Q7UM5LGnBHaIr57MgblmTCDCr6fHKo0'></script> -->
 	<!-- 🔥 📒📝📖💻 📚 -->
 	<!-- &nbsp;&nbsp;&nbsp;&nbsp; -->
-	<div style="margin-top: -1em;">
+	<div style="margin-top: -1em;" id="services">
 		<h2>
 			<b>
-				<font face="Roboto" size=+3>💻 Professional Services</font>
+				<font face="Roboto" size=+3>💻 Services</font>
 			</b>
 		</h2>
 		<!-- <hr /> -->
@@ -2124,7 +2280,7 @@ Recent studies have shown that subgraphs of the head entity, such as related rel
 		<ul>
 			<li><b>
 					<font size="4.5" face="Georgia">Conference Reviewing
-				</b>: ACL ARR 2024, 2025.</font>
+				</b>: ACL ARR 2024, 2025. NeurIPS 2025.</font>
 			</li>
 			<!-- <br /> -->
 			<li><b>
@@ -2132,7 +2288,7 @@ Recent studies have shown that subgraphs of the head entity, such as related rel
 				</b>: <a
 					href="https://github.com/Xnhyacinth/Awesome-LLM-Long-Context-Modeling">Awesome-LLM-Long-Context-Modeling
 					Github</font>
-				</a> 1.3k+ Stars.</font>
+				</a> 1.7k+ Stars.</font>
 			</li>
 		</ul>
 	</div>
