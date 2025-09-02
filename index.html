@@ -144,6 +144,7 @@
 			--color-xg: #cbcbcb;
 			--color-ch: #30303a;
 			--color-btn: #f0f0fa;
+			--color-social: #d9d9e9;
 			--color-link: #3d8ee4;
 			/*1573df*/
 			--color-border: #0b46dc;
@@ -161,6 +162,7 @@
 			--color-xg: #111217;
 			--color-ch: #e3e3f1;
 			--color-btn: #30303a;
+			--color-social: #30303a;
 			--color-link: #a2bfd9;
 			--color-border: #f2d3d3;
 			--color-b: #e9adad;
@@ -201,6 +203,83 @@
 			align-items: center;
 			justify-content: center;
 			/* transition: 0.3s; */
+		}
+
+		.profile-container {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 3em;
+			width: 100%;
+			margin: 2em auto;
+			flex-wrap: wrap;
+			padding: 0 2em;
+			box-sizing: border-box;
+		}
+		
+		.profile-image {
+			flex-shrink: 0;
+		}
+		
+		.profile-image img {
+			width: 240px;
+			height: 240px;
+			border-radius: 50%;
+			object-fit: cover;
+			box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+			transition: all 0.3s ease;
+			border: 4px solid var(--color-bg);
+		}
+		
+		.profile-image img:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+		}
+		
+		.profile-info {
+			flex: 1;
+			min-width: 300px;
+			text-align: left;
+		}
+		
+		.profile-info h2 {
+			margin-bottom: 0.8em;
+			line-height: 1.3;
+		}
+
+		.profile-image img {
+				width: 228px;
+				height: 228px;
+			}
+
+		.social-links {
+			display: flex;
+			gap: 1em;
+			flex-wrap: wrap;
+			margin-top: 1em;
+			justify-content: flex-start;
+		}
+		
+		.social-links a {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			width: 48px;
+			height: 48px;
+			border-radius: 12px;
+			background: var(--color-social);
+			transition: all 0.3s ease;
+			box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+		}
+		
+		.social-links a:hover {
+			transform: translateY(-2px);
+			box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+			background: var(--color-link);
+		}
+		
+		.social-links a:hover i {
+			color: white !important;
 		}
 
 		a:link {
@@ -376,6 +455,7 @@
 				--color-xg: #111217;
 				--color-ch: #e3e3f1;
 				--color-btn: #30303a;
+				--color-social: #30303a;
 				--color-link: #a2bfd9;
 				--color-border: #f2d3d3;
 				--color-b: #e9adad;
@@ -392,6 +472,7 @@
 				--color-xg: #cbcbcb;
 				--color-ch: #30303a;
 				--color-btn: #f0f0fa;
+				--color-social: #d9d9e9;
 				--color-link: #3d8ee4;
 				/*1573df*/
 				--color-border: #0b46dc;
@@ -564,13 +645,93 @@
 	</nav>
 	<!-- <hr /> -->
 	<div class="divider"></div>
-	<table align="center">
+
+	<div class="profile-container">
+		<div class="profile-image" style="margin-left: 5%">
+			<a href="assets/img/profile.jpg" target="_self"><img border=0 style="border-radius:50%;"
+				 src="assets/img/profile_compress.jpg"></a>
+		</div>
+
+		<div class="profile-info" style="text-align: center;">
+			<h2 style="margin-left: -18%">
+				<font face="Roboto" size=+3>Huanxuan Liao</font>&emsp;
+				<b>
+					<font face="宋体" size=+3>廖桓萱</font>
+				</b>
+			</h2>
+			<p style="margin-left: -18%">
+				<font size=+1>
+					<font size=+2 face="Georgia">👨‍💻 PhD Student @ <a href="https://www.ucas.ac.cn/"
+							target="_self">UCAS</a> focusing on LLM 🎓</font><br />
+					<font size=+1>&#x1F30F</font> <b><a href="http://www.ia.cas.cn/" target="_self">
+							<font face="Georgia">Institute of
+								Automation, Chinese Academy of Sciences</font>
+						</a></b>
+					<font face="Georgia">, Beijing, China</font>
+				</font>
+			</p>
+			<p style="margin-top: -0.4cm; margin-bottom: 0.2cm; margin-left: -18%">
+				<font size=+1>
+					<font size=+2>&#x2709</font> <i><b><a href="mailto:liaohuanxuan2023@ia.ac.cn">
+								<font size=+1 face="Georgia">liaohuanxuan2023@ia.ac.cn</font></b></i></a>
+				</font>
+			</p>
+
+			<div class="social-links" style="margin-left: 8%">
+				<!-- CV -->
+				<a href="assets/CV.pdf" target="_self">
+					<!-- <font size=7><i class="fa fa-user-circle" aria-hidden="true"></i></font> -->
+					<i class="ai ai-cv ai-2x"></i>
+				</a>
+
+				<!-- Google Scholar -->
+				 <a href="https://scholar.google.com.hk/citations?user=sRcWOKUAAAAJ&hl=zh-CN" target="_self">
+					<i class="ai ai-google-scholar ai-2x"></i>
+				</a>
+
+				<!-- Semantic Scholar -->
+				 <a href="https://www.semanticscholar.org/author/Huanxuan-Liao/2232817310" target="_self">
+					<i class="ai ai-semantic-scholar ai-2x"></i>
+				</a>
+
+				<!-- DBLP -->
+				<a href="https://dblp.org/pid/355/1072.html" target="_self">
+					<i class="ai ai-dblp ai-2x"></i>
+				</a>
+
+
+				<!-- Openreview -->
+				<a href="https://openreview.net/profile?id=~Huanxuan_Liao1" target="_self">
+					<i class="ai ai-academia ai-2x"></i>
+				</a>
+
+				<!-- GitHub -->
+				<a href="https://github.com/Xnhyacinth" target="_self">
+					<i class="fa fa-github fa-2x" class="dy" aria-hidden="true"></i>
+				</a>
+
+				<!-- twitter -->
+				<a href="https://twitter.com/xn_hyacinth" target="_self">
+					<i aria-hidden="true" class="fa fa-twitter fa-2x"></i>
+				</a>
+
+				<!-- twitter -->
+				<a href="https://www.linkedin.com/in/huanxuan-liao-09ab8b341/" target="_self">
+					<i aria-hidden="true" class="fa fa-linkedin-square fa-2x"></i>
+				</a>
+
+			</div>
+
+		</div>
+	</div>
+
+	<!-- <table align="center"> -->
 		<!-- <tr> -->
-		<td align="center"><a href="assets/img/profile.jpg" target="_self"><img border=0 style="border-radius:50%;"
+		<!-- <td align="center"><a href="assets/img/profile.jpg" target="_self"><img border=0 style="border-radius:50%;"
 					height="228em" src="assets/img/profile_compress.jpg"></a>
-		</td>
+		</td> -->
 		<!--height="218em" width="198em"-->
-		<td align="center">&nbsp</td>
+		<!-- <td align="center">&nbsp</td>
 		<td align="center">&nbsp</td>
 		<td align="center">
 		<td align="center">
@@ -600,52 +761,52 @@
 
 			<div style="display: inline-block; margin-top:0%">
 				<a href="assets/CV.pdf" target="_self">
-					<!-- <font size=7><i class="fa fa-user-circle" aria-hidden="true"></i></font> -->
-					<font size=4><i class="ai ai-cv ai-3x"></i></font>
+					<font size=7><i class="fa fa-user-circle" aria-hidden="true"></i></font> -->
+					<!-- <font size=4><i class="ai ai-cv ai-3x"></i></font>
 				</a>
 			</div>
-			&emsp;
+			&emsp; -->
 			<!-- Google Scholar -->
-			<div style="display: inline-block; margin-top:0%">
+			<!-- <div style="display: inline-block; margin-top:0%">
 				<a href="https://scholar.google.com.hk/citations?user=sRcWOKUAAAAJ&hl=zh-CN" target="_self">
 					<font size=4><i class="ai ai-google-scholar ai-3x"></i></font>
 				</a>
-			</div>
+			</div> -->
 			<!-- <div style="display: inline-block; margin-right:0.0cm"">
 					<a href=" https://scholar.google.com.hk/citations?user=sRcWOKUAAAAJ&hl=zh-CN" target="_self">
 					<img src="assets/img/google-scholar-icon.png" alt="Google Scholar" title="Google Scholar" width="40px" />
 
 					</a>
 				</div> -->
-			&emsp;
+			<!-- &emsp; -->
 			<!-- Semantic Scholar -->
-			<div style="display: inline-block; margin-top:0%">
+			<!-- <div style="display: inline-block; margin-top:0%">
 				<a href="https://www.semanticscholar.org/author/Huanxuan-Liao/2232817310" target="_self">
 					<font size=4><i class="ai ai-semantic-scholar ai-3x"></i></font>
 				</a>
-			</div>
+			</div> -->
 			<!-- <div class="cropped" style="display: inline-block;">
 					<a href=" https://www.semanticscholar.org/author/Huanxuan-Liao/2232817310" target="_self">
 						<img src="assets/img/semantic-scholar-icon.png" style="position:relative;top: 20px;"
 							alt="Semantic Scholar" title="Semantic Scholar" width="220px" />
 					</a>
 				</div> -->
-			&emsp;
+			<!-- &emsp; -->
 			<!-- DBLP -->
-			<div style="display: inline-block; margin-top:0%">
+			<!-- <div style="display: inline-block; margin-top:0%">
 				<a href="https://dblp.org/pid/355/1072.html" target="_self">
 					<font size=4><i class="ai ai-dblp ai-3x"></i></font>
 				</a>
 			</div>
-			&emsp;
+			&emsp; -->
 
 			<!-- Openreview -->
-			<div style="display: inline-block; margin-top:0%">
+			<!-- <div style="display: inline-block; margin-top:0%">
 				<a href="https://openreview.net/profile?id=~Huanxuan_Liao1" target="_self">
 					<font size=4><i class="ai ai-academia ai-3x"></i></font>
 				</a>
 			</div>
-			&emsp;
+			&emsp; -->
 			<!-- Mail -->
 			<!-- <div style="display: inline-block; margin-bottom:0.0cm">
 					<a href="mailto:huanxuanliao@gmail.com" target="_self">
@@ -655,28 +816,28 @@
 				</div>
 				&emsp; -->
 			<!-- GitHub -->
-			<div style="display: inline-block; margin-bottom:0.0cm">
+			<!-- <div style="display: inline-block; margin-bottom:0.0cm">
 				<a href="https://github.com/Xnhyacinth" target="_self">
 					<font size=4><i class="fa fa-github fa-3x" class="dy" aria-hidden="true"></i>
 					</font>
 				</a>
-			</div>
+			</div> -->
 			<!-- <div style="display: inline-block; margin-right:0.0cm">
 					<a href="https://github.com/Xnhyacinth" target="_self">
 						<img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/GitHub_Invertocat_Logo.svg"
 							alt="Github" title="Github" width="48px" />
 					</a>
 				</div> -->
-			&emsp;
+			<!-- &emsp; -->
 			<!-- twitter -->
-			<div style="display: inline-block; margin-top:0%">
+			<!-- <div style="display: inline-block; margin-top:0%">
 				<a href="https://twitter.com/xn_hyacinth" target="_self">
 					<font size=4><i aria-hidden="true" class="fa fa-twitter fa-3x"></i></font>
 				</a>
 			</div>
-			&emsp;
+			&emsp; -->
 			<!-- twitter -->
-			<div style="display: inline-block; margin-top:0%">
+			<!-- <div style="display: inline-block; margin-top:0%">
 				<a href="https://www.linkedin.com/in/huanxuan-liao-09ab8b341/" target="_self">
 					<font size=4><i aria-hidden="true" class="fa fa-linkedin-square fa-3x"></i>
 				</a>
@@ -684,8 +845,8 @@
 		</td>
 		</td>
 		</tr>
-	</table>
-	<br />
+	</table> -->
+	<!-- <br /> -->
 	<div style="margin-top: -0.6cm">
 		<h2>
 			<b>
@@ -735,17 +896,13 @@
 					</b> and <b>
 						<font face="Georgia">Efficient VLM</font>
 					</b>, including but not limited to <b>
-						<font face="Georgia" style="color: var(--color-int);">Efficient Reasoning</font>
-					</b>, <b>
-						<font face="Georgia" style="color: var(--color-int);">Long-context Alignment and Reasoning
-						</font>
-					</b>, <b>
+						<font face="Georgia" style="color: var(--color-int);">Efficient Reasoning</font></b>, <b>
+						<font face="Georgia" style="color: var(--color-int);">Long-context Alignment and Reasoning</font></b>, <b>
 						<font face="Georgia" style="color: var(--color-int);">Efficient Attention and Architectures
 						</font>
 					</b> and
 					<b>
-						<font face="Georgia" style="color: var(--color-int);">Long Video Understanding</font>
-					</b>.
+						<font face="Georgia" style="color: var(--color-int);">Long Video Understanding</font></b>.
 					<br><br>
 					Check my <a href="#publications">publications</a> and <a href="assets/CV.pdf">CV (PDF)</a> for
 					more information!
