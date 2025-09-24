@@ -482,6 +482,10 @@
 			margin: -5px 0 -5px 0;
 		}
 
+		.logo {
+			border-radius: 10%; height: 32px; vertical-align: middle; margin: 0 5px 10% 0; object-position: 0 0; overflow: hidden;
+		}
+
 		@media (prefers-color-scheme: dark) {
 
 			/* 普通模式下颜色 */
@@ -894,11 +898,11 @@
 				<font size="4.5" face="Georgia">
 					I'm a third-year PhD student in Pattern Recognition and Intelligent Systems at the <a href="https://www.ucas.ac.cn" target="_self">University of
 						Chinese Academy of Sciences (UCAS) <img src="assets/img/ucas.png" alt="ucas logo"
-							style="border-radius: 10%; height: 28px; vertical-align: middle; margin: 0 5px 0 0; object-position: 0px 0; overflow: hidden; object-fit: cover;"
+							style="border-radius: 10%; height: 28px; vertical-align: middle; margin: 0 5px 1% 0; object-position: 0px 0; overflow: hidden; object-fit: cover;"
 							border="0"></a> and <a href="http://www.ia.cas.cn/" target="_self">Institute of Automation,
 						Chinese Academy of Sciences
 						(CASIA) <img src="assets/img/casia.svg" alt="casia logo"
-							style="border-radius: 10%; height: 28px; vertical-align: middle; margin: 0 5px 0 0; object-position: 0 0; overflow: hidden;"
+							style="border-radius: 10%; height: 28px; vertical-align: middle; margin: 0 5px 1% 0; object-position: 0 0; overflow: hidden;"
 							border="0"></a>,
 					supervised by Prof. <a href="https://heshizhu.github.io/">
 						<font face="Georgia">Shizhu He</font>
@@ -909,7 +913,7 @@
 						<font face="Georgia">North China
 							Electric Power University (NCEPU)</font> <img
 							src="assets/img/North_China_Electric_Power_University_logo.png" alt="ncepu logo"
-							style="border-radius: 10%; height: 28px; vertical-align: middle; margin: 0 5px 0 0; object-position: 0 0; overflow: hidden;"
+							style="border-radius: 10%; height: 28px; vertical-align: middle; margin: 0 5px 1% 0; object-position: 0 0; overflow: hidden;"
 							border="0">
 					</a> in 2023, under the supervision of
 					Prof. Min Shi and Prof. Yun Ju.
@@ -1120,22 +1124,21 @@
 						<font size="4" style="color: var(--color-low);">Long-context Compression and Reasoning</font>
 						<br><br> -->
 						&emsp;&emsp;<i class="fa fa-graduation-cap"></i>
-						PhD in <a href="https://www.ucas.ac.cn" target="_self">UCAS <img src="assets/img/ucas.png"
+						PhD in <a href="https://www.ucas.ac.cn" target="_self">UCAS <img class="logo" src="assets/img/ucas.png"
 								alt="ucas logo"
-								style="border-radius: 10%; height: 32px; vertical-align: middle; margin: 0 5px 0 0; object-position: 0px 0; overflow: hidden; object-fit: cover;"
+								style="border-radius: 10%; height: 32px; vertical-align: middle; margin: 0 5px 10% 0; object-position: 0px 0; overflow: hidden; object-fit: cover;"
 								border="0"></a> and
-						<a href="http://www.ia.cas.cn" target="_self">CASIA <img src="assets/img/casia.svg"
+						<a href="http://www.ia.cas.cn" target="_self">CASIA <img class="logo" src="assets/img/casia.svg"
 								alt="casia logo"
-								style="border-radius: 10%; height: 32px; vertical-align: middle; margin: 0 5px 0 0; object-position: 0 0; overflow: hidden;"
 								border="0"></a>, 2023-now
 						<br>
+						<!-- style="border-radius: 10%; height: 32px; vertical-align: middle; margin: 0 5px 10% 0; object-position: 0 0; overflow: hidden;" -->
 						<font size="3">&emsp;&emsp;&emsp;&emsp;</font>
 						<font size="4" style="color: var(--color-low);">Pattern Recognition and Intelligent Systems </font>
 						<br><br>
 						&emsp;&emsp;<i class="fa fa-graduation-cap"></i>
-						B.Eng. in <a href="https://www.ncepu.edu.cn/" target="_self">NCEPU <img
+						B.Eng. in <a href="https://www.ncepu.edu.cn/" target="_self">NCEPU <img class="logo"
 								src="assets/img/North_China_Electric_Power_University_logo.png" alt="ncepu logo"
-								style="border-radius: 10%; height: 32px; vertical-align: middle; margin: 0 5px 0 0; object-position: 0 0; overflow: hidden;"
 								border="0"></a>, 2019-2023
 						<br>
 						<font size="3">&emsp;&emsp;&emsp;&emsp;</font>
@@ -1239,8 +1242,9 @@
 		<h2>
 			<b>
 				<font face="Roboto" size=+3>📒 Publications</font>
-			</b> &nbsp;<a href="https://scholar.google.com.hk/citations?user=sRcWOKUAAAAJ&hl=zh-CN" target="_self"><img
-					src="../assets/img/google-scholar.png" alt="Google Scholar" width="8%" /></a>
+			</b> 
+			<!-- &nbsp;<a href="https://scholar.google.com.hk/citations?user=sRcWOKUAAAAJ&hl=zh-CN" target="_self"><img
+					src="../assets/img/google-scholar.png" alt="Google Scholar" width="8%" /></a> -->
 		</h2>
 		<!-- <hr /> -->
 		<div class="divide"></div>
@@ -1842,7 +1846,7 @@ Small Language Models (SLMs) are attracting attention due to the high computatio
 			<br />
 			<li>
 				<b>[COLING 2025]</b> <b><a href="https://aclanthology.org/2025.coling-main.89/" class="paper">
-						<font face=" Georgia" size="4">Awakening Augmented Generation: Learning to Awaken Internal
+						<font face=" Georgia" size="4">AAG: Learning to Awaken Internal
 							Knowledge of Large Language Models for Question Answering</font>
 					</a></b>
 				&nbsp;&nbsp;
@@ -2053,8 +2057,8 @@ Retrieval-augmented generation (RAG) enhances large language models (LLMs) by re
 				<textarea id="myab8" autoHeight="true" name="textarea" disabled class="ab8" style="display:none">
 How to interact with LLMs through \emph{instructions} has been widely studied by researchers. However, previous studies have treated the emergence of instructions and the training of LLMs on task data as separate processes, overlooking the inherent unity between the two. This paper proposes a neural network framework, VaiBot, that integrates VAE and VIB, designed to uniformly model, learn, and infer both deduction and induction tasks under LLMs. Through experiments, we demonstrate that VaiBot performs on par with existing baseline methods in terms of deductive capabilities while significantly surpassing them in inductive capabilities. We also find that VaiBot can scale up using general instruction-following data and exhibits excellent one-shot induction abilities. We finally synergistically integrate the deductive and inductive processes of VaiBot. Through T-SNE dimensionality reduction, we observe that its inductive-deductive process significantly improves the distribution of training parameters, enabling it to outperform baseline methods in inductive reasoning tasks. </textarea>
 			</li>
-			<br />
-			<li>
+			<!-- <br /> -->
+			<!-- <li>
 				<b><a href="" class="paper">
 						<font face=" Georgia" size="4">Differentiated Instruction for Student Language Models:
 							Contrastive Error Self-Correction via Refinement Feedback of Large Language Models</font>
@@ -2067,8 +2071,8 @@ How to interact with LLMs through \emph{instructions} has been widely studied by
 					&nbsp;&nbsp; <br> <i><b>
 							<font size=" 4" face="Georgia">Preprint</font></b></i>, 2025.
 				</font>
-				<!-- <br> -->
-				<div style="display: inline-block; margin-top:0.5%; width:50%">
+				<br>
+				<div style="display: inline-block; margin-top:0.5%; width:50%"> -->
 					<!-- <div class="bu" id="10" style="display: inline-block; margin-top:0%">
 						<font size="2"><i class="fa fa-info fa-2x" aria-hidden="true"></i></font>&nbsp;<img
 							alt="Static Badge" src="https://img.shields.io/badge/Bib-5cb85c" style="height: 1em;">
@@ -2109,7 +2113,7 @@ How to interact with LLMs through \emph{instructions} has been widely studied by
 								style="height: 1em;">
 						</a>
 					</div> -->
-				</div>
+				<!-- </div>
 
 				<textarea id="mybib11" autoHeight="true" name="textarea" disabled class="bib11" style="display:none">
 @inproceedings{Sun2025VaiBotSB,
@@ -2121,7 +2125,7 @@ How to interact with LLMs through \emph{instructions} has been widely studied by
 
 				<textarea id="myab11" autoHeight="true" name="textarea" disabled class="ab11" style="display:none">
 How to interact with LLMs through \emph{instructions} has been widely studied by researchers. However, previous studies have treated the emergence of instructions and the training of LLMs on task data as separate processes, overlooking the inherent unity between the two. This paper proposes a neural network framework, VaiBot, that integrates VAE and VIB, designed to uniformly model, learn, and infer both deduction and induction tasks under LLMs. Through experiments, we demonstrate that VaiBot performs on par with existing baseline methods in terms of deductive capabilities while significantly surpassing them in inductive capabilities. We also find that VaiBot can scale up using general instruction-following data and exhibits excellent one-shot induction abilities. We finally synergistically integrate the deductive and inductive processes of VaiBot. Through T-SNE dimensionality reduction, we observe that its inductive-deductive process significantly improves the distribution of training parameters, enabling it to outperform baseline methods in inductive reasoning tasks. </textarea>
-			</li>
+			</li> -->
 			
 			<!-- <br /> -->
 
