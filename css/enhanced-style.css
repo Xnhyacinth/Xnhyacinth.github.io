@@ -298,6 +298,7 @@ a:hover {
   font-size: 1.125rem;
   transition: transform var(--transition-base);
   color: white !important;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.25));
 }
 
 .theme-toggle .sun-icon {
@@ -330,6 +331,7 @@ a:hover {
 
 [data-theme="dark"] .theme-toggle i {
   color: white !important;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.35));
 }
 
 [data-theme="dark"] .theme-toggle .sun-icon,
