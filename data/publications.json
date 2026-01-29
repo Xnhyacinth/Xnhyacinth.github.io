@@ -1,0 +1,317 @@
+{
+  "publications": [
+    {
+      "id": "spark",
+      "title": "SparK: Query-Aware Unstructured Sparsity with Recoverable KV Cache Channel Pruning",
+      "authors": [
+        "Huanxuan Liao",
+        "Yixing Xu",
+        "Shizhu He",
+        "Guanchen Li",
+        "Xuanwu Yin",
+        "Dong Li",
+        "Emad Barsoum",
+        "Jun Zhao",
+        "Kang Liu"
+      ],
+      "venue": "AAAI 2026",
+      "year": 2026,
+      "type": "conference",
+      "links": {
+        "arxiv": "https://arxiv.org/abs/2508.15212",
+        "code": "https://github.com/Xnhyacinth/SparK"
+      },
+      "abstract": "Long-context inference in large language models (LLMs) is increasingly constrained by the KV cache bottleneck: memory usage grows linearly with sequence length, while attention computation scales quadratically. Existing approaches address this issue by compressing the KV cache along the temporal axis through strategies such as token eviction or merging to reduce memory and computational overhead. However, these methods often neglect fine-grained importance variations across feature dimensions (i.e., the channel axis), thereby limiting their ability to effectively balance efficiency and model accuracy.",
+      "keywords": [
+        "KV Cache",
+        "Sparsity",
+        "Long Context",
+        "Efficiency"
+      ]
+    },
+    {
+      "id": "nesycd",
+      "title": "Neural-Symbolic Collaborative Distillation: Advancing Small Language Models for Complex Reasoning Tasks",
+      "authors": [
+        "Huanxuan Liao",
+        "Shizhu He",
+        "Yao Xu",
+        "Yuanzhe Zhang",
+        "Kang Liu",
+        "Jun Zhao"
+      ],
+      "venue": "AAAI 2025",
+      "year": 2025,
+      "type": "conference",
+      "links": {
+        "arxiv": "https://arxiv.org/abs/2409.13203",
+        "code": "https://github.com/Xnhyacinth/NesyCD"
+      },
+      "abstract": "In this paper, we propose Neural-Symbolic Collaborative Distillation (NesyCD), a novel knowledge distillation method for learning the complex reasoning abilities of Large Language Models (LLMs, e.g., > 13B). We argue that complex reasoning tasks are difficult for Small Language Models (SLMs, e.g., ≤ 7B), as these tasks demand not only general cognitive abilities but also specialized knowledge, which is often sparse and difficult for these neural-based SLMs to effectively capture.",
+      "keywords": [
+        "Knowledge Distillation",
+        "Neural-Symbolic",
+        "Reasoning"
+      ]
+    },
+    {
+      "id": "skintern",
+      "title": "SKIntern: Internalizing Symbolic Knowledge for Distilling Better CoT Capabilities into Small Language Models",
+      "authors": [
+        "Huanxuan Liao",
+        "Shizhu He",
+        "Yupu Hao",
+        "Xiang Li",
+        "Yuanzhe Zhang",
+        "Jun Zhao",
+        "Kang Liu"
+      ],
+      "venue": "COLING 2025",
+      "year": 2025,
+      "type": "conference",
+      "links": {
+        "arxiv": "https://arxiv.org/abs/2409.13183",
+        "code": "https://github.com/Xnhyacinth/SKIntern"
+      },
+      "abstract": "Small Language Models (SLMs) are attracting attention due to the high computational demands and privacy concerns of Large Language Models (LLMs). Some studies fine-tune SLMs using Chains of Thought (CoT) data distilled from LLMs, aiming to enhance their reasoning ability.",
+      "keywords": [
+        "Chain of Thought",
+        "Symbolic Knowledge",
+        "Distillation"
+      ]
+    },
+    {
+      "id": "aag",
+      "title": "AAG: Learning to Awaken Internal Knowledge of Large Language Models for Question Answering",
+      "authors": [
+        "Huanxuan Liao",
+        "Shizhu He",
+        "Yao Xu",
+        "Yuanzhe Zhang",
+        "Kang Liu",
+        "Shengping Liu",
+        "Jun Zhao"
+      ],
+      "venue": "COLING 2025",
+      "year": 2025,
+      "type": "conference",
+      "links": {
+        "arxiv": "https://arxiv.org/abs/2403.15268",
+        "code": "https://github.com/Xnhyacinth/IAG",
+        "homepage": "https://xnhyacinth.github.io/IAG"
+      },
+      "abstract": "Retrieval-Augmented-Generation and Generation-Augmented-Generation have been proposed to enhance the knowledge required for question answering over Large Language Models (LLMs). However, the former relies on external resources, and both require incorporating explicit documents into the context, which increases execution costs and susceptibility to noise data.",
+      "keywords": [
+        "Question Answering",
+        "Knowledge Augmentation",
+        "RAG"
+      ]
+    },
+    {
+      "id": "tagi",
+      "title": "From Instance Training to Instruction Learning: Task Adapters Generation from Instructions",
+      "authors": [
+        "Huanxuan Liao",
+        "Shizhu He",
+        "Yao Xu",
+        "Yuanzhe Zhang",
+        "Yanchao Hao",
+        "Shengping Liu",
+        "Kang Liu",
+        "Jun Zhao"
+      ],
+      "venue": "NeurIPS 2024",
+      "year": 2024,
+      "type": "conference",
+      "links": {
+        "arxiv": "https://arxiv.org/abs/2406.12382",
+        "code": "https://github.com/Xnhyacinth/TAGI",
+        "homepage": "https://xnhyacinth.github.io/TAGI"
+      },
+      "abstract": "Large language models (LLMs) have acquired the ability to solve general tasks by utilizing instruction finetuning (IFT). However, IFT still relies heavily on instance training of extensive task data, which greatly limits the adaptability of LLMs to real-world scenarios where labeled task instances are scarce and broader task generalization becomes paramount.",
+      "keywords": [
+        "Instruction Learning",
+        "Hypernetwork",
+        "Task Adaptation"
+      ]
+    },
+    {
+      "id": "dynbf",
+      "title": "Dynamic Weighted Neural Bellman-Ford Network for Knowledge Graph Reasoning",
+      "authors": [
+        "Huanxuan Liao",
+        "Shizhu He",
+        "Yao Xu",
+        "Kang Liu",
+        "Jun Zhao"
+      ],
+      "venue": "CCKS 2023",
+      "year": 2023,
+      "type": "conference",
+      "links": {},
+      "abstract": "Recent studies have shown that subgraphs of the head entity, such as related relations and neighborhoods, are helpful for Knowledge Graph Reasoning (KGR). However, prior studies tend to focus solely on enhancing entity representations using related relations, with little attention paid to the impact of different relations on different entities and their importance in various reasoning paths.",
+      "keywords": [
+        "Knowledge Graph",
+        "Neural Network",
+        "Reasoning"
+      ]
+    }
+  ],
+  "preprints": [
+    {
+      "id": "hyco2",
+      "title": "Beyond Hard and Soft: Hybrid Context Compression for Balancing Local and Global Information Retention",
+      "authors": [
+        "Huanxuan Liao",
+        "Wen Hu",
+        "Yao Xu",
+        "Shizhu He",
+        "Jun Zhao",
+        "Kang Liu"
+      ],
+      "venue": "arXiv",
+      "year": 2025,
+      "type": "preprint",
+      "links": {
+        "arxiv": "https://arxiv.org/abs/2505.15774",
+        "code": "https://github.com/Xnhyacinth/HyCo2"
+      },
+      "abstract": "Large Language Models (LLMs) encounter significant challenges in long-sequence inference due to computational inefficiency and redundant processing, driving interest in context compression techniques.",
+      "keywords": [
+        "Context Compression",
+        "Long Context",
+        "Efficiency"
+      ]
+    },
+    {
+      "id": "data",
+      "title": "DATA: Decomposed Attention-based Task Adaptation for Rehearsal-Free Continual Learning",
+      "authors": [
+        "Huanxuan Liao",
+        "Shizhu He",
+        "Yupu Hao",
+        "Jun Zhao",
+        "Kang Liu"
+      ],
+      "venue": "arXiv",
+      "year": 2025,
+      "type": "preprint",
+      "links": {
+        "arxiv": "https://arxiv.org/abs/2502.11482",
+        "code": "https://github.com/Xnhyacinth/DATA"
+      },
+      "abstract": "Continual learning (CL) is essential for Large Language Models (LLMs) to adapt to evolving real-world demands, yet they are susceptible to catastrophic forgetting (CF).",
+      "keywords": [
+        "Continual Learning",
+        "Attention",
+        "Task Adaptation"
+      ]
+    }
+  ],
+  "collaborations": [
+    {
+      "id": "lclm-survey",
+      "title": "A Comprehensive Survey on Long Context Language Modeling",
+      "authors": [
+        "Jiaheng Liu",
+        "Dawei Zhu",
+        "Zhiqi Bai",
+        "Yancheng He",
+        "Huanxuan Liao",
+        "Haoran Que",
+        "Zekun Wang",
+        "et al."
+      ],
+      "venue": "arXiv",
+      "year": 2025,
+      "type": "survey",
+      "role": "Core Contributor",
+      "links": {
+        "arxiv": "https://arxiv.org/abs/2503.17407",
+        "code": "https://github.com/LCLM-Horizon/A-Comprehensive-Survey-For-Long-Context-Language-Modeling"
+      },
+      "abstract": "Efficient processing of long contexts has been a persistent pursuit in Natural Language Processing. With the growing number of long documents, dialogues, and other textual data, it is important to develop Long Context Language Models (LCLMs) that can process and analyze extensive inputs in an effective and efficient way.",
+      "keywords": [
+        "Survey",
+        "Long Context",
+        "Language Models"
+      ]
+    },
+    {
+       "title": "Evaluating Personalized Tool-Augmented LLMs from the Perspectives of Personalization and Proactivity",
+      "authors": ["Yupu Hao", "Pengfei Cao", "Zhuoran Jin", "Huanxuan Liao", "Yubo Chen", "Kang Liu", "Jun Zhao"],
+      "venue": "ACL 2025",
+      "year": 2025,
+      "type": "conference",
+      "role": "Collaborator",
+      "links": {
+        "arxiv": "https://arxiv.org/abs/2503.00771",
+        "code": "https://github.com/hypasd-art/ETAPP"
+      },
+      "abstract": "Personalized tool utilization is essential for aligning large language models (LLMs) with user preference in interaction scenarios with various tools. However, most of the current benchmarks primarily focus on either personalization of text generation or direct tool-utilizing, without considering both.",
+      "keywords": ["Tool Learning", "Personalization", "Benchmark"]
+    },
+    {
+      "id": "citi",
+      "title": "CITI: Enhancing Tool Utilizing Ability in Large Language Models without Sacrificing General Performance",
+      "authors": ["Yupu Hao", "Pengfei Cao", "Zhuoran Jin", "Huanxuan Liao", "Yubo Chen", "Kang Liu", "Jun Zhao"],
+      "venue": "AAAI 2025",
+      "year": 2025,
+      "type": "conference",
+      "role": "Collaborator",
+      "links": {
+        "arxiv": "https://arxiv.org/abs/2409.13202",
+        "code": "https://github.com/hypasd-art/CITI"
+      },
+      "abstract": "Tool learning enables the Large Language Models (LLMs) to interact with the external environment by invoking tools, enriching the accuracy and capability scope of LLMs. However, previous works predominantly focus on improving model's tool-utilizing accuracy and the ability to generalize to new, unseen tools.",
+      "keywords": ["Tool Learning", "LoRA", "Efficiency"]
+    },
+    {
+      "id": "dyprag",
+      "title": "Better wit than wealth: Dynamic Parametric Retrieval Augmented Generation for Test-time Knowledge Enhancement",
+      "authors": ["Yuqiao Tan", "Shizhu He", "Huanxuan Liao", "Jun Zhao", "Kang Liu"],
+      "venue": "arXiv",
+      "year": 2025,
+      "type": "preprint",
+      "role": "Collaborator",
+      "links": {
+        "arxiv": "https://arxiv.org/abs/2503.23895",
+        "code": "https://github.com/Trae1ounG/DyPRAG",
+        "homepage": "https://trae1oung.github.io/DyPRAG/"
+      },
+      "abstract": "Retrieval-augmented generation (RAG) enhances large language models (LLMs) by retrieving relevant documents from external sources and incorporating them into the context. While it improves reliability by providing factual texts, it significantly increases inference costs as context length grows.",
+      "keywords": ["RAG", "Parametric Knowledge", "Test-time Enhancement"]
+    },
+    {
+      "id": "vaibot",
+      "title": "VaiBot: Shuttle Between the Instructions and Parameters of Large Language Models",
+      "authors": ["Wangtao Sun", "Haotian Xu", "Huanxuan Liao", "Xuanqing Yu", "Zhongtao Jiang", "Shizhu He", "Jun Zhao", "Kang Liu"],
+      "venue": "arXiv",
+      "year": 2025,
+      "type": "preprint",
+      "role": "Collaborator",
+      "links": {
+        "arxiv": "https://arxiv.org/abs/2502.02315",
+        "code": "https://anonymous.4open.science/r/VaiBot-021F"
+      },
+      "abstract": "How to interact with LLMs through instructions has been widely studied by researchers. However, previous studies have treated the emergence of instructions and the training of LLMs on task data as separate processes, overlooking the inherent unity between the two.",
+      "keywords": ["VAE", "VIB", "Instruction Learning"]
+    },
+    {
+      "id": "lmtuner",
+      "title": "LMTuner: An user-friendly and highly-integrable Training Framework for fine-tuning Large Language Models",
+      "authors": ["Yixuan Weng", "Zhiqi Wang", "Huanxuan Liao", "Shizhu He", "Shengping Liu", "Kang Liu", "Jun Zhao"],
+      "venue": "arXiv",
+      "year": 2023,
+      "type": "preprint",
+      "role": "Collaborator",
+      "links": {
+        "arxiv": "https://arxiv.org/abs/2308.10252",
+        "code": "https://github.com/WENGSYX/LMTuner",
+        "homepage": "https://wengsyx.github.io/LMTuner/"
+      },
+      "abstract": "With the burgeoning development in the realm of large language models (LLMs), the demand for efficient incremental training tailored to specific industries and domains continues to increase. Currently, the predominantly employed frameworks lack modular design, it often takes a lot of coding work to kickstart the training of LLM.",
+      "keywords": ["Training Framework", "Fine-tuning", "DeepSpeed"]
+    }
+  ]
+}
