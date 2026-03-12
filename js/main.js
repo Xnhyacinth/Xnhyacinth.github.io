@@ -117,23 +117,7 @@
             this.bindSmoothScroll();
             this.bindActiveLink();
             this.bindMobileMenu();
-            this.bindScrollEffect();
             this.bindDropdowns();
-        },
-
-        bindScrollEffect() {
-            const navbar = document.querySelector('.navbar');
-            if (!navbar) return;
-
-            const handleScroll = Utils.throttle(() => {
-                if (window.scrollY > 50) {
-                    navbar.classList.add('scrolled');
-                } else {
-                    navbar.classList.remove('scrolled');
-                }
-            }, 100);
-
-            window.addEventListener('scroll', handleScroll);
         },
 
         bindSmoothScroll() {
@@ -188,6 +172,13 @@
                 menuToggle.addEventListener('click', () => {
                     mobileNav.classList.toggle('active');
                     menuToggle.classList.toggle('active');
+                });
+
+                mobileNav.querySelectorAll('.nav-link').forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileNav.classList.remove('active');
+                        menuToggle.classList.remove('active');
+                    });
                 });
 
                 document.addEventListener('click', (e) => {
@@ -245,7 +236,6 @@
     const AnimationManager = {
         init() {
             this.initScrollAnimations();
-            this.initHoverEffects();
         },
 
         initScrollAnimations() {
@@ -268,49 +258,6 @@
             }, observerOptions);
 
             animatedElements.forEach(el => observer.observe(el));
-        },
-
-        initHoverEffects() {
-            document.querySelectorAll('.card-hover').forEach(card => {
-                card.addEventListener('mouseenter', () => {
-                    card.style.transform = 'translateY(-4px)';
-                });
-
-                card.addEventListener('mouseleave', () => {
-                    card.style.transform = 'translateY(0)';
-                });
-            });
-
-            this.initMagneticEffect();
-        },
-
-        initMagneticEffect() {
-            const socialLinks = document.querySelectorAll('.social-link');
-
-            socialLinks.forEach(link => {
-                link.addEventListener('mousemove', (e) => {
-                    const rect = link.getBoundingClientRect();
-                    const x = e.clientX - rect.left - rect.width / 2;
-                    const y = e.clientY - rect.top - rect.height / 2;
-
-                    link.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
-                });
-
-                link.addEventListener('mouseleave', () => {
-                    link.style.transform = 'translate(0, 0)';
-                });
-            });
-        },
-
-        initParallaxEffect() {
-            const profileSection = document.querySelector('.profile-section');
-            if (!profileSection) return;
-
-            window.addEventListener('scroll', Utils.throttle(() => {
-                const scrolled = window.pageYOffset;
-                const rate = scrolled * 0.3;
-                profileSection.style.backgroundPosition = `center ${rate}px`;
-            }, 16));
         }
     };
 
@@ -367,42 +314,6 @@
                 img.removeAttribute('data-src');
                 img.classList.add('loaded');
             }
-        }
-    };
-
-    const SearchManager = {
-        init() {
-            this.bindSearchInput();
-        },
-
-        bindSearchInput() {
-            const searchInput = document.querySelector('.search-input');
-            if (!searchInput) return;
-
-            searchInput.addEventListener('input', Utils.debounce((e) => {
-                const query = e.target.value.toLowerCase().trim();
-                this.performSearch(query);
-            }, 300));
-        },
-
-        performSearch(query) {
-            const publications = document.querySelectorAll('.publication-item');
-
-            publications.forEach(pub => {
-                const title = pub.querySelector('.publication-title')?.textContent.toLowerCase() || '';
-                const authors = pub.querySelector('.publication-authors')?.textContent.toLowerCase() || '';
-                const venue = pub.querySelector('.publication-venue')?.textContent.toLowerCase() || '';
-
-                const isMatch = title.includes(query) ||
-                    authors.includes(query) ||
-                    venue.includes(query);
-
-                pub.style.display = isMatch ? '' : 'none';
-
-                if (isMatch && query) {
-                    Utils.animate(pub, 'animate-fade-in');
-                }
-            });
         }
     };
 
@@ -548,7 +459,6 @@
         NavigationManager.init();
         AnimationManager.init();
         LazyLoadManager.init();
-        SearchManager.init();
         PerformanceManager.init();
         InteractionManager.init();
 
