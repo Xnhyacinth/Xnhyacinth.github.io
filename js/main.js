@@ -238,28 +238,7 @@
                 });
             });
 
-            this.initTypewriterEffect();
             this.initMagneticEffect();
-        },
-
-        initTypewriterEffect() {
-            const profileName = document.querySelector('.profile-name');
-            if (!profileName) return;
-
-            const text = profileName.textContent;
-            profileName.textContent = '';
-            profileName.style.opacity = '1';
-
-            let i = 0;
-            const typeWriter = () => {
-                if (i < text.length) {
-                    profileName.textContent += text.charAt(i);
-                    i++;
-                    setTimeout(typeWriter, 100);
-                }
-            };
-
-            setTimeout(typeWriter, 500);
         },
 
         initMagneticEffect() {
@@ -421,6 +400,104 @@
         }
     };
 
+    // === Interaction Enhancements ===
+    const InteractionManager = {
+        init() {
+            this.initScrollReveal();
+            this.initGlassNavbar();
+            this.initMagneticIcons();
+            this.initRippleButtons();
+            this.initPageLoader();
+        },
+
+        // Scroll-reveal: fade-up sections as they enter viewport
+        initScrollReveal() {
+            const reveals = document.querySelectorAll('.reveal');
+            if (!reveals.length) return;
+
+            const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (prefersReduced) {
+                reveals.forEach(el => el.classList.add('active'));
+                return;
+            }
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+            reveals.forEach(el => observer.observe(el));
+        },
+
+        // Glassmorphism navbar on scroll
+        initGlassNavbar() {
+            const navbar = document.querySelector('.navbar');
+            if (!navbar) return;
+
+            const onScroll = Utils.throttle(() => {
+                navbar.classList.toggle('scrolled', window.scrollY > 50);
+            }, 100);
+
+            window.addEventListener('scroll', onScroll, { passive: true });
+            onScroll(); // set initial state
+        },
+
+        // Magnetic hover effect on social icons
+        initMagneticIcons() {
+            const links = document.querySelectorAll('.social-link');
+            links.forEach(link => {
+                link.addEventListener('mousemove', (e) => {
+                    const rect = link.getBoundingClientRect();
+                    const x = (e.clientX - rect.left - rect.width / 2) * 0.25;
+                    const y = (e.clientY - rect.top - rect.height / 2) * 0.25;
+                    link.style.transform = `translate(${x}px, ${y}px)`;
+                });
+                link.addEventListener('mouseleave', () => {
+                    link.style.transform = '';
+                });
+            });
+        },
+
+        // Ripple effect on filter buttons
+        initRippleButtons() {
+            document.addEventListener('click', (e) => {
+                const btn = e.target.closest('.filter-btn');
+                if (!btn) return;
+
+                const existing = btn.querySelector('.ripple-effect');
+                if (existing) existing.remove();
+
+                const ripple = document.createElement('span');
+                ripple.classList.add('ripple-effect');
+                const rect = btn.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height) * 2;
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+                ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+                btn.appendChild(ripple);
+
+                ripple.addEventListener('animationend', () => ripple.remove());
+            });
+        },
+
+        // Page loader fade-out
+        initPageLoader() {
+            const loader = document.getElementById('pageLoader');
+            if (!loader) return;
+            // Short delay so the ring animation is visible
+            setTimeout(() => loader.classList.add('hidden'), 400);
+            loader.addEventListener('transitionend', () => {
+                if (loader.classList.contains('hidden')) {
+                    loader.style.display = 'none';
+                }
+            });
+        }
+    };
+
     function init() {
         ThemeManager.init();
         NavigationManager.init();
@@ -428,6 +505,7 @@
         LazyLoadManager.init();
         SearchManager.init();
         PerformanceManager.init();
+        InteractionManager.init();
 
         document.body.classList.add('loaded');
 

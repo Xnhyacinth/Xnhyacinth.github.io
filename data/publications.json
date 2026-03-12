@@ -98,7 +98,7 @@
       "links": {
         "arxiv": "https://arxiv.org/abs/2403.15268",
         "code": "https://github.com/Xnhyacinth/IAG",
-        "homepage": "https://xnhyacinth.github.io/IAG"
+        "homepage": "https://xnhyacinth.github.io/projects/IAG/"
       },
       "abstract": "Retrieval-Augmented-Generation and Generation-Augmented-Generation have been proposed to enhance the knowledge required for question answering over Large Language Models (LLMs). However, the former relies on external resources, and both require incorporating explicit documents into the context, which increases execution costs and susceptibility to noise data.",
       "keywords": [
@@ -126,7 +126,7 @@
       "links": {
         "arxiv": "https://arxiv.org/abs/2406.12382",
         "code": "https://github.com/Xnhyacinth/TAGI",
-        "homepage": "https://xnhyacinth.github.io/TAGI"
+        "homepage": "https://xnhyacinth.github.io/projects/TAGI/"
       },
       "abstract": "Large language models (LLMs) have acquired the ability to solve general tasks by utilizing instruction finetuning (IFT). However, IFT still relies heavily on instance training of extensive task data, which greatly limits the adaptability of LLMs to real-world scenarios where labeled task instances are scarce and broader task generalization becomes paramount.",
       "keywords": [
