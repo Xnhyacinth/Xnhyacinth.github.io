@@ -118,6 +118,7 @@
             this.bindActiveLink();
             this.bindMobileMenu();
             this.bindScrollEffect();
+            this.bindDropdowns();
         },
 
         bindScrollEffect() {
@@ -196,6 +197,48 @@
                     }
                 });
             }
+        }
+        ,
+        bindDropdowns() {
+            const dropdowns = Array.from(document.querySelectorAll('.nav-dropdown'));
+            if (!dropdowns.length) return;
+
+            const closeAll = (except) => {
+                dropdowns.forEach(dd => {
+                    if (dd !== except) {
+                        dd.classList.remove('open');
+                        const btn = dd.querySelector('.nav-dropdown-toggle');
+                        if (btn) btn.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            };
+
+            dropdowns.forEach(dd => {
+                const btn = dd.querySelector('.nav-dropdown-toggle');
+                if (!btn) return;
+
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const isOpen = dd.classList.toggle('open');
+                    btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                    if (isOpen) closeAll(dd);
+                });
+
+                dd.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape') {
+                        dd.classList.remove('open');
+                        btn.setAttribute('aria-expanded', 'false');
+                        btn.blur();
+                    }
+                });
+            });
+
+            document.addEventListener('click', (e) => {
+                const inside = e.target.closest('.nav-dropdown');
+                if (!inside) closeAll();
+            });
+
+            window.addEventListener('blur', () => closeAll());
         }
     };
 
@@ -448,12 +491,14 @@
 
         // Magnetic hover effect on social icons
         initMagneticIcons() {
+            const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (prefersReduced) return;
             const links = document.querySelectorAll('.social-link');
             links.forEach(link => {
                 link.addEventListener('mousemove', (e) => {
                     const rect = link.getBoundingClientRect();
-                    const x = (e.clientX - rect.left - rect.width / 2) * 0.25;
-                    const y = (e.clientY - rect.top - rect.height / 2) * 0.25;
+                    const x = (e.clientX - rect.left - rect.width / 2) * 0.18;
+                    const y = (e.clientY - rect.top - rect.height / 2) * 0.18;
                     link.style.transform = `translate(${x}px, ${y}px)`;
                 });
                 link.addEventListener('mouseleave', () => {
