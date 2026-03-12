@@ -65,20 +65,42 @@
   }
   
   .project-select {
-    padding: 8px 12px;
-    border-radius: 6px;
-    border: 1px solid #ddd;
-    background-color: white;
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    background: rgba(255, 255, 255, 0.92);
     font-family: 'Google Sans', sans-serif;
-    font-size: 14px;
+    font-size: 15px;
+    font-weight: 500;
     cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    min-width: 220px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+    backdrop-filter: blur(10px);
   }
 
   .project-select:hover {
-    border-color: #aaa;
+    border-color: rgba(0, 0, 0, 0.22);
   }
   
+  .project-select:focus {
+    outline: none;
+    border-color: rgba(52, 152, 219, 0.8);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12), 0 0 0 4px rgba(52, 152, 219, 0.15);
+  }
+
+  @media (max-width: 768px) {
+    .project-nav-container {
+      top: 12px;
+      right: 12px;
+    }
+
+    .project-select {
+      min-width: 200px;
+      font-size: 14px;
+      padding: 9px 12px;
+    }
+  }
+
   .section {
     margin-bottom: -30px;
     /* Adjust this value as needed to reduce the space */
@@ -178,10 +200,16 @@
 <body>
   <div class="project-nav-container">
     <select class="project-select" onchange="navigateToProject(this)">
-      <option value="" disabled>Select Project</option>
-      <option value="https://xnhyacinth.github.io/">🏠 Homepage</option>
-      <option value="https://xnhyacinth.github.io/projects/IAG/" selected>IAG</option>
-      <option value="https://xnhyacinth.github.io/projects/TAGI/">TAGI</option>
+      <option value="" disabled>Navigate</option>
+      <optgroup label="Projects">
+        <option value="https://xnhyacinth.github.io/">Homepage</option>
+        <option value="https://xnhyacinth.github.io/projects/IAG/" selected>IAG</option>
+        <option value="https://xnhyacinth.github.io/projects/TAGI/">TAGI</option>
+      </optgroup>
+      <optgroup label="External">
+        <option value="https://trae1oung.github.io/DyPRAG/">DyPRAG</option>
+        <option value="https://wengsyx.github.io/LMTuner/">LMTuner</option>
+      </optgroup>
     </select>
   </div>
 
