@@ -445,7 +445,8 @@
 						</div>
 						<h3>Conference Reviewing</h3>
 						<ul>
-							<li>ACL ARR 2024, 2025</li>
+							<li>ACL ARR 2024, 2025, 2026</li>
+							<li>ICML 2026</li>
 							<li>NeurIPS 2025</li>
 							<li>ICLR 2025</li>
 							<li>AAAI 2026</li>
@@ -583,11 +584,11 @@
                         ${arxivLink !== '#' ? `<a href="${arxivLink}" class="pub-link"><i class="ai ai-arxiv"></i> arXiv</a>` : ''}
                         ${codeLink ? `<a href="${codeLink}" class="pub-link"><i class="fab fa-github"></i> Code</a>` : ''}
                         ${homepageLink ? `<a href="${homepageLink}" class="pub-link"><i class="fas fa-home"></i> Homepage</a>` : ''}
-                        ${paper.abstract ? `<button class="pub-link abstract-toggle" onclick="toggleAbstract('${paper.id}')" aria-label="Toggle abstract">
+                        ${paper.abstract ? `<button class="pub-link abstract-toggle" onclick="toggleAbstract(event, '${paper.id}')" aria-label="Toggle abstract">
                             <i class="fas fa-file-alt"></i> Abstract
                         </button>` : ''}
                     </div>
-                    ${paper.abstract ? `<div class="publication-abstract" id="abstract-${paper.id}" style="display: none;">
+                    ${paper.abstract ? `<div class="publication-abstract" id="abstract-${paper.id}" hidden>
                         <p>${paper.abstract}</p>
                         ${keywordsList.length > 0 ? `<div class="keywords">
                             <strong>Keywords:</strong>
@@ -599,18 +600,16 @@
 			}).join('');
 		}
 
-		function toggleAbstract(paperId) {
+		function toggleAbstract(e, paperId) {
 			const abstract = document.getElementById(`abstract-${paperId}`);
-			const button = event.target.closest('button');
+			const button = e.target.closest('button');
+			if (!abstract || !button) return;
 
-			if (abstract.style.display === 'none') {
-				abstract.style.display = 'block';
-				button.innerHTML = '<i class="fas fa-eye-slash"></i> Hide Abstract';
-				abstract.classList.add('animate-fade-in');
-			} else {
-				abstract.style.display = 'none';
-				button.innerHTML = '<i class="fas fa-file-alt"></i> Abstract';
-			}
+			const isHidden = abstract.hidden;
+			abstract.hidden = !isHidden;
+			button.innerHTML = isHidden
+				? '<i class="fas fa-eye-slash"></i> Hide Abstract'
+				: '<i class="fas fa-file-alt"></i> Abstract';
 		}
 
 		function setupFilters() {
