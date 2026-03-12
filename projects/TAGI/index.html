@@ -45,10 +45,40 @@
   <script src="static/js/bulma-slider.min.js"></script>
   <script src="static/js/index.js"></script>
 
+  <script>
+    function navigateToProject(select) {
+      const url = select.value;
+      if (url) {
+        window.location.href = url;
+      }
+    }
+  </script>
 
 </head>
 
 <style>
+  .project-nav-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+  }
+  
+  .project-select {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    background-color: white;
+    font-family: 'Google Sans', sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+
+  .project-select:hover {
+    border-color: #aaa;
+  }
+  
   .section {
     margin-bottom: -30px;
     /* Adjust this value as needed to reduce the space */
@@ -146,6 +176,14 @@
 </style>
 
 <body>
+  <div class="project-nav-container">
+    <select class="project-select" onchange="navigateToProject(this)">
+      <option value="" disabled>Select Project</option>
+      <option value="https://xnhyacinth.github.io/">🏠 Homepage</option>
+      <option value="https://xnhyacinth.github.io/projects/IAG/">IAG</option>
+      <option value="https://xnhyacinth.github.io/projects/TAGI/" selected>TAGI</option>
+    </select>
+  </div>
 
 
   <section class="hero">
