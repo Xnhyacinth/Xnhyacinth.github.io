@@ -101,6 +101,10 @@ html {
   margin-bottom: 0.8rem;
 }
 
+.publication-authors--second-row {
+  margin-top: 0.35rem;
+}
+
 .author-block {
   display: inline-block;
   margin: 0 0.3rem;
@@ -222,6 +226,138 @@ html {
   background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%);
 }
 
+.abstract-card {
+  background: var(--bg-white);
+  border-radius: var(--radius-lg);
+  padding: 3rem;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(0,0,0,0.04);
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.section-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--primary-gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.25rem;
+}
+
+.highlight {
+  background: linear-gradient(120deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  font-weight: 600;
+  color: var(--accent-color);
+}
+
+/* Section Headers */
+.section-header-center {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-tag {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  background: var(--primary-gradient);
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.section-subtitle {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+}
+
+/* Figure Frame */
+.figure-frame {
+  background: var(--bg-white);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(0,0,0,0.04);
+  transition: var(--transition);
+}
+
+.figure-frame:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.figure-frame img {
+  border-radius: var(--radius-sm);
+  width: 100%;
+}
+
+.figure-caption {
+  text-align: center;
+  margin-top: 1rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.caption-number {
+  font-weight: 600;
+  color: var(--accent-color);
+  margin-right: 0.5rem;
+}
+
+/* BibTeX Card */
+.bibtex-card {
+  background: var(--bg-white);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-md);
+  position: relative;
+  border: 1px solid rgba(0,0,0,0.04);
+}
+
+.bibtex-card pre {
+  background: #f5f5f5;
+  padding: 1.5rem;
+  border-radius: var(--radius-sm);
+  overflow-x: auto;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.copy-btn {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  padding: 0.5rem 1rem;
+  background: var(--primary-gradient);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+
+.copy-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.35);
+}
+
 .content.has-text-justified {
   font-size: 1.05rem;
   line-height: 1.9;
@@ -273,20 +409,26 @@ html {
 }
 
 /* ============================================
-   CASE STUDY CAROUSEL
+   QUALITATIVE CASE STUDIES (appendix-style Q)
    ============================================ */
-.case-study-section {
-  background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
-  color: white;
-  padding: 5rem 0;
+.case-study-qbox {
+  padding: 0.85rem 1rem;
+  margin: 0;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-bottom-color: #e2e8f0;
+  color: #0f172a;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  text-align: left;
 }
 
-.case-study-section .title.is-3 {
-  color: white;
+.case-study-qbox strong {
+  color: #334155;
 }
 
-.case-study-section .title.is-3::after {
-  background: var(--secondary-gradient);
+.case-study-qbox em {
+  color: #475569;
 }
 
 .case-carousel {
@@ -389,6 +531,41 @@ html {
   font-family: 'Google Sans', sans-serif;
 }
 
+/* Carousel Dots */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.3);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.dot.active {
+  background: white;
+  transform: scale(1.2);
+}
+
+.dot:hover {
+  background: rgba(255,255,255,0.6);
+}
+
+/* Case Slide Caption */
+.case-caption {
+  background: rgba(0,0,0,0.7);
+  color: white;
+  padding: 1rem 1.5rem;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
 /* ============================================
    BIBTEX SECTION
    ============================================ */
@@ -421,33 +598,89 @@ html {
   top: 20px;
   right: 20px;
   z-index: 1000;
+  animation: projectNavIn 0.55s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+@keyframes projectNavIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-nav-container {
+    animation: none;
+  }
+}
+
+.project-select-shell {
+  display: inline-flex;
+  align-items: stretch;
+  max-width: min(92vw, 320px);
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 250, 252, 0.96) 100%);
+  border: 1px solid rgba(102, 126, 234, 0.22);
+  box-shadow:
+    0 1px 2px rgba(15, 23, 42, 0.04),
+    0 12px 32px rgba(102, 126, 234, 0.12);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+}
+
+.project-select-shell:hover {
+  border-color: rgba(102, 126, 234, 0.4);
+  box-shadow:
+    0 4px 20px rgba(15, 23, 42, 0.06),
+    0 16px 44px rgba(102, 126, 234, 0.16);
+}
+
+.project-select-shell:focus-within {
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+}
+
+.project-select-icon {
+  display: flex;
+  align-items: center;
+  padding-left: 14px;
+  color: #667eea;
+  font-size: 0.88rem;
+  opacity: 0.9;
+  flex-shrink: 0;
 }
 
 .project-select {
-  padding: 12px 18px;
-  border-radius: var(--radius-md);
-  border: 1px solid rgba(102, 126, 234, 0.2);
-  background: rgba(255, 255, 255, 0.95);
+  flex: 1;
+  min-width: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  background: transparent;
+  padding: 11px 36px 11px 6px;
+  margin: 0;
   font-family: 'Google Sans', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  min-width: 200px;
-  box-shadow: var(--shadow-md);
-  backdrop-filter: blur(10px);
-  transition: var(--transition);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
   color: var(--text-primary);
-}
-
-.project-select:hover {
-  border-color: var(--accent-color);
-  box-shadow: var(--shadow-lg);
+  cursor: pointer;
+  min-width: 168px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 14px;
+  box-shadow: none;
+  transition: color 0.2s ease;
 }
 
 .project-select:focus {
   outline: none;
-  border-color: var(--accent-color);
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
 }
 
 /* ============================================
@@ -559,11 +792,15 @@ html {
     top: 12px;
     right: 12px;
   }
-  
+
+  .project-select-shell {
+    max-width: min(94vw, 300px);
+  }
+
   .project-select {
-    min-width: 160px;
-    font-size: 13px;
-    padding: 10px 14px;
+    min-width: 140px;
+    font-size: 12px;
+    padding: 10px 32px 10px 4px;
   }
   
   .case-carousel {
@@ -645,4 +882,194 @@ html {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
+}
+
+/* Screen-reader only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Horizontal case-study scroller */
+.case-scroll-wrap {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  gap: 0.5rem;
+  max-width: 100%;
+}
+
+.case-scroll-track {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  padding: 0.25rem 0 1rem;
+  flex: 1;
+  border-radius: var(--radius-lg);
+}
+
+.case-scroll-track::-webkit-scrollbar {
+  height: 8px;
+}
+
+.case-scroll-track::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 4px;
+}
+
+.case-scroll-slide {
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+  margin: 0;
+  background: #fff;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.case-scroll-slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+  vertical-align: middle;
+}
+
+.case-scroll-cap {
+  display: block;
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  text-align: center;
+  color: var(--text-secondary);
+  background: #f8fafc;
+}
+
+.case-scroll-btn {
+  flex-shrink: 0;
+  align-self: center;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+}
+
+.case-scroll-btn:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: scale(1.05);
+}
+
+/* Light-section horizontal carousels (#results, #case-study) */
+#results .results-carousel-counter,
+#case-study .results-carousel-counter {
+  text-align: center;
+  color: var(--text-secondary);
+  margin: 0.35rem 0 0.5rem;
+  font-size: 0.95rem;
+}
+
+#results .results-main-carousel .case-scroll-btn,
+#case-study .results-main-carousel .case-scroll-btn {
+  background: rgba(102, 126, 234, 0.2);
+  color: var(--accent-color);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+#results .results-main-carousel .case-scroll-btn:hover,
+#case-study .results-main-carousel .case-scroll-btn:hover {
+  background: rgba(102, 126, 234, 0.32);
+  transform: scale(1.05);
+}
+
+#results .results-main-carousel .case-scroll-track::-webkit-scrollbar-thumb,
+#case-study .results-main-carousel .case-scroll-track::-webkit-scrollbar-thumb {
+  background: rgba(102, 126, 234, 0.4);
+}
+
+/* Dynamic line above each carousel (synced to current slide) */
+.carousel-current-caption {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin: 0 0 0.85rem;
+  line-height: 1.45;
+}
+
+/* PDF embeds */
+.pdf-embed-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.pdf-embed-card {
+  background: var(--bg-white);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.pdf-embed-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 0.75rem;
+  color: var(--text-primary);
+}
+
+.pdf-object {
+  width: 100%;
+  min-height: 480px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: #f1f5f9;
+}
+
+.temporal-scale-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-sm);
+  background: #f1f5f9;
+}
+
+.pdf-download-link {
+  margin: 0.65rem 0 0;
+  font-size: 0.9rem;
+}
+
+.pdf-download-link a {
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.pdf-download-link a:hover {
+  color: var(--accent-color);
+}
+
+.bibtex-empty {
+  min-height: 4.5rem;
+}
+
+#BibTeX .bibtex-card pre {
+  background: #f5f5f5;
+  color: #4a5568;
+}
+
+.abstract-section .abstract-card {
+  margin-top: 0;
 }
