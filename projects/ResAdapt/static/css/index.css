@@ -72,6 +72,33 @@ html {
   letter-spacing: -0.02em;
 }
 
+.publication-title--with-icon {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  column-gap: 0.85rem;
+  row-gap: 0.5rem;
+  width: 100%;
+}
+
+.publication-title-icon {
+  width: 226px;
+  height: 96px;
+  object-fit: contain;
+  flex-shrink: 0;
+  border-radius: 14px;
+  box-shadow: 0 6px 22px rgba(102, 126, 234, 0.24);
+}
+
+.publication-title-text {
+  /* Do not flex-grow: centering text inside a full-width block caused a huge gap from the icon */
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: min(100%, 36rem);
+  text-align: left;
+}
+
 .rainbow-text {
   background: var(--secondary-gradient);
   -webkit-background-clip: text;
@@ -769,6 +796,22 @@ html {
 @media (max-width: 768px) {
   .publication-title {
     font-size: 1.8rem;
+  }
+
+  .publication-title-icon {
+    width: 72px;
+    height: 72px;
+  }
+
+  .publication-title--with-icon {
+    column-gap: 0.65rem;
+    row-gap: 0.4rem;
+  }
+
+  .publication-title-text {
+    flex: 1 1 100%;
+    max-width: 100%;
+    text-align: center;
   }
   
   .publication-authors {
