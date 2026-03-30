@@ -369,6 +369,10 @@ img {
   transition: background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
 }
 
+a.nav-dropdown-item {
+  text-decoration: none;
+}
+
 .nav-dropdown-item:hover {
   background: var(--accent-soft);
   color: var(--accent);

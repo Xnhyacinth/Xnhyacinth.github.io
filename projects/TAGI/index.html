@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta name="description"
-    content="From Instance Training to Instruction Learning: Task Adapters Generation from Instructions">
-  <meta name="keywords" content="TAGI, Task Adapters, Instruction Learning, Hypernetwork, Cross-task Generalization">
+    content="From Instance Training to Instruction Learning: Task Adapters Generation from Instructions — NeurIPS 2024">
+  <meta name="keywords" content="TAGI, NeurIPS 2024, Task Adapters, Instruction Learning, Hypernetwork">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>TAGI - Task Adapters Generation from Instructions</title>
+  <title>TAGI — NeurIPS 2024</title>
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
@@ -21,7 +21,6 @@
   <link rel="stylesheet" href="static/css/index.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
   <script defer src="static/js/fontawesome.all.min.js"></script>
   <script src="static/js/bulma-carousel.min.js"></script>
   <script src="static/js/bulma-slider.min.js"></script>
@@ -30,103 +29,110 @@
   <script>
     function navigateToProject(select) {
       const url = select.value;
-      if (url) {
-        window.location.href = url;
-      }
+      if (url) window.location.href = url;
     }
   </script>
-
 </head>
 
 <body>
-  <!-- Project Navigation -->
-  <div class="project-nav">
-    <select onchange="navigateToProject(this)">
-      <option value="" disabled selected>Navigate</option>
-      <optgroup label="Projects">
-        <option value="https://xnhyacinth.github.io/">Homepage</option>
-        <option value="https://xnhyacinth.github.io/projects/IAG/">IAG</option>
-        <option value="https://xnhyacinth.github.io/projects/ResAdapt/">ResAdapt</option>
-        <option value="https://xnhyacinth.github.io/projects/TAGI/" selected>TAGI</option>
-      </optgroup>
-      <optgroup label="External">
-        <option value="https://trae1oung.github.io/DyPRAG/">DyPRAG</option>
-        <option value="https://wengsyx.github.io/LMTuner/">LMTuner</option>
-      </optgroup>
-    </select>
+  <div class="project-nav-container">
+    <label class="sr-only" for="project-jump">Jump to project</label>
+    <div class="project-select-shell">
+      <span class="project-select-icon" aria-hidden="true"><i class="fas fa-layer-group"></i></span>
+      <select id="project-jump" class="project-select" onchange="navigateToProject(this)"
+        title="Navigate between projects">
+        <option value="" disabled>Navigate</option>
+        <optgroup label="Projects">
+          <option value="https://xnhyacinth.github.io/">Homepage</option>
+          <option value="https://xnhyacinth.github.io/projects/">Projects hub</option>
+          <option value="https://xnhyacinth.github.io/projects/IAG/">IAG</option>
+          <option value="https://xnhyacinth.github.io/projects/TAGI/" selected>TAGI</option>
+          <option value="https://xnhyacinth.github.io/projects/ResAdapt/">ResAdapt</option>
+        </optgroup>
+        <optgroup label="External">
+          <option value="https://trae1oung.github.io/DyPRAG/">DyPRAG</option>
+          <option value="https://wengsyx.github.io/LMTuner/">LMTuner</option>
+        </optgroup>
+      </select>
+    </div>
   </div>
 
-  <!-- Hero Section -->
+  <div class="venue-ribbon venue-ribbon--neurips" role="status" aria-label="Publication venue">
+    <div class="venue-ribbon-inner">
+      <span class="venue-badge"><i class="fas fa-award" aria-hidden="true"></i> NeurIPS 2024</span>
+      <span class="venue-text">Advances in Neural Information Processing Systems · Vol. 37 · pp. 45552–45577</span>
+    </div>
+  </div>
+
   <section class="hero">
     <div class="hero-body">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">
-              <span class="rainbow-text">From Instance Training to Instruction Learning</span>:<br>
-              Task Adapters Generation from Instructions
+            <h1 class="title is-2 publication-title reveal">
+              <span class="rainbow-text">From Instance Training to Instruction Learning</span>: Task Adapters Generation
+              from Instructions
             </h1>
-            <div class="is-size-5 publication-authors">
+            <div class="is-size-5 publication-authors reveal">
               <span class="author-block">
-                <a href="https://xnhyacinth.github.io/" target="_blank">Huanxuan Liao</a><sup>1,2</sup>,
-              </span>
+                <a href="https://xnhyacinth.github.io/" target="_self">Huanxuan Liao</a><sup>1,2</sup>,</span>
               <span class="author-block">
-                <a href="https://nlpr.ia.ac.cn/cip/shizhuhe/" target="_blank">Shizhu He</a><sup>&dagger;1,2</sup>,
-              </span>
+                <a href="https://nlpr.ia.ac.cn/cip/shizhuhe/" target="_self">Shizhu He</a><sup>&dagger;1,2</sup>,</span>
               <span class="author-block">
-                <a href="#" target="_blank">Yao Xu</a><sup>1,2</sup>,
-              </span>
+                <a href="#" target="_self">Yao Xu</a><sup>1,2</sup>,</span>
               <span class="author-block">
-                <a href="#" target="_blank">Yuanzhe Zhang</a><sup>1,2</sup>,
-              </span>
+                <a href="#" target="_self">Yuanzhe Zhang</a><sup>1,2</sup>,</span>
               <span class="author-block">
-                <a href="#" target="_blank">Yanchao Hao</a><sup>4</sup>,
-              </span>
+                <a href="#" target="_self">Yanchao Hao</a><sup>4</sup>,</span>
               <span class="author-block">
-                <a href="#" target="_blank">Shengping Liu</a><sup>3</sup>,
-              </span>
+                <a href="#" target="_self">Shengping Liu</a><sup>3</sup>,</span>
               <span class="author-block">
-                <a href="https://nlpr.ia.ac.cn/cip/~liukang/index.html" target="_blank">Kang Liu</a><sup>1,2</sup>,
-              </span>
+                <a href="https://nlpr.ia.ac.cn/cip/~liukang/index.html" target="_self">Kang Liu</a><sup>1,2</sup>,</span>
               <span class="author-block">
-                <a href="#" target="_blank">Jun Zhao</a><sup>1,2</sup>
-              </span>
+                <a href="#" target="_self">Jun Zhao</a><sup>1,2</sup></span>
             </div>
 
-            <div class="is-size-6 publication-authors" style="margin-top: 1rem;">
+            <div class="is-size-5 publication-authors reveal">
               <span class="author-block"><sup>1</sup>The Laboratory of Cognition and Decision Intelligence for Complex
-                Systems, Institute of Automation, Chinese Academy of Sciences</span><br>
+                Systems, Institute of Automation, Chinese Academy of Sciences, Beijing, China</span>
               <span class="author-block"><sup>2</sup>School of Artificial Intelligence, University of Chinese Academy of
-                Sciences</span><br>
-              <span class="author-block"><sup>3</sup>Unisound, Beijing, China</span><br>
+                Sciences, Beijing, China</span>
+              <span class="author-block"><sup>3</sup>Unisound, Beijing, China</span>
               <span class="author-block"><sup>4</sup>Platform and Content Group, Tencent, Beijing, China</span>
             </div>
 
-            <div class="is-size-6 publication-authors" style="margin-top: 0.5rem;">
-              <span class="eql-cntrb"><sup>&dagger;</sup>Corresponding Author</span>
+            <div class="is-size-6 publication-authors reveal">
+              <span class="author-block"><sup>&dagger;</sup>Corresponding Author</span>
             </div>
 
-            <div class="column has-text-centered">
-              <div class="link-block">
-                <a href="https://arxiv.org/abs/2406.12382" target="_blank" class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>ArXiv</span>
-                </a>
-                <a href="https://arxiv.org/pdf/2406.12382.pdf" target="_blank" class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="fas fa-file-pdf"></i>
-                  </span>
-                  <span>Paper</span>
-                </a>
-                <a href="https://github.com/Xnhyacinth/TAGI" target="_blank" class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="fab fa-github"></i>
-                  </span>
-                  <span>Code</span>
-                </a>
+            <div class="column has-text-centered reveal">
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2406.12382" target="_self"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="ai ai-arxiv"></i></span>
+                    <span>ArXiv</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://arxiv.org/pdf/2406.12382.pdf" target="_self"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://github.com/Xnhyacinth/TAGI" target="_self"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="fab fa-github"></i></span>
+                    <span>Code</span>
+                  </a>
+                </span>
               </div>
+              <p class="is-size-6" style="margin-top:0.85rem;">
+                <a href="mailto:liaohuanxuan2023@ia.ac.cn"><i class="fas fa-envelope" aria-hidden="true"></i>
+                  liaohuanxuan2023@ia.ac.cn</a>
+              </p>
             </div>
           </div>
         </div>
@@ -134,13 +140,15 @@
     </div>
   </section>
 
-  <!-- Abstract Section -->
-  <section class="section">
+  <section class="section hero is-light abstract-section" id="abstract">
     <div class="container is-max-desktop">
-      <div class="columns is-centered">
+      <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <div class="abstract-section reveal">
-            <h2 class="title is-3">Abstract</h2>
+          <div class="abstract-card reveal">
+            <div class="section-header">
+              <span class="section-icon"><i class="fas fa-quote-left"></i></span>
+              <h2 class="title is-3">Abstract</h2>
+            </div>
             <div class="content has-text-justified">
               <p>
                 Large language models (LLMs) have acquired the ability to solve general tasks by utilizing instruction
@@ -150,7 +158,7 @@
                 tasks not merely through repeated practice but also by understanding and following instructional
                 guidelines. This paper is dedicated to simulating human learning to address the shortcomings of instance
                 training, focusing on instruction learning to enhance cross-task generalization. Within this context, we
-                introduce <strong>Task Adapters Generation from Instructions (TAGI)</strong>, which automatically constructs the
+                introduce Task Adapters Generation from Instructions (TAGI), which automatically constructs the
                 task-specific model in a parameter generation manner based on the given task instructions without
                 retraining for unseen tasks. Specifically, we utilize knowledge distillation to enhance the consistency
                 between TAGI developed through Learning with Instruction and task-specific models developed through
@@ -168,120 +176,153 @@
     </div>
   </section>
 
-  <!-- TAGI Overview Section -->
-  <section class="section" id="overview">
+  <section class="section" id="TAGI Overview">
     <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-full">
-          <h2 class="section-title reveal"><span class="rainbow-text">TAGI</span> Overview</h2>
-        </div>
+      <div class="section-header-center reveal">
+        <span class="section-tag">Overview</span>
+        <h2 class="title is-3"><span class="rainbow-text">TAGI</span> overview</h2>
+        <p class="section-subtitle">Training with instance vs. learning with instruction</p>
       </div>
-      <div class="figure-container reveal">
-        <img src="static/images/over.png" alt="TAGI Overview">
-        <div class="figure-caption">
-          <b>Figure 1:</b> Comparison of the typical <em>Training with Instance</em> and the proposed <em>Learning with Instruction</em>. 
-          The former involves training the model at the instance level with parameter updates, while the latter generates a 
-          task-specific adapter at the task level with parameter generation.
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TAGI Model Section -->
-  <section class="section" id="model">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-full">
-          <h2 class="section-title reveal"><span class="rainbow-text">TAGI</span> Model</h2>
-        </div>
-      </div>
-      <div class="figure-container reveal">
-        <img src="static/images/model.png" alt="TAGI Model Architecture">
-        <div class="figure-caption">
-          <b>Figure 2:</b> TAGI consists of two core components: a <strong>hypernetwork</strong> which receives task instructions 
-          and generates parameter-efficient adapters, and a <strong>task-specific model</strong> which combines the vanilla LLM 
-          and the generated adapters from hypernetwork.
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TAGI Comparison Section -->
-  <section class="section" id="comparison">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-full">
-          <h2 class="section-title reveal"><span class="rainbow-text">TAGI</span> Comparison</h2>
-        </div>
-      </div>
-      <div class="figure-container reveal">
-        <img src="static/images/com.png" alt="Method Comparison">
-        <div class="figure-caption">
-          <b>Figure 3:</b> Comprehensive comparison of the characteristics of all baseline methods and the proposed TAGI. 
-          TAGI uniquely combines instruction-based adapter generation with cross-task generalization capabilities.
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TAGI Evaluation Section -->
-  <section class="section" id="evaluation">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-full">
-          <h2 class="section-title reveal"><span class="rainbow-text">TAGI</span> Evaluation</h2>
-        </div>
-      </div>
-      <div class="figure-container reveal">
-        <img src="static/images/sni.png" alt="SNI Dataset Results">
-        <div class="figure-caption">
-          <b>Figure 4:</b> Results of our main experiment on the <strong>Super-Natural Instructions (SNI)</strong> dataset. 
-          TAGI demonstrates competitive performance compared to traditional meta-trained models while requiring significantly 
-          less computational resources.
-        </div>
-      </div>
-      <div class="figure-container reveal">
-        <img src="static/images/p3.png" alt="P3 Dataset Results">
-        <div class="figure-caption">
-          <b>Figure 5:</b> Results of our main experiment on the <strong>P3 (Public Pool of Prompts)</strong> dataset. 
-          TAGI shows strong cross-task generalization capabilities across diverse task types.
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- BibTeX Section -->
-  <section class="section" id="bibtex">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column is-four-fifths">
-          <div class="abstract-section reveal">
-            <h2 class="title is-3">BibTeX</h2>
-            <pre style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; overflow-x: auto;"><code>@article{liao2024instance,
-  title={From Instance Training to Instruction Learning: Task Adapters Generation from Instructions},
-  author={Liao, Huanxuan and Xu, Yao and He, Shizhu and Zhang, Yuanzhe and Hao, Yanchao and Liu, Shengping and Liu, Kang and Zhao, Jun},
-  journal={arXiv preprint arXiv:2406.12382},
-  year={2024}
-}</code></pre>
+      <div class="content has-text-justified reveal">
+        <p>
+          Comparison of typical Training with Instance and the proposed Learning with Instruction: the former involves
+          training the model at the instance level with parameter updates, while the latter generates a task-specific
+          adapter at the task level with parameter generation.
+        </p>
+        <div class="figure-container">
+          <div class="figure-frame">
+            <img src="static/images/over.png" width="100%" alt="TAGI overview figure">
+          </div>
+          <div class="figure-caption">
+            <span class="caption-number">Figure 1</span>
+            <span class="caption-text">Overview of instance training vs. instruction-driven adapter generation.</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
+  <section class="section" id="TAGI Model" style="background: var(--bg-light);">
+    <div class="container is-max-desktop">
+      <div class="section-header-center reveal">
+        <span class="section-tag">Architecture</span>
+        <h2 class="title is-3"><span class="rainbow-text">TAGI</span> model</h2>
+        <p class="section-subtitle">Hypernetwork and task-specific model</p>
+      </div>
+      <div class="content has-text-justified reveal">
+        <p>
+          TAGI consists of two core components: a hypernetwork which receives task instructions and generates
+          parameter-efficient adapters, and a task-specific model which combines the vanilla LLM and the generated
+          adapters from the hypernetwork.
+        </p>
+        <div class="figure-container">
+          <div class="figure-frame">
+            <img src="static/images/model.png" width="100%" alt="TAGI model architecture">
+          </div>
+          <div class="figure-caption">
+            <span class="caption-number">Figure 2</span>
+            <span class="caption-text">Hypernetwork-generated adapters coupled with the base LLM.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="TAGI Comparison">
+    <div class="container is-max-desktop">
+      <div class="section-header-center reveal">
+        <span class="section-tag">Comparison</span>
+        <h2 class="title is-3"><span class="rainbow-text">TAGI</span> comparison</h2>
+        <p class="section-subtitle">Characteristics of baseline methods vs. TAGI</p>
+      </div>
+      <div class="content has-text-justified reveal">
+        <p>We compare the characteristics of all comparison methods and the proposed TAGI.</p>
+        <div class="figure-container">
+          <div class="figure-frame">
+            <img src="static/images/com.png" width="100%" alt="Method comparison table figure">
+          </div>
+          <div class="figure-caption">
+            <span class="caption-number">Figure 3</span>
+            <span class="caption-text">Qualitative comparison of method families.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section results-section" id="TAGI Evaluation">
+    <div class="container is-max-desktop">
+      <div class="section-header-center reveal">
+        <span class="section-tag">Experiments</span>
+        <h2 class="title is-3"><span class="rainbow-text">TAGI</span> evaluation</h2>
+        <p class="section-subtitle">Super-Natural Instructions (SNI) and P3</p>
+      </div>
+      <div class="content has-text-justified reveal">
+        <p>Results of our main experiment on the SNI dataset.</p>
+        <div class="figure-container">
+          <div class="figure-frame">
+            <img src="static/images/sni.png" width="100%" alt="SNI results">
+          </div>
+          <div class="figure-caption">
+            <span class="caption-number">Figure 4</span>
+            <span class="caption-text">Main results on Super-Natural Instructions.</span>
+          </div>
+        </div>
+
+        <p>Results of our main experiment on the P3 dataset.</p>
+        <div class="figure-container">
+          <div class="figure-frame">
+            <img src="static/images/p3.png" width="100%" alt="P3 results">
+          </div>
+          <div class="figure-caption">
+            <span class="caption-number">Figure 5</span>
+            <span class="caption-text">Main results on P3.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bibtex-section" id="BibTeX">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <div class="section-header-center reveal">
+            <span class="section-tag">Citation</span>
+            <h2 class="title is-3">BibTeX</h2>
+          </div>
+          <div class="bibtex-card reveal">
+            <pre><code>@article{liao2024instance,
+  title={From instance training to instruction learning: Task adapters generation from instructions},
+  author={Liao, Huanxuan and He, Shizhu and Xu, Yao and Zhang, Yuanzhe and Hao, Yanchao and Liu, Shengping and Liu, Kang and Zhao, Jun},
+  journal={Advances in Neural Information Processing Systems},
+  volume={37},
+  pages={45552--45577},
+  year={2024}
+}</code></pre>
+            <button type="button" class="copy-btn" onclick="copyBibtex()">
+              <i class="fas fa-copy"></i> Copy
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <footer class="footer">
     <div class="container">
       <div class="columns is-centered">
         <div class="column is-8">
-          <div class="content has-text-centered">
+          <div class="content">
             <p>
-              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template"
-                target="_blank">Academic Project Page Template</a> which was adopted from the <a
-                href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-              <br> This website is licensed under a <a rel="license"
-                href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
-                Commons Attribution-ShareAlike 4.0 International License</a>.
+              This page was built using the
+              <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_self">Academic Project
+                Page Template</a>
+              (from <a href="https://nerfies.github.io" target="_self">Nerfies</a>).
+              You may reuse the source; please link back to this page in the footer.
+              <br>
+              Licensed under
+              <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_self">CC BY-SA 4.0</a>.
             </p>
           </div>
         </div>
@@ -289,28 +330,35 @@
     </div>
   </footer>
 
-  <!-- Scroll Reveal Script -->
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const reveals = document.querySelectorAll('.reveal');
-      
-      const revealOnScroll = () => {
-        reveals.forEach(element => {
-          const windowHeight = window.innerHeight;
-          const elementTop = element.getBoundingClientRect().top;
-          const elementVisible = 150;
-          
-          if (elementTop < windowHeight - elementVisible) {
-            element.classList.add('active');
-          }
-        });
-      };
-      
-      window.addEventListener('scroll', revealOnScroll);
-      revealOnScroll();
+    function copyBibtex() {
+      const bibtex = `@article{liao2024instance,
+  title={From instance training to instruction learning: Task adapters generation from instructions},
+  author={Liao, Huanxuan and He, Shizhu and Xu, Yao and Zhang, Yuanzhe and Hao, Yanchao and Liu, Shengping and Liu, Kang and Zhao, Jun},
+  journal={Advances in Neural Information Processing Systems},
+  volume={37},
+  pages={45552--45577},
+  year={2024}
+}`;
+      navigator.clipboard.writeText(bibtex).then(function () {
+        const btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(function () {
+          btn.innerHTML = '<i class="fas fa-copy"></i> Copy';
+        }, 2000);
+      });
+    }
+
+    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) entry.target.classList.add('active');
+      });
+    }, observerOptions);
+    document.querySelectorAll('.reveal').forEach(function (el) {
+      observer.observe(el);
     });
   </script>
-
 </body>
 
 </html>

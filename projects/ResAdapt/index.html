@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
@@ -7,8 +7,7 @@
   <meta name="keywords"
     content="ResAdapt, Multimodal Large Language Models, Adaptive Resolution, Efficient Reasoning, Video QA">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title>ResAdapt - Adaptive Resolution for Efficient Multimodal Reasoning</title>
+  <title>ResAdapt — Adaptive Resolution for Efficient Multimodal Reasoning</title>
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
@@ -29,21 +28,21 @@
   <script>
     function navigateToProject(select) {
       const url = select.value;
-      if (url) {
-        window.location.href = url;
-      }
+      if (url) window.location.href = url;
     }
   </script>
-
 </head>
 
 <body>
-  <!-- Project Navigation -->
-  <div class="project-nav">
-    <select onchange="navigateToProject(this)">
-      <option value="" disabled selected>Navigate</option>
+  <div class="project-nav-container">
+    <label class="sr-only" for="project-jump">Jump to project</label>
+    <div class="project-select-shell">
+      <span class="project-select-icon" aria-hidden="true"><i class="fas fa-layer-group"></i></span>
+      <select id="project-jump" class="project-select" onchange="navigateToProject(this)" title="Navigate between projects">
+      <option value="" disabled>Navigate</option>
       <optgroup label="Projects">
         <option value="https://xnhyacinth.github.io/">Homepage</option>
+        <option value="https://xnhyacinth.github.io/projects/">Projects hub</option>
         <option value="https://xnhyacinth.github.io/projects/IAG/">IAG</option>
         <option value="https://xnhyacinth.github.io/projects/TAGI/">TAGI</option>
         <option value="https://xnhyacinth.github.io/projects/ResAdapt/" selected>ResAdapt</option>
@@ -53,351 +52,537 @@
         <option value="https://wengsyx.github.io/LMTuner/">LMTuner</option>
       </optgroup>
     </select>
+    </div>
   </div>
 
-  <!-- Hero Section -->
   <section class="hero">
     <div class="hero-body">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">
+            <h1 class="title is-2 publication-title reveal active">
               <span class="rainbow-text">ResAdapt</span>: Adaptive Resolution for<br>
               Efficient Multimodal Reasoning
             </h1>
-            <div class="is-size-5 publication-authors">
-              <span class="author-block">
-                <a href="https://xnhyacinth.github.io/" target="_blank">Huanxuan Liao</a><sup>1,2</sup>,
-              </span>
-              <span class="author-block">
-                <a href="#" target="_blank">Zhongtao Jiang</a>,
-              </span>
-              <span class="author-block">
-                <a href="#" target="_blank">Yupu Hao</a><sup>1,2</sup>,
-              </span>
-              <span class="author-block">
-                <a href="#" target="_blank">Yuqiao Tan</a><sup>1,2</sup>,
-              </span>
-              <span class="author-block">
-                <a href="https://nlpr.ia.ac.cn/cip/shizhuhe/" target="_blank">Shizhu He</a><sup>&dagger;1,2</sup>,
-              </span>
-              <span class="author-block">
-                <a href="#" target="_blank">Jun Zhao</a><sup>1,2</sup>,
-              </span>
-              <span class="author-block">
-                <a href="#" target="_blank">Kun Xu</a><sup>&Dagger;</sup>,
-              </span>
-              <span class="author-block">
-                <a href="https://nlpr.ia.ac.cn/cip/~liukang/index.html" target="_blank">Kang
-                  Liu</a><sup>&dagger;1,2</sup>
-              </span>
+
+            <div class="is-size-5 publication-authors reveal active">
+              <span class="author-block"><a href="https://xnhyacinth.github.io/" target="_blank" rel="noopener">Huanxuan
+                  Liao</a><sup>1,2</sup>,</span>
+              <span class="author-block"><a href="#" target="_blank" rel="noopener">Zhongtao Jiang</a>,</span>
+              <span class="author-block"><a href="#" target="_blank" rel="noopener">Yupu Hao</a><sup>1,2</sup>,</span>
+              <span class="author-block"><a href="#" target="_blank" rel="noopener">Yuqiao Tan</a><sup>1,2</sup>,</span>
+              <span class="author-block"><a href="https://nlpr.ia.ac.cn/cip/shizhuhe/" target="_blank" rel="noopener">Shizhu
+                  He</a><sup>1,2</sup></span>
+            </div>
+            <div class="is-size-5 publication-authors publication-authors--second-row reveal active">
+              <span class="author-block"><a href="#" target="_blank" rel="noopener">Jun Zhao</a><sup>1,2</sup>,</span>
+              <span class="author-block"><a href="#" target="_blank" rel="noopener">Kun Xu</a><sup>&dagger;</sup>,</span>
+              <span class="author-block"><a href="https://nlpr.ia.ac.cn/cip/~liukang/index.html" target="_blank"
+                  rel="noopener">Kang Liu</a><sup>1,2,*</sup></span>
             </div>
 
-            <div class="is-size-6 publication-authors" style="margin-top: 1rem;">
+            <div class="is-size-6 publication-authors reveal active">
               <span class="author-block"><sup>1</sup>Institute of Automation, Chinese Academy of Sciences</span><br>
               <span class="author-block"><sup>2</sup>University of Chinese Academy of Sciences</span>
             </div>
-
-            <div class="is-size-6 publication-authors" style="margin-top: 0.5rem;">
-              <ss="project-select" onchange="navigateToProject(this)">
-                <option value="" disabled>Navigate</option>
-                <optgroup label="Projects">
-                  <option value="https://xnhyacinth.github.io/">Homepage</option>
-                  <option value="https://xnhyacinth.github.io/projects/IAG/">IAG</option>
-                  <option value="https://xnhyacinth.github.io/projects/TAGI/">TAGI</option>
-                  <option value="https://xnhyacinth.github.io/projects/ResAdapt/" selected>ResAdapt</option>
-                </optgroup>
-                <optgroup label="External">
-                  <option value="https://trae1oung.github.io/DyPRAG/">DyPRAG</option>
-                  <option value="https://wengsyx.github.io/LMTuner/">LMTuner</option>
-                </optgroup>
-                </select>
+            <div class="is-size-6 publication-authors reveal active" style="margin-top:0.5rem;">
+              <span class="author-block"><sup>&dagger;</sup>Project Leader</span>
+              <span class="author-block">
+                <sup>*</sup>Corresponding author:
+                <a href="mailto:kliu@nlpr.ia.ac.cn">kliu@nlpr.ia.ac.cn</a>
+              </span>
             </div>
 
-
-            <section class="hero">
-              <div class="hero-body">
-                <div class="container is-max-desktop">
-                  <div class="columns is-centered">
-                    <div class="column has-text-centered">
-                      <h1 class="title is-2 publication-title"><span class="rainbow-text">ResAdapt</span>: Adaptive
-                        Resolution for Efficient Multimodal Reasoning
-                      </h1>
-                      <div class="is-size-5 publication-authors">
-                        <span class="author-block">
-                          <a href="https://xnhyacinth.github.io/" target="_self">Huanxuan Liao</a><sup>1,2</sup>,</span>
-                        <span class="author-block">
-                          <a href="#" target="_self">Zhongtao Jiang</a>,</span>
-                        <span class="author-block">
-                          <a href="#" target="_self">Yupu Hao</a><sup>1,2</sup>,</span>
-                        <span class="author-block">
-                          <a href="#" target="_self">Yuqiao Tan</a><sup>1,2</sup>,</span>
-                        <span class="author-block">
-                          <a href="https://nlpr.ia.ac.cn/cip/shizhuhe/" target="_self">Shizhu
-                            He</a><sup>&dagger;1,2</sup>,</span>
-                        <span class="author-block">
-                          <a href="#" target="_self">Jun Zhao</a><sup>1,2</sup>,</span>
-                        <span class="author-block">
-                          <a href="#" target="_self">Kun Xu</a><sup>&Dagger;</sup>,</span>
-                        <span class="author-block">
-                          <a href="https://nlpr.ia.ac.cn/cip/~liukang/index.html" target="_self">Kang
-                            Liu</a><sup>&dagger;1,2</sup>
-                        </span>
-                      </div>
-
-                      <div class="is-size-5 publication-authors">
-                        <span class="author-block"><sup>1</sup>Institute of Automation, Chinese Academy of
-                          Sciences</span>
-                        <span class="author-block"><sup>2</sup>University of Chinese Academy of Sciences</span>
-                      </div>
-
-                      <div class="is-size-6 publication-authors">
-                        <span class="author-block"><sup>&dagger;</sup>Corresponding Author</span>
-                        <span class="author-block"><sup>&Dagger;</sup>Project Leader</span>
-                      </div>
-
-                      <div class="column has-text-centered">
-                        <div class="publication-links">
-
-                          <!-- ArXiv abstract Link -->
-                          <!-- <span class="link-block">
-                  <a href="https://arxiv.org/abs/xxxx.xxxxx" target="_self"
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="static/pdfs/ResAdapt.pdf" target="_blank" rel="noopener"
                     class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                    </span>
-                    <span>ArXiv</span>
+                    <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                    <span>Paper</span>
                   </a>
-                </span> -->
-
-                          <!-- Supplementary PDF link -->
-                          <span class="link-block">
-                            <a href="static/pdfs/ResAdapt.pdf" target="_self"
-                              class="external-link button is-normal is-rounded is-dark">
-                              <span class="icon">
-                                <i class="fas fa-file-pdf"></i>
-                              </span>
-                              <span>Paper</span>
-                            </a>
-                          </span>
-
-                          <!-- Github link -->
-                          <span class="link-block">
-                            <a href="https://github.com/Xnhyacinth/ResAdapt" target="_self"
-                              class="external-link button is-normal is-rounded is-dark">
-                              <span class="icon">
-                                <i class="fab fa-github"></i>
-                              </span>
-                              <span>Code</span>
-                            </a>
-                          </span>
-
-                          <!-- Dataset link -->
-                          <!-- <span class="link-block">
-                  <a href="https://huggingface.co/datasets/Xnhyacinth/FBench" target="_self"
+                </span>
+                <span class="link-block">
+                  <a href="https://github.com/Xnhyacinth/ResAdapt" target="_blank" rel="noopener"
                     class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="HuggingFace">
-                    </span>
-                    <span>Dataset</span>
+                    <span class="icon"><i class="fab fa-github"></i></span>
+                    <span>Code</span>
                   </a>
-                </span> -->
-
-                          <!-- Models link -->
-                          <!-- <span class="link-block">
-                  <a href="https://huggingface.co/models" target="_self"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="HuggingFace">
-                    </span>
-                    <span>Models</span>
-                  </a>
-                </span> -->
-
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                </span>
               </div>
-            </section>
+              <p class="is-size-6" style="margin-top:0.85rem;">
+                <a href="mailto:liaohuanxuan2023@ia.ac.cn"><i class="fas fa-envelope" aria-hidden="true"></i>
+                  liaohuanxuan2023@ia.ac.cn</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            <!-- Paper abstract -->
-            <section class="section hero is-light">
-              <div class="container is-max-desktop">
-                <div class="columns is-centered has-text-centered">
-                  <div class="column is-four-fifths">
-                    <h2 class="title is-3">Abstract</h2>
-                    <div class="content has-text-justified">
-                      <p>
-                        Multimodal Large Language Models (MLLMs) achieve stronger visual understanding by scaling input
-                        fidelity, yet the resulting visual token growth makes jointly sustaining high spatial resolution
-                        and long temporal context prohibitive. Existing efficiency strategies only partially resolve
-                        this tension: <i>model-side</i> token compression discards fine-grained evidence after encoding
-                        and can disrupt optimized inference kernels, whereas <i>output-side</i> agentic reasoning adds
-                        iterative latency and can still miss decisive cues when the initial view is too coarse.
-                      </p>
-                      <p>
-                        We argue that the bottleneck lies not in how post-encoding representations are compressed but in
-                        the <i>volume of pixels</i> the encoder receives, and address it with <b>ResAdapt</b>, an
-                        <b>Input-side adaptation</b> framework that learns how much visual budget each frame should
-                        receive <em>before</em> encoding.
-                      </p>
-                      <p>
-                        ResAdapt couples a lightweight Allocator with an unchanged MLLM backbone, so the backbone
-                        retains its native visual-token interface while receiving an operator-transformed input. We
-                        formulate allocation as a contextual bandit and train the Allocator with <b>Cost-Aware Policy
-                          Optimization (CAPO)</b>, which converts sparse rollout feedback into a stable accuracy–cost
-                        learning signal. We further introduce a temporal-similarity regularizer that suppresses
-                        redundant high-budget allocation on adjacent similar frames, encouraging differentiated,
-                        content-aware allocation in a single forward pass.
-                      </p>
-                      <p>
-                        Across budget-controlled video QA, temporal grounding, and image reasoning tasks, ResAdapt
-                        improves low-budget operating points and often lies on or near the efficiency–accuracy frontier,
-                        with the clearest gains on reasoning-intensive benchmarks under aggressive compression. Notably,
-                        ResAdapt supports up to 16&times; more frames at the same visual budget while delivering over
-                        15% performance gain. The learned policy exhibits open-loop <i>active perception</i>,
-                        concentrating visual budget on information-dense content without modifying the backbone
-                        architecture.
-                      </p>
-                    </div>
-                  </div>
-                </div>
+  <section class="section hero is-light abstract-section" id="abstract">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <div class="abstract-card reveal">
+            <div class="section-header">
+              <span class="section-icon"><i class="fas fa-quote-left"></i></span>
+              <h2 class="title is-3">Abstract</h2>
+            </div>
+            <div class="content has-text-justified">
+              <p>
+                Multimodal Large Language Models (MLLMs) achieve stronger visual understanding by scaling input
+                fidelity, yet the resulting visual token growth makes jointly sustaining high spatial resolution
+                and long temporal context prohibitive. Existing efficiency strategies only partially resolve
+                this tension: <i>model-side</i> token compression discards fine-grained evidence after encoding
+                and can disrupt optimized inference kernels, whereas <i>output-side</i> agentic reasoning adds
+                iterative latency and can still miss decisive cues when the initial view is too coarse.
+              </p>
+              <p>
+                We argue that the bottleneck lies not in how post-encoding representations are compressed but in
+                the <i>volume of pixels</i> the encoder receives, and address it with <b>ResAdapt</b>, an
+                <b>Input-side adaptation</b> framework that learns how much visual budget each frame should
+                receive <em>before</em> encoding.
+              </p>
+              <p>
+                ResAdapt couples a lightweight Allocator with an unchanged MLLM backbone, so the backbone
+                retains its native visual-token interface while receiving an operator-transformed input. We
+                formulate allocation as a contextual bandit and train the Allocator with <b>Cost-Aware Policy
+                  Optimization (CAPO)</b>, which converts sparse rollout feedback into a stable accuracy–cost
+                learning signal. We further introduce a temporal-similarity regularizer that suppresses
+                redundant high-budget allocation on adjacent similar frames, encouraging differentiated,
+                content-aware allocation in a single forward pass.
+              </p>
+              <p>
+                Across budget-controlled video QA, temporal grounding, and image reasoning tasks, ResAdapt
+                improves low-budget operating points and often lies on or near the efficiency–accuracy frontier,
+                with the clearest gains on reasoning-intensive benchmarks under aggressive compression. Notably,
+                ResAdapt supports up to 16&times; more frames at the same visual budget while delivering over
+                15% performance gain. The learned policy exhibits open-loop <i>active perception</i>,
+                concentrating visual budget on information-dense content without modifying the backbone
+                architecture.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="paradigm">
+    <div class="container is-max-desktop">
+      <div class="section-header-center reveal">
+        <span class="section-tag">Paradigm</span>
+        <h2 class="title is-3"><span class="rainbow-text">ResAdapt</span> overview</h2>
+        <p class="section-subtitle">Input-side adaptation vs. token reduction after encoding</p>
+      </div>
+      <div class="content has-text-justified reveal">
+        <p>
+          <b>Comparison of token-reduction paradigms.</b> We introduce <b>input-side adaptation</b>, which dynamically
+          allocates variable image resolutions or video frame quantities before visual encoding. This mitigates
+          initial feature explosion, preserves fine-grained information for the encoder, keeps the backbone’s native
+          token interface, and runs in a single non-iterative pass.
+        </p>
+        <div class="figure-container">
+          <div class="figure-frame">
+            <img src="static/images/intro.png" width="100%" alt="ResAdapt paradigm comparison figure">
+          </div>
+          <div class="figure-caption">
+            <span class="caption-number">Figure 1</span>
+            <span class="caption-text">Comparison of efficiency paradigms; ResAdapt allocates budget on the input side.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="architecture" style="background:var(--bg-light);">
+    <div class="container is-max-desktop">
+      <div class="section-header-center reveal">
+        <span class="section-tag">Method</span>
+        <h2 class="title is-3"><span class="rainbow-text">ResAdapt</span> architecture</h2>
+        <p class="section-subtitle">Allocator + frozen MLLM, trained with CAPO</p>
+      </div>
+      <div class="content has-text-justified reveal">
+        <p>
+          <b>Overview of the ResAdapt framework.</b> <b>(a)</b> A lightweight vision Allocator pairs with a frozen MLLM;
+          the Allocator assigns token budgets per frame from task context, which determine spatial resolutions for the
+          dynamic visual encoder. <b>(b)</b> End-to-end training uses Cost-Aware Policy Optimization (CAPO) with
+          reinforcement learning to balance accuracy and cost.
+        </p>
+        <div class="figure-container">
+          <div class="figure-frame">
+            <img src="static/images/model.png" width="100%" alt="ResAdapt architecture diagram">
+          </div>
+          <div class="figure-caption">
+            <span class="caption-number">Figure 2</span>
+            <span class="caption-text">Allocator–backbone interface and CAPO training loop.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="results">
+    <div class="container is-max-desktop">
+      <div class="section-header-center reveal">
+        <span class="section-tag">Experiments</span>
+        <h2 class="title is-3">Main results</h2>
+        <p class="section-subtitle">Main metrics (auto carousel), latency, operators, reward / CAPO ablations, and temporal
+          analysis — each carousel highlights the current panel below its title.</p>
+      </div>
+
+      <div class="content has-text-justified reveal">
+        <p><b>Main results.</b> Video QA, temporal grounding, and image reasoning under controlled visual budget. The line
+          below matches the panel currently shown (auto-advances every few seconds; pauses on hover).</p>
+        <p class="carousel-current-caption" id="main-results-context" aria-live="polite">Video QA — efficiency–accuracy
+          under budget.</p>
+        <div class="case-scroll-wrap js-carousel-wrap results-main-carousel" data-counter-id="main-results-counter"
+          data-context-id="main-results-context">
+          <button type="button" class="case-scroll-btn case-scroll-prev" aria-label="Previous main result slide">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <div class="case-scroll-track" id="main-results-track">
+            <figure class="case-scroll-slide" data-slide-summary="Video QA — efficiency–accuracy under budget.">
+              <img src="static/images/videoqa.png" width="100%" alt="Video QA results">
+              <figcaption class="case-scroll-cap">(a) Video QA — efficiency–accuracy under budget</figcaption>
+            </figure>
+            <figure class="case-scroll-slide" data-slide-summary="Temporal grounding — localization under adaptive resolution.">
+              <img src="static/images/temporal.png" width="100%" alt="Temporal grounding results">
+              <figcaption class="case-scroll-cap">(b) Temporal grounding</figcaption>
+            </figure>
+            <figure class="case-scroll-slide"
+              data-slide-summary="Image reasoning — static benchmarks (e.g. MathVista, MMMU, OCRBench) with adaptive tokens.">
+              <img src="static/images/image_res.png" width="100%" alt="Image reasoning results">
+              <figcaption class="case-scroll-cap">(c) Image reasoning</figcaption>
+            </figure>
+          </div>
+          <button type="button" class="case-scroll-btn case-scroll-next" aria-label="Next main result slide">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+        <p class="case-counter results-carousel-counter" id="main-results-counter" aria-live="polite">1 / 3</p>
+        <div class="figure-caption" style="margin-top:0.35rem;">
+          <span class="caption-number">Figure 3</span>
+          <span class="caption-text">Main results across video QA, temporal grounding, and image reasoning (full tables and
+            splits in the paper).</span>
+        </div>
+
+        <p style="margin-top:2rem;"><b>Runtime overhead.</b> Inference cost relative to baselines.</p>
+        <div class="figure-container">
+          <div class="figure-frame">
+            <img src="static/images/latency.png" width="100%" alt="Runtime overhead">
+          </div>
+          <div class="figure-caption">
+            <span class="caption-number">Figure 4</span>
+            <span class="caption-text">Runtime / overhead analysis.</span>
+          </div>
+        </div>
+
+        <p><b>Operator generalization.</b> Cross-operator robustness of the learned policy.</p>
+        <div class="figure-container">
+          <div class="figure-frame">
+            <img src="static/images/operator.png" width="100%" alt="Operator generalization">
+          </div>
+          <div class="figure-caption">
+            <span class="caption-number">Figure 5</span>
+            <span class="caption-text">Generalization across visual operators.</span>
+          </div>
+        </div>
+
+        <p><b>Reward design and CAPO ablations.</b> Training / validation curves for policy adaptivity, mean predicted
+          scale, and reward variants; see the paper for definitions.</p>
+        <p class="carousel-current-caption" id="reward-ablation-context" aria-live="polite">Per-sample adaptivity and
+          scale range — training vs. validation (CAPO vs. direct cost / no cost).</p>
+        <div class="case-scroll-wrap js-carousel-wrap results-main-carousel" data-counter-id="reward-ablation-counter"
+          data-context-id="reward-ablation-context">
+          <button type="button" class="case-scroll-btn case-scroll-prev" aria-label="Previous reward ablation slide">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <div class="case-scroll-track" id="reward-ablation-track">
+            <figure class="case-scroll-slide"
+              data-slide-summary="Per-sample adaptivity and scale range — training vs. validation (CAPO vs. direct cost / no cost).">
+              <img src="static/images/adaptivity.png" width="100%" alt="Policy adaptivity and resolution bands">
+              <figcaption class="case-scroll-cap">Policy adaptivity and resolution-band behaviour under CAPO</figcaption>
+            </figure>
+            <figure class="case-scroll-slide"
+              data-slide-summary="Mean predicted scale — training and validation with annotated regimes (adaptive compression vs. extremes).">
+              <img src="static/images/case_study_6.png" width="100%" alt="Reward schedule evaluation variant">
+              <figcaption class="case-scroll-cap">Mean predicted scale (train / val)</figcaption>
+            </figure>
+            <figure class="case-scroll-slide"
+              data-slide-summary="Validation mean predicted scale over training steps — reward and distribution ablations.">
+              <img src="static/images/case_study_1.png" width="100%" alt="Reward scaling ablation">
+              <figcaption class="case-scroll-cap">Validation: mean predicted scale (ablations)</figcaption>
+            </figure>
+          </div>
+          <button type="button" class="case-scroll-btn case-scroll-next" aria-label="Next reward ablation slide">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+        <p class="case-counter results-carousel-counter" id="reward-ablation-counter" aria-live="polite">1 / 3</p>
+        <div class="figure-caption" style="margin-top:0.35rem;">
+          <span class="caption-number">Figure 6</span>
+          <span class="caption-text">Reward-training and testing ablations (CAPO); refer to the paper for full experimental
+            protocol.</span>
+        </div>
+
+        <p style="margin-top:2rem;"><b>Temporal regularization and allocation behaviour.</b> Similarity loss
+          (<i>L</i><sub>sim</sub>), dataset-level allocation on VideoMME, and emergent active perception.</p>
+        <p class="carousel-current-caption" id="temporal-analysis-context" aria-live="polite">L_sim ablation — temporal
+          regularization complements CAPO (scale vs. frames).</p>
+        <div class="case-scroll-wrap js-carousel-wrap results-main-carousel" data-counter-id="temporal-analysis-counter"
+          data-context-id="temporal-analysis-context">
+          <button type="button" class="case-scroll-btn case-scroll-prev" aria-label="Previous temporal analysis slide">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <div class="case-scroll-track" id="temporal-analysis-track">
+            <figure class="case-scroll-slide"
+              data-slide-summary="L_sim ablation — temporal regularization complements CAPO (scale vs. frames).">
+              <img src="static/images/sim.png" width="100%" alt="Temporal regularization L_sim ablation">
+              <figcaption class="case-scroll-cap">Temporal regularization complements CAPO (<i>L</i><sub>sim</sub>
+                ablation)</figcaption>
+            </figure>
+            <figure class="case-scroll-slide"
+              data-slide-summary="Global allocation statistics on VideoMME (aggregate mean / median / IQR and heatmap).">
+              <img src="static/images/stat.png" width="100%" alt="Global allocation statistics VideoMME">
+              <figcaption class="case-scroll-cap">Global allocation statistics on VideoMME</figcaption>
+            </figure>
+            <figure class="case-scroll-slide"
+              data-slide-summary="Emergent active perception — adaptive scale along frame indices.">
+              <img src="static/images/active.png" width="100%" alt="Emergent active perception">
+              <figcaption class="case-scroll-cap">Emergent active perception</figcaption>
+            </figure>
+          </div>
+          <button type="button" class="case-scroll-btn case-scroll-next" aria-label="Next temporal analysis slide">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+        <p class="case-counter results-carousel-counter" id="temporal-analysis-counter" aria-live="polite">1 / 3</p>
+        <div class="figure-caption" style="margin-top:0.35rem;">
+          <span class="caption-number">Figure 7</span>
+          <span class="caption-text">Temporal similarity regularization, dataset-level allocation statistics, and
+            qualitative active perception; details and definitions in the paper.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="case-study" style="background:var(--bg-light);">
+    <div class="container is-max-desktop">
+      <div class="section-header-center reveal">
+        <span class="section-tag">Appendix</span>
+        <h2 class="title is-3">Case studies (VideoMME / Video-MMMU)</h2>
+        <p class="section-subtitle">Qualitative grids from the paper appendix (32 sampled frames; warmer borders = higher
+          scale). Prompts match Appendix §Qualitative Case Studies.</p>
+      </div>
+
+      <div class="content has-text-justified reveal">
+        <p><b>Qualitative case studies.</b> Each slide shows the task prompt (<strong>Q:</strong>) and the predicted
+          per-frame scale layout. The carousel below matches the style of the main-result panels: auto-advance, pause on
+          hover, pause when the tab is hidden.</p>
+        <p class="carousel-current-caption" id="case-study-context" aria-live="polite">Case 1 — Video-MMMU
+          Comprehension</p>
+        <div class="case-scroll-wrap js-carousel-wrap results-main-carousel" data-counter-id="case-counter"
+          data-context-id="case-study-context">
+          <button type="button" class="case-scroll-btn case-scroll-prev" aria-label="Previous case slide">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <div class="case-scroll-track" id="case-scroll-track">
+            <figure class="case-scroll-slide" data-slide-summary="Case 1 — Video-MMMU Comprehension">
+              <div class="case-study-qbox">
+                <strong>Q:</strong> Evaluate five statements about Urban Geography City Models (concentric zone, Hoyt sector,
+                multiple nuclei, galactic, Latin American); identify which are correct. <em>Please ignore the Quiz question in
+                  the last frame of the video.</em>
               </div>
-            </section>
-            <!-- End paper abstract -->
-
-            <section class="section" id="ResAdapt Intro">
-              <div class="container is-max-desktop">
-                <div class="columns is-centered has-text-centered">
-                  <div class="column is-six-fifths">
-                    <h2 class="title is-3"><span class="rainbow-text">ResAdapt</span> Paradigm</h2>
-                  </div>
-                </div>
-                <div class="container is-max-desktop">
-                  <div class="columns is-centered">
-                    <div class="column is-full-width">
-                      <div class="content has-text-justified">
-                        <p>
-                          <b>Comparison of token-reduction paradigms.</b> We introduce <b>Input-side adaptation</b> (c),
-                          which dynamically allocates variable image resolutions or video frame quantities before visual
-                          encoding. This prevents the initial feature explosion, fully preserves original fine-grained
-                          information, maintains the backbone's native token structure without altering optimized
-                          inference kernels, and achieves dynamic resolution processing in a single, non-iterative pass.
-                        </p>
-                        <div style="text-align: center;">
-                          <img id="pipeline" width="100%" src="static/images/intro.png">
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-            </section>
-
-            <section class="section" id="ResAdapt Model">
-              <div class="container is-max-desktop">
-                <div class="columns is-centered has-text-centered">
-                  <div class="column is-six-fifths">
-                    <h2 class="title is-3"><span class="rainbow-text">ResAdapt</span> Architecture</h2>
-                  </div>
-                </div>
-                <div class="container is-max-desktop">
-                  <div class="columns is-centered">
-                    <div class="column is-full-width">
-                      <div class="content has-text-justified">
-                        <p>
-                          <b>Overview of the ResAdapt framework.</b> <b>(a)</b> Our architecture pairs a lightweight
-                          vision Allocator with a frozen MLLM backbone. The Allocator dynamically assigns optimal token
-                          budgets for each image or video frame, guided by the task context. These budgets dictate the
-                          specific spatial resolutions the dynamic visual encoder should process. <b>(b)</b> The entire
-                          pipeline is optimized end-to-end using Cost-Aware Policy Optimization (CAPO), leveraging
-                          Reinforcement Learning to jointly maximize downstream task performance and minimize
-                          computational costs.
-                        </p>
-                        <div style="text-align: center;">
-                          <img id="pipeline" width="100%" src="static/images/model.png">
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-            </section>
-
-            <section class="section" id="ResAdapt Evaluation">
-              <div class="container is-max-desktop">
-                <div class="columns is-centered has-text-centered">
-                  <div class="column is-six-fifths">
-                    <h2 class="title is-3"><span class="rainbow-text">ResAdapt</span> Evaluation</h2>
-                  </div>
-                </div>
-                <div class="container is-max-desktop">
-                  <div class="columns is-centered">
-                    <div class="column is-full-width">
-                      <div class="content has-text-justified">
-                        <p>
-                          <b>Efficiency-Accuracy Trade-off.</b> ResAdapt establishes a new Pareto frontier across
-                          different architectures (Qwen2-VL, Qwen2.5-VL). It matches or surpasses the performance of the
-                          uncompressed baselines while using significantly fewer visual tokens.
-                        </p>
-                        <div style="text-align: center;">
-                          <img id="pipeline" width="100%" src="static/images/results.png">
-                        </div>
-
-                        <p>
-                          <b>Case Study on VideoMME.</b> ResAdapt automatically allocates high resolution to key frames
-                          containing essential textual or visual details necessary to answer the user query, while
-                          aggressively compressing redundant or irrelevant frames.
-                        </p>
-                        <div style="text-align: center;">
-                          <img id="pipeline" width="100%" src="static/images/case.png">
-                        </div>
-
-                      </div>
-                    </div>
-                  </div>
-                </div>
-            </section>
-
-            <!--BibTex citation -->
-            <section class="section" id="BibTeX">
-              <div class="container is-max-desktop content">
-                <h2 class="title">BibTeX</h2>
-                <pre><code>@article{liao2025resadapt,
-  title={ResAdapt: Adaptive Resolution for Efficient Multimodal Reasoning},
-  author={Liao, Huanxuan and Jiang, Zhongtao and Hao, Yupu and Tan, Yuqiao and He, Shizhu and Zhao, Jun and Xu, Kun and Liu, Kang},
-  journal={arXiv preprint arXiv:xxxx.xxxxx},
-  year={2025}
-}</code></pre>
+              <img src="static/images/compre.png" alt="Case 1 — Video-MMMU Comprehension — adaptive scale per frame">
+              <figcaption class="case-scroll-cap">Case 1 — Video-MMMU Comprehension (Vanilla × → ResAdapt ✓)</figcaption>
+            </figure>
+            <figure class="case-scroll-slide" data-slide-summary="Case 2 — Video-MMMU Adaptation (χ²)">
+              <div class="case-study-qbox">
+                <strong>Q:</strong> Watch and learn the video content. Then apply what you learned to answer: Table 11.47
+                provides a survey of the youngest online entrepreneurs (ages 17–30) whose net worth ≥ $1M. We want to know
+                whether ages and net worth are independent. χ² test statistic = ______
               </div>
-            </section>
-            <!--End BibTex citation -->
-
-
-            <footer class="footer">
-              <div class="container">
-                <div class="columns is-centered">
-                  <div class="column is-8">
-                    <div class="content">
-
-                      <p>
-                        This page was built using the <a
-                          href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_self">Academic
-                          Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io"
-                          target="_self">Nerfies</a> project page.
-                        You are free to borrow the source code of this website, we just ask that you link back to this
-                        page in the footer.
-                        <br> This website is licensed under a <a rel="license"
-                          href="http://creativecommons.org/licenses/by-sa/4.0/" target="_self">Creative
-                          Commons Attribution-ShareAlike 4.0 International License</a>.
-                      </p>
-
-                    </div>
-                  </div>
-                </div>
+              <img src="static/images/adaption1.png" alt="Case 2 — Video-MMMU Adaptation — adaptive scale per frame">
+              <figcaption class="case-scroll-cap">Case 2 — Video-MMMU Adaptation (Vanilla × → ResAdapt ✓)</figcaption>
+            </figure>
+            <figure class="case-scroll-slide" data-slide-summary="Case 3 — VideoMME (zodiacal light)">
+              <div class="case-study-qbox">
+                <strong>Q:</strong> When is the zodiacal light visible from the video? (A) Mar. 19, (B) Mar. 24, (C) Mar. 25,
+                (D) Mar. 29.
               </div>
-            </footer>
+              <img src="static/images/videomme2.png" alt="Case 3 — VideoMME zodiacal light — adaptive scale per frame">
+              <figcaption class="case-scroll-cap">Case 3 — VideoMME (Vanilla × → ResAdapt ✓)</figcaption>
+            </figure>
+            <figure class="case-scroll-slide" data-slide-summary="Case 4 — VideoMME (failure: fork)">
+              <div class="case-study-qbox">
+                <strong>Q:</strong> Which item does the man throw into the trash at the beginning of the video? (A) A fork,
+                (B) A pair of chopsticks, (C) A box of noodles, (D) A spoon.
+              </div>
+              <img src="static/images/videomme3.png" alt="Case 4 — VideoMME fork failure — adaptive scale per frame">
+              <figcaption class="case-scroll-cap">Case 4 — VideoMME failure case (Vanilla ✓ → ResAdapt ×)</figcaption>
+            </figure>
+            <figure class="case-scroll-slide" data-slide-summary="Case 5 — VideoMME (USA basketball)">
+              <div class="case-study-qbox">
+                <strong>Q:</strong> What country&rsquo;s practice game is this? (A) UK, (B) USA, (C) Canada, (D) Australia.
+              </div>
+              <img src="static/images/adaptive_scale_casestudy.png"
+                alt="Case 5 — VideoMME USA basketball — adaptive scale factor grid">
+              <figcaption class="case-scroll-cap">Case 5 — VideoMME (USA legibility; supplementary qualitative)</figcaption>
+            </figure>
+          </div>
+          <button type="button" class="case-scroll-btn case-scroll-next" aria-label="Next case slide">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+        <p class="case-counter results-carousel-counter" id="case-counter" aria-live="polite">1 / 5</p>
+        <div class="figure-caption" style="margin-top:0.35rem;">
+          <span class="caption-number">Figure 8</span>
+          <span class="caption-text">Qualitative case studies (Video-MMMU and VideoMME); full discussion in the paper
+            appendix.</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <section class="section bibtex-section" id="BibTeX">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <div class="section-header-center reveal">
+            <span class="section-tag">Citation</span>
+            <h2 class="title is-3">BibTeX</h2>
+            <p class="section-subtitle">Placeholder until publication metadata is finalized</p>
+          </div>
+          <div class="bibtex-card reveal">
+            <pre class="bibtex-empty"><code> </code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This page was built using the
+              <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank" rel="noopener">Academic
+                Project Page Template</a>
+              (from <a href="https://nerfies.github.io" target="_blank" rel="noopener">Nerfies</a>).
+              <br>
+              Licensed under
+              <a rel="license noopener" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC
+                BY-SA 4.0</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var AUTO_INTERVAL_MS = 5500;
+
+      function bindCarousel(wrap) {
+        const track = wrap.querySelector('.case-scroll-track');
+        const prev = wrap.querySelector('.case-scroll-prev');
+        const next = wrap.querySelector('.case-scroll-next');
+        const counterId = wrap.getAttribute('data-counter-id');
+        const counter = counterId ? document.getElementById(counterId) : null;
+        const contextId = wrap.getAttribute('data-context-id');
+        const contextEl = contextId ? document.getElementById(contextId) : null;
+        if (!track || !prev || !next) return;
+
+        const slides = track.querySelectorAll('.case-scroll-slide');
+        const total = slides.length;
+        var autoTimer = null;
+        var hoverPaused = false;
+
+        function slideWidth() {
+          return track.clientWidth || 1;
+        }
+
+        function currentIndex() {
+          var w = slideWidth();
+          var i = Math.round(track.scrollLeft / w);
+          return Math.max(0, Math.min(i, total - 1));
+        }
+
+        function updateUI() {
+          var idx = currentIndex();
+          if (counter) counter.textContent = (idx + 1) + ' / ' + total;
+          if (contextEl && slides[idx]) {
+            var sum = slides[idx].getAttribute('data-slide-summary');
+            if (sum) contextEl.textContent = sum;
+          }
+        }
+
+        function scrollByDir(dir) {
+          track.scrollBy({ left: dir * slideWidth(), behavior: 'smooth' });
+        }
+
+        function goNext() {
+          if (document.hidden || hoverPaused) return;
+          var nextIdx = (currentIndex() + 1) % total;
+          track.scrollTo({ left: nextIdx * slideWidth(), behavior: 'smooth' });
+        }
+
+        function startAuto() {
+          stopAuto();
+          autoTimer = window.setInterval(goNext, AUTO_INTERVAL_MS);
+        }
+
+        function stopAuto() {
+          if (autoTimer) window.clearInterval(autoTimer);
+          autoTimer = null;
+        }
+
+        prev.addEventListener('click', function () {
+          stopAuto();
+          scrollByDir(-1);
+          startAuto();
+        });
+        next.addEventListener('click', function () {
+          stopAuto();
+          scrollByDir(1);
+          startAuto();
+        });
+        track.addEventListener('scroll', function () {
+          window.requestAnimationFrame(updateUI);
+        }, { passive: true });
+
+        wrap.addEventListener('mouseenter', function () {
+          hoverPaused = true;
+        });
+        wrap.addEventListener('mouseleave', function () {
+          hoverPaused = false;
+        });
+
+        document.addEventListener('visibilitychange', function () {
+          if (document.hidden) stopAuto();
+          else startAuto();
+        });
+
+        updateUI();
+        startAuto();
+      }
+
+      document.querySelectorAll('.js-carousel-wrap').forEach(bindCarousel);
+
+      const io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) e.target.classList.add('active');
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+    })();
+  </script>
 </body>
 
 </html>
