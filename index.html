@@ -38,12 +38,13 @@
 	<meta name="google-site-verification" content="GxaFv2GEAd_nIt2RJk2O1uJ6vcNiCshwywxJC2v2kQE">
 	<meta name="msvalidate.01" content="67B155C505E04C672096FC5B5891EF73">
 
-	<meta name="theme-color" content="#2563eb">
-	<meta name="msapplication-TileColor" content="#2563eb">
+	<meta name="theme-color" content="#f4f6fb" media="(prefers-color-scheme: light)">
+	<meta name="theme-color" content="#0c0e14" media="(prefers-color-scheme: dark)">
+	<meta name="msapplication-TileColor" content="#4338ca">
 
 	<link rel="preload" href="css/style.css" as="style">
 	<link rel="preload" href="js/main.js" as="script">
-	<link rel="preload" href="assets/img/profile_compress.jpg" as="image">
+	<link rel="preload" href="assets/img/i1.jpg" as="image">
 
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -51,7 +52,7 @@
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 	<link rel="icon" type="image/png" sizes="32x32" href="assets/icon/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="assets/icon/favicon-16x16.png">
@@ -78,7 +79,7 @@
         "sameAs": [
             "https://scholar.google.com.hk/citations?user=sRcWOKUAAAAJ&hl=zh-CN",
             "https://github.com/Xnhyacinth",
-            "https://twitter.com/xn_hyacinth",
+            "https://x.com/xn_hyacinth",
             "https://www.linkedin.com/in/huanxuan-liao-09ab8b341/"
         ],
         "knowsAbout": ["Large Language Models", "Natural Language Processing", "Machine Learning", "Efficient Reasoning", "Long Context Modeling"]
@@ -92,10 +93,33 @@
 		<div class="loader-ring"></div>
 	</div>
 
-	<button class="theme-toggle" aria-label="Toggle dark mode">
-		<i class="fas fa-sun sun-icon"></i>
-		<i class="fas fa-moon moon-icon"></i>
-	</button>
+	<!-- Scroll Progress Indicator -->
+	<div class="scroll-progress" aria-hidden="true"></div>
+
+	<!-- Floating Social Sidebar -->
+	<aside class="social-sidebar" aria-label="Quick contact links">
+		<a href="mailto:liaohuanxuan2023@ia.ac.cn" class="social-sidebar-link" data-tooltip="Email (institutional)" aria-label="Send email to institutional address">
+			<i class="fas fa-envelope"></i>
+		</a>
+		<a href="assets/CV_online.pdf" class="social-sidebar-link" data-tooltip="CV (PDF)" target="_blank" rel="noopener" aria-label="Download curriculum vitae PDF">
+			<i class="ai ai-cv" aria-hidden="true"></i>
+		</a>
+		<a href="https://www.linkedin.com/in/huanxuan-liao-09ab8b341/" class="social-sidebar-link" data-tooltip="LinkedIn" target="_blank" rel="noopener" aria-label="LinkedIn profile">
+			<i class="fab fa-linkedin-in"></i>
+		</a>
+		<a href="https://github.com/Xnhyacinth" class="social-sidebar-link" data-tooltip="GitHub" target="_blank" rel="noopener" aria-label="GitHub profile">
+			<i class="fab fa-github"></i>
+		</a>
+		<a href="https://scholar.google.com.hk/citations?user=sRcWOKUAAAAJ&amp;hl=zh-CN" class="social-sidebar-link" data-tooltip="Google Scholar" target="_blank" rel="noopener" aria-label="Google Scholar profile">
+			<i class="fas fa-graduation-cap"></i>
+		</a>
+		<a href="https://x.com/xn_hyacinth" class="social-sidebar-link" data-tooltip="X (Twitter)" target="_blank" rel="noopener" aria-label="X profile">
+			<i class="fab fa-twitter"></i>
+		</a>
+		<button class="social-sidebar-link back-to-top" id="backToTop" data-tooltip="Back to Top" aria-label="Scroll to top">
+			<i class="fas fa-arrow-up"></i>
+		</button>
+	</aside>
 
 	<nav class="navbar">
 		<div class="navbar-container">
@@ -105,37 +129,22 @@
 			<ul class="navbar-nav">
 				<li><a href="#biography" class="nav-link">Biography</a></li>
 				<li><a href="#publications" class="nav-link">Publications</a></li>
-				<!-- <li class="nav-dropdown">
-					<button class="nav-action nav-dropdown-toggle" type="button" aria-haspopup="true"
-						aria-expanded="false">
-						Projects <i class="fas fa-chevron-down"></i>
-					</button>
-					<div class="nav-dropdown-menu" role="menu">
-						<a class="nav-dropdown-item" role="menuitem" href="projects/IAG/">IAG</a>
-						<a class="nav-dropdown-item" role="menuitem" href="projects/TAGI/">TAGI</a>
-						<div class="nav-dropdown-divider" role="separator"></div>
-						<a class="nav-dropdown-item" role="menuitem" href="https://trae1oung.github.io/DyPRAG/">DyPRAG</a>
-						<a class="nav-dropdown-item" role="menuitem" href="https://wengsyx.github.io/LMTuner/">LMTuner</a>
-					</div>
-				</li> -->
 				<li><a href="#awards" class="nav-link">Awards</a></li>
 				<li><a href="#services" class="nav-link">Services</a></li>
 				<li><a href="assets/CV_online.pdf" class="nav-link">CV</a></li>
 			</ul>
+			<!-- Theme Toggle Button -->
+			<button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+				<i class="fas fa-sun"></i>
+				<i class="fas fa-moon"></i>
+			</button>
 			<button class="mobile-menu-toggle" aria-label="Toggle menu">
 				<i class="fas fa-bars"></i>
 			</button>
 		</div>
 		<div class="mobile-nav">
-			<a href="#biography" class="nav-link">Overview</a>
+			<a href="#biography" class="nav-link">Biography</a>
 			<a href="#publications" class="nav-link">Publications</a>
-			<!-- <div class="mobile-nav-group">
-				<div class="mobile-nav-title">Projects</div>
-				<a href="projects/IAG/" class="nav-link">IAG</a>
-				<a href="projects/TAGI/" class="nav-link">TAGI</a>
-				<a href="https://trae1oung.github.io/DyPRAG/" class="nav-link">DyPRAG</a>
-				<a href="https://wengsyx.github.io/LMTuner/" class="nav-link">LMTuner</a>
-			</div> -->
 			<a href="#awards" class="nav-link">Awards</a>
 			<a href="#services" class="nav-link">Services</a>
 			<a href="assets/CV_online.pdf" class="nav-link">CV</a>
@@ -143,82 +152,120 @@
 	</nav>
 
 	<main>
-		<section id="biography" class="profile-section" data-animate="animate-fade-in">
-			<div class="profile-card">
-				<div class="profile-image-wrapper">
-					<img src="assets/img/profile_compress.jpg" alt="Huanxuan Liao" class="profile-image">
-				</div>
-				<div class="profile-info">
-					<h1 class="profile-name">Huanxuan Liao</h1>
-					<h2 class="profile-title">PhD Student @ <a href="https://www.ucas.ac.cn/">UCAS</a> &
-						<a href="http://www.ia.cas.cn/">CASIA</a> focusing on Long Context Modeling
-					</h2>
-					<p class="profile-bio">
-						I am a third-year PhD student in Pattern Recognition and Intelligent Systems at <a
-							href="https://www.ucas.ac.cn/"><img src="assets/img/ucas.png" alt="UCAS"
-								class="inline-logo">University of Chinese Academy
-							of Sciences (UCAS)</a>
-						and <a href="http://www.ia.cas.cn/"><img src="assets/img/casia.svg" alt="CASIA"
-								class="inline-logo">Institute of Automation, Chinese Academy of Sciences (CASIA)</a>,
-						supervised by Prof. <a href="https://heshizhu.github.io/">Shizhu He</a> and
-						Prof. <a href="https://nlpr.ia.ac.cn/cip/~liukang/index.html">Kang Liu</a>.
-						Before that, I received B.Eng. from <a href="https://www.ncepu.edu.cn/"><img
-								src="assets/img/North_China_Electric_Power_University_logo.png" alt="NCEPU"
-								class="inline-logo">North China Electric Power University (NCEPU)</a> in 2023, under the
-						supervision of Prof. Min Shi and Prof. Yun Ju.
-					</p>
-					<p class="profile-bio">
-						My research lies at the intersection of natural language processing and machine learning, with a
-						focus on <span class="interest-highlight">Long Context Modeling</span>, <span
-							class="interest-highlight">Efficient Reasoning</span>, <span
-							class="interest-highlight">Efficient Attention and Architecture</span>, and <span
-							class="interest-highlight">Long Video Understanding</span> in large language models
-						(LLMs). I aim to enhance the practicality and accessibility of LLMs (including Multimodal LLMs)
-						in real-world scenarios through two complementary approaches: optimizing LLMs for efficient
-						deployment and strengthening smaller, more economical models for efficient reasoning.
-					</p>
-					<p class="profile-email">
-						<i class="fas fa-envelope"></i>
-						<a href="mailto:liaohuanxuan2023@ia.ac.cn">liaohuanxuan2023@ia.ac.cn</a>
-					</p>
-					<!-- <div class="hero-actions">
-						<a class="btn btn-primary" href="assets/CV_online.pdf">CV</a>
-						<a class="btn btn-secondary" href="#publications">Publications</a>
-						<a class="btn btn-ghost" href="pages/publications/">Full list</a>
-					</div> -->
-					<div class="social-links">
-						<a href="assets/CV_online.pdf" class="social-link" title="CV">
-							<i class="ai ai-cv ai-4x"></i>
-						</a>
-						<a href="https://scholar.google.com.hk/citations?user=sRcWOKUAAAAJ&hl=zh-CN" class="social-link"
-							title="Google Scholar">
-							<i class="ai ai-google-scholar ai-4x"></i>
-						</a>
-						<a href="https://www.semanticscholar.org/author/Huanxuan-Liao/2232817310" class="social-link"
-							title="Semantic Scholar">
-							<i class="ai ai-semantic-scholar ai-4x"></i>
-						</a>
-						<a href="https://dblp.org/pid/355/1072.html" class="social-link" title="DBLP">
-							<i class="ai ai-dblp ai-4x"></i>
-						</a>
-						<a href="https://openreview.net/profile?id=~Huanxuan_Liao1" class="social-link"
-							title="OpenReview">
-							<i class="ai ai-academia ai-4x"></i>
-						</a>
-						<a href="https://github.com/Xnhyacinth" class="social-link" title="GitHub">
-							<i class="fab fa-github fa-4x"></i>
-						</a>
-						<a href="https://twitter.com/xn_hyacinth" class="social-link" title="Twitter">
-							<i class="fab fa-twitter fa-4x"></i>
-						</a>
-						<a href="https://www.linkedin.com/in/huanxuan-liao-09ab8b341/" class="social-link"
-							title="LinkedIn">
-							<i class="fab fa-linkedin fa-4x"></i>
-						</a>
+		<section id="biography" class="profile-section hero-section" data-animate="animate-fade-in">
+			<div class="container">
+				<div class="profile-card hero-panel hero-panel--split">
+					<div class="hero-column hero-column--media">
+						<div class="profile-image-wrapper">
+							<img src="assets/img/i1.jpg" alt="Huanxuan Liao" class="profile-image" width="220" height="220" loading="eager">
+							<div class="profile-status-badge" title="Currently researching">
+								<span class="status-dot" aria-hidden="true"></span>
+								<span class="status-text">Active research</span>
+							</div>
+						</div>
+						<div class="hero-side-meta">
+							<p class="profile-title hero-lead">
+								PhD student at <a href="https://www.ucas.ac.cn/">UCAS</a> &amp; <a href="http://www.ia.cas.cn/">CASIA</a> — long-context modeling and efficient MLLMs
+							</p>
+							<div class="research-tags" aria-label="Research focus areas">
+								<span class="research-tag tag-llm" data-tooltip="Large Language Models"><i class="fas fa-brain" aria-hidden="true"></i> LLMs</span>
+								<span class="research-tag tag-video" data-tooltip="Video Understanding"><i class="fas fa-video" aria-hidden="true"></i> Video</span>
+								<span class="research-tag tag-efficient" data-tooltip="Efficient Architecture"><i class="fas fa-bolt" aria-hidden="true"></i> Efficiency</span>
+								<span class="research-tag tag-multimodal" data-tooltip="Multi-modal Learning"><i class="fas fa-layer-group" aria-hidden="true"></i> Multimodal</span>
+								<!-- <span class="research-tag tag-reasoning" data-tooltip="Efficient Reasoning"><i class="fas fa-lightbulb" aria-hidden="true"></i> Reasoning</span> -->
+								<span class="research-tag tag-longcontext" data-tooltip="Long Context Modeling"><i class="fas fa-expand-arrows-alt" aria-hidden="true"></i> Long Context</span>
+							</div>
+							<!-- <div class="hero-actions">
+								<a href="assets/CV_online.pdf" class="btn btn-primary"><i class="ai ai-cv" aria-hidden="true"></i> Curriculum Vitae</a>
+								<a href="https://scholar.google.com.hk/citations?user=sRcWOKUAAAAJ&amp;hl=zh-CN" class="btn btn-secondary" target="_blank" rel="noopener">Google Scholar</a>
+								<a href="https://github.com/Xnhyacinth" class="btn btn-ghost" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
+							</div> -->
+						</div>
+						<aside class="hero-aside" aria-label="Profiles and contact">
+							<div class="hero-connect">
+								<p class="hero-aside-label">Connect</p>
+								<div class="social-links social-links--aside" aria-label="Social and academic profiles">
+									<!-- <a href="assets/CV_online.pdf" class="social-link" title="Curriculum Vitae (PDF)" aria-label="Curriculum Vitae PDF" target="_blank" rel="noopener">
+										<i class="ai ai-cv" aria-hidden="true"></i>
+									</a> -->
+									<!-- <a href="https://scholar.google.com.hk/citations?user=sRcWOKUAAAAJ&amp;hl=zh-CN" class="social-link" title="Google Scholar" aria-label="Google Scholar" target="_blank" rel="noopener">
+										<i class="ai ai-google-scholar" aria-hidden="true"></i>
+									</a> -->
+									<a href="assets/CV_online.pdf" class="btn btn-primary"><i class="ai ai-cv" aria-hidden="true"></i> Curriculum Vitae</a>
+									<a href="https://scholar.google.com.hk/citations?user=sRcWOKUAAAAJ&amp;hl=zh-CN" class="btn btn-secondary" target="_blank" rel="noopener"><i class="ai ai-google-scholar" aria-hidden="true"></i> Google Scholar</a>
+									<a href="https://www.semanticscholar.org/author/Huanxuan-Liao/2284280618" class="social-link" title="Semantic Scholar" aria-label="Semantic Scholar">
+										<i class="ai ai-semantic-scholar"></i>
+									</a>
+									<a href="https://openreview.net/profile?id=~Huanxuan_Liao1" class="social-link" title="OpenReview" aria-label="OpenReview">
+										<i class="ai ai-academia"></i>
+									</a>
+									<a href="https://dblp.org/pid/331/2667.html" class="social-link" title="DBLP" aria-label="DBLP">
+										<i class="ai ai-dblp"></i>
+									</a>
+									<a href="https://github.com/Xnhyacinth" class="social-link" title="GitHub" aria-label="GitHub profile">
+										<i class="fab fa-github"></i>
+									</a>
+									<a href="https://www.linkedin.com/in/huanxuan-liao-09ab8b341/" class="social-link" title="LinkedIn" aria-label="LinkedIn">
+										<i class="fab fa-linkedin"></i>
+									</a>
+									
+									<a href="https://x.com/xn_hyacinth" class="social-link" title="X" aria-label="X profile">
+										<i class="fab fa-twitter"></i>
+									</a>
+									
+									<a href="mailto:huanxuanliao@gmail.com" class="hero-connect-mail">
+										<i class="fas fa-envelope" aria-hidden="true"></i>
+										<span>huanxuanliao@gmail.com</span>
+									</a>
+								</div>
+							</div>
+						</aside>
+					</div>
+
+					<div class="hero-column hero-column--content">
+							<header class="hero-body-header">
+								<p class="hero-kicker">PhD · Pattern Recognition &amp; Intelligent Systems</p>
+								<h1 class="profile-name hero-name">
+									<span class="hero-name-text">Huanxuan Liao</span>
+									<span class="hero-name-alt" lang="zh">廖桓萱</span>
+								</h1>
+							</header>
+
+							<div class="hero-prose">
+								<p class="profile-bio profile-bio--lead">
+									I am a third-year PhD student in Pattern Recognition and Intelligent Systems at the <a
+										href="https://www.ucas.ac.cn/"><img src="assets/img/ucas.png" alt="UCAS"
+											class="inline-logo">University of Chinese Academy of Sciences (UCAS)</a>
+									and the <a href="http://www.ia.cas.cn/"><img src="assets/img/casia.svg" alt="CASIA"
+											class="inline-logo">Institute of Automation, Chinese Academy of Sciences (CASIA)</a>,
+									advised by Prof. <a href="https://heshizhu.github.io/">Shizhu He</a> and
+									Prof. <a href="https://nlpr.ia.ac.cn/cip/~liukang/index.html">Kang Liu</a>.
+									Previously, I earned my B.Eng. from <a href="https://www.ncepu.edu.cn/"><img
+											src="assets/img/North_China_Electric_Power_University_logo.png" alt="NCEPU"
+											class="inline-logo">North China Electric Power University (NCEPU)</a> (2023), working with
+									Prof. Min Shi and Prof. Yun Ju.
+								</p>
+
+								<div class="profile-statement">
+									<h2 class="profile-statement-title">Research statement</h2>
+									<p class="profile-bio">
+										My research sits at the intersection of natural language processing and machine learning. I study
+										<span class="interest-highlight">Long Context Modeling</span>, <span
+											class="interest-highlight">Efficient Reasoning</span>, <span
+											class="interest-highlight">Efficient Attention and Architecture</span>, and <span
+											class="interest-highlight">Long Video Understanding</span> in large language models (LLMs),
+										including multimodal settings. Broadly, I aim to make LLMs more practical and accessible in
+										real-world applications through two complementary directions: improving models for efficient
+										deployment, and advancing smaller, economical models for efficient reasoning.
+									</p>
+								</div>
+							</div>
 					</div>
 				</div>
 			</div>
 		</section>
+
+
 
 		<section class="content-section" data-animate="animate-slide-in">
 			<div class="section-card reveal">
@@ -274,33 +321,37 @@
 					Recent News
 				</h2>
 				<ul class="news-list">
-					<li class="news-item">
+					<li class="news-item news-highlight">
 						<span class="news-date">Nov 2025</span>
 						<div class="news-content">
+							<span class="news-type type-paper"><i class="fas fa-file-alt"></i> Paper</span>
 							<a href="https://arxiv.org/abs/2508.15212">SparK</a> accepted to <span
-								class="news-badge">AAAI 2026</span>
+								class="news-badge badge-aaai">AAAI 2026</span>
 						</div>
 					</li>
-					<li class="news-item">
+					<li class="news-item news-highlight">
 						<span class="news-date">Oct 2025</span>
 						<div class="news-content">
+							<span class="news-type type-award"><i class="fas fa-trophy"></i> Award</span>
 							Awarded <strong>National Scholarship</strong> by Ministry of Education at CASIA <span
-								class="news-badge">🏆</span>
+								class="news-badge badge-premier">🏆</span>
 						</div>
 					</li>
 					<li class="news-item">
 						<span class="news-date">May 2025</span>
 						<div class="news-content">
+							<span class="news-type type-paper"><i class="fas fa-file-alt"></i> Paper</span>
 							<a href="https://aclanthology.org/2025.acl-long.1064/">ETAPP</a> accepted to
-							<span class="news-badge">ACL 2025</span>
+							<span class="news-badge badge-acl">ACL 2025</span>
 						</div>
 					</li>
 					<li class="news-item">
 						<span class="news-date">Dec 2024</span>
 						<div class="news-content">
+							<span class="news-type type-paper"><i class="fas fa-file-alt"></i> Paper</span>
 							<a href="https://arxiv.org/abs/2409.13203">NesyCD</a> and <a
 								href="https://arxiv.org/abs/2409.13202">CITI</a> accepted to <span
-								class="news-badge">AAAI 2025</span>
+								class="news-badge badge-aaai">AAAI 2025</span>
 						</div>
 					</li>
 				</ul>
@@ -325,15 +376,17 @@
 				<div class="search-controls">
 					<div class="search-box">
 						<i class="fas fa-search"></i>
-						<input type="text" class="search-input"
+						<input type="text" class="search-input" id="pub-search" name="pub-search"
+							aria-label="Search publications by title, authors, or venue"
 							placeholder="Search publications by title, authors, or venue...">
 					</div>
 					<div class="filter-controls">
-						<button class="filter-btn active" data-filter="all">All</button>
-						<button class="filter-btn" data-filter="conference">Conferences</button>
-						<button class="filter-btn" data-filter="preprint">Preprints</button>
-						<button class="filter-btn" data-filter="collaboration">Collaborations</button>
+						<button type="button" class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
+						<button type="button" class="filter-btn" data-filter="conference" aria-pressed="false">Conferences</button>
+						<button type="button" class="filter-btn" data-filter="preprint" aria-pressed="false">Preprints</button>
+						<button type="button" class="filter-btn" data-filter="collaboration" aria-pressed="false">Collaborations</button>
 					</div>
+
 				</div>
 
 				<div class="publications-container">
@@ -465,7 +518,7 @@
 									<i class="fab fa-github"></i>
 									Awesome-LLM-Long-Context-Modeling
 								</a>
-								<span class="star-count">2.0k+ ⭐</span>
+								<span class="star-count">2.0k+ <i class="fas fa-star"></i></span>
 							</li>
 							<li>
 								<a href="https://github.com/LCLM-Horizon/A-Comprehensive-Survey-For-Long-Context-Language-Modeling"
@@ -491,7 +544,7 @@
 
 	<footer class="footer">
 		<div class="footer-content">
-			<p>&copy; 2025 Huanxuan Liao (廖桓萱). All rights reserved.</p>
+			<p>&copy; 2026 Huanxuan Liao (廖桓萱). All rights reserved.</p>
 			<p class="footer-links">
 				<a href="mailto:liaohuanxuan2023@ia.ac.cn">Contact</a>
 				<span>|</span>
@@ -505,6 +558,8 @@
 		document.addEventListener('DOMContentLoaded', function () {
 			loadPublications();
 			setupFilters();
+			setupYearFilter();
+			setupMetricsAnimation();
 		});
 
 		async function loadPublications() {
@@ -523,10 +578,10 @@
 				renderPapers(data.preprints || [], 'preprint-papers');
 				renderPapers(data.collaborations || [], 'collaboration-papers');
 
-				console.log('✅ Publications loaded successfully');
+				console.log('Publications loaded successfully');
 
 			} catch (error) {
-				console.error('❌ Failed to load publications:', error);
+				console.error('Failed to load publications:', error);
 
 				const containers = ['conference-papers', 'preprint-papers', 'collaboration-papers'];
 				containers.forEach(id => {
@@ -545,6 +600,20 @@
 			}
 		}
 
+		function venueBadgeClass(venue) {
+			const v = String(venue || '').toLowerCase();
+			if (v.includes('aaai')) return 'badge-aaai';
+			if (v.includes('coling')) return 'badge-coling';
+			if (v.includes('emnlp')) return 'badge-emnlp';
+			if (v.includes('acl')) return 'badge-acl';
+			if (v.includes('neurips') || v.includes('nips')) return 'badge-neurips';
+			if (v.includes('icml')) return 'badge-icml';
+			if (v.includes('iclr')) return 'badge-iclr';
+			if (v.includes('arxiv')) return 'badge-arxiv';
+			if (v.includes('ccks')) return 'badge-ccks';
+			return 'badge-venue-default';
+		}
+
 		function renderPapers(papers, containerId) {
 			const container = document.getElementById(containerId);
 			if (!container || !papers || !Array.isArray(papers)) return;
@@ -558,11 +627,15 @@
 				const arxivLink = paper.links && paper.links.arxiv ? paper.links.arxiv : '#';
 				const codeLink = paper.links && paper.links.code ? paper.links.code : null;
 				const homepageLink = paper.links && paper.links.homepage ? paper.links.homepage : null;
+				const pdfLink = paper.links && paper.links.pdf ? paper.links.pdf : null;
 				const authorsList = paper.authors && Array.isArray(paper.authors) ? paper.authors : [];
 				const keywordsList = paper.keywords && Array.isArray(paper.keywords) ? paper.keywords : [];
+				const citations = paper.citations || 0;
+				const isHighlighted = paper.highlighted || false;
 
 				return `
-                <li class="publication-item card-hover" data-animate="animate-fade-in">
+                <li class="publication-item card-hover ${isHighlighted ? 'highlighted-paper' : ''}" data-animate="animate-fade-in" data-year="${paper.year || ''}">
+                    ${isHighlighted ? '<div class="highlight-badge"><i class="fas fa-star"></i> Featured</div>' : ''}
                     <div class="publication-header">
                         <h3 class="publication-title">
                             <a href="${arxivLink}">${paper.title || 'Untitled'}</a>
@@ -575,15 +648,17 @@
 				).join(', ')}
                         </div>
                         <div class="publication-venue">
-                            <span class="venue-badge">${paper.venue || 'Unknown Venue'}</span>
+                            <span class="news-badge pub-venue-badge ${venueBadgeClass(paper.venue)}">${paper.venue || 'Unknown Venue'}</span>
                             ${paper.role && paper.role === 'Core Contributor' ? `<span class="role-badge">${paper.role}</span>` : ''}
                             <span class="year-badge">${paper.year || ''}</span>
+                            ${citations > 0 ? `<span class="citation-badge"><i class="fas fa-quote-right"></i> ${citations}</span>` : ''}
                         </div>
                     </div>
                     <div class="publication-links">
-                        ${arxivLink !== '#' ? `<a href="${arxivLink}" class="pub-link"><i class="ai ai-arxiv"></i> arXiv</a>` : ''}
-                        ${codeLink ? `<a href="${codeLink}" class="pub-link"><i class="fab fa-github"></i> Code</a>` : ''}
-                        ${homepageLink ? `<a href="${homepageLink}" class="pub-link"><i class="fas fa-home"></i> Homepage</a>` : ''}
+                        ${arxivLink !== '#' ? `<a href="${arxivLink}" class="pub-link" target="_blank" rel="noopener"><i class="ai ai-arxiv"></i> arXiv</a>` : ''}
+                        ${pdfLink ? `<a href="${pdfLink}" class="pub-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> PDF</a>` : ''}
+                        ${codeLink ? `<a href="${codeLink}" class="pub-link" target="_blank" rel="noopener"><i class="fab fa-github"></i> Code</a>` : ''}
+                        ${homepageLink ? `<a href="${homepageLink}" class="pub-link" target="_blank" rel="noopener"><i class="fas fa-home"></i> Project</a>` : ''}
                         ${paper.abstract ? `<button class="pub-link abstract-toggle" onclick="toggleAbstract(event, '${paper.id}')" aria-label="Toggle abstract">
                             <i class="fas fa-file-alt"></i> Abstract
                         </button>` : ''}
@@ -618,8 +693,12 @@
 
 			filterButtons.forEach(button => {
 				button.addEventListener('click', function () {
-					filterButtons.forEach(btn => btn.classList.remove('active'));
+					filterButtons.forEach(btn => {
+						btn.classList.remove('active');
+						btn.setAttribute('aria-pressed', 'false');
+					});
 					this.classList.add('active');
+					this.setAttribute('aria-pressed', 'true');
 
 					const filter = this.dataset.filter;
 					filterPublications(filter);
@@ -630,6 +709,16 @@
 				searchInput.addEventListener('input', function () {
 					const query = this.value.toLowerCase();
 					searchPublications(query);
+				});
+			}
+		}
+
+		function setupYearFilter() {
+			const yearSelect = document.getElementById('yearFilter');
+			if (yearSelect) {
+				yearSelect.addEventListener('change', function () {
+					const year = this.value;
+					filterByYear(year);
 				});
 			}
 		}
@@ -647,6 +736,18 @@
 					} else {
 						category.style.display = 'none';
 					}
+				}
+			});
+		}
+
+		function filterByYear(year) {
+			const papers = document.querySelectorAll('.publication-item');
+			papers.forEach(paper => {
+				if (year === 'all') {
+					paper.style.display = '';
+				} else {
+					const paperYear = paper.dataset.year;
+					paper.style.display = paperYear === year ? '' : 'none';
 				}
 			});
 		}
@@ -669,6 +770,50 @@
 					paper.classList.add('animate-fade-in');
 				}
 			});
+		}
+
+		function setupMetricsAnimation() {
+			const metrics = document.querySelectorAll('.metric-value');
+			const observerOptions = {
+				threshold: 0.5,
+				rootMargin: '0px'
+			};
+
+			const observer = new IntersectionObserver((entries) => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						const target = entry.target;
+						const count = parseInt(target.dataset.count);
+						animateCount(target, count);
+						observer.unobserve(target);
+					}
+				});
+			}, observerOptions);
+
+			metrics.forEach(metric => observer.observe(metric));
+		}
+
+		function animateCount(element, target) {
+			const duration = 2000;
+			const start = 0;
+			const startTime = performance.now();
+
+			function update(currentTime) {
+				const elapsed = currentTime - startTime;
+				const progress = Math.min(elapsed / duration, 1);
+				const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+				const current = Math.floor(start + (target - start) * easeOutQuart);
+
+				element.textContent = current.toLocaleString();
+
+				if (progress < 1) {
+					requestAnimationFrame(update);
+				} else {
+					element.textContent = target.toLocaleString() + '+';
+				}
+			}
+
+			requestAnimationFrame(update);
 		}
 	</script>
 </body>
