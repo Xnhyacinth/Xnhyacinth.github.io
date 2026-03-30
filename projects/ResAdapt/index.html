@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="ResAdapt: Adaptive Resolution for Efficient Multimodal Reasoning">
+  <meta name="keywords"
+    content="ResAdapt, Multimodal Large Language Models, Adaptive Resolution, Efficient Reasoning, Video QA">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>ResAdapt - Adaptive Resolution for Efficient Multimodal Reasoning</title>
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+
+  <script>
+    function navigateToProject(select) {
+      const url = select.value;
+      if (url) {
+        window.location.href = url;
+      }
+    }
+  </script>
+
+</head>
+
+<body>
+  <!-- Project Navigation -->
+  <div class="project-nav">
+    <select onchange="navigateToProject(this)">
+      <option value="" disabled selected>Navigate</option>
+      <optgroup label="Projects">
+        <option value="https://xnhyacinth.github.io/">Homepage</option>
+        <option value="https://xnhyacinth.github.io/projects/IAG/">IAG</option>
+        <option value="https://xnhyacinth.github.io/projects/TAGI/">TAGI</option>
+        <option value="https://xnhyacinth.github.io/projects/ResAdapt/" selected>ResAdapt</option>
+      </optgroup>
+      <optgroup label="External">
+        <option value="https://trae1oung.github.io/DyPRAG/">DyPRAG</option>
+        <option value="https://wengsyx.github.io/LMTuner/">LMTuner</option>
+      </optgroup>
+    </select>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">
+              <span class="rainbow-text">ResAdapt</span>: Adaptive Resolution for<br>
+              Efficient Multimodal Reasoning
+            </h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://xnhyacinth.github.io/" target="_blank">Huanxuan Liao</a><sup>1,2</sup>,
+              </span>
+              <span class="author-block">
+                <a href="#" target="_blank">Zhongtao Jiang</a>,
+              </span>
+              <span class="author-block">
+                <a href="#" target="_blank">Yupu Hao</a><sup>1,2</sup>,
+              </span>
+              <span class="author-block">
+                <a href="#" target="_blank">Yuqiao Tan</a><sup>1,2</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://nlpr.ia.ac.cn/cip/shizhuhe/" target="_blank">Shizhu He</a><sup>&dagger;1,2</sup>,
+              </span>
+              <span class="author-block">
+                <a href="#" target="_blank">Jun Zhao</a><sup>1,2</sup>,
+              </span>
+              <span class="author-block">
+                <a href="#" target="_blank">Kun Xu</a><sup>&Dagger;</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://nlpr.ia.ac.cn/cip/~liukang/index.html" target="_blank">Kang Liu</a><sup>&dagger;1,2</sup>
+              </span>
+            </div>
+
+            <div class="is-size-6 publication-authors" style="margin-top: 1rem;">
+              <span class="author-block"><sup>1</sup>Institute of Automation, Chinese Academy of Sciences</span><br>
+              <span class="author-block"><sup>2</sup>University of Chinese Academy of Sciences</span>
+            </div>
+
+            <div class="is-size-6 publication-authors" style="margin-top: 0.5rem;">
+              <span class="eql-cntrb"><sup>&dagger;</sup>Corresponding Author</span>
+              <span class="eql-cntrb"><sup>&Dagger;</sup>Project Leader</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="link-block">
+                <a href="static/pdfs/ResAdapt.pdf" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+                <a href="https://github.com/Xnhyacinth/ResAdapt" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Abstract Section -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <div class="abstract-section reveal">
+            <h2 class="title is-3">Abstract</h2>
+            <div class="content has-text-justified">
+              <p>
+                Multimodal Large Language Models (MLLMs) achieve stronger visual understanding by scaling input fidelity,
+                yet the resulting visual token growth makes jointly sustaining high spatial resolution and long temporal
+                context prohibitive. Existing efficiency strategies only partially resolve this tension: <i>model-side</i>
+                token compression discards fine-grained evidence after encoding and can disrupt optimized inference
+                kernels, whereas <i>output-side</i> agentic reasoning adds iterative latency and can still miss decisive
+                cues when the initial view is too coarse.
+              </p>
+              <p>
+                We argue that the bottleneck lies not in how post-encoding representations are compressed but in the
+                <i>volume of pixels</i> the encoder receives, and address it with <strong>ResAdapt</strong>, an <strong>Input-side
+                  adaptation</strong> framework that learns how much visual budget each frame should receive <em>before</em>
+                encoding.
+              </p>
+              <p>
+                ResAdapt couples a lightweight Allocator with an unchanged MLLM backbone, so the backbone retains its
+                native visual-token interface while receiving an operator-transformed input. We formulate allocation as a
+                contextual bandit and train the Allocator with <strong>Cost-Aware Policy Optimization (CAPO)</strong>, which
+                converts sparse rollout feedback into a stable accuracy–cost learning signal. We further introduce a
+                temporal-similarity regularizer that suppresses redundant high-budget allocation on adjacent similar
+                frames, encouraging differentiated, content-aware allocation in a single forward pass.
+              </p>
+              <p>
+                Across budget-controlled video QA, temporal grounding, and image reasoning tasks, ResAdapt improves
+                low-budget operating points and often lies on or near the efficiency–accuracy frontier, with the clearest
+                gains on reasoning-intensive benchmarks under aggressive compression. Notably, ResAdapt supports up to
+                16&times; more frames at the same visual budget while delivering over 15% performance gain. The learned
+                policy exhibits open-loop <i>active perception</i>, concentrating visual budget on information-dense
+                content without modifying the backbone architecture.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ResAdapt Paradigm Section -->
+  <section class="section" id="paradigm">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full">
+          <h2 class="section-title reveal"><span class="rainbow-text">ResAdapt</span> Paradigm</h2>
+        </div>
+      </div>
+      <div class="figure-container reveal">
+        <img src="static/images/figure1.png" alt="ResAdapt Paradigm">
+        <div class="figure-caption">
+          <b>Figure 1:</b> Comparison of token-reduction paradigms. We introduce <strong>Input-side adaptation</strong> (c), 
+          which dynamically allocates variable image resolutions or video frame quantities before visual encoding. This
+          prevents the initial feature explosion, fully preserves original fine-grained information, maintains the
+          backbone's native token structure without altering optimized inference kernels, and achieves dynamic
+          resolution processing in a single, non-iterative pass.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ResAdapt Architecture Section -->
+  <section class="section" id="architecture">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full">
+          <h2 class="section-title reveal"><span class="rainbow-text">ResAdapt</span> Architecture</h2>
+        </div>
+      </div>
+      <div class="figure-container reveal">
+        <img src="static/images/model.png" alt="ResAdapt Architecture">
+        <div class="figure-caption">
+          <b>Figure 2:</b> Overview of the ResAdapt framework. <strong>(a)</strong> Our architecture pairs a lightweight vision
+          Allocator with a frozen MLLM backbone. The Allocator dynamically assigns optimal token budgets for each
+          image or video frame, guided by the task context. These budgets dictate the specific spatial resolutions
+          the dynamic visual encoder should process. <strong>(b)</strong> The entire pipeline is optimized end-to-end using
+          Cost-Aware Policy Optimization (CAPO), leveraging Reinforcement Learning to jointly maximize downstream
+          task performance and minimize computational costs.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ResAdapt Evaluation Section -->
+  <section class="section" id="evaluation">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full">
+          <h2 class="section-title reveal"><span class="rainbow-text">ResAdapt</span> Evaluation</h2>
+        </div>
+      </div>
+      <div class="figure-container reveal">
+        <img src="static/images/three_figs_combined.png" alt="Efficiency-Accuracy Trade-off">
+        <div class="figure-caption">
+          <b>Figure 3:</b> Efficiency-Accuracy Trade-off. ResAdapt establishes a new Pareto frontier across different
+          architectures (Qwen2-VL, Qwen2.5-VL). It matches or surpasses the performance of the uncompressed
+          baselines while using significantly fewer visual tokens.
+        </div>
+      </div>
+      <div class="figure-container reveal">
+        <img src="static/images/radar_qwen_models.png" alt="Radar Chart Comparison">
+        <div class="figure-caption">
+          <b>Figure 4:</b> Performance comparison across multiple benchmarks. ResAdapt demonstrates consistent improvements
+          across video QA, temporal grounding, and image reasoning tasks.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Study Carousel Section -->
+  <section class="case-study-section" id="casestudy">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full">
+          <h2 class="section-title reveal" style="color: white;"><span class="rainbow-text">Case Study</span>: Active Perception</h2>
+          <p class="reveal" style="color: rgba(255,255,255,0.8); margin-bottom: 2rem;">
+            ResAdapt automatically allocates high resolution to key frames containing essential textual or visual 
+            details necessary to answer the user query, while aggressively compressing redundant or irrelevant frames.
+          </p>
+        </div>
+      </div>
+      
+      <!-- Carousel -->
+      <div class="case-carousel reveal">
+        <button class="carousel-btn prev" onclick="moveCarousel(-1)">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <div class="case-carousel-container">
+          <div class="case-carousel-track" id="carouselTrack">
+            <div class="case-slide">
+              <img src="static/images/case_study_1.png" alt="Case Study 1: Main Results Dashboard">
+              <div class="case-caption">Main Results Dashboard - Performance overview across benchmarks</div>
+            </div>
+            <div class="case-slide">
+              <img src="static/images/case_study_2.png" alt="Case Study 2: Detailed Metrics">
+              <div class="case-caption">Detailed Metrics - Comprehensive evaluation breakdown</div>
+            </div>
+            <div class="case-slide">
+              <img src="static/images/case_study_3.png" alt="Case Study 3: Distribution Analysis">
+              <div class="case-caption">Distribution Analysis - Token allocation patterns</div>
+            </div>
+            <div class="case-slide">
+              <img src="static/images/case_study_4.png" alt="Case Study 4: Scale Bands">
+              <div class="case-caption">Scale Bands - Resolution adaptation across scales</div>
+            </div>
+            <div class="case-slide">
+              <img src="static/images/case_study_5.png" alt="Case Study 5: Training Dynamics">
+              <div class="case-caption">Training Dynamics - Learning curves and convergence</div>
+            </div>
+            <div class="case-slide">
+              <img src="static/images/case_study_6.png" alt="Case Study 6: Mean Scale Analysis">
+              <div class="case-caption">Mean Scale Analysis - Temporal resolution allocation</div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-btn next" onclick="moveCarousel(1)">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+        <div class="carousel-indicators" id="carouselIndicators">
+          <span class="indicator active" onclick="goToSlide(0)"></span>
+          <span class="indicator" onclick="goToSlide(1)"></span>
+          <span class="indicator" onclick="goToSlide(2)"></span>
+          <span class="indicator" onclick="goToSlide(3)"></span>
+          <span class="indicator" onclick="goToSlide(4)"></span>
+          <span class="indicator" onclick="goToSlide(5)"></span>
+        </div>
+        <div class="carousel-counter" id="carouselCounter">1 / 6</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BibTeX Section -->
+  <section class="section" id="bibtex">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <div class="abstract-section reveal">
+            <h2 class="title is-3">BibTeX</h2>
+            <pre style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; overflow-x: auto;"><code>@article{liao2025resadapt,
+  title={ResAdapt: Adaptive Resolution for Efficient Multimodal Reasoning},
+  author={Liao, Huanxuan and Jiang, Zhongtao and Hao, Yupu and Tan, Yuqiao and He, Shizhu and Zhao, Jun and Xu, Kun and Liu, Kang},
+  journal={arXiv preprint arXiv:xxxx.xxxxx},
+  year={2025}
+}</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content has-text-centered">
+            <p>
+              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template"
+                target="_blank">Academic Project Page Template</a> which was adopted from the <a
+                href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+              <br> This website is licensed under a <a rel="license"
+                href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+                Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Carousel JavaScript -->
+  <script>
+    let currentIndex = 0;
+    const totalSlides = 6;
+    let autoPlayInterval;
+
+    function updateCarousel() {
+      const track = document.getElementById('carouselTrack');
+      const indicators = document.querySelectorAll('.indicator');
+      const counter = document.getElementById('carouselCounter');
+      
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      
+      indicators.forEach((indicator, index) => {
+        indicator.classList.toggle('active', index === currentIndex);
+      });
+      
+      counter.textContent = `${currentIndex + 1} / ${totalSlides}`;
+    }
+
+    function moveCarousel(direction) {
+      currentIndex = (currentIndex + direction + totalSlides) % totalSlides;
+      updateCarousel();
+      resetAutoPlay();
+    }
+
+    function goToSlide(index) {
+      currentIndex = index;
+      updateCarousel();
+      resetAutoPlay();
+    }
+
+    function resetAutoPlay() {
+      clearInterval(autoPlayInterval);
+      autoPlayInterval = setInterval(() => {
+        moveCarousel(1);
+      }, 5000);
+    }
+
+    // Auto-play carousel
+    autoPlayInterval = setInterval(() => {
+      moveCarousel(1);
+    }, 5000);
+
+    // Pause on hover
+    const carousel = document.querySelector('.case-carousel');
+    carousel.addEventListener('mouseenter', () => clearInterval(autoPlayInterval));
+    carousel.addEventListener('mouseleave', resetAutoPlay);
+  </script>
+
+  <!-- Scroll Reveal Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const reveals = document.querySelectorAll('.reveal');
+      
+      const revealOnScroll = () => {
+        reveals.forEach(element => {
+          const windowHeight = window.innerHeight;
+          const elementTop = element.getBoundingClientRect().top;
+          const elementVisible = 150;
+          
+          if (elementTop < windowHeight - elementVisible) {
+            element.classList.add('active');
+          }
+        });
+      };
+      
+      window.addEventListener('scroll', revealOnScroll);
+      revealOnScroll();
+    });
+  </script>
+
+</body>
+
+</html>
