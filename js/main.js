@@ -317,6 +317,43 @@
         }
     };
 
+    // Back to Top Manager
+    const BackToTopManager = {
+        init() {
+            this.button = document.getElementById('backToTop');
+            if (!this.button) return;
+
+            this.bindEvents();
+            this.updateVisibility();
+        },
+
+        bindEvents() {
+            // Show/hide button based on scroll position
+            window.addEventListener('scroll', () => {
+                this.updateVisibility();
+            }, { passive: true });
+
+            // Smooth scroll to top
+            this.button.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        },
+
+        updateVisibility() {
+            const scrollY = window.scrollY;
+            if (scrollY > 500) {
+                this.button.style.opacity = '1';
+                this.button.style.pointerEvents = 'auto';
+            } else {
+                this.button.style.opacity = '0';
+                this.button.style.pointerEvents = 'none';
+            }
+        }
+    };
+
     const PerformanceManager = {
         init() {
             this.measurePageLoad();
@@ -359,9 +396,25 @@
         init() {
             this.initScrollReveal();
             this.initGlassNavbar();
+            this.initScrollProgress();
             this.initMagneticIcons();
             this.initRippleButtons();
             this.initPageLoader();
+        },
+
+        initScrollProgress() {
+            const bar = document.querySelector('.scroll-progress');
+            if (!bar) return;
+
+            const onScroll = () => {
+                const scrollTop = window.scrollY || document.documentElement.scrollTop;
+                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+                bar.style.width = `${Math.min(100, Math.max(0, pct))}%`;
+            };
+
+            window.addEventListener('scroll', Utils.throttle(onScroll, 16), { passive: true });
+            onScroll();
         },
 
         // Scroll-reveal: fade-up sections as they enter viewport
@@ -459,6 +512,7 @@
         NavigationManager.init();
         AnimationManager.init();
         LazyLoadManager.init();
+        BackToTopManager.init();
         PerformanceManager.init();
         InteractionManager.init();
 
