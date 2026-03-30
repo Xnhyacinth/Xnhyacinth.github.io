@@ -99,6 +99,17 @@ html {
   text-align: left;
 }
 
+/* Two-line title: explicit <br> + glue "Resolution for"; nowrap only when width allows */
+.publication-title-line--first {
+  white-space: normal;
+}
+
+@media (min-width: 769px) {
+  .publication-title-line--first {
+    white-space: nowrap;
+  }
+}
+
 .rainbow-text {
   background: var(--secondary-gradient);
   -webkit-background-clip: text;
