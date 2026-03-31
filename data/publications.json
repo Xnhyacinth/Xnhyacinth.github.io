@@ -175,7 +175,7 @@
       "year": 2026,
       "type": "preprint",
       "links": {
-        "arxiv": "",
+        "arxiv": "https://arxiv.org/abs/2603.28610",
         "code": "https://github.com/Xnhyacinth/ResAdapt",
         "homepage": "https://xnhyacinth.github.io/projects/ResAdapt/"
       },
