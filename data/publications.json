@@ -1,6 +1,33 @@
 {
   "publications": [
     {
+      "id": "data",
+      "title": "Spectral Disentanglement: Rank-Aware Task Adaptation for Rehearsal-free Continual Learning in LLMs",
+      "authors": [
+        "Huanxuan Liao",
+        "Shizhu He",
+        "Yupu Hao",
+        "Yequan Wang",
+        "Wenhao Teng",
+        "Xiangwen Liao",
+        "Jun Zhao",
+        "Kang Liu"
+      ],
+      "venue": "ACL 2026 Main",
+      "year": 2026,
+      "type": "conference",
+      "links": {
+        "arxiv": "https://arxiv.org/abs/2502.11482",
+        "code": "https://github.com/Xnhyacinth/DATA"
+      },
+      "abstract": "Continual learning (CL) is essential for Large Language Models (LLMs) to adapt to evolving real-world demands, yet they are susceptible to catastrophic forgetting (CF).",
+      "keywords": [
+        "Continual Learning",
+        "Attention",
+        "Task Adaptation"
+      ]
+    },
+    {
       "id": "spark",
       "title": "SparK: Query-Aware Unstructured Sparsity with Recoverable KV Cache Channel Pruning",
       "authors": [
@@ -213,33 +240,59 @@
         "Long Context",
         "Efficiency"
       ]
-    },
-    {
-      "id": "data",
-      "title": "DATA: Decomposed Attention-based Task Adaptation for Rehearsal-Free Continual Learning",
-      "authors": [
-        "Huanxuan Liao",
-        "Shizhu He",
-        "Yupu Hao",
-        "Jun Zhao",
-        "Kang Liu"
-      ],
-      "venue": "arXiv",
-      "year": 2025,
-      "type": "preprint",
-      "links": {
-        "arxiv": "https://arxiv.org/abs/2502.11482",
-        "code": "https://github.com/Xnhyacinth/DATA"
-      },
-      "abstract": "Continual learning (CL) is essential for Large Language Models (LLMs) to adapt to evolving real-world demands, yet they are susceptible to catastrophic forgetting (CF).",
-      "keywords": [
-        "Continual Learning",
-        "Attention",
-        "Task Adaptation"
-      ]
     }
   ],
   "collaborations": [
+    {
+      "id": "harmonizing-nsc",
+      "title": "Harmonizing the Past, Present, and Future: A Null-Space Constrained Region-Specific Method for Continual Learning in LLMs",
+      "authors": [
+        "Jinhui Chen",
+        "Shizhu He",
+        "Xingchang Yang",
+        "Huanxuan Liao",
+        "Yequan Wang",
+        "Xiangwen Liao",
+        "Wenhao Teng",
+        "Kang Liu",
+        "Jun Zhao"
+      ],
+      "venue": "ACL 2026 Main",
+      "year": 2026,
+      "type": "conference",
+      "role": "Collaborator",
+      "links": {
+        "arxiv": ""
+      },
+      "abstract": "",
+      "keywords": [
+        "Continual Learning",
+        "LLMs"
+      ]
+    },
+    {
+      "id": "tool-calling-eki",
+      "title": "Pushing the Limits of LLM Tool Calling via Experiential Knowledge Integration and Activation",
+      "authors": [
+        "Yupu Hao",
+        "Zhuoran Jin",
+        "Huanxuan Liao",
+        "Kang Liu",
+        "Jun Zhao"
+      ],
+      "venue": "ACL 2026 Findings",
+      "year": 2026,
+      "type": "conference",
+      "role": "Collaborator",
+      "links": {
+        "arxiv": ""
+      },
+      "abstract": "",
+      "keywords": [
+        "Tool Calling",
+        "LLMs"
+      ]
+    },
     {
       "id": "lclm-survey",
       "title": "A Comprehensive Survey on Long Context Language Modeling",
@@ -271,7 +324,7 @@
     {
        "title": "Evaluating Personalized Tool-Augmented LLMs from the Perspectives of Personalization and Proactivity",
       "authors": ["Yupu Hao", "Pengfei Cao", "Zhuoran Jin", "Huanxuan Liao", "Yubo Chen", "Kang Liu", "Jun Zhao"],
-      "venue": "ACL 2025",
+      "venue": "ACL 2025 Main",
       "year": 2025,
       "type": "conference",
       "role": "Collaborator",
@@ -315,18 +368,18 @@
     },
     {
       "id": "vaibot",
-      "title": "VaiBot: Shuttle Between the Instructions and Parameters of Large Language Models",
+      "title": "Shuttle Between Symbolic Instructions and Neural Parameters of Large Language Models",
       "authors": ["Wangtao Sun", "Haotian Xu", "Huanxuan Liao", "Xuanqing Yu", "Zhongtao Jiang", "Shizhu He", "Jun Zhao", "Kang Liu"],
-      "venue": "arXiv",
-      "year": 2025,
-      "type": "preprint",
+      "venue": "ACL 2026 Main",
+      "year": 2026,
+      "type": "conference",
       "role": "Collaborator",
       "links": {
         "arxiv": "https://arxiv.org/abs/2502.02315",
-        "code": "https://anonymous.4open.science/r/VaiBot-021F"
+        "code": "https://anonymous.4open.science/r/Shuttle-Between-Instructions-Parameters/"
       },
       "abstract": "How to interact with LLMs through instructions has been widely studied by researchers. However, previous studies have treated the emergence of instructions and the training of LLMs on task data as separate processes, overlooking the inherent unity between the two.",
-      "keywords": ["VAE", "VIB", "Instruction Learning"]
+      "keywords": ["Instruction Learning", "Symbolic Instructions", "Parameter Adaptation"]
     },
     {
       "id": "lmtuner",
