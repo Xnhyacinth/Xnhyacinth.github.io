@@ -18,7 +18,7 @@
       "type": "conference",
       "links": {
         "arxiv": "https://arxiv.org/abs/2502.11482",
-        "code": "https://github.com/Xnhyacinth/DATA"
+        "code": "https://github.com/Xnhyacinth/SpaRTA"
       },
       "abstract": "Continual learning (CL) is essential for Large Language Models (LLMs) to adapt to evolving real-world demands, yet they are susceptible to catastrophic forgetting (CF).",
       "keywords": [
