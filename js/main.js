@@ -8,8 +8,7 @@
     const CONFIG = {
         animationDuration: 600,
         scrollOffset: 80,
-        themeKey: 'theme-preference',
-        lazyLoadThreshold: 100
+        themeKey: 'theme-preference'
     };
 
     const Utils = {
@@ -24,14 +23,6 @@
             };
         },
 
-        debounce(func, wait) {
-            let timeout;
-            return function (...args) {
-                clearTimeout(timeout);
-                timeout = setTimeout(() => func.apply(this, args), wait);
-            };
-        },
-
         scrollToElement(element, offset = CONFIG.scrollOffset) {
             const elementPosition = element.getBoundingClientRect().top;
             const offsetPosition = elementPosition + window.pageYOffset - offset;
@@ -40,23 +31,6 @@
                 top: offsetPosition,
                 behavior: 'smooth'
             });
-        },
-
-        isInViewport(element, threshold = CONFIG.lazyLoadThreshold) {
-            const rect = element.getBoundingClientRect();
-            return (
-                rect.top >= -threshold &&
-                rect.left >= 0 &&
-                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) + threshold &&
-                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-            );
-        },
-
-        animate(element, animationClass, duration = CONFIG.animationDuration) {
-            element.classList.add(animationClass);
-            setTimeout(() => {
-                element.classList.remove(animationClass);
-            }, duration);
         }
     };
 
@@ -261,62 +235,6 @@
         }
     };
 
-    // ========================================
-    // 懒加载管理
-    // ========================================
-    const LazyLoadManager = {
-        init() {
-            if ('IntersectionObserver' in window) {
-                this.initIntersectionObserver();
-            } else {
-                this.initFallback();
-            }
-        },
-
-        initIntersectionObserver() {
-            const imageObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        this.loadImage(img);
-                        imageObserver.unobserve(img);
-                    }
-                });
-            }, {
-                rootMargin: `${CONFIG.lazyLoadThreshold}px`
-            });
-
-            document.querySelectorAll('img[data-src]').forEach(img => {
-                imageObserver.observe(img);
-            });
-        },
-
-        initFallback() {
-            let lazyImages = document.querySelectorAll('img[data-src]');
-
-            const lazyLoad = () => {
-                lazyImages.forEach(img => {
-                    if (Utils.isInViewport(img)) {
-                        this.loadImage(img);
-                    }
-                });
-            };
-
-            window.addEventListener('scroll', Utils.throttle(lazyLoad, 200));
-            window.addEventListener('resize', Utils.throttle(lazyLoad, 200));
-            lazyLoad();
-        },
-
-        loadImage(img) {
-            const src = img.dataset.src;
-            if (src) {
-                img.src = src;
-                img.removeAttribute('data-src');
-                img.classList.add('loaded');
-            }
-        }
-    };
-
     // Back to Top Manager
     const BackToTopManager = {
         init() {
@@ -511,7 +429,6 @@
         ThemeManager.init();
         NavigationManager.init();
         AnimationManager.init();
-        LazyLoadManager.init();
         BackToTopManager.init();
         PerformanceManager.init();
         InteractionManager.init();
