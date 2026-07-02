@@ -611,11 +611,6 @@ a.nav-dropdown-item {
   margin: 0;
 }
 
-.hero-side-meta .hero-actions {
-  justify-content: center;
-  margin: 0;
-}
-
 .hero-column--content {
   width: 100%;
   min-width: 0;
@@ -851,10 +846,6 @@ a.nav-dropdown-item {
     drop-shadow(0 22px 44px rgba(96, 165, 250, 0.16)) drop-shadow(0 12px 28px rgba(251, 191, 36, 0.12));
 }
 
-.profile-image-ring {
-  display: none;
-}
-
 .profile-image {
   width: 100%;
   height: 100%;
@@ -996,19 +987,6 @@ a.nav-dropdown-item {
   }
 }
 
-.social-links-label {
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  margin: var(--sp-4) 0 var(--sp-2);
-}
-
-.social-links-container {
-  margin-bottom: var(--sp-2);
-}
-
 .profile-bio {
   color: var(--text-secondary);
   margin-bottom: var(--sp-3);
@@ -1018,31 +996,6 @@ a.nav-dropdown-item {
 
 .profile-bio a {
   font-weight: 600;
-}
-
-.interest-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--sp-2);
-  list-style: none;
-  margin-bottom: var(--sp-3);
-}
-
-.interest-list li {
-  font-size: 0.875rem;
-  color: var(--text-secondary);
-  display: flex;
-  align-items: center;
-  gap: var(--sp-2);
-}
-
-.interest-list li::before {
-  content: "";
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--accent);
-  flex-shrink: 0;
 }
 
 /* Research Tags */
@@ -1083,9 +1036,6 @@ a.nav-dropdown-item {
 .tag-llm { color: var(--accent); }
 .tag-llm:hover { background: var(--accent); color: var(--text-on-accent); border-color: var(--accent); }
 
-.tag-video { color: var(--secondary); }
-.tag-video:hover { background: var(--secondary); color: var(--text-on-accent); border-color: var(--secondary); }
-
 .tag-efficient { color: #059669; }
 .tag-efficient:hover { background: #059669; color: #fff; border-color: #059669; }
 
@@ -1098,8 +1048,7 @@ a.nav-dropdown-item {
 .tag-longcontext { color: #0284c7; }
 .tag-longcontext:hover { background: #0284c7; color: #fff; border-color: #0284c7; }
 
-[data-theme="dark"] .tag-llm:hover,
-[data-theme="dark"] .tag-video:hover {
+[data-theme="dark"] .tag-llm:hover {
   color: var(--text-on-accent);
 }
 
@@ -1137,37 +1086,6 @@ a.nav-dropdown-item {
   vertical-align: middle;
   margin-right: 3px;
   border-radius: 3px;
-}
-
-.profile-email {
-  display: flex;
-  align-items: center;
-  gap: var(--sp-2);
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-  margin: var(--sp-2) 0 var(--sp-4);
-}
-
-.profile-email i {
-  color: var(--text-muted);
-  font-size: 0.85rem;
-}
-
-.profile-email a {
-  font-weight: 500;
-}
-
-.profile-email a:hover {
-  text-decoration: underline;
-}
-
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: flex-start;
-  gap: var(--sp-2) var(--sp-3);
-  margin: var(--sp-1) 0 var(--sp-2);
 }
 
 .btn {
@@ -2926,8 +2844,7 @@ a.nav-dropdown-item {
     margin-right: auto;
   }
 
-  .research-tags,
-  .hero-actions {
+  .research-tags {
     justify-content: center;
   }
 }
@@ -3011,14 +2928,6 @@ a.nav-dropdown-item {
     justify-content: center;
   }
 
-  .hero-actions {
-    justify-content: center;
-  }
-
-  .social-links-label {
-    text-align: center;
-  }
-
   .social-links {
     justify-content: center;
   }
@@ -3036,8 +2945,7 @@ a.nav-dropdown-item {
     font-size: 0.95rem;
   }
 
-  .social-links,
-  .profile-email {
+  .social-links {
     justify-content: center;
   }
 
@@ -3073,10 +2981,6 @@ a.nav-dropdown-item {
   .services-grid {
     grid-template-columns: 1fr;
     gap: var(--sp-5);
-  }
-
-  .interest-list {
-    justify-content: center;
   }
 
   .section-card:hover {
