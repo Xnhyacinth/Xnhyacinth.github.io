@@ -1,4 +1,5 @@
 # Xnhyacinth.github.io
-I'm here! 😎 Personal Home Page 👋🏠
-https://xnhyacinth.github.io/
 
+Personal academic homepage for Huanxuan Liao.
+
+Live site: https://xnhyacinth.github.io/
