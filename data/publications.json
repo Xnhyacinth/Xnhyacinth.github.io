@@ -17,10 +17,11 @@
       "year": 2026,
       "type": "conference",
       "links": {
+        "paper": "https://aclanthology.org/2026.acl-long.334/",
         "arxiv": "https://arxiv.org/abs/2502.11482",
         "code": "https://github.com/Xnhyacinth/SpaRTA"
       },
-      "abstract": "Continual learning (CL) is essential for Large Language Models (LLMs) to adapt to evolving real-world demands, yet they are susceptible to catastrophic forgetting (CF).",
+      "abstract": "SpaRTA tackles rehearsal-free continual learning in LLMs with rank-aware spectral disentanglement that separates shared knowledge from task-specific adaptation. It mitigates catastrophic forgetting while preserving efficient transfer across evolving tasks.",
       "keywords": [
         "Continual Learning",
         "Attention",
@@ -45,10 +46,11 @@
       "year": 2026,
       "type": "conference",
       "links": {
+        "paper": "https://ojs.aaai.org/index.php/AAAI/article/view/40466",
         "arxiv": "https://arxiv.org/abs/2508.15212",
         "code": "https://github.com/Xnhyacinth/SparK"
       },
-      "abstract": "Long-context inference in large language models (LLMs) is increasingly constrained by the KV cache bottleneck: memory usage grows linearly with sequence length, while attention computation scales quadratically. Existing approaches address this issue by compressing the KV cache along the temporal axis through strategies such as token eviction or merging to reduce memory and computational overhead. However, these methods often neglect fine-grained importance variations across feature dimensions (i.e., the channel axis), thereby limiting their ability to effectively balance efficiency and model accuracy.",
+      "abstract": "SparK compresses long-context KV caches with query-aware unstructured channel sparsity and a recoverable pruning scheme. It reduces memory and attention cost while preserving answer quality under long-context inference.",
       "keywords": [
         "KV Cache",
         "Sparsity",
@@ -71,10 +73,11 @@
       "year": 2025,
       "type": "conference",
       "links": {
+        "paper": "https://ojs.aaai.org/index.php/AAAI/article/view/34636",
         "arxiv": "https://arxiv.org/abs/2409.13203",
         "code": "https://github.com/Xnhyacinth/NesyCD"
       },
-      "abstract": "In this paper, we propose Neural-Symbolic Collaborative Distillation (NesyCD), a novel knowledge distillation method for learning the complex reasoning abilities of Large Language Models (LLMs, e.g., > 13B). We argue that complex reasoning tasks are difficult for Small Language Models (SLMs, e.g., ≤ 7B), as these tasks demand not only general cognitive abilities but also specialized knowledge, which is often sparse and difficult for these neural-based SLMs to effectively capture.",
+      "abstract": "NesyCD distills complex reasoning into small language models by coupling neural learning with symbolic knowledge transfer. It strengthens specialized reasoning skills that are difficult to capture from neural supervision alone.",
       "keywords": [
         "Knowledge Distillation",
         "Neural-Symbolic",
@@ -97,10 +100,11 @@
       "year": 2025,
       "type": "conference",
       "links": {
+        "paper": "https://aclanthology.org/2025.coling-main.215/",
         "arxiv": "https://arxiv.org/abs/2409.13183",
         "code": "https://github.com/Xnhyacinth/SKIntern"
       },
-      "abstract": "Small Language Models (SLMs) are attracting attention due to the high computational demands and privacy concerns of Large Language Models (LLMs). Some studies fine-tune SLMs using Chains of Thought (CoT) data distilled from LLMs, aiming to enhance their reasoning ability.",
+      "abstract": "SKIntern internalizes symbolic knowledge during CoT distillation so small language models learn stronger reasoning traces instead of only imitating outputs. It improves compact models on reasoning tasks with more effective distillation.",
       "keywords": [
         "Chain of Thought",
         "Symbolic Knowledge",
@@ -123,11 +127,12 @@
       "year": 2025,
       "type": "conference",
       "links": {
+        "paper": "https://aclanthology.org/2025.coling-main.89/",
         "arxiv": "https://arxiv.org/abs/2403.15268",
         "code": "https://github.com/Xnhyacinth/IAG",
         "homepage": "https://xnhyacinth.github.io/projects/IAG/"
       },
-      "abstract": "Retrieval-Augmented-Generation and Generation-Augmented-Generation have been proposed to enhance the knowledge required for question answering over Large Language Models (LLMs). However, the former relies on external resources, and both require incorporating explicit documents into the context, which increases execution costs and susceptibility to noise data.",
+      "abstract": "AAG awakens LLMs' internal knowledge for question answering without relying on external retrieval at inference time. It improves factual QA while avoiding the extra context cost and noise sensitivity of document-based augmentation.",
       "keywords": [
         "Question Answering",
         "Knowledge Augmentation",
@@ -151,11 +156,12 @@
       "year": 2024,
       "type": "conference",
       "links": {
+        "paper": "https://proceedings.neurips.cc/paper_files/paper/2024/hash/50ea4dbd1cff6bd3daef939eff10c092-Abstract-Conference.html",
         "arxiv": "https://arxiv.org/abs/2406.12382",
         "code": "https://github.com/Xnhyacinth/TAGI",
         "homepage": "https://xnhyacinth.github.io/projects/TAGI/"
       },
-      "abstract": "Large language models (LLMs) have acquired the ability to solve general tasks by utilizing instruction finetuning (IFT). However, IFT still relies heavily on instance training of extensive task data, which greatly limits the adaptability of LLMs to real-world scenarios where labeled task instances are scarce and broader task generalization becomes paramount.",
+      "abstract": "TAGI generates task adapters directly from natural-language instructions, shifting adaptation from instance-heavy training toward instruction-driven task learning. It improves task generalization when labeled examples are scarce.",
       "keywords": [
         "Instruction Learning",
         "Hypernetwork",
@@ -175,8 +181,10 @@
       "venue": "CCKS 2023",
       "year": 2023,
       "type": "conference",
-      "links": {},
-      "abstract": "Recent studies have shown that subgraphs of the head entity, such as related relations and neighborhoods, are helpful for Knowledge Graph Reasoning (KGR). However, prior studies tend to focus solely on enhancing entity representations using related relations, with little attention paid to the impact of different relations on different entities and their importance in various reasoning paths.",
+      "links": {
+        "paper": "https://link.springer.com/chapter/10.1007/978-981-99-7224-1_1"
+      },
+      "abstract": "Dynamic Weighted Neural Bellman-Ford Network models relation importance dynamically for different entities and reasoning paths in knowledge graphs. It improves multi-hop reasoning with path-aware message propagation instead of static relation weighting.",
       "keywords": [
         "Knowledge Graph",
         "Neural Network",
@@ -387,10 +395,11 @@
       "type": "conference",
       "role": "Collaborator",
       "links": {
+        "paper": "https://aclanthology.org/2025.acl-long.1064/",
         "arxiv": "https://arxiv.org/abs/2503.00771",
         "code": "https://github.com/hypasd-art/ETAPP"
       },
-      "abstract": "Personalized tool utilization is essential for aligning large language models (LLMs) with user preference in interaction scenarios with various tools. However, most of the current benchmarks primarily focus on either personalization of text generation or direct tool-utilizing, without considering both.",
+      "abstract": "ETAPP evaluates personalized tool-augmented LLMs along both personalization and proactivity, providing a benchmark for user-aligned tool use. It exposes gaps missed by evaluations that focus on only one of the two dimensions.",
       "keywords": ["Tool Learning", "Personalization", "Benchmark"]
     },
     {
@@ -402,10 +411,11 @@
       "type": "conference",
       "role": "Collaborator",
       "links": {
+        "paper": "https://ojs.aaai.org/index.php/AAAI/article/view/34573",
         "arxiv": "https://arxiv.org/abs/2409.13202",
         "code": "https://github.com/hypasd-art/CITI"
       },
-      "abstract": "Tool learning enables the Large Language Models (LLMs) to interact with the external environment by invoking tools, enriching the accuracy and capability scope of LLMs. However, previous works predominantly focus on improving model's tool-utilizing accuracy and the ability to generalize to new, unseen tools.",
+      "abstract": "CITI improves tool-use ability in large language models without sacrificing their general capabilities. It balances tool specialization and general performance with an efficient adaptation strategy.",
       "keywords": ["Tool Learning", "LoRA", "Efficiency"]
     },
     {
@@ -433,10 +443,11 @@
       "type": "conference",
       "role": "Collaborator",
       "links": {
+        "paper": "https://aclanthology.org/2026.acl-long.1269/",
         "arxiv": "https://arxiv.org/abs/2502.02315",
         "code": "https://anonymous.4open.science/r/Shuttle-Between-Instructions-Parameters/"
       },
-      "abstract": "How to interact with LLMs through instructions has been widely studied by researchers. However, previous studies have treated the emergence of instructions and the training of LLMs on task data as separate processes, overlooking the inherent unity between the two.",
+      "abstract": "SHIP shuttles between symbolic instructions and neural parameters, unifying instruction construction with parameter adaptation for LLMs. It improves task transfer by bridging symbolic task descriptions and model-side learning.",
       "keywords": ["Instruction Learning", "Symbolic Instructions", "Parameter Adaptation"]
     },
     {

@@ -1,0 +1,81 @@
+{
+  "projects": [
+    {
+      "id": "resadapt",
+      "navLabel": "ResAdapt",
+      "title": "ResAdapt: Adaptive Resolution for Efficient Multimodal Reasoning",
+      "badge": "Multimodal · Efficiency",
+      "meta": "Input-side budget allocation before visual encoding · CAPO · Video QA & grounding",
+      "description": "Learning how much visual budget each frame receives via a lightweight allocator paired with a frozen MLLM, improving efficiency-accuracy trade-offs under aggressive compression.",
+      "url": "/projects/ResAdapt/",
+      "linkType": "project-homepage",
+      "order": 10
+    },
+    {
+      "id": "distill-yourself",
+      "navLabel": "Distill Yourself",
+      "title": "Distill Yourself",
+      "badge": "Agentic Systems · Local-first Memory",
+      "meta": "Ongoing project · Claude Code & Codex histories",
+      "description": "A local-first system for indexing AI coding sessions, distilling durable user preferences and working patterns, and teaching future agent sessions through auditable memory.",
+      "url": "https://quantaalpha.com/Distill-Yourself/",
+      "linkType": "external-homepage",
+      "order": 20
+    },
+    {
+      "id": "iag",
+      "navLabel": "IAG",
+      "title": "Awakening Augmented Generation (IAG)",
+      "badge": "QA · Knowledge",
+      "meta": "COLING 2025 · NQ, TQA & WQ · T5 & Llama2",
+      "description": "Awakening latent knowledge in LLMs through explicit and implicit imagination modules without retrieval-heavy pipelines, evaluated on NQ, TQA, and WQ.",
+      "url": "/projects/IAG/",
+      "linkType": "project-homepage",
+      "order": 30
+    },
+    {
+      "id": "tagi",
+      "navLabel": "TAGI",
+      "title": "TAGI: Task Adapters Generation from Instructions",
+      "badge": "Meta-learning · Adapters",
+      "meta": "NeurIPS 2024 · Super-Natural Instructions & P3",
+      "description": "Generating task-specific adapters from instructions via hypernetworks and distillation, improving cross-task generalization with lower compute than instance-only training.",
+      "url": "/projects/TAGI/",
+      "linkType": "project-homepage",
+      "order": 40
+    },
+    {
+      "id": "dyprag",
+      "navLabel": "DyPRAG",
+      "title": "DyPRAG: Dynamic Parametric Retrieval Augmented Generation",
+      "badge": "RAG · Test-time Knowledge",
+      "meta": "Parametric retrieval · External homepage",
+      "description": "Improving test-time knowledge enhancement by shifting part of retrieval augmentation into dynamic parametric memory rather than only longer retrieved contexts.",
+      "url": "https://trae1oung.github.io/DyPRAG/",
+      "linkType": "external-homepage",
+      "order": 50
+    },
+    {
+      "id": "lmtuner",
+      "navLabel": "LMTuner",
+      "title": "LMTuner",
+      "badge": "Training Framework · Fine-tuning",
+      "meta": "Highly integrable LLM training framework · External homepage",
+      "description": "A user-friendly framework for fine-tuning large language models with more modular setup and lower engineering overhead.",
+      "url": "https://wengsyx.github.io/LMTuner/",
+      "linkType": "external-homepage",
+      "order": 60
+    },
+    {
+      "id": "awesome-lclm",
+      "navLabel": "Long Context Survey",
+      "title": "Awesome-LLM-Long-Context-Modeling",
+      "badge": "Survey · 22k Stars",
+      "meta": "Curated long-context ecosystem resource · GitHub repository",
+      "description": "A widely used curated repository that tracks papers, benchmarks, systems, and tooling for long-context language modeling.",
+      "url": "https://github.com/Xnhyacinth/Awesome-LLM-Long-Context-Modeling",
+      "linkType": "github-repo",
+      "order": 70
+    }
+  ]
+}
