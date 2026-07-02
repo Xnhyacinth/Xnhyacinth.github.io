@@ -162,6 +162,7 @@ body.hub-page {
     box-shadow 0.4s var(--hub-ease),
     border-color 0.3s ease;
   animation: hubFade 0.7s var(--hub-ease) both;
+  animation-delay: calc(var(--card-index, 0) * 0.08s + 0.06s);
 }
 
 .hub-card::before {
@@ -182,20 +183,22 @@ body.hub-page {
   opacity: 1;
 }
 
-.hub-card:nth-child(1) {
-  animation-delay: 0.06s;
-}
-.hub-card:nth-child(2) {
-  animation-delay: 0.14s;
-}
-.hub-card:nth-child(3) {
-  animation-delay: 0.22s;
-}
-
 .hub-card:hover {
   transform: translateY(-6px);
   box-shadow: var(--hub-shadow-hover);
   border-color: rgba(44, 74, 140, 0.18);
+}
+
+.hub-card.is-external::after {
+  content: "External";
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--hub-muted);
 }
 
 .hub-card:focus-visible {

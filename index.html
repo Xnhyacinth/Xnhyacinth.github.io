@@ -149,9 +149,7 @@
 					<div class="nav-dropdown-menu" role="menu" aria-labelledby="navProjectsToggle">
 						<a href="projects/" class="nav-dropdown-item" role="menuitem">All projects</a>
 						<div class="nav-dropdown-divider"></div>
-						<a href="projects/ResAdapt/" class="nav-dropdown-item" role="menuitem">ResAdapt</a>
-						<a href="projects/IAG/" class="nav-dropdown-item" role="menuitem">IAG</a>
-						<a href="projects/TAGI/" class="nav-dropdown-item" role="menuitem">TAGI</a>
+						<div id="navProjectsList" role="none"></div>
 					</div>
 				</li>
 			</ul>
@@ -173,9 +171,7 @@
 			<div class="mobile-nav-group">
 				<span class="mobile-nav-title">Projects</span>
 				<a href="projects/" class="nav-link">All projects</a>
-				<a href="projects/ResAdapt/" class="nav-link">ResAdapt</a>
-				<a href="projects/IAG/" class="nav-link">IAG</a>
-				<a href="projects/TAGI/" class="nav-link">TAGI</a>
+				<div class="mobile-nav-projects" id="mobileProjectsList"></div>
 			</div>
 		</div>
 	</nav>
@@ -585,7 +581,7 @@
 									<i class="fab fa-github"></i>
 									Awesome-LLM-Long-Context-Modeling
 								</a>
-								<span class="star-count">&gt; 2.2k <i class="fas fa-star"></i></span>
+								<span class="star-count">&gt; 22k <i class="fas fa-star"></i></span>
 							</li>
 							<li>
 								<a href="https://quantaalpha.com/Distill-Yourself/"
@@ -631,11 +627,55 @@
 	<script src="js/main.js"></script>
 	<script>
 		document.addEventListener('DOMContentLoaded', function () {
+			loadProjects();
 			loadPublications();
 			setupFilters();
 			setupYearFilter();
 			setupMetricsAnimation();
 		});
+
+		async function loadProjects() {
+			try {
+				const response = await fetch('data/projects.json');
+				if (!response.ok) {
+					throw new Error(`HTTP error! status: ${response.status}`);
+				}
+
+				const data = await response.json();
+				if (!data || !Array.isArray(data.projects)) {
+					throw new Error('Invalid project data format');
+				}
+
+				renderProjectNav(data.projects);
+			} catch (error) {
+				console.error('Failed to load projects:', error);
+			}
+		}
+
+		function renderProjectNav(projects) {
+			const navList = document.getElementById('navProjectsList');
+			const mobileList = document.getElementById('mobileProjectsList');
+			if (!navList || !mobileList) return;
+
+			const sortedProjects = projects
+				.slice()
+				.sort((a, b) => Number(a.order || 0) - Number(b.order || 0));
+
+			const projectLinks = sortedProjects.map(project => {
+				const href = project.url || '#';
+				const label = project.navLabel || project.title || 'Untitled Project';
+				return `<a href="${href}" class="nav-dropdown-item" role="menuitem">${label}</a>`;
+			}).join('');
+
+			const mobileLinks = sortedProjects.map(project => {
+				const href = project.url || '#';
+				const label = project.navLabel || project.title || 'Untitled Project';
+				return `<a href="${href}" class="nav-link">${label}</a>`;
+			}).join('');
+
+			navList.innerHTML = projectLinks;
+			mobileList.innerHTML = mobileLinks;
+		}
 
 		async function loadPublications() {
 			try {

@@ -148,11 +148,12 @@
                     menuToggle.classList.toggle('active');
                 });
 
-                mobileNav.querySelectorAll('.nav-link').forEach(link => {
-                    link.addEventListener('click', () => {
+                mobileNav.addEventListener('click', (e) => {
+                    const link = e.target.closest('.nav-link');
+                    if (link) {
                         mobileNav.classList.remove('active');
                         menuToggle.classList.remove('active');
-                    });
+                    }
                 });
 
                 document.addEventListener('click', (e) => {
