@@ -262,9 +262,10 @@
       "type": "conference",
       "role": "Collaborator",
       "links": {
-        "arxiv": ""
+        "paper": "https://aclanthology.org/2026.acl-long.1244/",
+        "code": "https://github.com/JinhuiBot/PaRSP"
       },
-      "abstract": "",
+      "abstract": "PaRSP harmonizes stability, plasticity, and future capacity in continual LLM adaptation by learning sparse task-specific parameter regions under null-space constraints. It preserves long-term knowledge while sustaining future adaptation, achieving strong results on standard continual learning and long-sequence benchmarks.",
       "keywords": [
         "Continual Learning",
         "LLMs"
@@ -285,9 +286,11 @@
       "type": "conference",
       "role": "Collaborator",
       "links": {
-        "arxiv": "https://arxiv.org/abs/2606.10875"
+        "paper": "https://aclanthology.org/2026.findings-acl.710/",
+        "arxiv": "https://arxiv.org/abs/2606.10875",
+        "code": "https://github.com/hypasd-art/KATE"
       },
-      "abstract": "",
+      "abstract": "This work studies how experiential knowledge acquisition, activation, and internalization affect multi-step LLM tool use. Based on these findings, KATE combines experiential knowledge with width-expanded inference and knowledge-aware training, improving BFCL-V3 and AppWorld across model scales.",
       "keywords": [
         "Tool Calling",
         "LLMs"
