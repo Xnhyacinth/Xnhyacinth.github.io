@@ -294,6 +294,60 @@
       ]
     },
     {
+      "id": "tool-use-rl-collapse",
+      "title": "Why Multi-Step Tool-Use Reinforcement Learning Collapses and How Supervisory Signals Fix It",
+      "authors": [
+        "Yupu Hao",
+        "Zhuoran Jin",
+        "Huanxuan Liao",
+        "Kang Liu",
+        "Jun Zhao"
+      ],
+      "venue": "arXiv",
+      "year": 2026,
+      "type": "preprint",
+      "role": "Collaborator",
+      "links": {
+        "arxiv": "https://arxiv.org/abs/2606.26027",
+        "code": "https://github.com/hypasd-art/Tool-RL-Box"
+      },
+      "abstract": "Tool use enables large language models to perform complex tasks, but reinforcement learning alone can be unstable in multi-step tool-use settings. This work analyzes collapse patterns caused by probability spikes in control tokens and studies supervisory signals that stabilize tool-use RL.",
+      "keywords": [
+        "Agentic RL",
+        "Tool Use",
+        "Supervisory Signals"
+      ]
+    },
+    {
+      "id": "bupo",
+      "title": "Bottom-up Policy Optimization: Your Language Model Policy Secretly Contains Internal Policies",
+      "authors": [
+        "Yuqiao Tan",
+        "Minzheng Wang",
+        "Shizhu He",
+        "Huanxuan Liao",
+        "Chengfeng Zhao",
+        "Qiunan Lu",
+        "Tian Liang",
+        "Jun Zhao",
+        "Kang Liu"
+      ],
+      "venue": "arXiv",
+      "year": 2025,
+      "type": "preprint",
+      "role": "Collaborator",
+      "links": {
+        "arxiv": "https://arxiv.org/abs/2512.19673",
+        "code": "https://github.com/Trae1ounG/BuPO"
+      },
+      "abstract": "Bottom-up Policy Optimization decomposes an LLM policy into internal layer and modular policies, then optimizes lower layers to reconstruct the reasoning foundation from the bottom up for stronger complex-reasoning performance.",
+      "keywords": [
+        "Policy Optimization",
+        "Reinforcement Learning",
+        "Reasoning"
+      ]
+    },
+    {
       "id": "lclm-survey",
       "title": "A Comprehensive Survey on Long Context Language Modeling",
       "authors": [
@@ -322,7 +376,8 @@
       ]
     },
     {
-       "title": "Evaluating Personalized Tool-Augmented LLMs from the Perspectives of Personalization and Proactivity",
+      "id": "etapp",
+      "title": "Evaluating Personalized Tool-Augmented LLMs from the Perspectives of Personalization and Proactivity",
       "authors": ["Yupu Hao", "Pengfei Cao", "Zhuoran Jin", "Huanxuan Liao", "Yubo Chen", "Kang Liu", "Jun Zhao"],
       "venue": "ACL 2025 Main",
       "year": 2025,
