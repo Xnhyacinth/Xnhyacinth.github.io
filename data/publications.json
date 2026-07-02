@@ -285,7 +285,7 @@
       "type": "conference",
       "role": "Collaborator",
       "links": {
-        "arxiv": ""
+        "arxiv": "https://arxiv.org/abs/2606.10875"
       },
       "abstract": "",
       "keywords": [
@@ -303,9 +303,9 @@
         "Kang Liu",
         "Jun Zhao"
       ],
-      "venue": "arXiv",
+      "venue": "FAGEN@ICML 2026",
       "year": 2026,
-      "type": "preprint",
+      "type": "workshop",
       "role": "Collaborator",
       "links": {
         "arxiv": "https://arxiv.org/abs/2606.26027",
