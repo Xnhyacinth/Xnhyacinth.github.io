@@ -2,42 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://xnhyacinth.github.io/</loc>
-    <lastmod>2025-03-12</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <priority>1.00</priority>
   </url>
   <url>
     <loc>https://xnhyacinth.github.io/assets/CV_online.pdf</loc>
-    <lastmod>2025-03-12</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://xnhyacinth.github.io/projects/IAG/</loc>
-    <lastmod>2025-03-12</lastmod>
-    <priority>0.60</priority>
-  </url>
-  <url>
     <loc>https://xnhyacinth.github.io/projects/</loc>
-    <lastmod>2026-04-07</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <priority>0.70</priority>
   </url>
   <url>
     <loc>https://xnhyacinth.github.io/projects/ResAdapt/</loc>
-    <lastmod>2026-04-07</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://xnhyacinth.github.io/projects/TAGI/</loc>
-    <lastmod>2025-03-12</lastmod>
+    <loc>https://xnhyacinth.github.io/projects/IAG/</loc>
+    <lastmod>2026-07-02</lastmod>
     <priority>0.60</priority>
   </url>
   <url>
-    <loc>https://xnhyacinth.github.io/publications/</loc>
-    <lastmod>2026-04-07</lastmod>
-    <priority>0.65</priority>
-  </url>
-  <url>
-    <loc>https://xnhyacinth.github.io/awards/</loc>
-    <lastmod>2026-04-07</lastmod>
-    <priority>0.55</priority>
+    <loc>https://xnhyacinth.github.io/projects/TAGI/</loc>
+    <lastmod>2026-07-02</lastmod>
+    <priority>0.60</priority>
   </url>
 </urlset>
