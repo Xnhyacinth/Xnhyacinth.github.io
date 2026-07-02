@@ -361,19 +361,19 @@
 					<li class="news-item news-highlight">
 						<span class="news-date">Jul 2026</span>
 						<div class="news-content">
-							<span class="news-type type-paper"><i class="fas fa-code"></i> Project</span>
-							<a href="https://github.com/QuantaAlpha/Distill-Yourself">Distill Yourself</a> released
+							<span class="news-type type-paper"><i class="fas fa-home"></i> Project</span>
+							<a href="https://quantaalpha.com/Distill-Yourself/">Distill Yourself</a> project homepage released
 						</div>
 					</li>
 					<li class="news-item news-highlight">
 						<span class="news-date">Apr 2026</span>
 						<div class="news-content">
 							<span class="news-type type-paper"><i class="fas fa-file-alt"></i> Paper</span>
-							<a href="https://arxiv.org/abs/2502.11482">SpaRTA</a>, <a
-								href="https://arxiv.org/abs/2502.02315">SHIP</a>, and <a
-								href="https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=sRcWOKUAAAAJ&citation_for_view=sRcWOKUAAAAJ:YOwf2qJgpHMC">PaRSP</a> accepted to
+							<a href="https://aclanthology.org/2026.acl-long.334/">SpaRTA</a>, <a
+								href="https://aclanthology.org/2026.acl-long.1269/">SHIP</a>, and <a
+								href="https://aclanthology.org/2026.acl-long.1244/">PaRSP</a> accepted to
 							<span class="news-badge badge-acl">ACL 2026 Main</span>; <a
-								href="https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=sRcWOKUAAAAJ&citation_for_view=sRcWOKUAAAAJ:KlAtU1dfN6UC">KATE</a> accepted to <span
+								href="https://aclanthology.org/2026.findings-acl.710/">KATE</a> accepted to <span
 								class="news-badge badge-acl">ACL 2026 Findings</span>
 						</div>
 					</li>
@@ -588,12 +588,12 @@
 								<span class="star-count">&gt; 2.2k <i class="fas fa-star"></i></span>
 							</li>
 							<li>
-								<a href="https://github.com/QuantaAlpha/Distill-Yourself"
+								<a href="https://quantaalpha.com/Distill-Yourself/"
 									class="github-link no-underline">
-									<i class="fab fa-github"></i>
+									<i class="fas fa-home"></i>
 									Distill Yourself
 								</a>
-								<span class="badge-new">Project</span>
+								<span class="badge-new">Homepage</span>
 							</li>
 							<li>
 								<a href="https://github.com/LCLM-Horizon/A-Comprehensive-Survey-For-Long-Context-Language-Modeling"
@@ -723,7 +723,8 @@
 				.map(({ paper }) => paper);
 
 			container.innerHTML = sortedPapers.map(paper => {
-				const arxivLink = paper.links && paper.links.arxiv ? paper.links.arxiv : '#';
+				const paperLink = paper.links && paper.links.paper ? paper.links.paper : '#';
+				const arxivLink = paper.links && paper.links.arxiv ? paper.links.arxiv : (paperLink !== '#' ? paperLink : '#');
 				const codeLink = paper.links && paper.links.code ? paper.links.code : null;
 				const homepageLink = paper.links && paper.links.homepage ? paper.links.homepage : null;
 				const pdfLink = paper.links && paper.links.pdf ? paper.links.pdf : null;
@@ -737,7 +738,7 @@
                     ${isHighlighted ? '<div class="highlight-badge"><i class="fas fa-star"></i> Featured</div>' : ''}
                     <div class="publication-header">
                         <h3 class="publication-title">
-                            <a href="${arxivLink}">${paper.title || 'Untitled'}</a>
+                            <a href="${paperLink !== '#' ? paperLink : arxivLink}">${paper.title || 'Untitled'}</a>
                         </h3>
                         <div class="publication-authors">
                             ${authorsList.map(author =>
