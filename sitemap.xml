@@ -1,33 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://xnhyacinth.github.io/</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-07-03</lastmod>
     <priority>1.00</priority>
+    <image:image>
+      <image:loc>https://xnhyacinth.github.io/assets/img/huanxuan-liao-profile.jpg</image:loc>
+      <image:title>Huanxuan Liao (廖桓萱) profile photo</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://xnhyacinth.github.io/assets/CV_online.pdf</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-07-03</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://xnhyacinth.github.io/projects/</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-07-03</lastmod>
     <priority>0.70</priority>
   </url>
   <url>
     <loc>https://xnhyacinth.github.io/projects/ResAdapt/</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-07-03</lastmod>
     <priority>0.70</priority>
   </url>
   <url>
     <loc>https://xnhyacinth.github.io/projects/IAG/</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-07-03</lastmod>
     <priority>0.60</priority>
   </url>
   <url>
     <loc>https://xnhyacinth.github.io/projects/TAGI/</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-07-03</lastmod>
     <priority>0.60</priority>
   </url>
 </urlset>
