@@ -8,16 +8,16 @@
 
 	<title>Huanxuan Liao (廖桓萱) | Academic Homepage</title>
 	<meta name="description"
-		content="Huanxuan Liao (廖桓萱) is a PhD student at UCAS and CASIA, focusing on Large Language Models, Efficient Reasoning, and Long Context Modeling. View publications, research interests, and academic achievements.">
+		content="Huanxuan Liao (廖桓萱) is a PhD student at UCAS and CASIA, focusing on long-context & multimodal efficiency, cost-aware reasoning, and tool-using agents for LLMs / MLLMs.">
 	<meta name="keywords"
-		content="Huanxuan Liao, 廖桓萱, UCAS, CASIA, Large Language Models, LLM, Efficient Reasoning, Long Context, NLP, Machine Learning, PhD Student">
+		content="Huanxuan Liao, 廖桓萱, UCAS, CASIA, Large Language Models, LLM, MLLM, Long Context, Efficient Reasoning, Multimodal, Agent, Tool Learning, KV Cache, PhD Student">
 	<meta name="author" content="Huanxuan Liao">
 	<meta name="robots" content="index, follow">
 	<link rel="canonical" href="https://xnhyacinth.github.io/">
 
 	<meta property="og:title" content="Huanxuan Liao | 廖桓萱 - PhD Student @ UCAS & CASIA">
 	<meta property="og:description"
-		content="PhD student researching Large Language Models, Efficient Reasoning, and Long Context Modeling at UCAS and CASIA.">
+		content="PhD student at UCAS &amp; CASIA: long-context &amp; multimodal efficiency, cost-aware reasoning, and tool-using agents.">
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="https://xnhyacinth.github.io/">
 	<meta property="og:image" content="https://xnhyacinth.github.io/assets/img/huanxuan-liao-profile.jpg">
@@ -30,7 +30,7 @@
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:title" content="Huanxuan Liao | 廖桓萱 - PhD Student @ UCAS & CASIA">
 	<meta name="twitter:description"
-		content="PhD student researching Large Language Models, Efficient Reasoning, and Long Context Modeling.">
+		content="PhD student at UCAS &amp; CASIA: long-context &amp; multimodal efficiency, cost-aware reasoning, and tool-using agents.">
 	<meta name="twitter:image" content="https://xnhyacinth.github.io/assets/img/huanxuan-liao-profile.jpg">
 	<meta name="twitter:image:alt" content="Huanxuan Liao (廖桓萱) profile photo">
 	<meta name="twitter:creator" content="@xn_hyacinth">
@@ -110,12 +110,12 @@
 				],
 				"knowsAbout": [
 					"Large Language Models",
-					"Natural Language Processing",
-					"Machine Learning",
-					"Efficient Reasoning",
-					"Long Context Modeling",
-					"Multimodal Understanding",
-					"Agent"
+					"Multimodal Large Language Models",
+					"Long-Context and Multimodal Efficiency",
+					"Efficient Reasoning and Policy Optimization",
+					"Agentic Systems and Tool Learning",
+					"KV Cache Compression",
+					"Natural Language Processing"
 				]
 			},
 			{
@@ -251,18 +251,19 @@
 						<div class="hero-side-meta">
 							<p class="profile-title hero-lead">
 								PhD student at <a href="https://www.ucas.ac.cn/">UCAS</a> &amp; <a
-									href="http://www.ia.cas.cn/">CASIA</a> — long-context modeling and efficient MLLMs
+									href="http://www.ia.cas.cn/">CASIA</a> — long-context efficiency, cost-aware
+								reasoning, and tool-using agents for LLMs / MLLMs
 							</p>
 							<div class="research-tags" aria-label="Research focus areas">
 								<span class="research-tag tag-llm" data-tooltip="Large Language Models"><i
 										class="fas fa-brain" aria-hidden="true"></i> LLMs</span>
-								<span class="research-tag tag-efficient" data-tooltip="Efficient Architecture"><i
+								<span class="research-tag tag-efficient" data-tooltip="Long-Context & Multimodal Efficiency"><i
 										class="fas fa-bolt" aria-hidden="true"></i> Efficiency</span>
-								<span class="research-tag tag-multimodal" data-tooltip="Multi-modal Learning"><i
+								<span class="research-tag tag-multimodal" data-tooltip="Multimodal Understanding"><i
 										class="fas fa-layer-group" aria-hidden="true"></i> Multimodal</span>
-								<span class="research-tag tag-longcontext" data-tooltip="Long Context Modeling"><i
-										class="fas fa-expand-arrows-alt" aria-hidden="true"></i> Long Context</span>
-								<span class="research-tag tag-reasoning" data-tooltip="Agent"><i
+								<span class="research-tag tag-longcontext" data-tooltip="Cost-Aware Reasoning & Policy Optimization"><i
+										class="fas fa-expand-arrows-alt" aria-hidden="true"></i> Reasoning</span>
+								<span class="research-tag tag-reasoning" data-tooltip="Agentic Systems & Tool Learning"><i
 										class="fas fa-robot" aria-hidden="true"></i> Agent</span>
 							</div>
 						</div>
@@ -339,17 +340,21 @@
 							<div class="profile-statement">
 								<h2 class="profile-statement-title">Research statement</h2>
 								<p class="profile-bio">
-									My research lies at the intersection of natural language processing, machine
-									learning, and efficient agent methods for large language models. I study
-									<span class="interest-highlight">Long Context Modeling</span>, <span
-										class="interest-highlight">Efficient Reasoning</span>, <span
-										class="interest-highlight">Efficient Attention and Architecture</span>, <span
-										class="interest-highlight">Multimodal Understanding</span>, and <span
-										class="interest-highlight">Agent</span> for LLMs, including multimodal
-									settings. Broadly, I aim to make LLMs more practical and accessible in
-									real-world applications through efficient deployment, robust policy
-									optimization, and tool-using agents that can learn reliably from interaction and
-									feedback.
+									I work on making large language models and multimodal LLMs
+									<em>practical under budget</em>: long inputs, dense visual streams, and
+									interactive agents should not require unbounded compute or memory.
+									My research centers on three coupled directions—
+									<span class="interest-highlight">Long-Context &amp; Multimodal Efficiency</span>
+									(input-side budget allocation, hybrid context / KV compression; e.g.
+									ResAdapt, HyCo2, SparK),
+									<span class="interest-highlight">Efficient Reasoning &amp; Policy Optimization</span>
+									(activating and transferring parametric / symbolic knowledge under
+									cost-aware objectives; e.g. TAGI, SHIP, SpaRTA, BuPO / CAPO), and
+									<span class="interest-highlight">Agentic Systems &amp; Tool Learning</span>
+									(tool use, evaluation, and memory for reliable agents; e.g. CITI, ETAPP,
+									KATE, Distill Yourself). Across these lines I aim for methods that stay
+									compatible with real inference stacks and learn stably from interaction
+									and feedback.
 								</p>
 							</div>
 						</div>
@@ -643,7 +648,7 @@
 									<i class="fab fa-github"></i>
 									Awesome-LLM-Long-Context-Modeling
 								</a>
-								<span class="star-count">&gt; 22k <i class="fas fa-star"></i></span>
+								<span class="star-count">&gt; 2.2k <i class="fas fa-star"></i></span>
 							</li>
 							<li>
 								<a href="https://quantaalpha.com/Distill-Yourself/"
