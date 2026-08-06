@@ -68,13 +68,13 @@
     },
     {
       "id": "awesome-lclm",
-      "navLabel": "Long Context Survey",
+      "navLabel": "Awesome-LCLM",
       "title": "Awesome-LLM-Long-Context-Modeling",
-      "badge": "Survey · 22k Stars",
-      "meta": "Curated long-context ecosystem resource · GitHub repository",
-      "description": "A widely used curated repository that tracks papers, benchmarks, systems, and tooling for long-context language modeling.",
-      "url": "https://github.com/Xnhyacinth/Awesome-LLM-Long-Context-Modeling",
-      "linkType": "github-repo",
+      "badge": "Survey · Curated List",
+      "meta": "Curated long-context resource · Project homepage",
+      "description": "A widely used curated repository that tracks papers, benchmarks, systems, and tooling for long-context language modeling. Browse chapters on the project homepage; full entries live in the GitHub papers/ directory.",
+      "url": "/projects/Awesome-LCLM/",
+      "linkType": "project-homepage",
       "order": 70
     }
   ]
