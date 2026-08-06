@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-    content="Awesome-LLM-Long-Context-Modeling — curated papers, systems, and benchmarks for long-context language modeling.">
+    content="Awesome-LLM-Long-Context-Modeling — browse curated long-context papers by chapter on this homepage.">
   <meta name="keywords"
     content="long-context, LLM, KV cache, sparse attention, agent memory, Awesome list, survey">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -28,7 +28,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="../TAGI/static/js/fontawesome.all.min.js"></script>
   <script src="../TAGI/static/js/index.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
 
   <script>
     function navigateToProject(select) {
@@ -38,7 +37,7 @@
   </script>
 </head>
 
-<body>
+<body class="lclm-reader">
   <div class="project-nav-container">
     <label class="sr-only" for="project-jump-lclm">Jump to project</label>
     <div class="project-select-shell">
@@ -65,128 +64,89 @@
   <div class="venue-ribbon venue-ribbon--resource" role="status" aria-label="Resource type">
     <div class="venue-ribbon-inner">
       <span class="venue-badge"><i class="fas fa-book-open" aria-hidden="true"></i> Curated Resource</span>
-      <span class="venue-text">Awesome list · Survey companion · Long-context ecosystem tracking</span>
+      <span class="venue-text">Awesome list · Survey companion · Chapter reader</span>
     </div>
   </div>
 
-  <section class="hero">
-    <div class="hero-body">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column has-text-centered">
-            <h1 class="title is-2 publication-title reveal">
-              <span class="rainbow-text">Awesome-LLM-Long-Context-Modeling</span>
-            </h1>
-            <p class="subtitle is-5 reveal lclm-lead">
-              A curated collection of papers, systems, and benchmarks for long-context language modeling —
-              from efficient attention and KV cache to memory, agents, video, and evaluation.
-            </p>
-            <div class="is-size-5 publication-authors reveal">
-              <span class="author-block">
-                Maintained by <a href="https://xnhyacinth.github.io/">Huanxuan Liao</a>
-                and the open-source community
-              </span>
-            </div>
+  <header class="lclm-hero">
+    <div class="lclm-hero-inner">
+      <h1><span class="rainbow-text">Awesome-LLM-Long-Context-Modeling</span></h1>
+      <p class="lclm-lead">
+        Browse every chapter’s papers here — search within a section, open the paper link, and jump chapters
+        without leaving this page. Full source of truth stays on GitHub under <code>papers/</code>.
+      </p>
+      <div class="lclm-cta">
+        <a class="external-link button is-normal is-rounded is-dark" href="#papers-reader">
+          <span class="icon"><i class="fas fa-book-reader"></i></span>
+          <span>Browse papers</span>
+        </a>
+        <a class="external-link button is-normal is-rounded is-dark"
+          href="https://github.com/Xnhyacinth/Awesome-LLM-Long-Context-Modeling" rel="noopener">
+          <span class="icon"><i class="fab fa-github"></i></span>
+          <span>GitHub</span>
+        </a>
+        <a class="external-link button is-normal is-rounded is-dark" href="https://arxiv.org/abs/2503.17407"
+          rel="noopener">
+          <span class="icon"><i class="ai ai-arxiv"></i></span>
+          <span>Survey</span>
+        </a>
+      </div>
+      <p class="lclm-badges">
+        <img alt="GitHub stars"
+          src="https://img.shields.io/github/stars/Xnhyacinth/Awesome-LLM-Long-Context-Modeling?style=social">
+        <img alt="License"
+          src="https://img.shields.io/github/license/Xnhyacinth/Awesome-LLM-Long-Context-Modeling">
+        <img alt="arXiv" src="https://img.shields.io/badge/arXiv-2503.17407-b31b1b.svg">
+      </p>
+      <p class="is-size-6" style="margin-top:0.75rem;color:#5b6475;">
+        Maintained by <a href="https://xnhyacinth.github.io/">Huanxuan Liao</a> and the open-source community
+      </p>
+    </div>
+  </header>
 
-            <div class="column has-text-centered reveal">
-              <div class="publication-links">
-                <span class="link-block">
-                  <a href="https://github.com/Xnhyacinth/Awesome-LLM-Long-Context-Modeling" target="_self"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon"><i class="fab fa-github"></i></span>
-                    <span>GitHub</span>
-                  </a>
-                </span>
-                <span class="link-block">
-                  <a href="https://github.com/Xnhyacinth/Awesome-LLM-Long-Context-Modeling#readme" target="_self"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon"><i class="fas fa-list"></i></span>
-                    <span>Browse README</span>
-                  </a>
-                </span>
-                <span class="link-block">
-                  <a href="https://arxiv.org/abs/2503.17407" target="_self"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon"><i class="ai ai-arxiv"></i></span>
-                    <span>Survey</span>
-                  </a>
-                </span>
-              </div>
-              <p class="lclm-badges reveal">
-                <img alt="GitHub stars"
-                  src="https://img.shields.io/github/stars/Xnhyacinth/Awesome-LLM-Long-Context-Modeling?style=social">
-                <img alt="License"
-                  src="https://img.shields.io/github/license/Xnhyacinth/Awesome-LLM-Long-Context-Modeling">
-                <img alt="arXiv" src="https://img.shields.io/badge/arXiv-2503.17407-b31b1b.svg">
-              </p>
-            </div>
-          </div>
+  <div class="lclm-shell" id="papers-reader">
+    <aside class="lclm-sidebar" aria-label="Chapters">
+      <div class="lclm-sidebar-title">Chapters</div>
+      <nav id="chapterNav"></nav>
+    </aside>
+
+    <main class="lclm-main">
+      <div class="lclm-mobile-nav">
+        <label class="sr-only" for="mobileChapter">Select chapter</label>
+        <select id="mobileChapter"></select>
+      </div>
+
+      <div class="lclm-toolbar">
+        <div>
+          <h2 class="lclm-chapter-title" id="chapterTitle">Loading…</h2>
+          <p style="margin:0.35rem 0 0;font-size:0.82rem;color:#5b6475;">
+            Source:
+            <a id="chapterSource" href="#" rel="noopener">view on GitHub</a>
+          </p>
+        </div>
+        <div class="lclm-search">
+          <span class="lclm-search-icon" aria-hidden="true"><i class="fas fa-search"></i></span>
+          <label class="sr-only" for="paperSearch">Search papers in chapter</label>
+          <input id="paperSearch" type="search" placeholder="Filter this chapter…" autocomplete="off">
         </div>
       </div>
-    </div>
-  </section>
 
-  <section class="section hero is-light abstract-section" id="about">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <div class="abstract-card reveal">
-            <div class="section-header">
-              <span class="section-icon"><i class="fas fa-info-circle"></i></span>
-              <h2 class="title is-3">About</h2>
-            </div>
-            <div class="content has-text-justified">
-              <p>
-                Long-context modeling is growing faster than a single page can hold. The GitHub repository homepage
-                truncates README files above <strong>500&nbsp;KiB</strong>, so paper chapters now live under
-                <code>papers/</code> while the root README stays a slim hub for News, taxonomy, and navigation.
-                This page is the project homepage: a stable entry point for the curated list and the companion survey.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+      <div id="chapterStatus" class="lclm-status">Loading chapter…</div>
+      <div id="paperList"></div>
+    </main>
+  </div>
 
-  <section class="section" id="taxonomy">
-    <div class="container is-max-desktop">
-      <div class="section-header-center reveal">
-        <span class="section-tag">Overview</span>
-        <h2 class="title is-3">Taxonomy</h2>
-      </div>
-      <div class="lclm-mermaid reveal">
-        <pre class="mermaid">
-flowchart LR
-  LCLM["Long-Context Modeling"]
-  LCLM --> A["Attention and KV Cache"]
-  LCLM --> T["Training and Alignment"]
-  LCLM --> M["Memory and RAG"]
-  LCLM --> C["Compression"]
-  LCLM --> R["Reasoning and Generation"]
-  LCLM --> V["Multimodal / Video"]
-  LCLM --> E["Evaluation and Acceleration"]
-        </pre>
-      </div>
-    </div>
-  </section>
-
-  <section class="section hero is-light" id="chapters">
-    <div class="container is-max-desktop">
-      <div class="section-header-center reveal">
-        <span class="section-tag">Browse</span>
-        <h2 class="title is-3">Chapters</h2>
-        <p class="lclm-chapter-sub">Open a chapter on GitHub for the full paper list.</p>
-      </div>
-      <div class="lclm-grid reveal" id="chapterGrid"></div>
-    </div>
-  </section>
+  <p class="lclm-footer-note">
+    Chapters load from
+    <a href="https://github.com/Xnhyacinth/Awesome-LLM-Long-Context-Modeling/tree/main/papers" rel="noopener"><code>papers/*.md</code></a>
+    on GitHub. Prefer reading here; use GitHub when editing or contributing.
+  </p>
 
   <section class="section" id="contribute">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column is-four-fifths">
-          <div class="abstract-card reveal">
+          <div class="abstract-card">
             <div class="section-header">
               <span class="section-icon"><i class="fas fa-hands-helping"></i></span>
               <h2 class="title is-3">Contribute</h2>
@@ -196,7 +156,8 @@ flowchart LR
                 <li>Add papers to the matching file under <code>papers/</code> (append at the end of the subsection).</li>
                 <li>Also add a News entry in <code>README.md</code>, grouped by the real arXiv <code>v1</code> date.</li>
                 <li>Keep GitHub / homepage badges only for official links.</li>
-                <li>See <a href="https://github.com/Xnhyacinth/Awesome-LLM-Long-Context-Modeling/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a>
+                <li>See <a
+                    href="https://github.com/Xnhyacinth/Awesome-LLM-Long-Context-Modeling/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a>
                   for details.</li>
               </ul>
             </div>
@@ -210,11 +171,11 @@ flowchart LR
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column is-four-fifths">
-          <div class="section-header-center reveal">
+          <div class="section-header-center">
             <span class="section-tag">Citation</span>
             <h2 class="title is-3">BibTeX</h2>
           </div>
-          <div class="bibtex-card reveal">
+          <div class="bibtex-card">
             <pre><code>@article{liu2025comprehensive,
   title={A Comprehensive Survey on Long Context Language Modeling},
   author={Liu, Jiaheng and Zhu, Dawei and Bai, Zhiqi and He, Yancheng and Liao, Huanxuan and Que, Haoran and Wang, Zekun and Zhang, Chenchen and Zhang, Ge and Zhang, Jiebin and others},
@@ -250,44 +211,6 @@ flowchart LR
   </footer>
 
   <script>
-    const CHAPTERS = [
-      ["01-survey.md", "Survey Papers", 29],
-      ["02-efficient-attention.md", "Efficient Attention", 149],
-      ["03-kv-cache.md", "KV-Cache Optimization", 210],
-      ["04-recurrent-transformers.md", "Recurrent Transformers", 31],
-      ["05-state-space-models.md", "State Space Models & Hybrids", 44],
-      ["06-position-encoding.md", "Position Encoding & Length Extrapolation", 76],
-      ["07-long-context-training.md", "Long-Context Training", 57],
-      ["08-long-term-memory.md", "Long-Term Memory", 57],
-      ["09-retrieval-augmented-generation.md", "Retrieval-Augmented Generation", 79],
-      ["10-in-context-learning.md", "In-Context Learning (Many-shot / Long-ICL)", 12],
-      ["11-context-compression.md", "Context Compression", 108],
-      ["12-model-compression.md", "Model Compression for Long Context", 54],
-      ["13-long-reasoning.md", "Long Reasoning (Long CoT)", 144],
-      ["14-long-video-image.md", "Long Video & Image", 190],
-      ["15-long-horizon-agents.md", "Long-Horizon Agents", 70],
-      ["16-long-form-text-generation.md", "Long-form Text Generation", 24],
-      ["17-inference-acceleration.md", "Inference Acceleration & Serving", 69],
-      ["18-benchmarks.md", "Benchmarks & Evaluation", 232],
-      ["19-technical-reports.md", "Technical Reports (Long-Context Models)", 29],
-      ["20-blogs.md", "Blogs & Tutorials", 39]
-    ];
-
-    const base = "https://github.com/Xnhyacinth/Awesome-LLM-Long-Context-Modeling/blob/main/papers/";
-    const grid = document.getElementById("chapterGrid");
-    CHAPTERS.forEach(function (item, idx) {
-      const [file, title, count] = item;
-      const a = document.createElement("a");
-      a.className = "lclm-card";
-      a.href = base + file;
-      a.target = "_self";
-      a.innerHTML =
-        '<span class="lclm-card-num">' + (idx + 1) + "</span>" +
-        '<span class="lclm-card-title">' + title + "</span>" +
-        '<span class="lclm-card-count">' + count + " entries</span>";
-      grid.appendChild(a);
-    });
-
     function copyBibtex() {
       const bibtex = `@article{liu2025comprehensive,
   title={A Comprehensive Survey on Long Context Language Modeling},
@@ -303,20 +226,8 @@ flowchart LR
         }, 2000);
       });
     }
-
-    if (window.mermaid) {
-      mermaid.initialize({ startOnLoad: true, theme: "neutral", securityLevel: "loose" });
-    }
-
-    const observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) entry.target.classList.add("active");
-      });
-    }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
-    document.querySelectorAll(".reveal").forEach(function (el) {
-      observer.observe(el);
-    });
   </script>
+  <script src="app.js" defer></script>
 </body>
 
 </html>
