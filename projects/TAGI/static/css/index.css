@@ -1,14 +1,15 @@
 /* TAGI - Modern Academic Theme */
 
 :root {
-  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  --secondary-gradient: linear-gradient(135deg, #3498db 0%, #fe82cf 100%);
-  --accent-color: #667eea;
-  --accent-secondary: #3498db;
-  --text-dark: #1a1a2e;
-  --text-light: #4a4a6a;
-  --bg-light: #f8f9fc;
+  --primary-gradient: linear-gradient(135deg, #2b6777 0%, #52ab98 100%);
+  --secondary-gradient: linear-gradient(135deg, #52ab98 0%, #2b6777 100%);
+  --accent-color: #2b6777;
+  --accent-secondary: #52ab98;
+  --text-dark: #2d3436;
+  --text-light: #3f474a;
+  --bg-light: #f9f7f2;
   --bg-white: #ffffff;
+  --chip-bg: rgba(43, 103, 119, 0.09);
   --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
   --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
   --shadow-lg: 0 10px 40px rgba(0,0,0,0.12);
@@ -51,9 +52,10 @@ body {
 }
 
 .venue-ribbon--neurips .venue-badge {
-  color: #0f172a;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(241, 245, 249, 0.95));
-  border: 1px solid rgba(15, 23, 42, 0.08);
+  color: #5b21b6;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(91, 33, 182, 0.18);
+  box-shadow: 0 2px 12px rgba(91, 33, 182, 0.12);
 }
 
 .venue-ribbon-inner {
@@ -148,32 +150,32 @@ body {
   max-width: min(92vw, 320px);
   border-radius: 999px;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 250, 252, 0.96) 100%);
-  border: 1px solid rgba(102, 126, 234, 0.22);
+  border: 1px solid rgba(43, 103, 119, 0.22);
   box-shadow:
     0 1px 2px rgba(15, 23, 42, 0.04),
-    0 12px 32px rgba(102, 126, 234, 0.12);
+    0 12px 32px rgba(43, 103, 119, 0.12);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
 }
 
 .project-select-shell:hover {
-  border-color: rgba(102, 126, 234, 0.4);
+  border-color: rgba(43, 103, 119, 0.4);
   box-shadow:
     0 4px 20px rgba(15, 23, 42, 0.06),
-    0 16px 44px rgba(102, 126, 234, 0.16);
+    0 16px 44px rgba(43, 103, 119, 0.16);
 }
 
 .project-select-shell:focus-within {
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+  border-color: #2b6777;
+  box-shadow: 0 0 0 3px rgba(43, 103, 119, 0.2);
 }
 
 .project-select-icon {
   display: flex;
   align-items: center;
   padding-left: 14px;
-  color: #667eea;
+  color: #2b6777;
   font-size: 0.88rem;
   opacity: 0.9;
   flex-shrink: 0;
@@ -213,7 +215,7 @@ body {
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(180deg, #ffffff 0%, #f8f9fc 100%);
+  background: linear-gradient(180deg, #ffffff 0%, #f9f7f2 100%);
   padding: 2.75rem 0 3rem;
   position: relative;
   overflow: hidden;
@@ -226,8 +228,8 @@ body {
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle at 30% 20%, rgba(102, 126, 234, 0.05) 0%, transparent 50%),
-              radial-gradient(circle at 70% 80%, rgba(118, 75, 162, 0.05) 0%, transparent 50%);
+  background: radial-gradient(circle at 30% 20%, rgba(43, 103, 119, 0.05) 0%, transparent 50%),
+              radial-gradient(circle at 70% 80%, rgba(82, 171, 152, 0.05) 0%, transparent 50%);
   pointer-events: none;
 }
 
@@ -258,7 +260,7 @@ body {
 }
 
 .publication-authors a:hover {
-  color: #764ba2;
+  color: #52ab98;
   text-decoration: underline;
 }
 
@@ -275,12 +277,12 @@ body {
 
 .publication-links .button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.35);
+  box-shadow: 0 8px 20px rgba(43, 103, 119, 0.35);
 }
 
 /* Abstract Section */
 .abstract-section {
-  background: linear-gradient(135deg, #f8f9fc 0%, #eef1f8 100%);
+  background: var(--bg-light);
   padding: 4rem 0;
 }
 
@@ -313,11 +315,11 @@ body {
 }
 
 .highlight {
-  background: linear-gradient(120deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
-  padding: 0.1rem 0.4rem;
+  background: var(--chip-bg);
+  color: var(--accent-color);
+  padding: 0.05em 0.35em;
   border-radius: 4px;
   font-weight: 600;
-  color: var(--accent-color);
 }
 
 /* Section Headers */
@@ -384,7 +386,7 @@ body {
 
 /* Results Section */
 .results-section {
-  background: linear-gradient(180deg, #f8f9fc 0%, #ffffff 100%);
+  background: linear-gradient(180deg, #f9f7f2 0%, #ffffff 100%);
   padding: 4rem 0;
 }
 
@@ -404,7 +406,7 @@ body {
 }
 
 .bibtex-card pre {
-  background: #f5f5f5;
+  background: var(--chip-bg, rgba(43, 103, 119, 0.09));
   padding: 1.5rem;
   border-radius: var(--radius-sm);
   overflow-x: auto;
@@ -428,7 +430,7 @@ body {
 
 .copy-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.35);
+  box-shadow: 0 4px 12px rgba(43, 103, 119, 0.35);
 }
 
 .copy-btn:focus-visible {
@@ -463,6 +465,14 @@ body {
 .reveal.active {
   opacity: 1;
   transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 /* Section spacing */

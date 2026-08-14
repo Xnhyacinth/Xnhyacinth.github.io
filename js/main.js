@@ -6,7 +6,6 @@
     'use strict';
 
     const CONFIG = {
-        animationDuration: 600,
         scrollOffset: 80,
         themeKey: 'theme-preference'
     };
@@ -37,39 +36,56 @@
     const ThemeManager = {
         currentTheme: 'light',
 
-        init() {
-            const savedTheme = localStorage.getItem(CONFIG.themeKey);
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        readStoredTheme() {
+            try {
+                const saved = localStorage.getItem(CONFIG.themeKey);
+                return saved === 'dark' || saved === 'light' ? saved : null;
+            } catch (e) {
+                return null;
+            }
+        },
 
-            if (savedTheme) {
-                this.setTheme(savedTheme);
-            } else if (prefersDark) {
-                this.setTheme('dark');
+        applyTheme(theme) {
+            const next = theme === 'dark' ? 'dark' : 'light';
+            this.currentTheme = next;
+            document.documentElement.setAttribute('data-theme', next);
+            const toggleBtn = document.querySelector('.theme-toggle');
+            if (toggleBtn) {
+                toggleBtn.setAttribute(
+                    'aria-label',
+                    next === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'
+                );
+            }
+            window.dispatchEvent(new CustomEvent('themechange', { detail: { theme: next } }));
+        },
+
+        persistTheme(theme) {
+            try {
+                localStorage.setItem(CONFIG.themeKey, theme);
+            } catch (e) { /* private mode */ }
+        },
+
+        init() {
+            const saved = this.readStoredTheme();
+            if (saved) {
+                this.applyTheme(saved);
+            } else {
+                this.applyTheme(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
             }
 
-            // 监听系统主题变化
             window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-                if (!localStorage.getItem(CONFIG.themeKey)) {
-                    this.setTheme(e.matches ? 'dark' : 'light');
+                if (!this.readStoredTheme()) {
+                    this.applyTheme(e.matches ? 'dark' : 'light');
                 }
             });
 
-            // 绑定切换按钮
             this.bindToggleButton();
         },
 
-        setTheme(theme) {
-            this.currentTheme = theme;
-            document.documentElement.setAttribute('data-theme', theme);
-            localStorage.setItem(CONFIG.themeKey, theme);
-
-            // 触发主题变化事件
-            window.dispatchEvent(new CustomEvent('themechange', { detail: { theme } }));
-        },
-
         toggle() {
-            const newTheme = this.currentTheme === 'light' ? 'dark' : 'light';
-            this.setTheme(newTheme);
+            const next = this.currentTheme === 'light' ? 'dark' : 'light';
+            this.applyTheme(next);
+            this.persistTheme(next);
         },
 
         bindToggleButton() {
@@ -143,23 +159,23 @@
             const mobileNav = document.querySelector('.mobile-nav');
 
             if (menuToggle && mobileNav) {
+                const setOpen = (open) => {
+                    mobileNav.classList.toggle('active', open);
+                    menuToggle.classList.toggle('active', open);
+                    menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+                };
+
                 menuToggle.addEventListener('click', () => {
-                    mobileNav.classList.toggle('active');
-                    menuToggle.classList.toggle('active');
+                    setOpen(!mobileNav.classList.contains('active'));
                 });
 
                 mobileNav.addEventListener('click', (e) => {
-                    const link = e.target.closest('.nav-link');
-                    if (link) {
-                        mobileNav.classList.remove('active');
-                        menuToggle.classList.remove('active');
-                    }
+                    if (e.target.closest('.nav-link')) setOpen(false);
                 });
 
                 document.addEventListener('click', (e) => {
                     if (!mobileNav.contains(e.target) && !menuToggle.contains(e.target)) {
-                        mobileNav.classList.remove('active');
-                        menuToggle.classList.remove('active');
+                        setOpen(false);
                     }
                 });
             }
@@ -208,105 +224,36 @@
         }
     };
 
-    const AnimationManager = {
-        init() {
-            this.initScrollAnimations();
-        },
-
-        initScrollAnimations() {
-            const animatedElements = document.querySelectorAll('[data-animate]');
-
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.1
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const animation = entry.target.dataset.animate;
-                        entry.target.classList.add(animation);
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
-
-            animatedElements.forEach(el => observer.observe(el));
-        }
-    };
-
-    // Back to Top Manager
     const BackToTopManager = {
         init() {
-            this.button = document.getElementById('backToTop');
-            if (!this.button) return;
+            this.buttons = Array.from(document.querySelectorAll('.js-back-to-top'));
+            if (!this.buttons.length) return;
 
             this.bindEvents();
             this.updateVisibility();
         },
 
         bindEvents() {
-            // Show/hide button based on scroll position
             window.addEventListener('scroll', () => {
                 this.updateVisibility();
             }, { passive: true });
 
-            // Smooth scroll to top
-            this.button.addEventListener('click', () => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
+            this.buttons.forEach((button) => {
+                button.addEventListener('click', () => {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
                 });
             });
         },
 
         updateVisibility() {
-            const scrollY = window.scrollY;
-            if (scrollY > 500) {
-                this.button.style.opacity = '1';
-                this.button.style.pointerEvents = 'auto';
-            } else {
-                this.button.style.opacity = '0';
-                this.button.style.pointerEvents = 'none';
-            }
-        }
-    };
-
-    const PerformanceManager = {
-        init() {
-            this.measurePageLoad();
-            this.monitorLongTasks();
-        },
-
-        measurePageLoad() {
-            window.addEventListener('load', () => {
-                setTimeout(() => {
-                    const perfData = performance.getEntriesByType('navigation')[0];
-                    if (perfData) {
-                        console.log('Page Load Time:', {
-                            DNS: Math.round(perfData.domainLookupEnd - perfData.domainLookupStart),
-                            TCP: Math.round(perfData.connectEnd - perfData.connectStart),
-                            TTFB: Math.round(perfData.responseStart - perfData.requestStart),
-                            DOM: Math.round(perfData.domComplete - perfData.domLoading),
-                            Total: Math.round(perfData.loadEventEnd - perfData.startTime)
-                        });
-                    }
-                }, 0);
+            const visible = window.scrollY > 500;
+            this.buttons.forEach((button) => {
+                button.style.opacity = visible ? '1' : '0';
+                button.style.pointerEvents = visible ? 'auto' : 'none';
             });
-        },
-
-        monitorLongTasks() {
-            if ('PerformanceObserver' in window) {
-                const observer = new PerformanceObserver((list) => {
-                    for (const entry of list.getEntries()) {
-                        if (entry.duration > 50) {
-                            console.warn('Long Task Warning:', entry.duration + 'ms', entry);
-                        }
-                    }
-                });
-                observer.observe({ entryTypes: ['longtask'] });
-            }
         }
     };
 
@@ -316,8 +263,6 @@
             this.initScrollReveal();
             this.initGlassNavbar();
             this.initScrollProgress();
-            this.initMagneticIcons();
-            this.initRippleButtons();
             this.initPageLoader();
         },
 
@@ -372,51 +317,10 @@
             onScroll(); // set initial state
         },
 
-        // Magnetic hover effect on social icons
-        initMagneticIcons() {
-            const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            if (prefersReduced) return;
-            const links = document.querySelectorAll('.social-link');
-            links.forEach(link => {
-                link.addEventListener('mousemove', (e) => {
-                    const rect = link.getBoundingClientRect();
-                    const x = (e.clientX - rect.left - rect.width / 2) * 0.18;
-                    const y = (e.clientY - rect.top - rect.height / 2) * 0.18;
-                    link.style.transform = `translate(${x}px, ${y}px)`;
-                });
-                link.addEventListener('mouseleave', () => {
-                    link.style.transform = '';
-                });
-            });
-        },
-
-        // Ripple effect on filter buttons
-        initRippleButtons() {
-            document.addEventListener('click', (e) => {
-                const btn = e.target.closest('.filter-btn');
-                if (!btn) return;
-
-                const existing = btn.querySelector('.ripple-effect');
-                if (existing) existing.remove();
-
-                const ripple = document.createElement('span');
-                ripple.classList.add('ripple-effect');
-                const rect = btn.getBoundingClientRect();
-                const size = Math.max(rect.width, rect.height) * 2;
-                ripple.style.width = ripple.style.height = size + 'px';
-                ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
-                ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
-                btn.appendChild(ripple);
-
-                ripple.addEventListener('animationend', () => ripple.remove());
-            });
-        },
-
         // Page loader fade-out
         initPageLoader() {
             const loader = document.getElementById('pageLoader');
             if (!loader) return;
-            // Short delay so the ring animation is visible
             setTimeout(() => loader.classList.add('hidden'), 400);
             loader.addEventListener('transitionend', () => {
                 if (loader.classList.contains('hidden')) {
@@ -429,14 +333,9 @@
     function init() {
         ThemeManager.init();
         NavigationManager.init();
-        AnimationManager.init();
         BackToTopManager.init();
-        PerformanceManager.init();
         InteractionManager.init();
-
         document.body.classList.add('loaded');
-
-        console.log('🚀 Academic Homepage Loaded');
     }
 
     if (document.readyState === 'loading') {

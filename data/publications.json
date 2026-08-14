@@ -1,7 +1,7 @@
 {
   "publications": [
     {
-      "id": "data",
+      "id": "sparta",
       "title": "Spectral Disentanglement: Rank-Aware Task Adaptation for Rehearsal-free Continual Learning in LLMs",
       "authors": [
         "Huanxuan Liao",
@@ -252,7 +252,7 @@
   ],
   "collaborations": [
     {
-      "id": "harmonizing-nsc",
+      "id": "parsp",
       "title": "Harmonizing the Past, Present, and Future: A Null-Space Constrained Region-Specific Method for Continual Learning in LLMs",
       "authors": [
         "Jinhui Chen",
@@ -280,7 +280,7 @@
       ]
     },
     {
-      "id": "tool-calling-eki",
+      "id": "kate",
       "title": "Pushing the Limits of LLM Tool Calling via Experiential Knowledge Integration and Activation",
       "authors": [
         "Yupu Hao",
@@ -435,7 +435,7 @@
       "keywords": ["RAG", "Parametric Knowledge", "Test-time Enhancement"]
     },
     {
-      "id": "vaibot",
+      "id": "ship",
       "title": "Shuttle Between Symbolic Instructions and Neural Parameters of Large Language Models",
       "authors": ["Wangtao Sun", "Haotian Xu", "Huanxuan Liao", "Xuanqing Yu", "Zhongtao Jiang", "Shizhu He", "Jun Zhao", "Kang Liu"],
       "venue": "ACL 2026 Main",
@@ -445,7 +445,7 @@
       "links": {
         "paper": "https://aclanthology.org/2026.acl-long.1269/",
         "arxiv": "https://arxiv.org/abs/2502.02315",
-        "code": "https://anonymous.4open.science/r/Shuttle-Between-Instructions-Parameters/"
+        "code": "https://github.com/forangel2014/Shuttle-Between-Instructions-Parameters"
       },
       "abstract": "SHIP shuttles between symbolic instructions and neural parameters, unifying instruction construction with parameter adaptation for LLMs. It improves task transfer by bridging symbolic task descriptions and model-side learning.",
       "keywords": ["Instruction Learning", "Symbolic Instructions", "Parameter Adaptation"]

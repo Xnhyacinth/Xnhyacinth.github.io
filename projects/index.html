@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description"
-    content="Project homepages and a curated survey repository spanning multimodal reasoning, agentic systems, long-context resources, knowledge augmentation, and instruction-driven adaptation.">
+    content="Project pages for papers and systems led by Huanxuan Liao, plus selected collaborations.">
   <title>Projects — Huanxuan Liao</title>
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/icon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/icon/favicon-16x16.png">
@@ -13,6 +13,19 @@
   <link rel="shortcut icon" href="/assets/icon/favicon.ico">
   <meta name="apple-mobile-web-app-title" content="Huanxuan Liao">
   <link rel="manifest" href="/assets/icon/site.webmanifest">
+  <meta name="theme-color" content="#f9f7f2" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0c0e14" media="(prefers-color-scheme: dark)">
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('theme-preference');
+        var theme = (saved === 'dark' || saved === 'light')
+          ? saved
+          : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) { /* ignore */ }
+    })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap"
@@ -22,23 +35,33 @@
 
 <body class="hub-page">
   <div class="hub-bg" aria-hidden="true"></div>
-  <div class="hub-noise" aria-hidden="true"></div>
   <div class="hub-wrap">
-    <a class="hub-back" href="../index.html"><span class="hub-back-icon" aria-hidden="true">←</span> Back to homepage</a>
+    <a class="hub-back" href="/"><span aria-hidden="true">←</span> Back to homepage</a>
 
     <header class="hub-header">
       <p class="hub-kicker">Research</p>
       <h1 class="hub-title">Projects</h1>
-      <p class="hub-sub">Project homepages and one curated ecosystem repository spanning multimodal reasoning,
-        agentic systems, knowledge augmentation, long-context resources, and instruction-driven adaptation.
-      </p>
+      <p class="hub-sub">A long-context reading list, papers and systems I lead, and two collaboration sites.</p>
     </header>
 
-    <div class="hub-grid" id="projectsGrid" aria-live="polite"></div>
+    <div id="projectsBoard">
+      <section class="hub-group hub-group--survey" aria-labelledby="hub-group-survey">
+        <h2 class="hub-group-title" id="hub-group-survey">Survey</h2>
+        <div class="hub-grid">
+          <a class="hub-card" href="/projects/Awesome-LCLM/">
+            <span class="hub-card-row"><span class="hub-card-badge">Survey · Curated List</span></span>
+            <h3 class="hub-card-title">Awesome-LCLM</h3>
+            <p class="hub-card-lead">Awesome-LLM-Long-Context-Modeling</p>
+            <p class="hub-card-meta">Chapter reader · Papers, systems, benchmarks</p>
+            <p class="hub-card-desc">A curated repository of long-context language modeling. Browse chapters on the project page; full entries live in the GitHub papers/ directory.</p>
+            <span class="hub-card-cta">Open project page <span aria-hidden="true">→</span></span>
+          </a>
+        </div>
+      </section>
+    </div>
 
     <footer class="hub-footer">
-      <p>Template credits: <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" rel="noopener">Academic
-          Project Page</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="noopener">CC BY-SA 4.0</a></p>
+      <p><a href="/">Huanxuan Liao</a> · Academic homepage</p>
     </footer>
   </div>
   <script src="projects.js"></script>

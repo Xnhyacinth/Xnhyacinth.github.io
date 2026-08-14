@@ -1,0 +1,185 @@
+/* Shared reading + color for project pages (paper + teal) */
+
+:root {
+  --accent-color: #2b6777;
+  --accent-secondary: #52ab98;
+  --text-dark: #2d3436;
+  --text-light: #3f474a;
+  --text-primary: #2d3436;
+  --text-secondary: #3f474a;
+  --bg-light: #f9f7f2;
+  --bg-white: #ffffff;
+  --chip-bg: rgba(43, 103, 119, 0.09);
+  --page-line: rgba(45, 52, 54, 0.1);
+}
+
+body {
+  color: var(--text-dark);
+  background: var(--bg-light);
+}
+
+.rainbow-text {
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+  color: var(--accent-color);
+}
+
+.rainbow-text::after {
+  content: none !important;
+}
+
+.content.has-text-justified,
+.has-text-justified,
+.figure-caption {
+  text-align: left;
+  line-height: 1.75;
+}
+
+.publication-authors,
+.section-subtitle,
+.figure-caption,
+.caption-text {
+  color: var(--text-secondary);
+}
+
+a {
+  transition: color 0.15s ease, background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+img {
+  transition: none;
+}
+
+/* Panels: white on paper, not beige or slate */
+.abstract-section,
+.hero.is-light,
+.section.hero.is-light {
+  background: var(--bg-light) !important;
+}
+
+.abstract-card,
+.figure-frame,
+.bibtex-card,
+.figure-container {
+  background: var(--bg-white);
+  border-color: var(--page-line);
+  box-shadow: 0 4px 20px rgba(45, 52, 54, 0.05);
+}
+
+.highlight {
+  background: var(--chip-bg);
+  color: var(--accent-color);
+}
+
+.section-tag {
+  background: var(--chip-bg);
+  color: var(--accent-color);
+}
+
+.bibtex-card pre,
+.bibtex-card pre code {
+  background: var(--chip-bg) !important;
+  color: var(--text-dark);
+}
+
+.project-select-shell {
+  background: var(--bg-white);
+}
+
+.publication-links .button,
+.link-block a,
+.link-block a.is-dark,
+.button.is-dark {
+  background: var(--accent-color) !important;
+  color: #fff !important;
+  box-shadow: none;
+  border: 0;
+}
+
+.publication-links .button:hover,
+.link-block a:hover,
+.button.is-dark:hover {
+  background: #245864 !important;
+  filter: none;
+  transform: none;
+  box-shadow: none;
+}
+
+.figure-frame:hover,
+.figure-container:hover,
+.copy-btn:hover {
+  transform: none;
+}
+
+.footer {
+  background: #2d3436;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.footer a {
+  color: #fff;
+}
+
+/* ResAdapt slate leftovers */
+.case-study-qbox {
+  background: var(--chip-bg);
+  border-color: var(--page-line);
+  color: var(--text-dark);
+}
+
+.case-study-qbox strong,
+.case-study-qbox em {
+  color: var(--text-secondary);
+}
+
+.case-scroll-cap {
+  background: var(--chip-bg);
+  color: var(--text-secondary);
+}
+
+#results .results-main-carousel .case-scroll-btn,
+#case-study .results-main-carousel .case-scroll-btn {
+  background: var(--chip-bg);
+  color: var(--accent-color);
+  box-shadow: none;
+}
+
+#results .results-main-carousel .case-scroll-btn:hover,
+#case-study .results-main-carousel .case-scroll-btn:hover {
+  background: rgba(43, 103, 119, 0.16);
+  transform: none;
+}
+
+/* Awesome-LCLM chips / search */
+.lclm-search input,
+.lclm-subchip,
+.lclm-chip {
+  background: var(--chip-bg);
+  color: var(--text-dark);
+}
+
+.lclm-search input:focus,
+.lclm-subchip.is-nested,
+.lclm-paper {
+  background: var(--bg-white);
+}
+
+.venue-ribbon--resource .venue-badge {
+  color: var(--accent-color);
+  background: var(--bg-white);
+  border: 1px solid rgba(43, 103, 119, 0.18);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

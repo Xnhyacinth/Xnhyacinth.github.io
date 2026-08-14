@@ -20,21 +20,10 @@
 
   <link rel="stylesheet" href="../TAGI/static/css/bulma.min.css">
   <link rel="stylesheet" href="../TAGI/static/css/fontawesome.all.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="../TAGI/static/css/index.css">
   <link rel="stylesheet" href="awesome-lclm.css">
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="../TAGI/static/js/fontawesome.all.min.js"></script>
-  <script src="../TAGI/static/js/index.js"></script>
-
-  <script>
-    function navigateToProject(select) {
-      const url = select.value;
-      if (url) window.location.href = url;
-    }
-  </script>
+  <link rel="stylesheet" href="../shared/project.css">
 </head>
 
 <body class="lclm-reader">
@@ -42,18 +31,22 @@
     <label class="sr-only" for="project-jump-lclm">Jump to project</label>
     <div class="project-select-shell">
       <span class="project-select-icon" aria-hidden="true"><i class="fas fa-layer-group"></i></span>
-      <select id="project-jump-lclm" class="project-select" onchange="navigateToProject(this)"
-        title="Navigate between projects">
+      <select id="project-jump-lclm" class="project-select" data-current="awesome-lclm" title="Navigate between projects">
         <option value="" disabled>Navigate</option>
-        <optgroup label="Projects">
-          <option value="https://xnhyacinth.github.io/">Homepage</option>
-          <option value="https://xnhyacinth.github.io/projects/">Projects hub</option>
-          <option value="https://xnhyacinth.github.io/projects/IAG/">IAG</option>
-          <option value="https://xnhyacinth.github.io/projects/TAGI/">TAGI</option>
-          <option value="https://xnhyacinth.github.io/projects/ResAdapt/">ResAdapt</option>
-          <option value="https://xnhyacinth.github.io/projects/Awesome-LCLM/" selected>Awesome-LCLM</option>
+        <optgroup label="Site">
+          <option value="/">Homepage</option>
+          <option value="/projects/">All projects</option>
         </optgroup>
-        <optgroup label="External">
+        <optgroup label="Survey">
+          <option value="/projects/Awesome-LCLM/" selected>Awesome-LCLM</option>
+        </optgroup>
+        <optgroup label="Projects">
+          <option value="/projects/ResAdapt/">ResAdapt</option>
+          <option value="/projects/IAG/">IAG</option>
+          <option value="/projects/TAGI/">TAGI</option>
+          <option value="https://quantaalpha.com/Distill-Yourself/">Distill Yourself</option>
+        </optgroup>
+        <optgroup label="Collaborations">
           <option value="https://trae1oung.github.io/DyPRAG/">DyPRAG</option>
           <option value="https://wengsyx.github.io/LMTuner/">LMTuner</option>
         </optgroup>
@@ -98,7 +91,7 @@
           src="https://img.shields.io/github/license/Xnhyacinth/Awesome-LLM-Long-Context-Modeling">
         <img alt="arXiv" src="https://img.shields.io/badge/arXiv-2503.17407-b31b1b.svg">
       </p>
-      <p class="is-size-6" style="margin-top:0.75rem;color:#5b6475;">
+      <p class="lclm-credit">
         Maintained by <a href="https://xnhyacinth.github.io/">Huanxuan Liao</a> and the open-source community
       </p>
     </div>
@@ -185,7 +178,7 @@
   journal={arXiv preprint arXiv:2503.17407},
   year={2025}
 }</code></pre>
-            <button type="button" class="copy-btn" onclick="copyBibtex()">
+            <button type="button" class="copy-btn">
               <i class="fas fa-copy"></i> Copy
             </button>
           </div>
@@ -213,23 +206,7 @@
     </div>
   </footer>
 
-  <script>
-    function copyBibtex() {
-      const bibtex = `@article{liu2025comprehensive,
-  title={A Comprehensive Survey on Long Context Language Modeling},
-  author={Liu, Jiaheng and Zhu, Dawei and Bai, Zhiqi and He, Yancheng and Liao, Huanxuan and Que, Haoran and Wang, Zekun and Zhang, Chenchen and Zhang, Ge and Zhang, Jiebin and others},
-  journal={arXiv preprint arXiv:2503.17407},
-  year={2025}
-}`;
-      navigator.clipboard.writeText(bibtex).then(function () {
-        const btn = document.querySelector(".copy-btn");
-        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
-        setTimeout(function () {
-          btn.innerHTML = '<i class="fas fa-copy"></i> Copy';
-        }, 2000);
-      });
-    }
-  </script>
+  <script src="../shared/project-nav.js"></script>
   <script src="app.js" defer></script>
 </body>
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 
 <head>
 	<meta charset="UTF-8">
@@ -8,7 +8,7 @@
 
 	<title>Huanxuan Liao (廖桓萱) | Academic Homepage</title>
 	<meta name="description"
-		content="Huanxuan Liao (廖桓萱) is a PhD student at UCAS and CASIA, focusing on long-context & multimodal efficiency, cost-aware reasoning, and tool-using agents for LLMs / MLLMs.">
+		content="Huanxuan Liao (廖桓萱) is a PhD student at UCAS and CASIA, focusing on long-context modeling, efficient reasoning, and agents.">
 	<meta name="keywords"
 		content="Huanxuan Liao, 廖桓萱, UCAS, CASIA, Large Language Models, LLM, MLLM, Long Context, Efficient Reasoning, Multimodal, Agent, Tool Learning, KV Cache, PhD Student">
 	<meta name="author" content="Huanxuan Liao">
@@ -17,7 +17,7 @@
 
 	<meta property="og:title" content="Huanxuan Liao | 廖桓萱 - PhD Student @ UCAS & CASIA">
 	<meta property="og:description"
-		content="PhD student at UCAS &amp; CASIA: long-context &amp; multimodal efficiency, cost-aware reasoning, and tool-using agents.">
+		content="PhD student at UCAS &amp; CASIA: long-context modeling, efficient reasoning, and agents.">
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="https://xnhyacinth.github.io/">
 	<meta property="og:image" content="https://xnhyacinth.github.io/assets/img/huanxuan-liao-profile.jpg">
@@ -30,7 +30,7 @@
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:title" content="Huanxuan Liao | 廖桓萱 - PhD Student @ UCAS & CASIA">
 	<meta name="twitter:description"
-		content="PhD student at UCAS &amp; CASIA: long-context &amp; multimodal efficiency, cost-aware reasoning, and tool-using agents.">
+		content="PhD student at UCAS &amp; CASIA: long-context modeling, efficient reasoning, and agents.">
 	<meta name="twitter:image" content="https://xnhyacinth.github.io/assets/img/huanxuan-liao-profile.jpg">
 	<meta name="twitter:image:alt" content="Huanxuan Liao (廖桓萱) profile photo">
 	<meta name="twitter:creator" content="@xn_hyacinth">
@@ -43,13 +43,25 @@
 	<meta name="google-site-verification" content="GxaFv2GEAd_nIt2RJk2O1uJ6vcNiCshwywxJC2v2kQE">
 	<meta name="msvalidate.01" content="67B155C505E04C672096FC5B5891EF73">
 
-	<meta name="theme-color" content="#f4f6fb" media="(prefers-color-scheme: light)">
+	<meta name="theme-color" content="#f9f7f2" media="(prefers-color-scheme: light)">
 	<meta name="theme-color" content="#0c0e14" media="(prefers-color-scheme: dark)">
-	<meta name="msapplication-TileColor" content="#4338ca">
+	<meta name="msapplication-TileColor" content="#2b6777">
 
+	<script>
+		(function () {
+			document.documentElement.classList.remove('no-js');
+			try {
+				var saved = localStorage.getItem('theme-preference');
+				var theme = (saved === 'dark' || saved === 'light')
+					? saved
+					: (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+				document.documentElement.setAttribute('data-theme', theme);
+			} catch (e) { /* ignore */ }
+		})();
+	</script>
 	<link rel="preload" href="css/style.css" as="style">
 	<link rel="preload" href="js/main.js" as="script">
-	<link rel="preload" href="assets/img/huanxuan-liao-profile.jpg" as="image" fetchpriority="high">
+	<link rel="preload" href="assets/img/huanxuan-liao-profile-640.jpg" as="image" fetchpriority="high">
 
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -91,7 +103,7 @@
 					{
 						"@type": "Organization",
 						"name": "Institute of Automation, Chinese Academy of Sciences",
-						"url": "http://www.ia.cas.cn/"
+						"url": "https://www.ia.ac.cn/"
 					}
 				],
 				"alumniOf": {
@@ -148,6 +160,7 @@
 </head>
 
 <body>
+	<a class="skip-link" href="#biography">Skip to content</a>
 	<!-- Page Loader -->
 	<div class="page-loader" id="pageLoader">
 		<div class="loader-ring"></div>
@@ -182,15 +195,18 @@
 			aria-label="X profile">
 			<i class="fab fa-twitter"></i>
 		</a>
-		<button class="social-sidebar-link back-to-top" id="backToTop" data-tooltip="Back to Top"
+		<button class="social-sidebar-link back-to-top js-back-to-top" id="backToTop" data-tooltip="Back to Top"
 			aria-label="Scroll to top">
 			<i class="fas fa-arrow-up"></i>
 		</button>
 	</aside>
+	<button type="button" class="back-to-top-fab js-back-to-top" aria-label="Scroll to top">
+		<i class="fas fa-arrow-up"></i>
+	</button>
 
 	<nav class="navbar">
 		<div class="navbar-container">
-			<a href="#" class="navbar-brand">
+			<a href="/" class="navbar-brand">
 				<span class="text-gradient">Huanxuan Liao</span>
 			</a>
 			<ul class="navbar-nav">
@@ -207,20 +223,34 @@
 					<div class="nav-dropdown-menu" role="menu" aria-labelledby="navProjectsToggle">
 						<a href="projects/" class="nav-dropdown-item" role="menuitem">All projects</a>
 						<div class="nav-dropdown-divider"></div>
-						<div id="navProjectsList" role="none"></div>
+						<div id="navProjectsList" role="none">
+							<div class="nav-dropdown-label">Survey</div>
+							<a href="projects/Awesome-LCLM/" class="nav-dropdown-item" role="menuitem">Awesome-LCLM</a>
+							<div class="nav-dropdown-divider"></div>
+							<div class="nav-dropdown-label">Projects</div>
+							<a href="projects/ResAdapt/" class="nav-dropdown-item" role="menuitem">ResAdapt</a>
+							<a href="projects/IAG/" class="nav-dropdown-item" role="menuitem">IAG</a>
+							<a href="projects/TAGI/" class="nav-dropdown-item" role="menuitem">TAGI</a>
+							<a href="https://quantaalpha.com/Distill-Yourself/" class="nav-dropdown-item" role="menuitem">Distill Yourself</a>
+							<div class="nav-dropdown-divider"></div>
+							<div class="nav-dropdown-label">Collaborations</div>
+							<a href="https://trae1oung.github.io/DyPRAG/" class="nav-dropdown-item" role="menuitem">DyPRAG</a>
+							<a href="https://wengsyx.github.io/LMTuner/" class="nav-dropdown-item" role="menuitem">LMTuner</a>
+						</div>
 					</div>
 				</li>
 			</ul>
 			<!-- Theme Toggle Button -->
-			<button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+			<button class="theme-toggle" id="themeToggle" aria-label="Switch to dark theme">
 				<i class="fas fa-sun"></i>
 				<i class="fas fa-moon"></i>
 			</button>
-			<button class="mobile-menu-toggle" aria-label="Toggle menu">
+			<button class="mobile-menu-toggle" type="button" aria-label="Toggle menu" aria-expanded="false"
+				aria-controls="mobileNav">
 				<i class="fas fa-bars"></i>
 			</button>
 		</div>
-		<div class="mobile-nav">
+		<div class="mobile-nav" id="mobileNav">
 			<a href="#biography" class="nav-link">Biography</a>
 			<a href="#publications" class="nav-link">Publications</a>
 			<a href="#awards" class="nav-link">Awards</a>
@@ -229,18 +259,29 @@
 			<div class="mobile-nav-group">
 				<span class="mobile-nav-title">Projects</span>
 				<a href="projects/" class="nav-link">All projects</a>
-				<div class="mobile-nav-projects" id="mobileProjectsList"></div>
+				<div class="mobile-nav-projects" id="mobileProjectsList">
+					<span class="mobile-nav-title">Survey</span>
+					<a href="projects/Awesome-LCLM/" class="nav-link">Awesome-LCLM</a>
+					<span class="mobile-nav-title">Projects</span>
+					<a href="projects/ResAdapt/" class="nav-link">ResAdapt</a>
+					<a href="projects/IAG/" class="nav-link">IAG</a>
+					<a href="projects/TAGI/" class="nav-link">TAGI</a>
+					<a href="https://quantaalpha.com/Distill-Yourself/" class="nav-link">Distill Yourself</a>
+					<span class="mobile-nav-title">Collaborations</span>
+					<a href="https://trae1oung.github.io/DyPRAG/" class="nav-link">DyPRAG</a>
+					<a href="https://wengsyx.github.io/LMTuner/" class="nav-link">LMTuner</a>
+				</div>
 			</div>
 		</div>
 	</nav>
 
 	<main>
-		<section id="biography" class="profile-section hero-section" data-animate="animate-fade-in">
+		<section id="biography" class="profile-section hero-section">
 			<div class="container">
 				<div class="profile-card hero-panel hero-panel--split">
 					<div class="hero-column hero-column--media">
 						<div class="profile-image-wrapper">
-							<img src="assets/img/huanxuan-liao-profile.jpg" alt="Huanxuan Liao (廖桓萱) profile photo"
+							<img src="assets/img/huanxuan-liao-profile-640.jpg" alt="Huanxuan Liao (廖桓萱) profile photo"
 								class="profile-image" width="220" height="220" loading="eager" decoding="async"
 								fetchpriority="high">
 							<div class="profile-status-badge" title="Currently researching">
@@ -251,8 +292,8 @@
 						<div class="hero-side-meta">
 							<p class="profile-title hero-lead">
 								PhD student at <a href="https://www.ucas.ac.cn/">UCAS</a> &amp; <a
-									href="http://www.ia.cas.cn/">CASIA</a> — long-context efficiency, cost-aware
-								reasoning, and tool-using agents for LLMs / MLLMs
+									href="https://www.ia.ac.cn/">CASIA</a> — long-context modeling, efficient
+								reasoning, and agents
 							</p>
 							<div class="research-tags" aria-label="Research focus areas">
 								<span class="research-tag tag-llm" data-tooltip="Large Language Models"><i
@@ -282,7 +323,7 @@
 									</a>
 									<a href="https://openreview.net/profile?id=~Huanxuan_Liao1" class="social-link"
 										title="OpenReview" aria-label="OpenReview">
-										<i class="ai ai-academia"></i>
+										<i class="ai ai-open-review"></i>
 									</a>
 									<a href="https://dblp.org/pid/355/1072.html" class="social-link" title="DBLP"
 										aria-label="DBLP">
@@ -325,7 +366,7 @@
 								I am a third-year PhD student in Pattern Recognition and Intelligent Systems at the <a
 									href="https://www.ucas.ac.cn/"><img src="assets/img/ucas.png" alt="UCAS"
 										class="inline-logo">University of Chinese Academy of Sciences (UCAS)</a>
-								and the <a href="http://www.ia.cas.cn/"><img src="assets/img/casia.svg" alt="CASIA"
+								and the <a href="https://www.ia.ac.cn/"><img src="assets/img/casia.svg" alt="CASIA"
 										class="inline-logo">Institute of Automation, Chinese Academy of Sciences
 									(CASIA)</a>,
 								advised by Prof. <a href="https://heshizhu.github.io/">Shizhu He</a> and
@@ -365,7 +406,7 @@
 
 
 
-		<section class="content-section" data-animate="animate-slide-in">
+		<section class="content-section">
 			<div class="section-card reveal">
 				<h2 class="section-title">
 					<i class="fas fa-graduation-cap"></i>
@@ -386,7 +427,7 @@
 							<p class="timeline-org">
 								<img src="assets/img/casia.svg" alt="CASIA" class="school-icon" width="24" height="24"
 									loading="lazy" decoding="async">
-								<a href="http://www.ia.cas.cn/">Institute of Automation, Chinese Academy
+								<a href="https://www.ia.ac.cn/">Institute of Automation, Chinese Academy
 									of Sciences (CASIA)</a>
 								<span class="timeline-date">2023 - Present</span>
 							</p>
@@ -414,7 +455,7 @@
 			</div>
 		</section>
 
-		<section class="content-section" data-animate="animate-slide-in">
+		<section class="content-section">
 			<div class="section-card reveal">
 				<h2 class="section-title">
 					<i class="fas fa-newspaper"></i>
@@ -424,7 +465,7 @@
 					<li class="news-item news-highlight">
 						<span class="news-date">Jul 2026</span>
 						<div class="news-content">
-							<span class="news-type type-paper"><i class="fas fa-home"></i> Project</span>
+							<span class="news-type type-project"><i class="fas fa-home"></i> Project</span>
 							<a href="https://quantaalpha.com/Distill-Yourself/">Distill Yourself</a> project homepage released
 						</div>
 					</li>
@@ -485,7 +526,7 @@
 			</div>
 		</section>
 
-		<section id="publications" class="content-section" data-animate="animate-slide-in">
+		<section id="publications" class="content-section">
 			<div class="section-card reveal">
 				<h2 class="section-title">
 					<i class="fas fa-file-alt"></i>
@@ -541,7 +582,7 @@
 			</div>
 		</section>
 
-		<section id="awards" class="content-section" data-animate="animate-slide-in">
+		<section id="awards" class="content-section">
 			<div class="section-card reveal">
 				<h2 class="section-title">
 					<i class="fas fa-trophy"></i>
@@ -614,7 +655,7 @@
 			</div>
 		</section>
 
-		<section id="services" class="content-section" data-animate="animate-slide-in">
+		<section id="services" class="content-section">
 			<div class="section-card reveal">
 				<h2 class="section-title">
 					<i class="fas fa-hands-helping"></i>
@@ -628,10 +669,11 @@
 						</div>
 						<h3>Conference Reviewing</h3>
 						<ul>
-							<li>ACL ARR 2024, 2025, 2026</li>
+							<li>ACL ARR 2024–2026</li>
+							<li>NeurIPS 2025–2026</li>
 							<li>ICML 2026</li>
-							<li>NeurIPS 2025</li>
-							<li>ICLR 2025</li>
+							<li>COLM 2026</li>
+							<li>ICLR 2025–2026</li>
 							<li>AAAI 2026</li>
 						</ul>
 					</div>
@@ -643,17 +685,13 @@
 						<h3>Community Contributions</h3>
 						<ul class="contribution-list">
 							<li>
-								<a href="https://xnhyacinth.github.io/projects/Awesome-LCLM/"
-									class="github-link no-underline">
+								<a href="/projects/Awesome-LCLM/" class="github-link no-underline">
 									<i class="fas fa-home"></i>
 									Awesome-LLM-Long-Context-Modeling
 								</a>
-								<span class="star-count">&gt; 2.2k <i class="fas fa-star"></i></span>
 								<a href="https://github.com/Xnhyacinth/Awesome-LLM-Long-Context-Modeling"
-									class="github-link no-underline" style="margin-left:0.35rem;opacity:0.85;"
-									aria-label="GitHub repository">
-									<i class="fab fa-github"></i>
-								</a>
+									class="star-count" aria-label="GitHub repository, over 2.2k stars">&gt; 2.2k
+									<i class="fas fa-star" aria-hidden="true"></i></a>
 							</li>
 							<li>
 								<a href="https://quantaalpha.com/Distill-Yourself/"
@@ -691,7 +729,7 @@
 			<p class="footer-links">
 				<a href="mailto:liaohuanxuan2023@ia.ac.cn">Contact</a>
 				<span>|</span>
-				<a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">Back to Top</a>
+				<a href="#biography">Back to Top</a>
 			</p>
 		</div>
 	</footer>
@@ -702,22 +740,34 @@
 			loadProjects();
 			loadPublications();
 			setupFilters();
-			setupYearFilter();
-			setupMetricsAnimation();
 		});
+
+		function escapeHtml(value) {
+			return String(value == null ? '' : value)
+				.replace(/&/g, '&amp;')
+				.replace(/</g, '&lt;')
+				.replace(/>/g, '&gt;')
+				.replace(/"/g, '&quot;')
+				.replace(/'/g, '&#39;');
+		}
+
+		function isSafeUrl(url) {
+			if (!url || url === '#') return false;
+			if (url.charAt(0) === '/' || url.indexOf('./') === 0 || url.indexOf('../') === 0) return true;
+			try {
+				var parsed = new URL(url, window.location.href);
+				return parsed.protocol === 'http:' || parsed.protocol === 'https:' || parsed.protocol === 'mailto:';
+			} catch (e) {
+				return false;
+			}
+		}
 
 		async function loadProjects() {
 			try {
-				const response = await fetch('data/projects.json');
-				if (!response.ok) {
-					throw new Error(`HTTP error! status: ${response.status}`);
-				}
-
+				const response = await fetch('data/projects.json', { cache: 'no-store' });
+				if (!response.ok) throw new Error('HTTP ' + response.status);
 				const data = await response.json();
-				if (!data || !Array.isArray(data.projects)) {
-					throw new Error('Invalid project data format');
-				}
-
+				if (!data || !Array.isArray(data.projects)) throw new Error('Invalid project data');
 				renderProjectNav(data.projects);
 			} catch (error) {
 				console.error('Failed to load projects:', error);
@@ -729,60 +779,74 @@
 			const mobileList = document.getElementById('mobileProjectsList');
 			if (!navList || !mobileList) return;
 
-			const sortedProjects = projects
-				.slice()
-				.sort((a, b) => Number(a.order || 0) - Number(b.order || 0));
+			const sortedProjects = projects.slice().sort(function (a, b) {
+				return Number(a.order || 0) - Number(b.order || 0);
+			});
 
-			const projectLinks = sortedProjects.map(project => {
-				const href = project.url || '#';
-				const label = project.navLabel || project.title || 'Untitled Project';
-				return `<a href="${href}" class="nav-dropdown-item" role="menuitem">${label}</a>`;
-			}).join('');
+			const GROUP_LABEL = {
+				survey: 'Survey',
+				own: 'Projects',
+				collaboration: 'Collaborations'
+			};
 
-			const mobileLinks = sortedProjects.map(project => {
-				const href = project.url || '#';
-				const label = project.navLabel || project.title || 'Untitled Project';
-				return `<a href="${href}" class="nav-link">${label}</a>`;
-			}).join('');
+			navList.replaceChildren();
+			mobileList.replaceChildren();
+			var lastGroup = '';
+			sortedProjects.forEach(function (project) {
+				const group = project.group === 'collaboration'
+					? 'collaboration'
+					: (project.group === 'survey' ? 'survey' : 'own');
+				if (group !== lastGroup) {
+					if (lastGroup) {
+						const divider = document.createElement('div');
+						divider.className = 'nav-dropdown-divider';
+						navList.appendChild(divider);
+					}
+					const label = document.createElement('div');
+					label.className = 'nav-dropdown-label';
+					label.textContent = GROUP_LABEL[group];
+					navList.appendChild(label);
 
-			navList.innerHTML = projectLinks;
-			mobileList.innerHTML = mobileLinks;
+					const mobileLabel = document.createElement('span');
+					mobileLabel.className = 'mobile-nav-title';
+					mobileLabel.textContent = GROUP_LABEL[group];
+					mobileList.appendChild(mobileLabel);
+					lastGroup = group;
+				}
+
+				const href = isSafeUrl(project.url) ? project.url : '#';
+				const labelText = project.navLabel || project.title || 'Untitled Project';
+				const navA = document.createElement('a');
+				navA.href = href;
+				navA.className = 'nav-dropdown-item';
+				navA.setAttribute('role', 'menuitem');
+				navA.textContent = labelText;
+				navList.appendChild(navA);
+
+				const mobileA = document.createElement('a');
+				mobileA.href = href;
+				mobileA.className = 'nav-link';
+				mobileA.textContent = labelText;
+				mobileList.appendChild(mobileA);
+			});
 		}
 
 		async function loadPublications() {
 			try {
 				const response = await fetch('data/publications.json');
-				if (!response.ok) {
-					throw new Error(`HTTP error! status: ${response.status}`);
-				}
+				if (!response.ok) throw new Error('HTTP ' + response.status);
 				const data = await response.json();
-
-				if (!data || typeof data !== 'object') {
-					throw new Error('Invalid data format');
-				}
-
+				if (!data || typeof data !== 'object') throw new Error('Invalid data format');
 				renderPapers(data.publications || [], 'conference-papers');
 				renderPapers(data.preprints || [], 'preprint-papers');
 				renderPapers(data.collaborations || [], 'collaboration-papers');
-
-				console.log('Publications loaded successfully');
-
+				applyPublicationView();
 			} catch (error) {
 				console.error('Failed to load publications:', error);
-
-				const containers = ['conference-papers', 'preprint-papers', 'collaboration-papers'];
-				containers.forEach(id => {
+				['conference-papers', 'preprint-papers', 'collaboration-papers'].forEach(function (id) {
 					const container = document.getElementById(id);
-					if (container) {
-						container.innerHTML = `
-							<li class="publication-item">
-								<p style="color: var(--text-muted); text-align: center;">
-									<i class="fas fa-exclamation-triangle"></i> 
-									Failed to load publications. Please refresh the page.
-								</p>
-							</li>
-						`;
-					}
+					if (!container) return;
+					container.innerHTML = '<li class="publication-item"><p class="pub-load-error"><i class="fas fa-exclamation-triangle"></i> Failed to load publications. Please refresh the page.</p></li>';
 				});
 			}
 		}
@@ -812,222 +876,127 @@
 
 		function renderPapers(papers, containerId) {
 			const container = document.getElementById(containerId);
-			if (!container || !papers || !Array.isArray(papers)) return;
+			if (!container || !Array.isArray(papers)) return;
 
-			if (papers.length === 0) {
-				container.innerHTML = '<li class="publication-item"><p style="color: var(--text-muted); text-align: center;">No publications found.</p></li>';
+			if (!papers.length) {
+				container.innerHTML = '<li class="publication-item"><p class="pub-empty">No publications found.</p></li>';
 				return;
 			}
 
 			const sortedPapers = papers
-				.map((paper, index) => ({ paper, index }))
-				.sort((a, b) => {
+				.map(function (paper, index) { return { paper: paper, index: index }; })
+				.sort(function (a, b) {
 					const yearA = Number(a.paper.year || 0);
 					const yearB = Number(b.paper.year || 0);
 					if (yearA !== yearB) return yearB - yearA;
-
 					const venueA = venueSortPriority(a.paper.venue);
 					const venueB = venueSortPriority(b.paper.venue);
 					if (venueA !== venueB) return venueA - venueB;
-
 					return a.index - b.index;
 				})
-				.map(({ paper }) => paper);
+				.map(function (item) { return item.paper; });
 
-			container.innerHTML = sortedPapers.map(paper => {
-				const paperLink = paper.links && paper.links.paper ? paper.links.paper : '#';
-				const arxivLink = paper.links && paper.links.arxiv ? paper.links.arxiv : (paperLink !== '#' ? paperLink : '#');
-				const codeLink = paper.links && paper.links.code ? paper.links.code : null;
-				const homepageLink = paper.links && paper.links.homepage ? paper.links.homepage : null;
-				const pdfLink = paper.links && paper.links.pdf ? paper.links.pdf : null;
-				const authorsList = paper.authors && Array.isArray(paper.authors) ? paper.authors : [];
-				const keywordsList = paper.keywords && Array.isArray(paper.keywords) ? paper.keywords : [];
+			container.innerHTML = sortedPapers.map(function (paper) {
+				const paperLink = isSafeUrl(paper.links && paper.links.paper) ? paper.links.paper : '';
+				const arxivLink = isSafeUrl(paper.links && paper.links.arxiv) ? paper.links.arxiv : paperLink;
+				const codeLink = isSafeUrl(paper.links && paper.links.code) ? paper.links.code : '';
+				const homepageLink = isSafeUrl(paper.links && paper.links.homepage) ? paper.links.homepage : '';
+				const pdfLink = isSafeUrl(paper.links && paper.links.pdf) ? paper.links.pdf : '';
+				const titleHref = paperLink || arxivLink || '#';
+				const authorsList = Array.isArray(paper.authors) ? paper.authors : [];
+				const keywordsList = Array.isArray(paper.keywords) ? paper.keywords : [];
 				const citations = paper.citations || 0;
-				const isHighlighted = paper.highlighted || false;
+				const paperId = String(paper.id || '').replace(/[^a-zA-Z0-9_-]/g, '');
+				const authorsHtml = authorsList.map(function (author) {
+					return author === 'Huanxuan Liao' ? '<strong>' + escapeHtml(author) + '</strong>' : escapeHtml(author);
+				}).join(', ');
+				const keywordsHtml = keywordsList.map(function (keyword) {
+					return '<span class="keyword-tag">' + escapeHtml(keyword) + '</span>';
+				}).join('');
 
-				return `
-                <li class="publication-item card-hover ${isHighlighted ? 'highlighted-paper' : ''}" data-animate="animate-fade-in" data-year="${paper.year || ''}">
-                    ${isHighlighted ? '<div class="highlight-badge"><i class="fas fa-star"></i> Featured</div>' : ''}
-                    <div class="publication-header">
-                        <h3 class="publication-title">
-                            <a href="${paperLink !== '#' ? paperLink : arxivLink}">${paper.title || 'Untitled'}</a>
-                        </h3>
-                        <div class="publication-authors">
-                            ${authorsList.map(author =>
-					author === "Huanxuan Liao" ?
-						`<strong>${author}</strong>` :
-						author
-				).join(', ')}
-                        </div>
-                        <div class="publication-venue">
-                            <span class="news-badge pub-venue-badge ${venueBadgeClass(paper.venue)}">${paper.venue || 'Unknown Venue'}</span>
-                            ${paper.role && paper.role === 'Core Contributor' ? `<span class="role-badge">${paper.role}</span>` : ''}
-                            <span class="year-badge">${paper.year || ''}</span>
-                            ${citations > 0 ? `<span class="citation-badge"><i class="fas fa-quote-right"></i> ${citations}</span>` : ''}
-                        </div>
-                    </div>
-                    <div class="publication-links">
-                        ${arxivLink !== '#' ? `<a href="${arxivLink}" class="pub-link"><i class="ai ai-arxiv"></i> arXiv</a>` : ''}
-                        ${pdfLink ? `<a href="${pdfLink}" class="pub-link"><i class="fas fa-file-pdf"></i> PDF</a>` : ''}
-                        ${codeLink ? `<a href="${codeLink}" class="pub-link"><i class="fab fa-github"></i> Code</a>` : ''}
-                        ${homepageLink ? `<a href="${homepageLink}" class="pub-link"><i class="fas fa-home"></i> Project</a>` : ''}
-                        ${paper.abstract ? `<button class="pub-link abstract-toggle" onclick="toggleAbstract(event, '${paper.id}')" aria-label="Toggle abstract">
-                            <i class="fas fa-file-alt"></i> Abstract
-                        </button>` : ''}
-                    </div>
-                    ${paper.abstract ? `<div class="publication-abstract" id="abstract-${paper.id}" hidden>
-                        <p>${paper.abstract}</p>
-                        ${keywordsList.length > 0 ? `<div class="keywords">
-                            <strong>Keywords:</strong>
-                            ${keywordsList.map(keyword => `<span class="keyword-tag">${keyword}</span>`).join('')}
-                        </div>` : ''}
-                    </div>` : ''}
-                </li>
-                `;
+				return '<li class="publication-item card-hover' + (paper.highlighted ? ' highlighted-paper' : '') + '" data-year="' + escapeHtml(paper.year || '') + '">' +
+					(paper.highlighted ? '<div class="highlight-badge"><i class="fas fa-star"></i> Featured</div>' : '') +
+					'<div class="publication-header"><h3 class="publication-title"><a href="' + escapeHtml(titleHref) + '">' + escapeHtml(paper.title || 'Untitled') + '</a></h3>' +
+					'<div class="publication-authors">' + authorsHtml + '</div>' +
+					'<div class="publication-venue"><span class="news-badge pub-venue-badge ' + venueBadgeClass(paper.venue) + '">' + escapeHtml(paper.venue || 'Unknown Venue') + '</span>' +
+					(paper.role ? '<span class="role-badge">' + escapeHtml(paper.role) + '</span>' : '') +
+					'<span class="year-badge">' + escapeHtml(paper.year || '') + '</span>' +
+					(citations > 0 ? '<span class="citation-badge"><i class="fas fa-quote-right"></i> ' + escapeHtml(citations) + '</span>' : '') +
+					'</div></div><div class="publication-links">' +
+					(arxivLink ? '<a href="' + escapeHtml(arxivLink) + '" class="pub-link"><i class="ai ai-arxiv"></i> arXiv</a>' : '') +
+					(pdfLink ? '<a href="' + escapeHtml(pdfLink) + '" class="pub-link"><i class="fas fa-file-pdf"></i> PDF</a>' : '') +
+					(codeLink ? '<a href="' + escapeHtml(codeLink) + '" class="pub-link"><i class="fab fa-github"></i> Code</a>' : '') +
+					(homepageLink ? '<a href="' + escapeHtml(homepageLink) + '" class="pub-link"><i class="fas fa-home"></i> Project</a>' : '') +
+					(paper.abstract && paperId ? '<button type="button" class="pub-link abstract-toggle" data-paper-id="' + escapeHtml(paperId) + '" aria-expanded="false"><i class="fas fa-file-alt"></i> Abstract</button>' : '') +
+					'</div>' +
+					(paper.abstract && paperId ? '<div class="publication-abstract" id="abstract-' + escapeHtml(paperId) + '" hidden><p>' + escapeHtml(paper.abstract) + '</p>' +
+						(keywordsList.length ? '<div class="keywords"><strong>Keywords:</strong> ' + keywordsHtml + '</div>' : '') +
+						'</div>' : '') +
+					'</li>';
 			}).join('');
+
+			container.querySelectorAll('.abstract-toggle').forEach(function (btn) {
+				btn.addEventListener('click', function (e) {
+					toggleAbstract(e, btn.getAttribute('data-paper-id'));
+				});
+			});
 		}
 
 		function toggleAbstract(e, paperId) {
-			const abstract = document.getElementById(`abstract-${paperId}`);
+			const abstract = document.getElementById('abstract-' + paperId);
 			const button = e.target.closest('button');
 			if (!abstract || !button) return;
-
 			const isHidden = abstract.hidden;
 			abstract.hidden = !isHidden;
+			button.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
 			button.innerHTML = isHidden
 				? '<i class="fas fa-eye-slash"></i> Hide Abstract'
 				: '<i class="fas fa-file-alt"></i> Abstract';
 		}
 
+		let activePubFilter = 'all';
+		let pubSearchQuery = '';
+
 		function setupFilters() {
 			const filterButtons = document.querySelectorAll('.filter-btn');
-			const searchInput = document.querySelector('.search-input');
-
-			filterButtons.forEach(button => {
+			const searchInput = document.getElementById('pub-search');
+			filterButtons.forEach(function (button) {
 				button.addEventListener('click', function () {
-					filterButtons.forEach(btn => {
+					filterButtons.forEach(function (btn) {
 						btn.classList.remove('active');
 						btn.setAttribute('aria-pressed', 'false');
 					});
 					this.classList.add('active');
 					this.setAttribute('aria-pressed', 'true');
-
-					const filter = this.dataset.filter;
-					filterPublications(filter);
+					activePubFilter = this.dataset.filter || 'all';
+					applyPublicationView();
 				});
 			});
-
 			if (searchInput) {
 				searchInput.addEventListener('input', function () {
-					const query = this.value.toLowerCase();
-					searchPublications(query);
+					pubSearchQuery = this.value.trim().toLowerCase();
+					applyPublicationView();
 				});
 			}
 		}
 
-		function setupYearFilter() {
-			const yearSelect = document.getElementById('yearFilter');
-			if (yearSelect) {
-				yearSelect.addEventListener('change', function () {
-					const year = this.value;
-					filterByYear(year);
+		function applyPublicationView() {
+			document.querySelectorAll('.publication-category').forEach(function (category) {
+				const catMatch = activePubFilter === 'all' || category.dataset.category === activePubFilter;
+				if (!catMatch) {
+					category.style.display = 'none';
+					return;
+				}
+				let anyVisible = false;
+				category.querySelectorAll('.publication-item').forEach(function (paper) {
+					const hay = (paper.textContent || '').toLowerCase();
+					const match = !pubSearchQuery || hay.indexOf(pubSearchQuery) !== -1;
+					paper.style.display = match ? '' : 'none';
+					if (match) anyVisible = true;
 				});
-			}
-		}
-
-		function filterPublications(filter) {
-			const categories = document.querySelectorAll('.publication-category');
-
-			categories.forEach(category => {
-				if (filter === 'all') {
-					category.style.display = 'block';
-				} else {
-					const categoryType = category.dataset.category;
-					if (categoryType === filter) {
-						category.style.display = 'block';
-					} else {
-						category.style.display = 'none';
-					}
-				}
+				category.style.display = anyVisible ? 'block' : 'none';
 			});
-		}
-
-		function filterByYear(year) {
-			const papers = document.querySelectorAll('.publication-item');
-			papers.forEach(paper => {
-				if (year === 'all') {
-					paper.style.display = '';
-				} else {
-					const paperYear = paper.dataset.year;
-					paper.style.display = paperYear === year ? '' : 'none';
-				}
-			});
-		}
-
-		function searchPublications(query) {
-			const papers = document.querySelectorAll('.publication-item');
-
-			papers.forEach(paper => {
-				const title = paper.querySelector('.publication-title')?.textContent.toLowerCase() || '';
-				const authors = paper.querySelector('.publication-authors')?.textContent.toLowerCase() || '';
-				const venue = paper.querySelector('.publication-venue')?.textContent.toLowerCase() || '';
-
-				const isMatch = title.includes(query) ||
-					authors.includes(query) ||
-					venue.includes(query);
-
-				paper.style.display = isMatch ? '' : 'none';
-
-				if (isMatch && query) {
-					paper.classList.add('animate-fade-in');
-				}
-			});
-		}
-
-		function setupMetricsAnimation() {
-			const metrics = document.querySelectorAll('.metric-value');
-			const observerOptions = {
-				threshold: 0.5,
-				rootMargin: '0px'
-			};
-
-			const observer = new IntersectionObserver((entries) => {
-				entries.forEach(entry => {
-					if (entry.isIntersecting) {
-						const target = entry.target;
-						const count = parseInt(target.dataset.count);
-						animateCount(target, count);
-						observer.unobserve(target);
-					}
-				});
-			}, observerOptions);
-
-			metrics.forEach(metric => observer.observe(metric));
-		}
-
-		function animateCount(element, target) {
-			const duration = 2000;
-			const start = 0;
-			const startTime = performance.now();
-
-			function update(currentTime) {
-				const elapsed = currentTime - startTime;
-				const progress = Math.min(elapsed / duration, 1);
-				const easeOutQuart = 1 - Math.pow(1 - progress, 4);
-				const current = Math.floor(start + (target - start) * easeOutQuart);
-
-				element.textContent = current.toLocaleString();
-
-				if (progress < 1) {
-					requestAnimationFrame(update);
-				} else {
-					element.textContent = target.toLocaleString() + '+';
-				}
-			}
-
-			requestAnimationFrame(update);
 		}
 	</script>
 </body>
-
 </html>
