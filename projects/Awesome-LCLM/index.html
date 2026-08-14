@@ -116,19 +116,22 @@
         <select id="mobileChapter"></select>
       </div>
 
-      <div class="lclm-toolbar">
-        <div>
-          <h2 class="lclm-chapter-title" id="chapterTitle">Loading…</h2>
-          <p style="margin:0.35rem 0 0;font-size:0.82rem;color:#5b6475;">
-            Source:
-            <a id="chapterSource" href="#" rel="noopener">view on GitHub</a>
-          </p>
+      <div class="lclm-sticky-head">
+        <div class="lclm-toolbar">
+          <div>
+            <h2 class="lclm-chapter-title" id="chapterTitle">Loading…</h2>
+            <p class="lclm-source">
+              Source:
+              <a id="chapterSource" href="#" rel="noopener">view on GitHub</a>
+            </p>
+          </div>
+          <div class="lclm-search">
+            <span class="lclm-search-icon" aria-hidden="true"><i class="fas fa-search"></i></span>
+            <label class="sr-only" for="paperSearch">Search papers in chapter</label>
+            <input id="paperSearch" type="search" placeholder="Filter this chapter…" autocomplete="off">
+          </div>
         </div>
-        <div class="lclm-search">
-          <span class="lclm-search-icon" aria-hidden="true"><i class="fas fa-search"></i></span>
-          <label class="sr-only" for="paperSearch">Search papers in chapter</label>
-          <input id="paperSearch" type="search" placeholder="Filter this chapter…" autocomplete="off">
-        </div>
+        <nav id="subNav" class="lclm-subnav" hidden aria-label="Subsections in this chapter"></nav>
       </div>
 
       <div id="chapterStatus" class="lclm-status">Loading chapter…</div>

@@ -79,6 +79,7 @@ body.lclm-reader {
   grid-template-columns: var(--lclm-sidebar) minmax(0, 1fr);
   gap: 1rem;
   align-items: start;
+  scroll-margin-top: 0.6rem;
 }
 
 .lclm-sidebar {
@@ -138,6 +139,26 @@ body.lclm-reader {
   font-weight: 700;
 }
 
+.lclm-nav-btn.is-sub {
+  padding: 0.38rem 0.65rem 0.38rem 1.35rem;
+  font-size: 0.8rem;
+  color: var(--lclm-muted);
+}
+
+.lclm-nav-btn.is-nested {
+  padding-left: 2.05rem;
+  font-size: 0.76rem;
+}
+
+.lclm-nav-btn.is-sub.is-active,
+.lclm-nav-btn.is-nested.is-active {
+  color: var(--lclm-accent);
+}
+
+.lclm-sub-list {
+  margin: 0.1rem 0 0.45rem;
+}
+
 .lclm-main {
   min-width: 0;
   background: var(--lclm-surface);
@@ -147,15 +168,29 @@ body.lclm-reader {
   padding: 1rem 1.1rem 1.4rem;
 }
 
+.lclm-sticky-head {
+  position: sticky;
+  top: 0.6rem;
+  z-index: 6;
+  background: var(--lclm-surface);
+  margin: -0.15rem -0.15rem 0.85rem;
+  padding: 0.15rem 0.15rem 0.85rem;
+  border-bottom: 1px solid var(--lclm-line);
+}
+
 .lclm-toolbar {
   display: flex;
   flex-wrap: wrap;
   gap: 0.65rem;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 1rem;
-  padding-bottom: 0.85rem;
-  border-bottom: 1px solid var(--lclm-line);
+  margin-bottom: 0.7rem;
+}
+
+.lclm-source {
+  margin: 0.35rem 0 0;
+  font-size: 0.82rem;
+  color: var(--lclm-muted);
 }
 
 .lclm-chapter-title {
@@ -205,6 +240,58 @@ body.lclm-reader {
   color: #9b1c1c;
 }
 
+.lclm-subnav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.lclm-subnav-label {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--lclm-muted);
+}
+
+.lclm-subnav-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.lclm-subchip {
+  border: 1px solid var(--lclm-line);
+  background: #f8f9fc;
+  color: var(--lclm-ink);
+  border-radius: 999px;
+  padding: 0.32rem 0.7rem;
+  font: inherit;
+  font-size: 0.8rem;
+  line-height: 1.25;
+  cursor: pointer;
+  text-align: left;
+}
+
+.lclm-subchip:hover {
+  border-color: rgba(52, 87, 178, 0.4);
+  color: var(--lclm-accent);
+}
+
+.lclm-subchip.is-active {
+  background: var(--lclm-accent-soft);
+  border-color: transparent;
+  color: var(--lclm-accent);
+  font-weight: 700;
+}
+
+.lclm-subchip.is-nested {
+  border-radius: 10px;
+  font-size: 0.75rem;
+  padding: 0.28rem 0.6rem;
+  background: #fff;
+}
+
 .lclm-subhead {
   margin: 1.35rem 0 0.65rem;
   font-size: 1.05rem;
@@ -212,6 +299,29 @@ body.lclm-reader {
   color: var(--lclm-ink);
   padding-top: 0.35rem;
   border-top: 1px dashed var(--lclm-line);
+  scroll-margin-top: 7.5rem;
+}
+
+.lclm-subhead.is-nested {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #3f4758;
+  border-top: 0;
+  margin-top: 0.85rem;
+}
+
+.lclm-subhead-btn {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  text-align: left;
+}
+
+.lclm-subhead-btn:hover {
+  color: var(--lclm-accent);
 }
 
 .lclm-subhead:first-child {
