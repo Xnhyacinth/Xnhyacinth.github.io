@@ -346,12 +346,6 @@ body.lclm-reader {
   border-radius: 12px;
   padding: 0.85rem 0.95rem;
   background: #fff;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
-}
-
-.lclm-paper:hover {
-  border-color: rgba(43, 103, 119, 0.35);
-  box-shadow: 0 6px 18px rgba(20, 28, 45, 0.06);
 }
 
 .lclm-paper-title {
@@ -368,7 +362,6 @@ body.lclm-reader {
 
 .lclm-paper-title a:hover {
   color: var(--lclm-accent);
-  text-decoration: underline;
 }
 
 .lclm-paper-meta {

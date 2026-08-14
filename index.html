@@ -65,7 +65,7 @@
 
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons/css/academicons.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/css/academicons.min.css">
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -231,11 +231,11 @@
 							<a href="projects/ResAdapt/" class="nav-dropdown-item" role="menuitem">ResAdapt</a>
 							<a href="projects/IAG/" class="nav-dropdown-item" role="menuitem">IAG</a>
 							<a href="projects/TAGI/" class="nav-dropdown-item" role="menuitem">TAGI</a>
-							<a href="https://quantaalpha.com/Distill-Yourself/" class="nav-dropdown-item" role="menuitem">Distill Yourself</a>
+							<a href="https://quantaalpha.com/Distill-Yourself/" class="nav-dropdown-item" role="menuitem">Distill Yourself <i class="fas fa-up-right-from-square" aria-hidden="true"></i></a>
 							<div class="nav-dropdown-divider"></div>
 							<div class="nav-dropdown-label">Collaborations</div>
-							<a href="https://trae1oung.github.io/DyPRAG/" class="nav-dropdown-item" role="menuitem">DyPRAG</a>
-							<a href="https://wengsyx.github.io/LMTuner/" class="nav-dropdown-item" role="menuitem">LMTuner</a>
+							<a href="https://trae1oung.github.io/DyPRAG/" class="nav-dropdown-item" role="menuitem">DyPRAG <i class="fab fa-github" aria-hidden="true"></i></a>
+							<a href="https://wengsyx.github.io/LMTuner/" class="nav-dropdown-item" role="menuitem">LMTuner <i class="fab fa-github" aria-hidden="true"></i></a>
 						</div>
 					</div>
 				</li>
@@ -266,10 +266,10 @@
 					<a href="projects/ResAdapt/" class="nav-link">ResAdapt</a>
 					<a href="projects/IAG/" class="nav-link">IAG</a>
 					<a href="projects/TAGI/" class="nav-link">TAGI</a>
-					<a href="https://quantaalpha.com/Distill-Yourself/" class="nav-link">Distill Yourself</a>
+					<a href="https://quantaalpha.com/Distill-Yourself/" class="nav-link">Distill Yourself <i class="fas fa-up-right-from-square" aria-hidden="true"></i></a>
 					<span class="mobile-nav-title">Collaborations</span>
-					<a href="https://trae1oung.github.io/DyPRAG/" class="nav-link">DyPRAG</a>
-					<a href="https://wengsyx.github.io/LMTuner/" class="nav-link">LMTuner</a>
+					<a href="https://trae1oung.github.io/DyPRAG/" class="nav-link">DyPRAG <i class="fab fa-github" aria-hidden="true"></i></a>
+					<a href="https://wengsyx.github.io/LMTuner/" class="nav-link">LMTuner <i class="fab fa-github" aria-hidden="true"></i></a>
 				</div>
 			</div>
 		</div>
@@ -323,7 +323,11 @@
 									</a>
 									<a href="https://openreview.net/profile?id=~Huanxuan_Liao1" class="social-link"
 										title="OpenReview" aria-label="OpenReview">
-										<i class="ai ai-open-review"></i>
+										<svg class="icon-openreview" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+											<rect x="2.5" y="2.5" width="19" height="19" rx="3.2" fill="none" stroke="currentColor" stroke-width="2"/>
+											<rect x="6.2" y="6.2" width="11.6" height="4.6" rx="1" fill="currentColor"/>
+											<rect x="6.2" y="13.2" width="11.6" height="4.6" rx="1" fill="currentColor"/>
+										</svg>
 									</a>
 									<a href="https://dblp.org/pid/355/1072.html" class="social-link" title="DBLP"
 										aria-label="DBLP">
@@ -501,8 +505,8 @@
 						<span class="news-date">Oct 2025</span>
 						<div class="news-content">
 							<span class="news-type type-award"><i class="fas fa-trophy"></i> Award</span>
-							Awarded <strong>National Scholarship</strong> by Ministry of Education at CASIA <span
-								class="news-badge badge-premier">🏆</span>
+							Awarded <strong>National Scholarship</strong> by Ministry of Education at CASIA
+							<span class="news-badge badge-premier">Scholarship</span>
 						</div>
 					</li>
 					<li class="news-item">
@@ -534,7 +538,7 @@
 				</h2>
 				<p class="section-description">
 					<a href="https://scholar.google.com/citations?user=sRcWOKUAAAAJ" class="google-scholar-link">
-						<i class="ai ai-google-scholar ai-2x"></i>
+						<i class="ai ai-google-scholar" aria-hidden="true"></i>
 						View on Google Scholar
 					</a>
 					<span class="citation-info">(* stands for equal contribution)</span>
@@ -578,6 +582,7 @@
 						<ul class="publication-list" id="collaboration-papers">
 						</ul>
 					</div>
+					<p class="pub-empty" id="pub-empty" hidden>No publications match your search.</p>
 				</div>
 			</div>
 		</section>
@@ -668,13 +673,13 @@
 							<i class="fas fa-user-check"></i>
 						</div>
 						<h3>Conference Reviewing</h3>
-						<ul>
-							<li>ACL ARR 2024–2026</li>
-							<li>NeurIPS 2025–2026</li>
-							<li>ICML 2026</li>
-							<li>COLM 2026</li>
-							<li>ICLR 2025–2026</li>
-							<li>AAAI 2026</li>
+						<ul class="review-venues">
+							<li><span class="review-name">ACL ARR</span> <span class="review-years">2024&ndash;2026</span></li>
+							<li><span class="review-name">NeurIPS</span> <span class="review-years">2025&ndash;2026</span></li>
+							<li><span class="review-name">ICML</span> <span class="review-years">2026</span></li>
+							<li><span class="review-name">COLM</span> <span class="review-years">2026</span></li>
+							<li><span class="review-name">ICLR</span> <span class="review-years">2025&ndash;2026</span></li>
+							<li><span class="review-name">AAAI</span> <span class="review-years">2026</span></li>
 						</ul>
 					</div>
 
@@ -753,13 +758,42 @@
 
 		function isSafeUrl(url) {
 			if (!url || url === '#') return false;
-			if (url.charAt(0) === '/' || url.indexOf('./') === 0 || url.indexOf('../') === 0) return true;
 			try {
-				var parsed = new URL(url, window.location.href);
+				var parsed = new URL(String(url).trim(), window.location.href);
 				return parsed.protocol === 'http:' || parsed.protocol === 'https:' || parsed.protocol === 'mailto:';
 			} catch (e) {
 				return false;
 			}
+		}
+
+		function offsiteIcon(href) {
+			try {
+				var parsed = new URL(href, window.location.href);
+				if (parsed.origin === window.location.origin) return null;
+				var host = parsed.hostname;
+				var icon = document.createElement('i');
+				icon.setAttribute('aria-hidden', 'true');
+				icon.className = (host === 'github.com' || host.slice(-10) === '.github.io')
+					? 'fab fa-github'
+					: 'fas fa-up-right-from-square';
+				return icon;
+			} catch (e) {
+				return null;
+			}
+		}
+
+		function appendNavLink(parent, href, label, className, role) {
+			var a = document.createElement('a');
+			a.href = href;
+			a.className = className;
+			if (role) a.setAttribute('role', role);
+			a.appendChild(document.createTextNode(label));
+			var icon = offsiteIcon(href);
+			if (icon) {
+				a.appendChild(document.createTextNode(' '));
+				a.appendChild(icon);
+			}
+			parent.appendChild(a);
 		}
 
 		async function loadProjects() {
@@ -779,61 +813,58 @@
 			const mobileList = document.getElementById('mobileProjectsList');
 			if (!navList || !mobileList) return;
 
+			const GROUP_ORDER = [
+				{ id: 'survey', label: 'Survey' },
+				{ id: 'own', label: 'Projects' },
+				{ id: 'collaboration', label: 'Collaborations' }
+			];
+
+			function groupId(project) {
+				return project.group === 'collaboration' ? 'collaboration'
+					: (project.group === 'survey' ? 'survey' : 'own');
+			}
+
 			const sortedProjects = projects.slice().sort(function (a, b) {
 				return Number(a.order || 0) - Number(b.order || 0);
 			});
 
-			const GROUP_LABEL = {
-				survey: 'Survey',
-				own: 'Projects',
-				collaboration: 'Collaborations'
-			};
-
 			navList.replaceChildren();
 			mobileList.replaceChildren();
-			var lastGroup = '';
-			sortedProjects.forEach(function (project) {
-				const group = project.group === 'collaboration'
-					? 'collaboration'
-					: (project.group === 'survey' ? 'survey' : 'own');
-				if (group !== lastGroup) {
-					if (lastGroup) {
-						const divider = document.createElement('div');
-						divider.className = 'nav-dropdown-divider';
-						navList.appendChild(divider);
-					}
-					const label = document.createElement('div');
-					label.className = 'nav-dropdown-label';
-					label.textContent = GROUP_LABEL[group];
-					navList.appendChild(label);
 
-					const mobileLabel = document.createElement('span');
-					mobileLabel.className = 'mobile-nav-title';
-					mobileLabel.textContent = GROUP_LABEL[group];
-					mobileList.appendChild(mobileLabel);
-					lastGroup = group;
+			GROUP_ORDER.forEach(function (g) {
+				const items = sortedProjects.filter(function (project) {
+					return groupId(project) === g.id;
+				});
+				if (!items.length) return;
+
+				if (navList.childElementCount) {
+					const divider = document.createElement('div');
+					divider.className = 'nav-dropdown-divider';
+					navList.appendChild(divider);
 				}
 
-				const href = isSafeUrl(project.url) ? project.url : '#';
-				const labelText = project.navLabel || project.title || 'Untitled Project';
-				const navA = document.createElement('a');
-				navA.href = href;
-				navA.className = 'nav-dropdown-item';
-				navA.setAttribute('role', 'menuitem');
-				navA.textContent = labelText;
-				navList.appendChild(navA);
+				const label = document.createElement('div');
+				label.className = 'nav-dropdown-label';
+				label.textContent = g.label;
+				navList.appendChild(label);
 
-				const mobileA = document.createElement('a');
-				mobileA.href = href;
-				mobileA.className = 'nav-link';
-				mobileA.textContent = labelText;
-				mobileList.appendChild(mobileA);
+				const mobileLabel = document.createElement('span');
+				mobileLabel.className = 'mobile-nav-title';
+				mobileLabel.textContent = g.label;
+				mobileList.appendChild(mobileLabel);
+
+				items.forEach(function (project) {
+					const href = isSafeUrl(project.url) ? project.url : '#';
+					const labelText = project.navLabel || project.title || 'Untitled Project';
+					appendNavLink(navList, href, labelText, 'nav-dropdown-item', 'menuitem');
+					appendNavLink(mobileList, href, labelText, 'nav-link');
+				});
 			});
 		}
 
 		async function loadPublications() {
 			try {
-				const response = await fetch('data/publications.json');
+				const response = await fetch('data/publications.json', { cache: 'no-store' });
 				if (!response.ok) throw new Error('HTTP ' + response.status);
 				const data = await response.json();
 				if (!data || typeof data !== 'object') throw new Error('Invalid data format');
@@ -868,8 +899,8 @@
 		function venueSortPriority(venue) {
 			const v = String(venue || '').toLowerCase();
 			if (v.includes('main')) return 0;
-			if (v.includes('aaai') || v.includes('acl') || v.includes('neurips') || v.includes('coling') || v.includes('icml') || v.includes('iclr') || v.includes('emnlp') || v.includes('ccks')) return 1;
 			if (v.includes('findings')) return 2;
+			if (v.includes('aaai') || v.includes('acl') || v.includes('neurips') || v.includes('coling') || v.includes('icml') || v.includes('iclr') || v.includes('emnlp') || v.includes('ccks')) return 1;
 			if (v.includes('arxiv') || v.includes('preprint')) return 3;
 			return 4;
 		}
@@ -913,8 +944,11 @@
 				const keywordsHtml = keywordsList.map(function (keyword) {
 					return '<span class="keyword-tag">' + escapeHtml(keyword) + '</span>';
 				}).join('');
+				const searchHay = [paper.title, authorsList.join(' '), paper.venue, paper.year, paper.role]
+					.join(' ')
+					.toLowerCase();
 
-				return '<li class="publication-item card-hover' + (paper.highlighted ? ' highlighted-paper' : '') + '" data-year="' + escapeHtml(paper.year || '') + '">' +
+				return '<li class="publication-item' + (paper.highlighted ? ' highlighted-paper' : '') + '" data-year="' + escapeHtml(paper.year || '') + '" data-search="' + escapeHtml(searchHay) + '">' +
 					(paper.highlighted ? '<div class="highlight-badge"><i class="fas fa-star"></i> Featured</div>' : '') +
 					'<div class="publication-header"><h3 class="publication-title"><a href="' + escapeHtml(titleHref) + '">' + escapeHtml(paper.title || 'Untitled') + '</a></h3>' +
 					'<div class="publication-authors">' + authorsHtml + '</div>' +
@@ -981,21 +1015,25 @@
 		}
 
 		function applyPublicationView() {
+			let anyVisible = false;
 			document.querySelectorAll('.publication-category').forEach(function (category) {
 				const catMatch = activePubFilter === 'all' || category.dataset.category === activePubFilter;
 				if (!catMatch) {
 					category.style.display = 'none';
 					return;
 				}
-				let anyVisible = false;
+				let catVisible = false;
 				category.querySelectorAll('.publication-item').forEach(function (paper) {
-					const hay = (paper.textContent || '').toLowerCase();
+					const hay = (paper.getAttribute('data-search') || '').toLowerCase();
 					const match = !pubSearchQuery || hay.indexOf(pubSearchQuery) !== -1;
 					paper.style.display = match ? '' : 'none';
-					if (match) anyVisible = true;
+					if (match) catVisible = true;
 				});
-				category.style.display = anyVisible ? 'block' : 'none';
+				category.style.display = catVisible ? 'block' : 'none';
+				if (catVisible) anyVisible = true;
 			});
+			const empty = document.getElementById('pub-empty');
+			if (empty) empty.hidden = anyVisible;
 		}
 	</script>
 </body>

@@ -154,26 +154,12 @@ html {
   text-decoration: none;
   font-weight: 500;
   transition: var(--transition);
-  position: relative;
-}
-
-.author-block a::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--accent-color);
-  transition: var(--transition);
+  border-radius: 3px;
 }
 
 .author-block a:hover {
   color: var(--accent-hover) !important;
-}
-
-.author-block a:hover::after {
-  width: 100%;
+  background-color: var(--chip-bg, rgba(43, 103, 119, 0.09));
 }
 
 /* Publication Links / Buttons */
@@ -203,9 +189,7 @@ html {
 }
 
 .link-block a:hover {
-  transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
-  filter: brightness(1.1);
 }
 
 .link-block a .icon {
@@ -333,12 +317,6 @@ html {
   padding: 1.5rem;
   box-shadow: var(--shadow-md);
   border: 1px solid rgba(0,0,0,0.04);
-  transition: var(--transition);
-}
-
-.figure-frame:hover {
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-2px);
 }
 
 .figure-frame img {
@@ -393,7 +371,6 @@ html {
 }
 
 .copy-btn:hover {
-  transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(43, 103, 119, 0.35);
 }
 
@@ -421,12 +398,6 @@ html {
   padding: 2rem;
   margin: 2rem 0;
   box-shadow: var(--shadow-md);
-  transition: var(--transition);
-}
-
-.figure-container:hover {
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-2px);
 }
 
 .figure-container img {
@@ -739,7 +710,9 @@ html {
 
 .footer a:hover {
   color: #fff;
-  text-decoration: underline;
+  background-color: rgba(255, 255, 255, 0.12);
+  border-radius: 3px;
+  text-decoration: none;
 }
 
 .footer .icon-link {

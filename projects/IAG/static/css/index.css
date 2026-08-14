@@ -264,7 +264,9 @@ body {
 
 .publication-authors a:hover {
   color: #52ab98;
-  text-decoration: underline;
+  background-color: var(--chip-bg, rgba(43, 103, 119, 0.09));
+  border-radius: 3px;
+  text-decoration: none;
 }
 
 .publication-links {
@@ -279,7 +281,6 @@ body {
 }
 
 .publication-links .button:hover {
-  transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(43, 103, 119, 0.35);
 }
 
@@ -361,12 +362,6 @@ body {
   padding: 1.5rem;
   box-shadow: var(--shadow-md);
   border: 1px solid rgba(0,0,0,0.04);
-  transition: all 0.3s ease;
-}
-
-.figure-frame:hover {
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-2px);
 }
 
 .figure-frame img {
@@ -432,7 +427,6 @@ body {
 }
 
 .copy-btn:hover {
-  transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(43, 103, 119, 0.35);
 }
 
@@ -455,7 +449,9 @@ body {
 
 .footer a:hover {
   color: white;
-  text-decoration: underline;
+  background-color: rgba(255, 255, 255, 0.12);
+  border-radius: 3px;
+  text-decoration: none;
 }
 
 /* Reveal Animation */
@@ -511,27 +507,4 @@ body {
   .section {
     padding: 3rem 0;
   }
-}
-
-/* Button styles */
-.button {
-  transition: all 0.3s ease;
-}
-
-.button:hover {
-  transform: translateY(-2px);
-}
-
-/* Link hover effects */
-a {
-  transition: all 0.2s ease;
-}
-
-/* Image hover effects */
-img {
-  transition: all 0.3s ease;
-}
-
-.figure-frame:hover img {
-  transform: scale(1.01);
 }

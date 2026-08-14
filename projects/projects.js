@@ -18,9 +18,8 @@
 
   function isSafeUrl(url) {
     if (!url || url === '#') return false;
-    if (url.charAt(0) === '/' || url.indexOf('./') === 0 || url.indexOf('../') === 0) return true;
     try {
-      var parsed = new URL(url, window.location.href);
+      var parsed = new URL(String(url).trim(), window.location.href);
       return parsed.protocol === 'http:' || parsed.protocol === 'https:';
     } catch (e) {
       return false;
@@ -28,11 +27,10 @@
   }
 
   function isOffsite(url) {
-    if (!url || url.charAt(0) === '/' || url.indexOf('./') === 0 || url.indexOf('../') === 0) return false;
     try {
       return new URL(url, window.location.href).origin !== window.location.origin;
     } catch (e) {
-      return false;
+      return true;
     }
   }
 
