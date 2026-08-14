@@ -3,6 +3,7 @@
     "https://raw.githubusercontent.com/Xnhyacinth/Awesome-LLM-Long-Context-Modeling/main/papers/";
   const GH_BASE =
     "https://github.com/Xnhyacinth/Awesome-LLM-Long-Context-Modeling/blob/main/papers/";
+  const PAGE_HASHES = new Set(["papers-reader", "contribute", "BibTeX"]);
 
   const GROUPS = [
     {
@@ -58,17 +59,14 @@
     list: document.getElementById("paperList"),
     search: document.getElementById("paperSearch"),
     source: document.getElementById("chapterSource"),
+    subNav: document.getElementById("subNav"),
+    shell: document.getElementById("papers-reader"),
   };
 
+  let activeFile = flatChapters[0][0];
+  let activeSubKey = "";
   let activeBlocks = [];
-
-  function escapeHtml(s) {
-    return String(s)
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;");
-  }
+  let activeSubs = [];
 
   function isSafeUrl(url) {
     try {
@@ -77,6 +75,41 @@
     } catch {
       return false;
     }
+  }
+
+  function subsectionKey(name) {
+    const m = String(name).match(/^(\d+(?:\.\d+)+)/);
+    if (m) return m[1];
+    return String(name)
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-|-$/g, "");
+  }
+
+  function chapterSlug(file) {
+    return file.replace(/\.md$/, "");
+  }
+
+  function parseHash() {
+    const hash = (location.hash || "").replace(/^#/, "");
+    if (!hash || PAGE_HASHES.has(hash)) {
+      return { file: flatChapters[0][0], subKey: "" };
+    }
+    const [chapterPart, subPart = ""] = hash.split("/");
+    const withMd = chapterPart.endsWith(".md") ? chapterPart : `${chapterPart}.md`;
+    const hit = flatChapters.find(
+      ([f]) => f === withMd || f.replace(/\.md$/, "") === chapterPart
+    );
+    return {
+      file: hit ? hit[0] : flatChapters[0][0],
+      subKey: decodeURIComponent(subPart).trim(),
+    };
+  }
+
+  function setHash(file, subKey) {
+    const base = chapterSlug(file);
+    const next = subKey ? `#${base}/${subKey}` : `#${base}`;
+    if (location.hash !== next) history.replaceState(null, "", next);
   }
 
   function buildNav() {
@@ -94,7 +127,7 @@
         btn.className = "lclm-nav-btn";
         btn.dataset.file = file;
         btn.textContent = title;
-        btn.addEventListener("click", () => selectChapter(file));
+        btn.addEventListener("click", () => selectChapter(file, ""));
         wrap.appendChild(btn);
       });
       frag.appendChild(wrap);
@@ -107,11 +140,11 @@
       opt.textContent = title;
       els.mobile.appendChild(opt);
     });
-    els.mobile.addEventListener("change", () => selectChapter(els.mobile.value));
+    els.mobile.addEventListener("change", () => selectChapter(els.mobile.value, ""));
   }
 
-  function setActiveButtons(file) {
-    els.nav.querySelectorAll(".lclm-nav-btn").forEach((btn) => {
+  function setActiveChapterButton(file) {
+    els.nav.querySelectorAll(".lclm-nav-btn[data-file]").forEach((btn) => {
       btn.classList.toggle("is-active", btn.dataset.file === file);
     });
     els.mobile.value = file;
@@ -119,14 +152,23 @@
 
   function parseMarkdown(md) {
     const lines = md.split(/\r?\n/);
-    const blocks = [];
+    const papers = [];
+    const subsections = [];
     let currentSub = null;
+    let currentNested = null;
     let chapterTitle = "";
 
-    // 1. [**Title.**](url) _Authors._ Venue. badges...
-    // Title / author trailing periods are optional in older entries.
     const paperRe =
       /^\d+\.\s+\[\*\*(.+?)\.?\*\*\]\(([^)]+)\)\s*(?:_(.+?)_\.?\s*)?(.*)$/;
+
+    function pushHeading(name, level, parentName) {
+      subsections.push({
+        name,
+        key: subsectionKey(name),
+        level,
+        parentKey: parentName ? subsectionKey(parentName) : "",
+      });
+    }
 
     for (const raw of lines) {
       const line = raw.trimEnd();
@@ -134,8 +176,15 @@
         chapterTitle = line.replace(/^#\s+/, "").trim();
         continue;
       }
+      if (/^#####\s+/.test(line)) {
+        currentNested = line.replace(/^#####\s+/, "").trim();
+        pushHeading(currentNested, 3, currentSub);
+        continue;
+      }
       if (/^####\s+/.test(line)) {
         currentSub = line.replace(/^####\s+/, "").trim();
+        currentNested = null;
+        pushHeading(currentSub, 2, null);
         continue;
       }
       if (/^#{1,3}\s+/.test(line)) continue;
@@ -148,6 +197,7 @@
       const url = m[2].trim();
       const authors = (m[3] || "").trim();
       const rest = (m[4] || "").trim();
+      if (!isSafeUrl(url)) continue;
 
       const venue = rest
         .replace(/!\[[^\]]*\]\([^)]+\)/g, "")
@@ -165,10 +215,13 @@
         }
       }
 
-      if (!isSafeUrl(url)) continue;
-
-      blocks.push({
-        subsection: currentSub,
+      const heading = currentNested || currentSub;
+      papers.push({
+        subsection: heading,
+        parentSection: currentSub,
+        subKey: heading ? subsectionKey(heading) : "",
+        parentKey: currentSub ? subsectionKey(currentSub) : "",
+        nested: Boolean(currentNested),
         title,
         url,
         authors,
@@ -177,17 +230,80 @@
       });
     }
 
-    return { chapterTitle, papers: blocks };
+    return { chapterTitle, papers, subsections };
   }
 
-  function renderPapers(papers, query) {
+  function paperInSub(p, subKey) {
+    if (!subKey) return true;
+    return (
+      p.subKey === subKey ||
+      p.parentKey === subKey ||
+      (p.subKey && p.subKey.startsWith(`${subKey}.`))
+    );
+  }
+
+  function renderSubNav(subsections, subKey) {
+    els.subNav.replaceChildren();
+    if (!subsections.length) {
+      els.subNav.hidden = true;
+      return;
+    }
+    els.subNav.hidden = false;
+
+    const label = document.createElement("div");
+    label.className = "lclm-subnav-label";
+    label.textContent = "In this chapter";
+    els.subNav.appendChild(label);
+
+    const chips = document.createElement("div");
+    chips.className = "lclm-subnav-chips";
+
+    function addChip(text, key, nested) {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "lclm-subchip" + (nested ? " is-nested" : "");
+      btn.textContent = text;
+      btn.classList.toggle("is-active", key === subKey);
+      btn.addEventListener("click", () => selectChapter(activeFile, key));
+      chips.appendChild(btn);
+    }
+
+    addChip("All", "", false);
+    subsections.forEach((s) => addChip(s.name, s.key, s.level >= 3));
+    els.subNav.appendChild(chips);
+  }
+
+  function renderSidebarSubs(file, subsections, subKey) {
+    els.nav.querySelectorAll(".lclm-sub-list").forEach((el) => el.remove());
+    const chapterBtn = els.nav.querySelector(`.lclm-nav-btn[data-file="${file}"]`);
+    if (!chapterBtn || !subsections.length) return;
+
+    const list = document.createElement("div");
+    list.className = "lclm-sub-list";
+    subsections.forEach((s) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className =
+        "lclm-nav-btn is-sub" + (s.level >= 3 ? " is-nested" : "");
+      btn.textContent = s.name;
+      btn.classList.toggle("is-active", s.key === subKey);
+      btn.addEventListener("click", (ev) => {
+        ev.stopPropagation();
+        selectChapter(file, s.key);
+      });
+      list.appendChild(btn);
+    });
+    chapterBtn.insertAdjacentElement("afterend", list);
+  }
+
+  function renderPapers(papers, query, subKey) {
     const q = (query || "").trim().toLowerCase();
-    const filtered = !q
-      ? papers
-      : papers.filter((p) => {
-          const hay = `${p.title} ${p.authors} ${p.venue} ${p.subsection || ""}`.toLowerCase();
-          return hay.includes(q);
-        });
+    const filtered = papers.filter((p) => {
+      if (!paperInSub(p, subKey)) return false;
+      if (!q) return true;
+      const hay = `${p.title} ${p.authors} ${p.venue} ${p.subsection || ""} ${p.parentSection || ""}`.toLowerCase();
+      return hay.includes(q);
+    });
 
     els.list.replaceChildren();
 
@@ -195,8 +311,8 @@
       els.status.className = "lclm-status";
       els.status.hidden = false;
       els.status.textContent = q
-        ? "No papers match this search in the current chapter."
-        : "No papers found in this chapter.";
+        ? "No papers match this search in the current view."
+        : "No papers found in this view.";
       return;
     }
 
@@ -208,8 +324,14 @@
     filtered.forEach((p) => {
       if (p.subsection && p.subsection !== lastSub) {
         const h = document.createElement("h3");
-        h.className = "lclm-subhead";
-        h.textContent = p.subsection;
+        h.className = "lclm-subhead" + (p.nested ? " is-nested" : "");
+        h.id = `sub-${p.subKey.replace(/\./g, "-")}`;
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "lclm-subhead-btn";
+        btn.textContent = p.subsection;
+        btn.addEventListener("click", () => selectChapter(activeFile, p.subKey));
+        h.appendChild(btn);
         wrap.appendChild(h);
         lastSub = p.subsection;
       }
@@ -265,7 +387,16 @@
     els.list.appendChild(wrap);
   }
 
-  async function loadChapter(file) {
+  function refreshView() {
+    renderSubNav(activeSubs, activeSubKey);
+    renderSidebarSubs(activeFile, activeSubs, activeSubKey);
+    setActiveChapterButton(activeFile);
+    renderPapers(activeBlocks, els.search.value, activeSubKey);
+  }
+
+  let initialLoad = true;
+
+  async function loadChapter(file, subKey) {
     const meta = flatChapters.find((c) => c[0] === file) || [file, file];
     els.title.textContent = meta[1];
     els.source.href = GH_BASE + file;
@@ -273,6 +404,8 @@
     els.status.className = "lclm-status";
     els.status.textContent = "Loading chapter…";
     els.list.replaceChildren();
+    els.subNav.hidden = true;
+    els.subNav.replaceChildren();
 
     try {
       let md = cache.get(file);
@@ -285,9 +418,18 @@
       const parsed = parseMarkdown(md);
       if (parsed.chapterTitle) els.title.textContent = parsed.chapterTitle;
       activeBlocks = parsed.papers;
-      renderPapers(activeBlocks, els.search.value);
+      activeSubs = parsed.subsections;
+      const known = new Set(activeSubs.map((s) => s.key));
+      activeSubKey = known.has(subKey) ? subKey : "";
+      setHash(file, activeSubKey);
+      refreshView();
+      if (!initialLoad || activeSubKey) {
+        els.shell.scrollIntoView({ behavior: initialLoad ? "auto" : "smooth", block: "start" });
+      }
     } catch (err) {
       activeBlocks = [];
+      activeSubs = [];
+      activeSubKey = "";
       els.status.hidden = false;
       els.status.className = "lclm-status is-error";
       els.status.replaceChildren();
@@ -298,33 +440,40 @@
       a.textContent = "Open on GitHub";
       els.status.appendChild(a);
       els.status.appendChild(document.createTextNode(" instead."));
+    } finally {
+      initialLoad = false;
     }
   }
 
-  function selectChapter(file) {
-    setActiveButtons(file);
-    history.replaceState(null, "", `#${file.replace(/\.md$/, "")}`);
-    loadChapter(file);
+  function selectChapter(file, subKey) {
+    const chapterChanged = file !== activeFile;
+    activeFile = file;
+    activeSubKey = subKey || "";
+    setHash(file, activeSubKey);
+    setActiveChapterButton(file);
+    if (chapterChanged || !cache.has(file)) {
+      loadChapter(file, activeSubKey);
+    } else {
+      const known = new Set(activeSubs.map((s) => s.key));
+      if (activeSubKey && !known.has(activeSubKey)) activeSubKey = "";
+      refreshView();
+      els.shell.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   }
 
-  function initFromHash() {
-    const hash = (location.hash || "").replace(/^#/, "");
-    if (!hash || hash === "papers-reader" || hash === "contribute" || hash === "BibTeX") {
-      return flatChapters[0][0];
-    }
-    const withMd = hash.endsWith(".md") ? hash : `${hash}.md`;
-    const hit = flatChapters.find(
-      ([f]) => f === withMd || f.replace(/\.md$/, "") === hash
-    );
-    return hit ? hit[0] : flatChapters[0][0];
+  function applyLocation() {
+    const { file, subKey } = parseHash();
+    selectChapter(file, subKey);
   }
 
   buildNav();
-  els.search.addEventListener("input", () => renderPapers(activeBlocks, els.search.value));
-  selectChapter(initFromHash());
+  els.search.addEventListener("input", () => {
+    renderPapers(activeBlocks, els.search.value, activeSubKey);
+  });
+  applyLocation();
   window.addEventListener("hashchange", () => {
     const hash = (location.hash || "").replace(/^#/, "");
-    if (hash === "papers-reader" || hash === "contribute" || hash === "BibTeX") return;
-    selectChapter(initFromHash());
+    if (PAGE_HASHES.has(hash)) return;
+    applyLocation();
   });
 })();
