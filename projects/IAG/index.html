@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
@@ -18,29 +18,10 @@
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
   <link rel="stylesheet" href="static/css/bulma.min.css">
-  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
   <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="static/css/index.css">
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
-  <script defer src="static/js/fontawesome.all.min.js"></script>
-  <script src="static/js/bulma-carousel.min.js"></script>
-  <script src="static/js/bulma-slider.min.js"></script>
-  <script src="static/js/index.js"></script>
-
-  <script>
-    function navigateToProject(select) {
-      const url = select.value;
-      if (url) {
-        window.location.href = url;
-      }
-    }
-  </script>
-
+  <link rel="stylesheet" href="../shared/project.css">
 </head>
 
 <body>
@@ -48,18 +29,22 @@
     <label class="sr-only" for="project-jump-iag">Jump to project</label>
     <div class="project-select-shell">
       <span class="project-select-icon" aria-hidden="true"><i class="fas fa-layer-group"></i></span>
-      <select id="project-jump-iag" class="project-select" onchange="navigateToProject(this)"
-        title="Navigate between projects">
+      <select id="project-jump-iag" class="project-select" data-current="iag" title="Navigate between projects">
         <option value="" disabled>Navigate</option>
-        <optgroup label="Projects">
-          <option value="https://xnhyacinth.github.io/">Homepage</option>
-          <option value="https://xnhyacinth.github.io/projects/">Projects hub</option>
-          <option value="https://xnhyacinth.github.io/projects/IAG/" selected>IAG</option>
-          <option value="https://xnhyacinth.github.io/projects/TAGI/">TAGI</option>
-          <option value="https://xnhyacinth.github.io/projects/ResAdapt/">ResAdapt</option>
-          <option value="https://xnhyacinth.github.io/projects/Awesome-LCLM/">Awesome-LCLM</option>
+        <optgroup label="Site">
+          <option value="/">Homepage</option>
+          <option value="/projects/">All projects</option>
         </optgroup>
-        <optgroup label="External">
+        <optgroup label="Survey">
+          <option value="/projects/Awesome-LCLM/">Awesome-LCLM</option>
+        </optgroup>
+        <optgroup label="Projects">
+          <option value="/projects/ResAdapt/">ResAdapt</option>
+          <option value="/projects/IAG/" selected>IAG</option>
+          <option value="/projects/TAGI/">TAGI</option>
+          <option value="https://quantaalpha.com/Distill-Yourself/">Distill Yourself</option>
+        </optgroup>
+        <optgroup label="Collaborations">
           <option value="https://trae1oung.github.io/DyPRAG/">DyPRAG</option>
           <option value="https://wengsyx.github.io/LMTuner/">LMTuner</option>
         </optgroup>
@@ -88,15 +73,15 @@
               <span class="author-block">
                 <a href="https://nlpr.ia.ac.cn/cip/shizhuhe/" target="_self">Shizhu He</a><sup>&dagger;1,2</sup>,</span>
               <span class="author-block">
-                <a href="#" target="_self">Yao Xu</a><sup>1,2</sup>,</span>
+                <span>Yao Xu</span><sup>1,2</sup>,</span>
               <span class="author-block">
-                <a href="#" target="_self">Yuanzhe Zhang</a><sup>1,2</sup>,</span>
+                <span>Yuanzhe Zhang</span><sup>1,2</sup>,</span>
               <span class="author-block">
-                <a href="#" target="_self">Shengping Liu</a><sup>3</sup>,</span>
+                <span>Shengping Liu</span><sup>3</sup>,</span>
               <span class="author-block">
                 <a href="https://nlpr.ia.ac.cn/cip/~liukang/index.html" target="_self">Kang Liu</a><sup>1,2</sup>,</span>
               <span class="author-block">
-                <a href="#" target="_self">Jun Zhao</a><sup>1,2</sup></span>
+                <span>Jun Zhao</span><sup>1,2</sup></span>
             </div>
 
             <div class="is-size-5 publication-authors reveal">
@@ -163,7 +148,7 @@
             </div>
             <div class="content has-text-justified">
               <p>
-                Retrieval-Augmented-Generation and Gener-ation-Augmented-Generation have been proposed to enhance the
+                Retrieval-Augmented-Generation and Generation-Augmented-Generation have been proposed to enhance the
                 knowledge required for question answering over Large Language Models (LLMs). However, the former relies on
                 external resources, and both require incorporating explicit documents into the context, which increases
                 execution costs and susceptibility to noise data. Recent works indicate that LLMs have modeled rich
@@ -184,124 +169,106 @@
     </div>
   </section>
 
-  <section class="section" id="IAG Overview">
+  <section class="section" id="overview">
     <div class="container is-max-desktop">
       <div class="section-header-center reveal">
         <span class="section-tag">Architecture</span>
         <h2 class="title is-3"><span class="rainbow-text">IAG</span> Overview</h2>
         <p class="section-subtitle">Comparison with RAG and GAG approaches</p>
       </div>
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column is-full-width">
-            <div class="content has-text-justified reveal">
-              <p>
-                Compared with RAG and GAG, the proposed IAG eschews external resources, generates a shorter context
-                (explicitly imagination) and creates flexible adapters (implicitly imagination) for each question.
-              </p>
-              <div class="figure-container">
-                <div class="figure-frame">
-                  <img id="pipeline" width="100%" src="static/images/over.png" alt="IAG Overview">
-                </div>
-                <div class="figure-caption">
-                  <span class="caption-number">Figure 1</span>
-                  <span class="caption-text">Overview of IAG framework compared with RAG and GAG approaches.</span>
-                </div>
-              </div>
-            </div>
+      <div class="content has-text-justified reveal">
+        <p>
+          Compared with RAG and GAG, the proposed IAG eschews external resources, generates a shorter context
+          (explicitly imagination) and creates flexible adapters (implicitly imagination) for each question.
+        </p>
+        <div class="figure-container">
+          <div class="figure-frame">
+            <img width="100%" src="static/images/over.png" alt="IAG Overview">
+          </div>
+          <div class="figure-caption">
+            <span class="caption-number">Figure 1</span>
+            <span class="caption-text">Overview of IAG framework compared with RAG and GAG approaches.</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="IAG Model">
+  <section class="section" id="model">
     <div class="container is-max-desktop">
       <div class="section-header-center reveal">
         <span class="section-tag">Model Design</span>
         <h2 class="title is-3"><span class="rainbow-text">IAG</span> Model</h2>
         <p class="section-subtitle">Explicit and Implicit Imagination modules</p>
       </div>
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column is-full-width">
-            <div class="content has-text-justified reveal">
-              <p>
-                IMcQA comprises two main modules. Explicit imagination with long context compression learns to imagine a
-                short dummy document. And implicit imagination with the hypernetwork models' hidden knowledge that
-                learns a shared knowledge feature projection across questions. The hypernetwork is trained to
-                generate lightweight LoRA modules, aiming to align the question and the internal knowledge. Besides,
-                there is long context distillation in training, which learns the teacher's rich representations to
-                compensate for missing knowledge in imagination.
-              </p>
-              <div class="figure-container">
-                <div class="figure-frame">
-                  <img id="pipeline" width="100%" src="static/images/model.png" alt="IAG Model">
-                </div>
-                <div class="figure-caption">
-                  <span class="caption-number">Figure 2</span>
-                  <span class="caption-text">Detailed architecture of IAG with explicit and implicit imagination modules.</span>
-                </div>
-              </div>
-            </div>
+      <div class="content has-text-justified reveal">
+        <p>
+          IMcQA comprises two main modules. Explicit imagination with long context compression learns to imagine a
+          short dummy document. And implicit imagination with the hypernetwork models' hidden knowledge that
+          learns a shared knowledge feature projection across questions. The hypernetwork is trained to
+          generate lightweight LoRA modules, aiming to align the question and the internal knowledge. Besides,
+          there is long context distillation in training, which learns the teacher's rich representations to
+          compensate for missing knowledge in imagination.
+        </p>
+        <div class="figure-container">
+          <div class="figure-frame">
+            <img width="100%" src="static/images/model.png" alt="IAG Model">
+          </div>
+          <div class="figure-caption">
+            <span class="caption-number">Figure 2</span>
+            <span class="caption-text">Detailed architecture of IAG with explicit and implicit imagination modules.</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section results-section" id="IAG Evaluation">
+  <section class="section results-section" id="evaluation">
     <div class="container is-max-desktop">
       <div class="section-header-center reveal">
         <span class="section-tag">Experiments</span>
         <h2 class="title is-3"><span class="rainbow-text">IAG</span> Evaluation</h2>
         <p class="section-subtitle">Results on NQ, TQA, and WQ datasets</p>
       </div>
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column is-full-width">
-            <div class="content has-text-justified reveal">
-              <p>
-                Results of our main supervised setting experiment on NQ, TQA, WQ datasets. The backbone model is
-                T5-large(800M) and T5-xl(3b).
-              </p>
-              <div class="figure-container">
-                <div class="figure-frame">
-                  <img id="pipeline" width="100%" src="static/images/main.png" alt="Main Results">
-                </div>
-                <div class="figure-caption">
-                  <span class="caption-number">Figure 3</span>
-                  <span class="caption-text">Supervised setting results on NQ, TQA, and WQ datasets with T5 models.</span>
-                </div>
-              </div>
+      <div class="content has-text-justified reveal">
+        <p>
+          Results of our main supervised setting experiment on NQ, TQA, WQ datasets. The backbone model is
+          T5-large(800M) and T5-xl(3b).
+        </p>
+        <div class="figure-container">
+          <div class="figure-frame">
+            <img width="100%" src="static/images/main.png" alt="Main Results">
+          </div>
+          <div class="figure-caption">
+            <span class="caption-number">Figure 3</span>
+            <span class="caption-text">Supervised setting results on NQ, TQA, and WQ datasets with T5 models.</span>
+          </div>
+        </div>
 
-              <p>
-                Results of our main zero-shot setting experiment on NQ, TQA, WQ datasets. The backbone model is
-                Llama2-7b and Llama2-13b.
-              </p>
-              <div class="figure-container">
-                <div class="figure-frame">
-                  <img id="pipeline" width="100%" src="static/images/zero.png" alt="Zero-shot Results">
-                </div>
-                <div class="figure-caption">
-                  <span class="caption-number">Figure 4</span>
-                  <span class="caption-text">Zero-shot setting results on NQ, TQA, and WQ datasets with Llama2 models.</span>
-                </div>
-              </div>
+        <p>
+          Results of our main zero-shot setting experiment on NQ, TQA, WQ datasets. The backbone model is
+          Llama2-7b and Llama2-13b.
+        </p>
+        <div class="figure-container">
+          <div class="figure-frame">
+            <img width="100%" src="static/images/zero.png" alt="Zero-shot Results">
+          </div>
+          <div class="figure-caption">
+            <span class="caption-number">Figure 4</span>
+            <span class="caption-text">Zero-shot setting results on NQ, TQA, and WQ datasets with Llama2 models.</span>
+          </div>
+        </div>
 
-              <p>
-                Results of our OOD results.
-              </p>
-              <div class="figure-container">
-                <div class="figure-frame">
-                  <img id="pipeline" width="100%" src="static/images/ood.png" alt="OOD Results">
-                </div>
-                <div class="figure-caption">
-                  <span class="caption-number">Figure 5</span>
-                  <span class="caption-text">Out-of-distribution generalization results.</span>
-                </div>
-              </div>
-            </div>
+        <p>
+          Results of our OOD results.
+        </p>
+        <div class="figure-container">
+          <div class="figure-frame">
+            <img width="100%" src="static/images/ood.png" alt="OOD Results">
+          </div>
+          <div class="figure-caption">
+            <span class="caption-number">Figure 5</span>
+            <span class="caption-text">Out-of-distribution generalization results.</span>
           </div>
         </div>
       </div>
@@ -324,7 +291,7 @@
   pages={1333--1352},
   year={2025}
 }</code></pre>
-            <button class="copy-btn" onclick="copyBibtex()">
+            <button type="button" class="copy-btn">
               <i class="fas fa-copy"></i> Copy
             </button>
           </div>
@@ -339,13 +306,13 @@
         <div class="column is-8">
           <div class="content">
             <p>
-              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template"
-                target="_self">Academic Project Page Template</a> which was adopted from the <a
-                href="https://nerfies.github.io" target="_self">Nerfies</a> project page.
-              You are free to borrow the of this website, we just ask that you link back to this page in the footer.
-              <br> This website is licensed under a <a rel="license"
-                href="http://creativecommons.org/licenses/by-sa/4.0/" target="_self">Creative
-                Commons Attribution-ShareAlike 4.0 International License</a>.
+              This page was built using the
+              <a href="https://github.com/eliahuhorwitz/Academic-project-page-template">Academic
+                Project Page Template</a>
+              (from <a href="https://nerfies.github.io">Nerfies</a>).
+              <br>
+              Licensed under
+              <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
             </p>
           </div>
         </div>
@@ -353,54 +320,7 @@
     </div>
   </footer>
 
-  <script>
-    function copyBibtex() {
-      const bibtex = `@inproceedings{liao2025awakening,
-  title={Awakening Augmented Generation: Learning to Awaken Internal Knowledge of Large Language Models for Question Answering},
-  author={Liao, Huanxuan and He, Shizhu and Xu, Yao and Zhang, Yuanzhe and Liu, Shengping and Liu, Kang and Zhao, Jun},
-  booktitle={Proceedings of the 31st International Conference on Computational Linguistics},
-  pages={1333--1352},
-  year={2025}
-}`;
-      navigator.clipboard.writeText(bibtex).then(() => {
-        const btn = document.querySelector('.copy-btn');
-        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
-        setTimeout(() => {
-          btn.innerHTML = '<i class="fas fa-copy"></i> Copy';
-        }, 2000);
-      });
-    }
-
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-        }
-      });
-    }, observerOptions);
-
-    document.querySelectorAll('.reveal').forEach(el => {
-      observer.observe(el);
-    });
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      });
-    });
-  </script>
+  <script src="../shared/project-nav.js"></script>
 
 </body>
 

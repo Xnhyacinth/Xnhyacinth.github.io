@@ -1,19 +1,29 @@
-/* Projects hub — academic landing (professional project index) */
+/* Projects hub */
 
 :root {
-  --hub-bg: #eef1f8;
+  color-scheme: light dark;
+  --hub-bg: #f9f7f2;
   --hub-surface: #ffffff;
-  --hub-ink: #12151c;
-  --hub-muted: #5a6270;
-  --hub-accent: #2c4a8c;
-  --hub-accent2: #5c3d8a;
-  --hub-border: rgba(18, 21, 28, 0.07);
-  --hub-shadow: 0 4px 28px rgba(18, 28, 45, 0.07);
-  --hub-shadow-hover: 0 20px 48px rgba(18, 28, 45, 0.11);
-  --hub-radius: 16px;
-  --hub-ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --hub-ink: #2d3436;
+  --hub-muted: #4a5258;
+  --hub-accent: #2b6777;
+  --hub-accent2: #52ab98;
+  --hub-border: rgba(45, 52, 54, 0.1);
+  --hub-shadow: 0 4px 20px rgba(45, 52, 54, 0.05);
+  --hub-radius: 14px;
   --hub-font-display: "Instrument Sans", "Noto Sans", -apple-system, BlinkMacSystemFont, sans-serif;
   --hub-font-body: "Noto Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+[data-theme="dark"] {
+  --hub-bg: #0c0e14;
+  --hub-surface: #181c28;
+  --hub-ink: #e8eaf0;
+  --hub-muted: #b4b9c7;
+  --hub-accent: #93c5fd;
+  --hub-accent2: #a5b4fc;
+  --hub-border: rgba(148, 163, 184, 0.18);
+  --hub-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
 }
 
 *,
@@ -41,49 +51,34 @@ body.hub-page {
   inset: 0;
   pointer-events: none;
   background:
-    radial-gradient(ellipse 90% 55% at 50% -15%, rgba(44, 74, 140, 0.14), transparent 55%),
-    radial-gradient(ellipse 70% 45% at 100% 30%, rgba(92, 61, 138, 0.09), transparent 50%),
-    radial-gradient(ellipse 55% 40% at 0% 85%, rgba(44, 74, 140, 0.07), transparent 50%);
+    radial-gradient(ellipse 90% 55% at 50% -15%, rgba(43, 103, 119, 0.1), transparent 55%),
+    radial-gradient(ellipse 70% 45% at 100% 30%, rgba(82, 171, 152, 0.07), transparent 50%);
   z-index: 0;
-}
-
-.hub-noise {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.035;
-  z-index: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 .hub-wrap {
   position: relative;
   z-index: 1;
-  max-width: 1120px;
+  max-width: 1080px;
   margin: 0 auto;
-  padding: 3rem 1.5rem 4.5rem;
+  padding: 2.75rem 1.5rem 4rem;
 }
 
 .hub-back {
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
-  margin-bottom: 1.75rem;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
   font-size: 0.9rem;
   font-weight: 600;
   color: var(--hub-accent);
   text-decoration: none;
-  padding: 0.4rem 0.2rem;
+  padding: 0.35rem 0.15rem;
   border-radius: 8px;
-  transition:
-    color 0.2s ease,
-    transform 0.25s var(--hub-ease),
-    background 0.2s ease;
 }
 
 .hub-back:hover {
   color: var(--hub-accent2);
-  background: rgba(44, 74, 140, 0.06);
 }
 
 .hub-back:focus-visible {
@@ -91,19 +86,9 @@ body.hub-page {
   outline-offset: 3px;
 }
 
-.hub-back-icon {
-  display: inline-block;
-  transition: transform 0.25s var(--hub-ease);
-}
-
-.hub-back:hover .hub-back-icon {
-  transform: translateX(-3px);
-}
-
 .hub-header {
   text-align: center;
-  margin-bottom: 3rem;
-  animation: hubFade 0.75s var(--hub-ease) both;
+  margin-bottom: 2.5rem;
 }
 
 .hub-kicker {
@@ -111,94 +96,95 @@ body.hub-page {
   font-family: var(--hub-font-display);
   font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--hub-accent);
-  margin-bottom: 0.85rem;
-  padding: 0.35rem 0.85rem;
+  margin-bottom: 0.75rem;
+  padding: 0.3rem 0.8rem;
   border-radius: 999px;
-  background: rgba(44, 74, 140, 0.08);
-  border: 1px solid rgba(44, 74, 140, 0.12);
+  background: rgba(43, 103, 119, 0.08);
+  border: 1px solid rgba(43, 103, 119, 0.12);
 }
 
 .hub-title {
-  margin: 0 0 0.65rem;
+  margin: 0 0 0.55rem;
   font-family: var(--hub-font-display);
-  font-size: clamp(1.85rem, 4.2vw, 2.45rem);
+  font-size: clamp(1.8rem, 4vw, 2.35rem);
   font-weight: 700;
   letter-spacing: -0.03em;
-  color: var(--hub-ink);
-  line-height: 1.15;
+  line-height: 1.2;
 }
 
 .hub-sub {
   margin: 0 auto;
   max-width: 38rem;
-  font-size: 1.05rem;
+  font-size: 1.02rem;
+  color: var(--hub-muted);
+  line-height: 1.6;
+}
+
+.hub-group {
+  margin-bottom: 2.25rem;
+}
+
+.hub-group-title {
+  margin: 0 0 0.9rem;
+  font-family: var(--hub-font-display);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   color: var(--hub-muted);
 }
 
 .hub-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 700px) {
+  .hub-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hub-group--survey .hub-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 980px) {
+  .hub-group--own .hub-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .hub-group--survey .hub-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hub-group--collaboration .hub-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 44rem;
+  }
 }
 
 .hub-card {
   display: flex;
   flex-direction: column;
-  position: relative;
   background: var(--hub-surface);
   border: 1px solid var(--hub-border);
   border-radius: var(--hub-radius);
-  padding: 1.6rem 1.6rem 1.4rem;
+  padding: 1.35rem 1.4rem 1.2rem;
   text-decoration: none;
   color: inherit;
   box-shadow: var(--hub-shadow);
-  overflow: hidden;
-  isolation: isolate;
-  transition:
-    transform 0.4s var(--hub-ease),
-    box-shadow 0.4s var(--hub-ease),
-    border-color 0.3s ease;
-  animation: hubFade 0.7s var(--hub-ease) both;
-  animation-delay: calc(var(--card-index, 0) * 0.08s + 0.06s);
-}
-
-.hub-card::before {
-  content: "";
-  position: absolute;
-  inset: 0 0 auto 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--hub-accent), var(--hub-accent2));
-  transform: scaleX(0.35);
-  transform-origin: left;
-  opacity: 0.65;
-  transition:
-    transform 0.45s var(--hub-ease),
-    opacity 0.3s ease;
-}
-.hub-card:hover::before {
-  transform: scaleX(1);
-  opacity: 1;
+  border-top: 3px solid var(--hub-accent);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .hub-card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--hub-shadow-hover);
-  border-color: rgba(44, 74, 140, 0.18);
-}
-
-.hub-card.is-external::after {
-  content: "External";
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--hub-muted);
+  border-color: rgba(43, 103, 119, 0.22);
+  box-shadow: 0 8px 28px rgba(45, 52, 54, 0.08);
 }
 
 .hub-card:focus-visible {
@@ -206,67 +192,76 @@ body.hub-page {
   outline-offset: 3px;
 }
 
+.hub-card-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.65rem;
+}
+
 .hub-card-badge {
-  align-self: flex-start;
   font-family: var(--hub-font-display);
   font-size: 0.66rem;
   font-weight: 700;
-  letter-spacing: 0.09em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: 0.32rem 0.6rem;
-  border-radius: 8px;
-  background: linear-gradient(135deg, rgba(44, 74, 140, 0.1), rgba(92, 61, 138, 0.08));
+  padding: 0.28rem 0.55rem;
+  border-radius: 7px;
+  background: rgba(43, 103, 119, 0.1);
   color: var(--hub-accent);
-  margin-bottom: 0.75rem;
+}
+
+.hub-card-stamp {
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--hub-muted);
 }
 
 .hub-card-title {
-  margin: 0 0 0.5rem;
+  margin: 0 0 0.4rem;
   font-family: var(--hub-font-display);
-  font-size: 1.22rem;
+  font-size: 1.15rem;
   font-weight: 700;
   letter-spacing: -0.02em;
-  color: var(--hub-ink);
   line-height: 1.35;
 }
 
+.hub-card-lead {
+  margin: 0 0 0.45rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--hub-ink);
+  line-height: 1.4;
+}
+
 .hub-card-meta {
-  margin: 0 0 0.85rem;
+  margin: 0 0 0.7rem;
   font-size: 0.8rem;
   font-weight: 600;
   color: var(--hub-accent);
-  opacity: 0.92;
 }
 
 .hub-card-desc {
-  margin: 0 0 1.15rem;
+  margin: 0 0 1rem;
   flex: 1;
-  font-size: 0.93rem;
+  font-size: 0.92rem;
   color: var(--hub-muted);
   line-height: 1.6;
 }
 
 .hub-card-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
   font-family: var(--hub-font-display);
-  font-size: 0.88rem;
+  font-size: 0.86rem;
   font-weight: 700;
   color: var(--hub-accent);
 }
 
-.hub-card-cta span {
-  transition: transform 0.3s var(--hub-ease);
-}
-
-.hub-card:hover .hub-card-cta span {
-  transform: translateX(5px);
-}
-
 .hub-footer {
-  margin-top: 3.25rem;
-  padding-top: 1.75rem;
+  margin-top: 2.75rem;
+  padding-top: 1.5rem;
   border-top: 1px solid var(--hub-border);
   text-align: center;
   font-size: 0.84rem;
@@ -277,42 +272,34 @@ body.hub-page {
   color: var(--hub-accent);
   text-decoration: none;
   font-weight: 600;
-  transition: color 0.2s ease;
 }
 
 .hub-footer a:hover {
   text-decoration: underline;
-  color: var(--hub-accent2);
 }
 
-@keyframes hubFade {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+[data-theme="dark"] .hub-bg {
+  background:
+    radial-gradient(ellipse 90% 55% at 50% -15%, rgba(99, 102, 241, 0.18), transparent 55%),
+    radial-gradient(ellipse 70% 45% at 100% 30%, rgba(56, 189, 248, 0.07), transparent 50%);
+}
+
+[data-theme="dark"] .hub-kicker {
+  background: rgba(147, 197, 253, 0.1);
+  border-color: rgba(147, 197, 253, 0.2);
+}
+
+[data-theme="dark"] .hub-card:hover {
+  border-color: rgba(147, 197, 253, 0.3);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.36);
+}
+
+[data-theme="dark"] .hub-card-badge {
+  background: rgba(147, 197, 253, 0.14);
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
-  }
-  .hub-card,
-  .hub-header {
-    animation: none;
-  }
-  .hub-card:hover {
-    transform: none;
-  }
-  .hub-card::before {
-    transform: scaleX(1);
-    opacity: 1;
-  }
-  .hub-back:hover .hub-back-icon,
-  .hub-card:hover .hub-card-cta span {
-    transform: none;
   }
 }

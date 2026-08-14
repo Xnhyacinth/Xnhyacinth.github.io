@@ -15,25 +15,10 @@
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
   <link rel="stylesheet" href="static/css/bulma.min.css">
-  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
   <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="static/css/index.css">
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="static/js/fontawesome.all.min.js"></script>
-  <script src="static/js/bulma-carousel.min.js"></script>
-  <script src="static/js/bulma-slider.min.js"></script>
-  <script src="static/js/index.js"></script>
-
-  <script>
-    function navigateToProject(select) {
-      const url = select.value;
-      if (url) window.location.href = url;
-    }
-  </script>
+  <link rel="stylesheet" href="../shared/project.css">
 </head>
 
 <body>
@@ -41,18 +26,22 @@
     <label class="sr-only" for="project-jump">Jump to project</label>
     <div class="project-select-shell">
       <span class="project-select-icon" aria-hidden="true"><i class="fas fa-layer-group"></i></span>
-      <select id="project-jump" class="project-select" onchange="navigateToProject(this)"
-        title="Navigate between projects">
+      <select id="project-jump" class="project-select" data-current="resadapt" title="Navigate between projects">
         <option value="" disabled>Navigate</option>
-        <optgroup label="Projects">
-          <option value="https://xnhyacinth.github.io/">Homepage</option>
-          <option value="https://xnhyacinth.github.io/projects/">Projects hub</option>
-          <option value="https://xnhyacinth.github.io/projects/IAG/">IAG</option>
-          <option value="https://xnhyacinth.github.io/projects/TAGI/">TAGI</option>
-          <option value="https://xnhyacinth.github.io/projects/ResAdapt/" selected>ResAdapt</option>
-          <option value="https://xnhyacinth.github.io/projects/Awesome-LCLM/">Awesome-LCLM</option>
+        <optgroup label="Site">
+          <option value="/">Homepage</option>
+          <option value="/projects/">All projects</option>
         </optgroup>
-        <optgroup label="External">
+        <optgroup label="Survey">
+          <option value="/projects/Awesome-LCLM/">Awesome-LCLM</option>
+        </optgroup>
+        <optgroup label="Projects">
+          <option value="/projects/ResAdapt/" selected>ResAdapt</option>
+          <option value="/projects/IAG/">IAG</option>
+          <option value="/projects/TAGI/">TAGI</option>
+          <option value="https://quantaalpha.com/Distill-Yourself/">Distill Yourself</option>
+        </optgroup>
+        <optgroup label="Collaborations">
           <option value="https://trae1oung.github.io/DyPRAG/">DyPRAG</option>
           <option value="https://wengsyx.github.io/LMTuner/">LMTuner</option>
         </optgroup>
@@ -503,6 +492,9 @@
   journal={arXiv preprint arXiv:2603.28610},
   year={2026}
 }</code></pre>
+            <button type="button" class="copy-btn">
+              <i class="fas fa-copy"></i> Copy
+            </button>
           </div>
         </div>
       </div>
@@ -530,22 +522,25 @@
     </div>
   </footer>
 
+  <script src="../shared/project-nav.js"></script>
   <script>
     (function () {
       var AUTO_INTERVAL_MS = 5500;
+      var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var carousels = [];
 
       function bindCarousel(wrap) {
-        const track = wrap.querySelector('.case-scroll-track');
-        const prev = wrap.querySelector('.case-scroll-prev');
-        const next = wrap.querySelector('.case-scroll-next');
-        const counterId = wrap.getAttribute('data-counter-id');
-        const counter = counterId ? document.getElementById(counterId) : null;
-        const contextId = wrap.getAttribute('data-context-id');
-        const contextEl = contextId ? document.getElementById(contextId) : null;
+        var track = wrap.querySelector('.case-scroll-track');
+        var prev = wrap.querySelector('.case-scroll-prev');
+        var next = wrap.querySelector('.case-scroll-next');
+        var counterId = wrap.getAttribute('data-counter-id');
+        var counter = counterId ? document.getElementById(counterId) : null;
+        var contextId = wrap.getAttribute('data-context-id');
+        var contextEl = contextId ? document.getElementById(contextId) : null;
         if (!track || !prev || !next) return;
 
-        const slides = track.querySelectorAll('.case-scroll-slide');
-        const total = slides.length;
+        var slides = track.querySelectorAll('.case-scroll-slide');
+        var total = slides.length;
         var autoTimer = null;
         var hoverPaused = false;
 
@@ -569,17 +564,18 @@
         }
 
         function scrollByDir(dir) {
-          track.scrollBy({ left: dir * slideWidth(), behavior: 'smooth' });
+          track.scrollBy({ left: dir * slideWidth(), behavior: reduceMotion ? 'auto' : 'smooth' });
         }
 
         function goNext() {
           if (document.hidden || hoverPaused) return;
           var nextIdx = (currentIndex() + 1) % total;
-          track.scrollTo({ left: nextIdx * slideWidth(), behavior: 'smooth' });
+          track.scrollTo({ left: nextIdx * slideWidth(), behavior: reduceMotion ? 'auto' : 'smooth' });
         }
 
         function startAuto() {
           stopAuto();
+          if (reduceMotion) return;
           autoTimer = window.setInterval(goNext, AUTO_INTERVAL_MS);
         }
 
@@ -609,25 +605,20 @@
           hoverPaused = false;
         });
 
-        document.addEventListener('visibilitychange', function () {
-          if (document.hidden) stopAuto();
-          else startAuto();
-        });
-
         updateUI();
         startAuto();
+        carousels.push({ startAuto: startAuto, stopAuto: stopAuto });
       }
 
       document.querySelectorAll('.js-carousel-wrap').forEach(bindCarousel);
 
-      const io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) {
-          if (e.isIntersecting) e.target.classList.add('active');
+      document.addEventListener('visibilitychange', function () {
+        carousels.forEach(function (c) {
+          if (document.hidden) c.stopAuto();
+          else c.startAuto();
         });
-      }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-      document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+      });
     })();
   </script>
 </body>
-
 </html>

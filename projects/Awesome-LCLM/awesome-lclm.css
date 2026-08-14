@@ -1,13 +1,13 @@
 /* Awesome-LCLM interactive reader */
 
 :root {
-  --lclm-bg: #f4f6fb;
+  --lclm-bg: #f9f7f2;
   --lclm-surface: #ffffff;
-  --lclm-ink: #141824;
-  --lclm-muted: #5b6475;
-  --lclm-line: rgba(20, 24, 36, 0.08);
-  --lclm-accent: #3457b2;
-  --lclm-accent-soft: rgba(52, 87, 178, 0.1);
+  --lclm-ink: #2d3436;
+  --lclm-muted: #4a5258;
+  --lclm-line: rgba(45, 52, 54, 0.1);
+  --lclm-accent: #2b6777;
+  --lclm-accent-soft: rgba(43, 103, 119, 0.09);
   --lclm-radius: 14px;
   --lclm-sidebar: 280px;
   --lclm-font: "Noto Sans", "Google Sans", -apple-system, BlinkMacSystemFont, sans-serif;
@@ -22,9 +22,9 @@ body.lclm-reader {
 }
 
 .venue-ribbon--resource .venue-badge {
-  color: #0f172a;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(226, 232, 240, 0.95));
-  border: 1px solid rgba(15, 23, 42, 0.08);
+  color: var(--lclm-accent);
+  background: var(--lclm-surface);
+  border: 1px solid rgba(43, 103, 119, 0.18);
 }
 
 .lclm-hero {
@@ -49,6 +49,12 @@ body.lclm-reader {
   color: var(--lclm-muted);
   font-size: 1.02rem;
   line-height: 1.55;
+}
+
+.lclm-credit {
+  margin-top: 0.75rem;
+  color: var(--lclm-muted);
+  font-size: 0.95rem;
 }
 
 .lclm-cta {
@@ -130,7 +136,7 @@ body.lclm-reader {
 }
 
 .lclm-nav-btn:hover {
-  background: rgba(52, 87, 178, 0.07);
+  background: rgba(43, 103, 119, 0.07);
 }
 
 .lclm-nav-btn.is-active {
@@ -211,11 +217,11 @@ body.lclm-reader {
   border-radius: 999px;
   padding: 0.55rem 0.9rem 0.55rem 2.2rem;
   font: inherit;
-  background: #f8f9fc;
+  background: var(--lclm-accent-soft);
 }
 
 .lclm-search input:focus {
-  outline: 2px solid rgba(52, 87, 178, 0.28);
+  outline: 2px solid rgba(43, 103, 119, 0.28);
   outline-offset: 1px;
   background: #fff;
 }
@@ -262,7 +268,7 @@ body.lclm-reader {
 
 .lclm-subchip {
   border: 1px solid var(--lclm-line);
-  background: #f8f9fc;
+  background: var(--lclm-accent-soft);
   color: var(--lclm-ink);
   border-radius: 999px;
   padding: 0.32rem 0.7rem;
@@ -274,7 +280,7 @@ body.lclm-reader {
 }
 
 .lclm-subchip:hover {
-  border-color: rgba(52, 87, 178, 0.4);
+  border-color: rgba(43, 103, 119, 0.4);
   color: var(--lclm-accent);
 }
 
@@ -305,7 +311,7 @@ body.lclm-reader {
 .lclm-subhead.is-nested {
   font-size: 0.95rem;
   font-weight: 600;
-  color: #3f4758;
+  color: var(--lclm-ink);
   border-top: 0;
   margin-top: 0.85rem;
 }
@@ -344,7 +350,7 @@ body.lclm-reader {
 }
 
 .lclm-paper:hover {
-  border-color: rgba(52, 87, 178, 0.35);
+  border-color: rgba(43, 103, 119, 0.35);
   box-shadow: 0 6px 18px rgba(20, 28, 45, 0.06);
 }
 
@@ -374,7 +380,7 @@ body.lclm-reader {
 
 .lclm-paper-meta em {
   font-style: italic;
-  color: #3f4758;
+  color: var(--lclm-ink);
 }
 
 .lclm-paper-links {
@@ -396,11 +402,11 @@ body.lclm-reader {
   text-decoration: none;
   border: 1px solid var(--lclm-line);
   color: var(--lclm-ink);
-  background: #f8f9fc;
+  background: var(--lclm-accent-soft);
 }
 
 .lclm-chip:hover {
-  border-color: rgba(52, 87, 178, 0.4);
+  border-color: rgba(43, 103, 119, 0.4);
   color: var(--lclm-accent);
 }
 

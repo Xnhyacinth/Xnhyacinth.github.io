@@ -18,25 +18,10 @@
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
   <link rel="stylesheet" href="static/css/bulma.min.css">
-  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
   <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="static/css/index.css">
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="static/js/fontawesome.all.min.js"></script>
-  <script src="static/js/bulma-carousel.min.js"></script>
-  <script src="static/js/bulma-slider.min.js"></script>
-  <script src="static/js/index.js"></script>
-
-  <script>
-    function navigateToProject(select) {
-      const url = select.value;
-      if (url) window.location.href = url;
-    }
-  </script>
+  <link rel="stylesheet" href="../shared/project.css">
 </head>
 
 <body>
@@ -44,18 +29,22 @@
     <label class="sr-only" for="project-jump">Jump to project</label>
     <div class="project-select-shell">
       <span class="project-select-icon" aria-hidden="true"><i class="fas fa-layer-group"></i></span>
-      <select id="project-jump" class="project-select" onchange="navigateToProject(this)"
-        title="Navigate between projects">
+      <select id="project-jump" class="project-select" data-current="tagi" title="Navigate between projects">
         <option value="" disabled>Navigate</option>
-        <optgroup label="Projects">
-          <option value="https://xnhyacinth.github.io/">Homepage</option>
-          <option value="https://xnhyacinth.github.io/projects/">Projects hub</option>
-          <option value="https://xnhyacinth.github.io/projects/IAG/">IAG</option>
-          <option value="https://xnhyacinth.github.io/projects/TAGI/" selected>TAGI</option>
-          <option value="https://xnhyacinth.github.io/projects/ResAdapt/">ResAdapt</option>
-          <option value="https://xnhyacinth.github.io/projects/Awesome-LCLM/">Awesome-LCLM</option>
+        <optgroup label="Site">
+          <option value="/">Homepage</option>
+          <option value="/projects/">All projects</option>
         </optgroup>
-        <optgroup label="External">
+        <optgroup label="Survey">
+          <option value="/projects/Awesome-LCLM/">Awesome-LCLM</option>
+        </optgroup>
+        <optgroup label="Projects">
+          <option value="/projects/ResAdapt/">ResAdapt</option>
+          <option value="/projects/IAG/">IAG</option>
+          <option value="/projects/TAGI/" selected>TAGI</option>
+          <option value="https://quantaalpha.com/Distill-Yourself/">Distill Yourself</option>
+        </optgroup>
+        <optgroup label="Collaborations">
           <option value="https://trae1oung.github.io/DyPRAG/">DyPRAG</option>
           <option value="https://wengsyx.github.io/LMTuner/">LMTuner</option>
         </optgroup>
@@ -85,17 +74,17 @@
               <span class="author-block">
                 <a href="https://nlpr.ia.ac.cn/cip/shizhuhe/" target="_self">Shizhu He</a><sup>&dagger;1,2</sup>,</span>
               <span class="author-block">
-                <a href="#" target="_self">Yao Xu</a><sup>1,2</sup>,</span>
+                <span>Yao Xu</span><sup>1,2</sup>,</span>
               <span class="author-block">
-                <a href="#" target="_self">Yuanzhe Zhang</a><sup>1,2</sup>,</span>
+                <span>Yuanzhe Zhang</span><sup>1,2</sup>,</span>
               <span class="author-block">
-                <a href="#" target="_self">Yanchao Hao</a><sup>4</sup>,</span>
+                <span>Yanchao Hao</span><sup>4</sup>,</span>
               <span class="author-block">
-                <a href="#" target="_self">Shengping Liu</a><sup>3</sup>,</span>
+                <span>Shengping Liu</span><sup>3</sup>,</span>
               <span class="author-block">
                 <a href="https://nlpr.ia.ac.cn/cip/~liukang/index.html" target="_self">Kang Liu</a><sup>1,2</sup>,</span>
               <span class="author-block">
-                <a href="#" target="_self">Jun Zhao</a><sup>1,2</sup></span>
+                <span>Jun Zhao</span><sup>1,2</sup></span>
             </div>
 
             <div class="is-size-5 publication-authors reveal">
@@ -182,7 +171,7 @@
     </div>
   </section>
 
-  <section class="section" id="TAGI Overview">
+  <section class="section" id="overview">
     <div class="container is-max-desktop">
       <div class="section-header-center reveal">
         <span class="section-tag">Overview</span>
@@ -208,7 +197,7 @@
     </div>
   </section>
 
-  <section class="section" id="TAGI Model" style="background: var(--bg-light);">
+  <section class="section" id="model" style="background: var(--bg-light);">
     <div class="container is-max-desktop">
       <div class="section-header-center reveal">
         <span class="section-tag">Architecture</span>
@@ -234,7 +223,7 @@
     </div>
   </section>
 
-  <section class="section" id="TAGI Comparison">
+  <section class="section" id="comparison">
     <div class="container is-max-desktop">
       <div class="section-header-center reveal">
         <span class="section-tag">Comparison</span>
@@ -256,7 +245,7 @@
     </div>
   </section>
 
-  <section class="section results-section" id="TAGI Evaluation">
+  <section class="section results-section" id="evaluation">
     <div class="container is-max-desktop">
       <div class="section-header-center reveal">
         <span class="section-tag">Experiments</span>
@@ -306,7 +295,7 @@
   pages={45552--45577},
   year={2024}
 }</code></pre>
-            <button type="button" class="copy-btn" onclick="copyBibtex()">
+            <button type="button" class="copy-btn">
               <i class="fas fa-copy"></i> Copy
             </button>
           </div>
@@ -336,35 +325,8 @@
     </div>
   </footer>
 
-  <script>
-    function copyBibtex() {
-      const bibtex = `@article{liao2024instance,
-  title={From instance training to instruction learning: Task adapters generation from instructions},
-  author={Liao, Huanxuan and He, Shizhu and Xu, Yao and Zhang, Yuanzhe and Hao, Yanchao and Liu, Shengping and Liu, Kang and Zhao, Jun},
-  journal={Advances in Neural Information Processing Systems},
-  volume={37},
-  pages={45552--45577},
-  year={2024}
-}`;
-      navigator.clipboard.writeText(bibtex).then(function () {
-        const btn = document.querySelector('.copy-btn');
-        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
-        setTimeout(function () {
-          btn.innerHTML = '<i class="fas fa-copy"></i> Copy';
-        }, 2000);
-      });
-    }
+  <script src="../shared/project-nav.js"></script>
 
-    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
-    const observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) entry.target.classList.add('active');
-      });
-    }, observerOptions);
-    document.querySelectorAll('.reveal').forEach(function (el) {
-      observer.observe(el);
-    });
-  </script>
 </body>
 
 </html>
