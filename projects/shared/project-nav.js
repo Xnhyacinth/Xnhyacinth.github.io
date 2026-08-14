@@ -33,10 +33,10 @@
     }
   ];
 
-  window.navigateToProject = function (select) {
+  function goToProject(select) {
     var url = select && select.value;
     if (url) window.location.href = url;
-  };
+  }
 
   function fillSelect(select) {
     var current = (select.getAttribute("data-current") || "").toLowerCase();
@@ -62,7 +62,7 @@
     });
 
     select.addEventListener("change", function () {
-      window.navigateToProject(select);
+      goToProject(select);
     });
   }
 

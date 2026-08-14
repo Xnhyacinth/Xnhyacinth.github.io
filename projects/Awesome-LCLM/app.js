@@ -67,6 +67,7 @@
   let activeSubKey = "";
   let activeBlocks = [];
   let activeSubs = [];
+  let loadGen = 0;
 
   function isSafeUrl(url) {
     try {
@@ -397,6 +398,7 @@
   let initialLoad = true;
 
   async function loadChapter(file, subKey) {
+    const gen = ++loadGen;
     const meta = flatChapters.find((c) => c[0] === file) || [file, file];
     els.title.textContent = meta[1];
     els.source.href = GH_BASE + file;
@@ -415,6 +417,7 @@
         md = await res.text();
         cache.set(file, md);
       }
+      if (gen !== loadGen) return;
       const parsed = parseMarkdown(md);
       if (parsed.chapterTitle) els.title.textContent = parsed.chapterTitle;
       activeBlocks = parsed.papers;
@@ -427,6 +430,7 @@
         els.shell.scrollIntoView({ behavior: initialLoad ? "auto" : "smooth", block: "start" });
       }
     } catch (err) {
+      if (gen !== loadGen) return;
       activeBlocks = [];
       activeSubs = [];
       activeSubKey = "";
@@ -441,7 +445,7 @@
       els.status.appendChild(a);
       els.status.appendChild(document.createTextNode(" instead."));
     } finally {
-      initialLoad = false;
+      if (gen === loadGen) initialLoad = false;
     }
   }
 

@@ -10,6 +10,7 @@
   --bg-light: #f9f7f2;
   --bg-white: #ffffff;
   --chip-bg: rgba(43, 103, 119, 0.09);
+  --chip-bg-hover: rgba(43, 103, 119, 0.18);
   --page-line: rgba(45, 52, 54, 0.1);
 }
 
@@ -48,6 +49,24 @@ a {
   transition: color 0.15s ease, background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
+.publication-authors a:hover,
+.author-block a:hover,
+.figure-caption a:hover {
+  color: var(--accent-color);
+  background-color: var(--chip-bg);
+  border-radius: 3px;
+  text-decoration: none;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.footer a:hover {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.12);
+  border-radius: 3px;
+  text-decoration: none;
+}
+
 img {
   transition: none;
 }
@@ -71,6 +90,11 @@ img {
 .highlight {
   background: var(--chip-bg);
   color: var(--accent-color);
+  transition: background 0.15s ease;
+}
+
+.highlight:hover {
+  background: var(--chip-bg-hover);
 }
 
 .section-tag {
@@ -109,8 +133,12 @@ img {
 
 .figure-frame:hover,
 .figure-container:hover,
-.copy-btn:hover {
+.figure-frame:hover img,
+.figure-container:hover img,
+.copy-btn:hover,
+.button:hover {
   transform: none;
+  filter: none;
 }
 
 .footer {

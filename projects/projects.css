@@ -275,7 +275,13 @@ body.hub-page {
 }
 
 .hub-footer a:hover {
-  text-decoration: underline;
+  color: var(--hub-accent);
+  background-color: rgba(43, 103, 119, 0.09);
+  border-radius: 3px;
+}
+
+[data-theme="dark"] .hub-footer a:hover {
+  background-color: rgba(147, 197, 253, 0.16);
 }
 
 [data-theme="dark"] .hub-bg {

@@ -92,11 +92,7 @@
             const toggleBtn = document.querySelector('.theme-toggle');
             if (toggleBtn) {
                 toggleBtn.addEventListener('click', () => {
-                    toggleBtn.classList.add('switching');
                     this.toggle();
-                    setTimeout(() => {
-                        toggleBtn.classList.remove('switching');
-                    }, 450);
                 });
             }
         }
