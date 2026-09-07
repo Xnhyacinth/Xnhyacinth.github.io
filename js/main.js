@@ -260,6 +260,70 @@
             this.initGlassNavbar();
             this.initScrollProgress();
             this.initPageLoader();
+            this.initProfileImageInteraction();
+        },
+
+        initProfileImageInteraction() {
+            const wrapper = document.querySelector('.profile-image-wrapper');
+            if (!wrapper) return;
+
+            const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (prefersReduced) return;
+
+            let isHovering = false;
+            let rafId = null;
+
+            const onMouseMove = (e) => {
+                if (!isHovering) return;
+                const rect = wrapper.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+
+                const rotateX = ((y - centerY) / centerY) * -10; // max 10 deg tilt
+                const rotateY = ((x - centerX) / centerX) * 10;
+
+                const mouseXPct = Math.round((x / rect.width) * 100);
+                const mouseYPct = Math.round((y / rect.height) * 100);
+
+                if (rafId) cancelAnimationFrame(rafId);
+                rafId = requestAnimationFrame(() => {
+                    wrapper.style.transform = `perspective(800px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-6px) scale(1.025)`;
+                    wrapper.style.setProperty('--mouse-x', `${mouseXPct}%`);
+                    wrapper.style.setProperty('--mouse-y', `${mouseYPct}%`);
+                });
+            };
+
+            const onMouseEnter = () => {
+                isHovering = true;
+                wrapper.style.transition = 'transform 0.12s ease-out, box-shadow 0.3s ease, border-color 0.3s ease';
+            };
+
+            const onMouseLeave = () => {
+                isHovering = false;
+                if (rafId) cancelAnimationFrame(rafId);
+                wrapper.style.transition = 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.3s ease';
+                wrapper.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) translateY(0) scale(1)';
+                wrapper.style.removeProperty('--mouse-x');
+                wrapper.style.removeProperty('--mouse-y');
+            };
+
+            wrapper.addEventListener('mouseenter', onMouseEnter);
+            wrapper.addEventListener('mousemove', onMouseMove);
+            wrapper.addEventListener('mouseleave', onMouseLeave);
+
+            // Click interaction: tactile pop
+            wrapper.addEventListener('click', () => {
+                wrapper.animate([
+                    { transform: 'scale(0.96)' },
+                    { transform: 'scale(1.04)' },
+                    { transform: 'scale(1.02)' }
+                ], {
+                    duration: 320,
+                    easing: 'cubic-bezier(0.16, 1, 0.3, 1)'
+                });
+            });
         },
 
         initScrollProgress() {
