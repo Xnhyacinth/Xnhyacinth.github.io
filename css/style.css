@@ -6,7 +6,7 @@
    =================================================================== */
 
 :root {
-  --max-width: 1040px;
+  --max-width: 1120px;
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
   --sp-1: 0.25rem;
@@ -669,7 +669,7 @@ a.nav-dropdown-item {
 
 .hero-panel--split {
   display: grid;
-  grid-template-columns: minmax(280px, min(24.5rem, 100%)) minmax(0, 1fr);
+  grid-template-columns: minmax(280px, min(26rem, 42%)) minmax(0, 1fr);
   gap: clamp(var(--sp-6), 3.5vw, var(--sp-10));
   align-items: start;
   position: relative;
@@ -696,7 +696,7 @@ a.nav-dropdown-item {
   max-width: 100%;
 }
 
-.hero-side-meta .hero-bio {
+.hero-column--media .hero-bio {
   text-align: left;
   font-size: 0.8875rem;
   line-height: 1.62;
@@ -704,9 +704,17 @@ a.nav-dropdown-item {
   color: var(--text-secondary);
 }
 
-.hero-side-meta .hero-bio a {
+.hero-column--media .hero-bio a {
   font-weight: 600;
-  color: var(--text-primary);
+  color: var(--text);
+}
+
+.hero-column--media .hero-body-header {
+  text-align: center;
+}
+
+.hero-column--media .profile-name.hero-name {
+  justify-content: center;
 }
 
 .hero-side-meta .hero-lead {
@@ -772,7 +780,7 @@ a.nav-dropdown-item {
 }
 
 .profile-statement .profile-bio strong {
-  color: var(--text-primary);
+  color: var(--text);
   font-weight: 600;
 }
 
@@ -789,7 +797,7 @@ a.nav-dropdown-item {
 }
 
 .profile-statement-list strong {
-  color: var(--text-primary);
+  color: var(--text);
   font-weight: 600;
 }
 
@@ -842,22 +850,40 @@ a.nav-dropdown-item {
   text-align: center;
 }
 
-.social-links--aside {
+.social-links.social-links--aside {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: var(--sp-2);
   justify-items: stretch;
   align-items: stretch;
   width: 100%;
 }
 
+.social-links--aside > .btn {
+  grid-column: span 3;
+  min-width: 0;
+  width: 100%;
+  padding-inline: var(--sp-2);
+}
+
 .social-links--aside .social-link {
+  grid-column: span 1;
   width: 100%;
   max-width: 44px;
-  height: 40px;
+  height: 44px;
   margin-inline: auto;
   border-radius: var(--radius-md);
   box-sizing: border-box;
+}
+
+.social-links--aside > .hero-connect-mail {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 380px) {
+  .social-links--aside .social-link {
+    grid-column: span 2;
+  }
 }
 
 .social-links--aside .social-link i {
@@ -1434,7 +1460,7 @@ a.nav-dropdown-item {
 
 .timeline-marker {
   position: absolute;
-  left: calc(-1 * var(--sp-8) - var(--sp-3) - 5px);
+  left: calc(-1 * var(--sp-8) - 6px);
   top: 0.35rem;
   width: 10px;
   height: 10px;
@@ -1538,33 +1564,42 @@ a.nav-dropdown-item {
   font-weight: 600;
 }
 
-.news-headline,
-.news-detail {
-  margin: 0;
-}
-
 .news-headline {
-  color: var(--text-secondary);
+  margin: 0;
+  color: var(--text);
+  font-weight: 500;
 }
 
 .news-headline + .news-headline {
   margin-top: var(--sp-2);
 }
 
-.news-detail + .news-headline {
-  margin-top: var(--sp-3);
+@media (min-width: 600px) {
+  .news-headline:has(> .news-type) {
+    position: relative;
+    padding-left: 4.25rem;
+  }
+
+  .news-headline:has(> .news-type.type-project) {
+    padding-left: 4.75rem;
+  }
+
+  .news-headline > .news-type {
+    position: absolute;
+    top: 0.25em;
+    left: 0;
+  }
 }
 
-.news-detail {
-  margin-top: var(--sp-1);
+.news-role {
   color: var(--text-muted);
-  font-size: 0.8125rem;
-}
-
-.news-credit {
-  color: var(--text-muted);
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   white-space: nowrap;
+}
+
+.news-oral {
+  color: var(--accent);
+  font-weight: 800;
 }
 
 .news-type {
@@ -1596,7 +1631,7 @@ a.nav-dropdown-item {
 
 .news-headline .news-badge {
   margin-left: 0.15rem;
-  margin-right: 0.1rem;
+  margin-right: 0;
 }
 
 .news-archive {
@@ -2941,11 +2976,12 @@ a.star-count:hover {
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    gap: var(--sp-8);
+    gap: var(--sp-6);
   }
 
   .hero-column--media,
-  .hero-column--content {
+  .hero-column--content,
+  .hero-side-meta {
     display: contents;
   }
 
@@ -2958,14 +2994,17 @@ a.star-count:hover {
     order: 2;
   }
 
-  .hero-side-meta {
+  .hero-column--media .hero-bio {
     order: 3;
     max-width: 520px;
     margin-inline: auto;
   }
 
-  .hero-prose {
+  .hero-side-meta .research-tags {
     order: 4;
+    width: 100%;
+    max-width: 520px;
+    margin-inline: auto;
   }
 
   .hero-aside {
@@ -2973,6 +3012,18 @@ a.star-count:hover {
     width: 100%;
     max-width: 520px;
     margin-inline: auto;
+  }
+
+  .hero-column--content .hero-tagline {
+    order: 6;
+    width: 100%;
+    max-width: 32rem;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .hero-prose {
+    order: 7;
   }
 
   .hero-body-header {
@@ -3109,7 +3160,7 @@ a.star-count:hover {
   }
 
   .timeline-marker {
-    left: calc(-1 * var(--sp-6) - 4px);
+    left: calc(-1 * var(--sp-6) - 5px);
     width: 8px;
     height: 8px;
   }
