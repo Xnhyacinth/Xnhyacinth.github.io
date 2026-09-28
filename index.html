@@ -59,11 +59,11 @@
 			} catch (e) { /* ignore */ }
 		})();
 	</script>
-	<link rel="preload" href="css/style.css" as="style">
+	<link rel="preload" href="css/style.css?v=20260928-news7" as="style">
 	<link rel="preload" href="js/main.js" as="script">
 	<link rel="preload" href="assets/img/huanxuan-liao-profile-640.jpg" as="image" fetchpriority="high">
 
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/style.css?v=20260928-news7">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/css/academicons.min.css">
 
@@ -290,7 +290,7 @@
 						</div>
 						<div class="hero-side-meta">
 							<p class="profile-bio hero-bio">
-								I am a third-year PhD student in Pattern Recognition and Intelligent Systems at the <a
+								I am a PhD student in Pattern Recognition and Intelligent Systems at the <a
 									href="https://www.ucas.ac.cn/"><img src="assets/img/ucas.png" alt="UCAS"
 										class="inline-logo">University of Chinese Academy of Sciences (UCAS)</a>
 								and the <a href="https://www.ia.ac.cn/"><img src="assets/img/casia.svg" alt="CASIA"
@@ -370,6 +370,7 @@
 								<span class="hero-name-text">Huanxuan Liao</span>
 								<span class="hero-name-alt" lang="zh">廖桓萱</span>
 							</h1>
+							<p class="hero-tagline">Better data &amp; architectures for <em>Stronger models and longer horizons.</em></p>
 						</header>
 
 						<div class="hero-prose">
@@ -385,31 +386,31 @@
 										<strong>Long-Context Data &amp; Model Co-Design</strong>:
 										long-context data curation and synthesis, length- and capability-aware mixtures,
 										scalable pretraining and mid-training, efficient attention, KV-cache optimization,
-										and architectures to jointly improve capability, scalability, and efficiency. Related work:
-										<a href="https://github.com/LCLM-Horizon/A-Comprehensive-Survey-For-Long-Context-Language-Modeling">LCLM-Horizon</a>,
+										and architectures to jointly improve capability, scalability, and efficiency
+										(<a href="https://github.com/Xnhyacinth/Awesome-LLM-Long-Context-Modeling">Awesome-LCLM</a>,
 										<a href="https://arxiv.org/abs/2505.15774">HyCo<sub>2</sub></a>,
 										<a href="https://arxiv.org/abs/2508.15212">SparK</a>,
-										<a href="projects/ResAdapt/">ResAdapt</a>.
+										<a href="projects/ResAdapt/">ResAdapt</a>).
 									</li>
 									<li>
 										<strong>Knowledge &amp; Continual Adaptation</strong>:
 										mechanisms for acquiring, transferring, internalizing, and updating knowledge and capabilities
-										across evolving tasks, while balancing plasticity, retention, and generalization. Related work:
-										<a href="projects/TAGI/">TAGI</a>,
+										across evolving tasks, while balancing plasticity, retention, and generalization
+										(<a href="projects/TAGI/">TAGI</a>,
 										<a href="https://aclanthology.org/2025.coling-main.89/">AAG</a>,
 										<a href="https://arxiv.org/abs/2409.13203">NesyCD</a>,
 										<a href="https://aclanthology.org/2025.coling-main.215/">SKIntern</a>,
-										<a href="https://aclanthology.org/2026.acl-long.334/">SpaRTA</a>.
+										<a href="https://aclanthology.org/2026.acl-long.334/">SpaRTA</a>).
 									</li>
 									<li>
 										<strong>Agent Learning &amp; Self-Improvement</strong>:
 										persistent memory, long-horizon decision-making, and learning from interaction and feedback,
-										toward agents that verifiably refine their memory, policies, and learning procedures. Related work:
-										<a href="https://arxiv.org/abs/2409.13202">CITI</a>,
+										toward agents that verifiably refine their memory, policies, and learning procedures
+										(<a href="https://arxiv.org/abs/2409.13202">CITI</a>,
 										<a href="https://aclanthology.org/2026.findings-acl.710/">KATE</a>,
 										<a href="https://github.com/Xnhyacinth/OPERATE">OPERATE</a>,
 										<a href="https://quantaalpha.com/Distill-Yourself/">Distill Yourself</a>,
-										<a href="https://github.com/Geniusyingmanji/ScientistsLastExam">Scientist's Last Exam</a>.
+										<a href="https://github.com/Geniusyingmanji/ScientistsLastExam">Scientist's Last Exam</a>).
 									</li>
 								</ul>
 							</div>
@@ -477,84 +478,120 @@
 					Recent News
 				</h2>
 				<ul class="news-list">
-					<li class="news-item news-highlight">
-						<span class="news-date">Aug 2026</span>
+					<li class="news-item">
+						<time class="news-date" datetime="2026-09">Sep 2026</time>
 						<div class="news-content">
-							<span class="news-type type-paper"><i class="fas fa-file-alt"></i> Paper</span>
-							<a href="https://arxiv.org/abs/2512.19673">BuPO</a> accepted to <span
-								class="news-badge badge-emnlp">EMNLP 2026 Main</span>
-						</div>
-					</li>
-					<li class="news-item news-highlight">
-						<span class="news-date">Jul 2026</span>
-						<div class="news-content">
-							<span class="news-type type-project"><i class="fas fa-home"></i> Project</span>
-							<a href="https://quantaalpha.com/Distill-Yourself/">Distill Yourself</a> project homepage released
-						</div>
-					</li>
-					<li class="news-item news-highlight">
-						<span class="news-date">Apr 2026</span>
-						<div class="news-content">
-							<span class="news-type type-paper"><i class="fas fa-file-alt"></i> Paper</span>
-							<a href="https://aclanthology.org/2026.acl-long.334/">SpaRTA</a>, <a
-								href="https://aclanthology.org/2026.acl-long.1269/">SHIP</a>, and <a
-								href="https://aclanthology.org/2026.acl-long.1244/">PaRSP</a> accepted to
-							<span class="news-badge badge-acl">ACL 2026 Main</span>; <a
-								href="https://aclanthology.org/2026.findings-acl.710/">KATE</a> accepted to <span
-								class="news-badge badge-acl">ACL 2026 Findings</span>
-						</div>
-					</li>
-					<li class="news-item news-highlight">
-						<span class="news-date">Mar 2026</span>
-						<div class="news-content">
-							<span class="news-type type-paper"><i class="fas fa-file-alt"></i> Paper</span>
-							<a href="projects/ResAdapt/">ResAdapt</a> released with <a
-								href="https://github.com/Xnhyacinth/ResAdapt">code</a> publicly available
-						</div>
-					</li>
-					<li class="news-item news-highlight">
-						<span class="news-date">Nov 2025</span>
-						<div class="news-content">
-							<span class="news-type type-paper"><i class="fas fa-file-alt"></i> Paper</span>
-							<a href="https://arxiv.org/abs/2508.15212">SparK</a> accepted to <span
-								class="news-badge badge-aaai">AAAI 2026</span>
-						</div>
-					</li>
-					<li class="news-item news-highlight">
-						<span class="news-date">Oct 2025</span>
-						<div class="news-content">
-							<span class="news-type type-award"><i class="fas fa-trophy"></i> Award</span>
-							Awarded <strong>National Scholarship</strong> by Ministry of Education at CASIA
-							<span class="news-badge badge-premier">Scholarship</span>
+							<p class="news-headline"><span class="news-type type-paper">Paper</span>
+								<a href="https://trae1oung.github.io/#bupo">BuPO</a> selected for an <strong>oral presentation</strong>
+								at <span class="news-badge badge-emnlp">EMNLP 2026</span> <span class="news-credit">(co-author)</span>.</p>
+							<p class="news-headline"><span class="news-type type-paper">Paper</span>
+								One paper accepted to <span class="news-badge badge-neurips">NeurIPS 2026</span> (TTCL Workshop).</p>
+							<p class="news-detail">Co-author: <a href="https://arxiv.org/abs/2503.23895">DyPRAG</a>.</p>
 						</div>
 					</li>
 					<li class="news-item">
-						<span class="news-date">May 2025</span>
+						<time class="news-date" datetime="2026-08">Aug 2026</time>
 						<div class="news-content">
-							<span class="news-type type-paper"><i class="fas fa-file-alt"></i> Paper</span>
-							<a href="https://aclanthology.org/2025.acl-long.1064/">ETAPP</a> accepted to
-							<span class="news-badge badge-acl">ACL 2025 Main</span>
+							<p class="news-headline"><span class="news-type type-paper">Paper</span>
+								One paper accepted to
+								<span class="news-badge badge-emnlp">EMNLP 2026</span> (Main).</p>
+							<p class="news-detail">Co-author: <a href="https://arxiv.org/abs/2512.19673">BuPO</a>.</p>
 						</div>
 					</li>
 					<li class="news-item">
-						<span class="news-date">Feb 2025</span>
+						<time class="news-date" datetime="2026-05">May 2026</time>
 						<div class="news-content">
-							<span class="news-type type-paper"><i class="fas fa-file-alt"></i> Paper</span>
-							<a href="https://arxiv.org/abs/2409.13203">NesyCD</a> and
-							<a href="https://arxiv.org/abs/2409.13202">CITI</a> accepted to
-							<span class="news-badge badge-aaai">AAAI 2025</span>
+							<p class="news-headline"><span class="news-type type-paper">Paper</span>
+								One paper accepted to <span class="news-badge badge-icml">ICML 2026</span> (FAGEN Workshop).</p>
+							<p class="news-detail">Co-author: <a href="https://arxiv.org/abs/2606.26027" aria-label="Why Multi-Step Tool-Use Reinforcement Learning Collapses and How Supervisory Signals Fix It">Multi-step tool-use RL study</a>.</p>
 						</div>
 					</li>
 					<li class="news-item">
-						<span class="news-date">Jan 2025</span>
+						<time class="news-date" datetime="2026-04">Apr 2026</time>
 						<div class="news-content">
-							<span class="news-type type-paper"><i class="fas fa-file-alt"></i> Paper</span>
-							<a href="https://aclanthology.org/2025.coling-main.215/">SKIntern</a> and
-							<a href="https://aclanthology.org/2025.coling-main.89/">AAG</a> accepted to
-							<span class="news-badge badge-coling">COLING 2025</span>
+							<p class="news-headline"><span class="news-type type-paper">Papers</span>
+								Four papers accepted to <span class="news-badge badge-acl">ACL 2026</span> (3 Main, 1 Findings).</p>
+							<p class="news-detail">First author: <a href="https://aclanthology.org/2026.acl-long.334/">SpaRTA</a> (Main);
+								co-author: <a href="https://aclanthology.org/2026.acl-long.1269/">SHIP</a> (Main),
+								<a href="https://aclanthology.org/2026.acl-long.1244/">PaRSP</a> (Main),
+								<a href="https://aclanthology.org/2026.findings-acl.710/">KATE</a> (Findings).</p>
+						</div>
+					</li>
+					<li class="news-item">
+						<time class="news-date" datetime="2026-03">Mar 2026</time>
+						<div class="news-content">
+							<p class="news-headline"><span class="news-type type-project">Project</span>
+								<a href="projects/ResAdapt/">ResAdapt</a> released with <a
+									href="https://github.com/Xnhyacinth/ResAdapt">code</a>.</p>
+						</div>
+					</li>
+					<li class="news-item">
+						<time class="news-date" datetime="2025-11">Nov 2025</time>
+						<div class="news-content">
+							<p class="news-headline"><span class="news-type type-paper">Paper</span>
+								One paper accepted to
+								<span class="news-badge badge-aaai">AAAI 2026</span>.</p>
+							<p class="news-detail">First author: <a href="https://arxiv.org/abs/2508.15212">SparK</a>.</p>
+						</div>
+					</li>
+					<li class="news-item">
+						<time class="news-date" datetime="2025-10">Oct 2025</time>
+						<div class="news-content">
+							<p class="news-headline"><span class="news-type type-award">Award</span>
+								Received the <strong>National Scholarship</strong> from the Ministry of Education at CASIA.</p>
 						</div>
 					</li>
 				</ul>
+				<details class="news-archive">
+					<summary>Earlier news</summary>
+					<ul class="news-list">
+						<li class="news-item">
+							<time class="news-date" datetime="2025-05">May 2025</time>
+							<div class="news-content">
+								<p class="news-headline"><span class="news-type type-paper">Paper</span>
+									One paper accepted to
+									<span class="news-badge badge-acl">ACL 2025</span> (Main).</p>
+								<p class="news-detail">Co-author: <a href="https://aclanthology.org/2025.acl-long.1064/">ETAPP</a>.</p>
+							</div>
+						</li>
+						<li class="news-item">
+							<time class="news-date" datetime="2025-02">Feb 2025</time>
+							<div class="news-content">
+								<p class="news-headline"><span class="news-type type-paper">Papers</span>
+									Two papers accepted to <span class="news-badge badge-aaai">AAAI 2025</span>.</p>
+								<p class="news-detail">First author: <a href="https://arxiv.org/abs/2409.13203">NesyCD</a>;
+									co-author: <a href="https://arxiv.org/abs/2409.13202">CITI</a>.</p>
+							</div>
+						</li>
+						<li class="news-item">
+							<time class="news-date" datetime="2025-01">Jan 2025</time>
+							<div class="news-content">
+								<p class="news-headline"><span class="news-type type-paper">Papers</span>
+									Two papers accepted to <span class="news-badge badge-coling">COLING 2025</span>.</p>
+								<p class="news-detail">First author: <a href="https://aclanthology.org/2025.coling-main.215/">SKIntern</a>,
+									<a href="https://aclanthology.org/2025.coling-main.89/">AAG</a>.</p>
+							</div>
+						</li>
+						<li class="news-item">
+							<time class="news-date" datetime="2024">2024</time>
+							<div class="news-content">
+								<p class="news-headline"><span class="news-type type-paper">Paper</span>
+									One paper accepted to <span class="news-badge badge-neurips">NeurIPS 2024</span>.</p>
+								<p class="news-detail">First author: <a href="https://proceedings.neurips.cc/paper_files/paper/2024/hash/50ea4dbd1cff6bd3daef939eff10c092-Abstract-Conference.html">TAGI</a>.</p>
+							</div>
+						</li>
+						<li class="news-item">
+							<time class="news-date" datetime="2023">2023</time>
+							<div class="news-content">
+								<p class="news-headline"><span class="news-type type-paper">Paper</span>
+									One paper accepted to <span class="news-badge badge-ccks">CCKS 2023</span>.</p>
+								<p class="news-detail">First author: <a href="https://link.springer.com/chapter/10.1007/978-981-99-7224-1_1">Dynamic Weighted Neural Bellman-Ford Network</a>.</p>
+								<p class="news-headline"><span class="news-type type-award">Award</span>
+									Received the <strong>Beijing Outstanding Graduate</strong> honor.</p>
+							</div>
+						</li>
+					</ul>
+				</details>
 			</div>
 		</section>
 
@@ -912,7 +949,6 @@
 
 		function venueBadgeClass(venue) {
 			const v = String(venue || '').toLowerCase();
-			if (v.includes('workshop') || v.includes('fagen')) return 'badge-workshop';
 			if (v.includes('aaai')) return 'badge-aaai';
 			if (v.includes('coling')) return 'badge-coling';
 			if (v.includes('emnlp')) return 'badge-emnlp';
@@ -922,6 +958,7 @@
 			if (v.includes('iclr')) return 'badge-iclr';
 			if (v.includes('arxiv')) return 'badge-arxiv';
 			if (v.includes('ccks')) return 'badge-ccks';
+			if (v.includes('workshop') || v.includes('fagen')) return 'badge-workshop';
 			return 'badge-venue-default';
 		}
 

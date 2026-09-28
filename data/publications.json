@@ -252,6 +252,30 @@
   ],
   "collaborations": [
     {
+      "id": "allocembed",
+      "title": "Allocate Before You Embed: Adaptive Visual Input Allocation for Video Embeddings",
+      "authors": [
+        "Song Jin",
+        "Zhongtao Jiang",
+        "Chenglei Shen",
+        "Huanxuan Liao",
+        "Haozhe Chi",
+        "Zhiwei Wang",
+        "Kun Xu",
+        "Yong Liu"
+      ],
+      "venue": "arXiv",
+      "year": 2026,
+      "type": "preprint",
+      "role": "Collaborator",
+      "links": {
+        "arxiv": "https://arxiv.org/abs/2609.01778",
+        "code": "https://github.com/jinsong8/AllocEmbed"
+      },
+      "abstract": "AllocEmbed allocates a fixed visual-input budget across more video frames before embedding. Its retrieval-driven allocator preserves temporal coverage and important spatial detail, improving video retrieval under matched budgets and transferring across embedding backbones.",
+      "keywords": ["Video Embeddings", "Adaptive Resolution", "Video Retrieval"]
+    },
+    {
       "id": "parsp",
       "title": "Harmonizing the Past, Present, and Future: A Null-Space Constrained Region-Specific Method for Continual Learning in LLMs",
       "authors": [
@@ -343,7 +367,7 @@
         "Jun Zhao",
         "Kang Liu"
       ],
-      "venue": "EMNLP 2026 Main",
+      "venue": "EMNLP 2026 Main (Oral)",
       "year": 2026,
       "type": "conference",
       "role": "Collaborator",
@@ -422,9 +446,9 @@
       "id": "dyprag",
       "title": "Better wit than wealth: Dynamic Parametric Retrieval Augmented Generation for Test-time Knowledge Enhancement",
       "authors": ["Yuqiao Tan", "Shizhu He", "Huanxuan Liao", "Jun Zhao", "Kang Liu"],
-      "venue": "arXiv",
-      "year": 2025,
-      "type": "preprint",
+      "venue": "NeurIPS 2026 TTCL Workshop",
+      "year": 2026,
+      "type": "workshop",
       "role": "Collaborator",
       "links": {
         "arxiv": "https://arxiv.org/abs/2503.23895",
