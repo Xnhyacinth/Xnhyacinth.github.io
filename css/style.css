@@ -221,16 +221,17 @@ a:hover {
 .news-content a {
   border-radius: 3px;
   padding: 0 0.12em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
+/* Hover must only repaint: any layout change re-wraps text-wrap: pretty lines and makes links jump under the cursor. */
 .profile-bio a:hover,
 .profile-title a:hover,
 .timeline-org a:hover,
 .news-content a:hover {
   color: var(--accent-hover);
   background-color: var(--chip-bg);
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
 }
 
 p {
