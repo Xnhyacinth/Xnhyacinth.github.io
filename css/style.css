@@ -617,7 +617,8 @@ a.nav-dropdown-item {
   display: none;
 }
 
-@media (max-width: 1024px) {
+/* Below ~1280px the fixed rail no longer clears the hero card's left edge. */
+@media (max-width: 1279px) {
   .social-sidebar {
     display: none;
   }
@@ -1254,6 +1255,15 @@ a.nav-dropdown-item {
   border-radius: 3px;
 }
 
+/* School logos are dark-on-transparent or white-backed; a uniform light chip keeps them legible and consistent. */
+[data-theme="dark"] .inline-logo,
+[data-theme="dark"] .school-icon {
+  background: #f8fafc;
+  padding: 1px;
+  border-radius: 4px;
+  opacity: 1;
+}
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -1578,17 +1588,17 @@ a.nav-dropdown-item {
 @media (min-width: 600px) {
   .news-headline:has(> .news-type) {
     position: relative;
-    padding-left: 4.25rem;
-  }
-
-  .news-headline:has(> .news-type.type-project) {
     padding-left: 4.75rem;
   }
 
+  /* Fixed width (fits "Project") so every headline's text starts at the same x. */
   .news-headline > .news-type {
     position: absolute;
     top: 0.25em;
     left: 0;
+    box-sizing: border-box;
+    width: 4.25rem;
+    justify-content: center;
   }
 }
 
@@ -2117,7 +2127,7 @@ a.nav-dropdown-item {
   align-items: center;
   padding: 0.2rem 0.5rem;
   background: var(--secondary-soft);
-  color: var(--secondary);
+  color: var(--secondary-badge-text);
   border-radius: var(--radius-sm);
   font-size: 0.7rem;
   font-weight: 600;
@@ -2350,6 +2360,7 @@ a.nav-dropdown-item {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: var(--sp-6);
+  align-items: start;
 }
 
 .service-item {
@@ -2365,17 +2376,11 @@ a.nav-dropdown-item {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, var(--accent), var(--accent-light));
+  background: var(--accent-soft);
   border-radius: var(--radius-md);
-  color: var(--text-on-accent);
+  color: var(--accent);
   font-size: 1.05rem;
   margin-bottom: var(--sp-3);
-  box-shadow: 0 4px 14px var(--accent-glow);
-}
-
-[data-theme="dark"] .service-icon {
-  background: linear-gradient(135deg, var(--accent-light), var(--accent));
-  color: var(--text-on-accent);
 }
 
 .service-item h3 {
@@ -2487,7 +2492,7 @@ a.nav-dropdown-item {
 
 .star-count {
   margin-left: var(--sp-1);
-  color: var(--secondary);
+  color: var(--secondary-badge-text);
   font-weight: 600;
   font-size: 0.8125rem;
   text-decoration: none;
@@ -3066,6 +3071,10 @@ a.star-count:hover {
 
   .mobile-menu-toggle {
     display: block;
+  }
+
+  .theme-toggle {
+    margin-left: auto;
   }
 
   .profile-section.hero-section {
