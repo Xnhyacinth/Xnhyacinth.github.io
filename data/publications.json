@@ -278,8 +278,7 @@
       "type": "preprint",
       "role": "Collaborator",
       "links": {
-        "arxiv": "https://arxiv.org/abs/2609.01778",
-        "code": "https://github.com/jinsong8/AllocEmbed"
+        "arxiv": "https://arxiv.org/abs/2609.01778"
       },
       "abstract": "AllocEmbed allocates a fixed visual-input budget across more video frames before embedding. Its retrieval-driven allocator preserves temporal coverage and important spatial detail, improving video retrieval under matched budgets and transferring across embedding backbones.",
       "keywords": ["Video Embeddings", "Adaptive Resolution", "Video Retrieval"]
@@ -461,7 +460,7 @@
     {
       "id": "dyprag",
       "researchArea": "knowledge-adaptation",
-      "title": "Better wit than wealth: Dynamic Parametric Retrieval Augmented Generation for Test-time Knowledge Enhancement",
+      "title": "Dynamic Parametric Retrieval Augmented Generation for Test-time Knowledge Enhancement",
       "authors": ["Yuqiao Tan", "Shizhu He", "Huanxuan Liao", "Jun Zhao", "Kang Liu"],
       "venue": "NeurIPS 2026 TTCL Workshop",
       "year": 2026,
