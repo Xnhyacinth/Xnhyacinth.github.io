@@ -30,8 +30,8 @@ Venue labels use the compact `Venue'YY` format, with distinctions such as
 Findings, Oral, and Workshop shown separately. Publication titles link to the
 official publication page when available, otherwise to arXiv. The resource
 row provides genuine arXiv links alongside code, project, and abstract controls.
-The survey's Awesome-LCLM repository note identifies independent repository
-leadership separately from the paper's author list and source repository.
+The survey's Awesome-LCLM repository note identifies repository curation and
+maintenance separately from the paper's author list and source repository.
 
 ## Local review before publishing
 
