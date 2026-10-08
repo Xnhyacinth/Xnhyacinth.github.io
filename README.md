@@ -26,6 +26,13 @@ Within each area, works are ordered by descending year, then first-authored
 works, retaining data order for ties. News and publication venue badges share
 the same CSS classes, including `badge-tois` for ACM TOIS.
 
+Venue labels use the compact `Venue'YY` format, with distinctions such as
+Findings, Oral, and Workshop shown separately. Publication titles link to the
+official publication page when available, otherwise to arXiv. The resource
+row provides genuine arXiv links alongside code, project, and abstract controls.
+The survey's Awesome-LCLM repository note identifies independent repository
+leadership separately from the paper's author list and source repository.
+
 ## Local review before publishing
 
 Run from this repository with Python 3.10 or newer:

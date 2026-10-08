@@ -352,6 +352,7 @@
                 return;
             }
 
+            // Tall sections can never expose a fixed fraction in a small viewport.
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -359,7 +360,7 @@
                         observer.unobserve(entry.target);
                     }
                 });
-            }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+            }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
 
             reveals.forEach(el => observer.observe(el));
         },
