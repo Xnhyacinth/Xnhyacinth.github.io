@@ -2,6 +2,7 @@
   "publications": [
     {
       "id": "hyco2",
+      "researchArea": "long-context",
       "title": "HyCo2: Hybrid Context Compression with Global Semantics and Local Evidence",
       "authors": [
         "Huanxuan Liao",
@@ -26,6 +27,7 @@
     },
     {
       "id": "sparta",
+      "researchArea": "knowledge-adaptation",
       "title": "Spectral Disentanglement: Rank-Aware Task Adaptation for Rehearsal-free Continual Learning in LLMs",
       "authors": [
         "Huanxuan Liao",
@@ -54,6 +56,7 @@
     },
     {
       "id": "spark",
+      "researchArea": "long-context",
       "title": "SparK: Query-Aware Unstructured Sparsity with Recoverable KV Cache Channel Pruning",
       "authors": [
         "Huanxuan Liao",
@@ -84,6 +87,7 @@
     },
     {
       "id": "nesycd",
+      "researchArea": "knowledge-adaptation",
       "title": "Neural-Symbolic Collaborative Distillation: Advancing Small Language Models for Complex Reasoning Tasks",
       "authors": [
         "Huanxuan Liao",
@@ -110,6 +114,7 @@
     },
     {
       "id": "skintern",
+      "researchArea": "knowledge-adaptation",
       "title": "SKIntern: Internalizing Symbolic Knowledge for Distilling Better CoT Capabilities into Small Language Models",
       "authors": [
         "Huanxuan Liao",
@@ -137,6 +142,7 @@
     },
     {
       "id": "aag",
+      "researchArea": "knowledge-adaptation",
       "title": "AAG: Learning to Awaken Internal Knowledge of Large Language Models for Question Answering",
       "authors": [
         "Huanxuan Liao",
@@ -165,6 +171,7 @@
     },
     {
       "id": "tagi",
+      "researchArea": "knowledge-adaptation",
       "title": "From Instance Training to Instruction Learning: Task Adapters Generation from Instructions",
       "authors": [
         "Huanxuan Liao",
@@ -194,6 +201,7 @@
     },
     {
       "id": "dynbf",
+      "researchArea": "knowledge-adaptation",
       "title": "Dynamic Weighted Neural Bellman-Ford Network for Knowledge Graph Reasoning",
       "authors": [
         "Huanxuan Liao",
@@ -219,6 +227,7 @@
   "preprints": [
     {
       "id": "resadapt",
+      "researchArea": "long-context",
       "title": "ResAdapt: Adaptive Resolution for Efficient Multimodal Reasoning",
       "authors": [
         "Huanxuan Liao",
@@ -252,6 +261,7 @@
   "collaborations": [
     {
       "id": "allocembed",
+      "researchArea": "long-context",
       "title": "Allocate Before You Embed: Adaptive Visual Input Allocation for Video Embeddings",
       "authors": [
         "Song Jin",
@@ -276,6 +286,7 @@
     },
     {
       "id": "parsp",
+      "researchArea": "knowledge-adaptation",
       "title": "Harmonizing the Past, Present, and Future: A Null-Space Constrained Region-Specific Method for Continual Learning in LLMs",
       "authors": [
         "Jinhui Chen",
@@ -304,6 +315,7 @@
     },
     {
       "id": "kate",
+      "researchArea": "agent-learning",
       "title": "Pushing the Limits of LLM Tool Calling via Experiential Knowledge Integration and Activation",
       "authors": [
         "Yupu Hao",
@@ -329,6 +341,7 @@
     },
     {
       "id": "tool-use-rl-collapse",
+      "researchArea": "agent-learning",
       "title": "Why Multi-Step Tool-Use Reinforcement Learning Collapses and How Supervisory Signals Fix It",
       "authors": [
         "Yupu Hao",
@@ -354,6 +367,7 @@
     },
     {
       "id": "bupo",
+      "researchArea": "agent-learning",
       "title": "Bottom-up Policy Optimization: Your Language Model Policy Secretly Contains Internal Policies",
       "authors": [
         "Yuqiao Tan",
@@ -383,6 +397,7 @@
     },
     {
       "id": "lclm-survey",
+      "researchArea": "long-context",
       "title": "A Comprehensive Survey on Long Context Language Modeling",
       "authors": [
         "Jiaheng Liu",
@@ -411,6 +426,7 @@
     },
     {
       "id": "etapp",
+      "researchArea": "agent-learning",
       "title": "Evaluating Personalized Tool-Augmented LLMs from the Perspectives of Personalization and Proactivity",
       "authors": ["Yupu Hao", "Pengfei Cao", "Zhuoran Jin", "Huanxuan Liao", "Yubo Chen", "Kang Liu", "Jun Zhao"],
       "venue": "ACL 2025 Main",
@@ -427,6 +443,7 @@
     },
     {
       "id": "citi",
+      "researchArea": "agent-learning",
       "title": "CITI: Enhancing Tool Utilizing Ability in Large Language Models without Sacrificing General Performance",
       "authors": ["Yupu Hao", "Pengfei Cao", "Zhuoran Jin", "Huanxuan Liao", "Yubo Chen", "Kang Liu", "Jun Zhao"],
       "venue": "AAAI 2025",
@@ -443,6 +460,7 @@
     },
     {
       "id": "dyprag",
+      "researchArea": "knowledge-adaptation",
       "title": "Better wit than wealth: Dynamic Parametric Retrieval Augmented Generation for Test-time Knowledge Enhancement",
       "authors": ["Yuqiao Tan", "Shizhu He", "Huanxuan Liao", "Jun Zhao", "Kang Liu"],
       "venue": "NeurIPS 2026 TTCL Workshop",
@@ -459,6 +477,7 @@
     },
     {
       "id": "ship",
+      "researchArea": "knowledge-adaptation",
       "title": "Shuttle Between Symbolic Instructions and Neural Parameters of Large Language Models",
       "authors": ["Wangtao Sun", "Haotian Xu", "Huanxuan Liao", "Xuanqing Yu", "Zhongtao Jiang", "Shizhu He", "Jun Zhao", "Kang Liu"],
       "venue": "ACL 2026 Main",
@@ -475,6 +494,7 @@
     },
     {
       "id": "lmtuner",
+      "researchArea": "knowledge-adaptation",
       "title": "LMTuner: An user-friendly and highly-integrable Training Framework for fine-tuning Large Language Models",
       "authors": ["Yixuan Weng", "Zhiqi Wang", "Huanxuan Liao", "Shizhu He", "Shengping Liu", "Kang Liu", "Jun Zhao"],
       "venue": "arXiv",

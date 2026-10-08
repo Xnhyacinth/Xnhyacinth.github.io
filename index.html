@@ -478,9 +478,8 @@
 						<time class="news-date" datetime="2026-10">Oct 2026</time>
 						<div class="news-content">
 							<p class="news-headline"><span class="news-type type-paper">Paper</span>
-								<a href="https://arxiv.org/abs/2505.15774">HyCo<sub>2</sub></a> accepted to
-								<span class="news-badge badge-venue-default">ACM TOIS</span>
-								<span class="news-role">(first author)</span>.</p>
+								One paper accepted to <span class="news-badge badge-tois">ACM TOIS</span>.
+								<a href="https://arxiv.org/abs/2505.15774">HyCo<sub>2</sub></a> <span class="news-role">(first author)</span>.</p>
 						</div>
 					</li>
 					<li class="news-item">
@@ -625,45 +624,59 @@
 					<span class="citation-info">(* stands for equal contribution)</span>
 				</p>
 
+				<p class="publication-intro">Organized around my research on long-horizon adaptive intelligence. Each work appears under its primary research area.</p>
 				<div class="search-controls">
 					<div class="search-box">
-						<i class="fas fa-search"></i>
-						<input type="text" class="search-input" id="pub-search" name="pub-search"
+						<i class="fas fa-search" aria-hidden="true"></i>
+						<input type="search" class="search-input" id="pub-search" name="pub-search"
 							aria-label="Search publications by title, authors, or venue"
-							placeholder="Search publications by title, authors, or venue...">
+							placeholder="Search title, authors, or venue...">
 					</div>
-					<div class="filter-controls">
-						<button type="button" class="filter-btn active" data-filter="all"
-							aria-pressed="true">All</button>
-						<button type="button" class="filter-btn" data-filter="conference"
-							aria-pressed="false">Journals &amp; Conferences</button>
-						<button type="button" class="filter-btn" data-filter="preprint"
-							aria-pressed="false">Preprints</button>
-						<button type="button" class="filter-btn" data-filter="collaboration"
-							aria-pressed="false">Collaborations</button>
+					<div class="filter-controls" role="group" aria-label="Research area">
+						<button type="button" class="filter-btn active" data-filter="all" aria-pressed="true">All research</button>
+						<button type="button" class="filter-btn" data-filter="long-context" aria-pressed="false">Long context</button>
+						<button type="button" class="filter-btn" data-filter="knowledge-adaptation" aria-pressed="false">Knowledge &amp; adaptation</button>
+						<button type="button" class="filter-btn" data-filter="agent-learning" aria-pressed="false">Agent learning</button>
 					</div>
-
+					<div class="publication-refinements">
+						<label for="pub-type">Publication type
+							<select id="pub-type">
+								<option value="all">All types</option>
+								<option value="journal">Journal</option>
+								<option value="conference">Conference</option>
+								<option value="workshop">Workshop</option>
+								<option value="preprint">Preprint</option>
+								<option value="survey">Survey</option>
+							</select>
+						</label>
+						<label for="pub-contribution">Contribution
+							<select id="pub-contribution">
+								<option value="all">All contributions</option>
+								<option value="first-author">First author</option>
+								<option value="co-author">Co-author</option>
+							</select>
+						</label>
+					</div>
+					<p class="publication-summary" id="pub-summary" role="status" aria-live="polite">Loading publications...</p>
 				</div>
 
 				<div class="publications-container">
-					<div class="publication-category" data-category="conference">
-						<h3 class="category-title">Journal &amp; Conference Papers</h3>
-						<ul class="publication-list" id="conference-papers">
-						</ul>
-					</div>
-
-					<div class="publication-category" data-category="preprint">
-						<h3 class="category-title">Preprints</h3>
-						<ul class="publication-list" id="preprint-papers">
-						</ul>
-					</div>
-
-					<div class="publication-category" data-category="collaboration">
-						<h3 class="category-title">Collaborative Works</h3>
-						<ul class="publication-list" id="collaboration-papers">
-						</ul>
-					</div>
-					<p class="pub-empty" id="pub-empty" hidden>No publications match your search.</p>
+					<section class="publication-category" data-category="long-context" aria-labelledby="long-context-title">
+						<h3 class="category-title" id="long-context-title">Long-Context Data &amp; Model Co-Design <span class="category-count"></span></h3>
+						<p class="category-description">Context compression, sparse attention, adaptive visual inputs, and long-context modeling.</p>
+						<ul class="publication-list" id="long-context-papers"></ul>
+					</section>
+					<section class="publication-category" data-category="knowledge-adaptation" aria-labelledby="knowledge-adaptation-title">
+						<h3 class="category-title" id="knowledge-adaptation-title">Knowledge &amp; Continual Adaptation <span class="category-count"></span></h3>
+						<p class="category-description">Knowledge acquisition and internalization, instruction-driven adaptation, and continual learning.</p>
+						<ul class="publication-list" id="knowledge-adaptation-papers"></ul>
+					</section>
+					<section class="publication-category" data-category="agent-learning" aria-labelledby="agent-learning-title">
+						<h3 class="category-title" id="agent-learning-title">Agent Learning &amp; Self-Improvement <span class="category-count"></span></h3>
+						<p class="category-description">Tool use, personalized interaction, policy optimization, and learning from feedback.</p>
+						<ul class="publication-list" id="agent-learning-papers"></ul>
+					</section>
+					<p class="pub-empty" id="pub-empty" hidden>No publications match your filters. Try another research area or search term.</p>
 				</div>
 			</div>
 		</section>
@@ -944,27 +957,45 @@
 		}
 
 		async function loadPublications() {
+			const areas = ['long-context', 'knowledge-adaptation', 'agent-learning'];
 			try {
 				const response = await fetch('data/publications.json', { cache: 'no-store' });
 				if (!response.ok) throw new Error('HTTP ' + response.status);
 				const data = await response.json();
-				if (!data || typeof data !== 'object') throw new Error('Invalid data format');
-				renderPapers(data.publications || [], 'conference-papers');
-				renderPapers(data.preprints || [], 'preprint-papers');
-				renderPapers(data.collaborations || [], 'collaboration-papers');
+				if (!data || !['publications', 'preprints', 'collaborations'].every(function (key) {
+					return Array.isArray(data[key]);
+				})) throw new Error('Invalid publication lists');
+				const papers = data.publications.concat(data.preprints, data.collaborations);
+				const ids = new Set();
+				papers.forEach(function (paper) {
+					if (!paper || !/^[a-zA-Z0-9_-]+$/.test(paper.id || '') || ids.has(paper.id) || !areas.includes(paper.researchArea)) {
+						throw new Error('Invalid or duplicate publication, or missing research area');
+					}
+					ids.add(paper.id);
+				});
+				areas.forEach(function (area) {
+					renderPapers(papers.filter(function (paper) { return paper.researchArea === area; }), area + '-papers');
+				});
+				publicationsLoaded = true;
 				applyPublicationView();
 			} catch (error) {
 				console.error('Failed to load publications:', error);
-				['conference-papers', 'preprint-papers', 'collaboration-papers'].forEach(function (id) {
-					const container = document.getElementById(id);
-					if (!container) return;
-					container.innerHTML = '<li class="publication-item"><p class="pub-load-error"><i class="fas fa-exclamation-triangle"></i> Failed to load publications. Please refresh the page.</p></li>';
+				publicationsLoaded = false;
+				areas.forEach(function (area) {
+					const container = document.getElementById(area + '-papers');
+					if (container) {
+						container.innerHTML = '';
+						container.closest('.publication-category').hidden = true;
+					}
 				});
+				document.getElementById('pub-empty').hidden = true;
+				document.getElementById('pub-summary').textContent = 'Failed to load publications. Please refresh the page.';
 			}
 		}
 
 		function venueBadgeClass(venue) {
 			const v = String(venue || '').toLowerCase();
+			if (v.includes('tois')) return 'badge-tois';
 			if (v.includes('aaai')) return 'badge-aaai';
 			if (v.includes('coling')) return 'badge-coling';
 			if (v.includes('emnlp')) return 'badge-emnlp';
@@ -976,21 +1007,6 @@
 			if (v.includes('ccks')) return 'badge-ccks';
 			if (v.includes('workshop') || v.includes('fagen')) return 'badge-workshop';
 			return 'badge-venue-default';
-		}
-
-		function venueSortPriority(venue) {
-			const v = String(venue || '').toLowerCase();
-			if (v.includes('workshop') || v.includes('fagen')) return 7;
-			if (v.includes('neurips') || v.includes('nips') || v.includes('iclr')) return 0;
-			if (v.includes('icml')) return 0;
-			if ((v.includes('acl') || v.includes('emnlp')) && v.includes('main')) return 1;
-			if (v.includes('aaai')) return 2;
-			if (v.includes('emnlp')) return 3;
-			if (v.includes('acl')) return 4;
-			if (v.includes('coling')) return 5;
-			if (v.includes('ccks')) return 6;
-			if (v.includes('arxiv') || v.includes('preprint') || v.includes('survey')) return 8;
-			return 9;
 		}
 
 		function renderPapers(papers, containerId) {
@@ -1008,28 +1024,24 @@
 					const yearA = Number(a.paper.year || 0);
 					const yearB = Number(b.paper.year || 0);
 					if (yearA !== yearB) return yearB - yearA;
-					const venueA = venueSortPriority(a.paper.venue);
-					const venueB = venueSortPriority(b.paper.venue);
-					if (venueA !== venueB) return venueA - venueB;
-					const nameA = String(a.paper.venue || '');
-					const nameB = String(b.paper.venue || '');
-					if (nameA !== nameB) return nameA.localeCompare(nameB);
-					const titleA = String(a.paper.title || '');
-					const titleB = String(b.paper.title || '');
-					if (titleA !== titleB) return titleA.localeCompare(titleB);
+					const firstA = Array.isArray(a.paper.authors) && a.paper.authors[0] === 'Huanxuan Liao';
+					const firstB = Array.isArray(b.paper.authors) && b.paper.authors[0] === 'Huanxuan Liao';
+					if (firstA !== firstB) return firstA ? -1 : 1;
 					return a.index - b.index;
 				})
 				.map(function (item) { return item.paper; });
 
 			container.innerHTML = sortedPapers.map(function (paper) {
 				const paperLink = isSafeUrl(paper.links && paper.links.paper) ? paper.links.paper : '';
-				const arxivLink = isSafeUrl(paper.links && paper.links.arxiv) ? paper.links.arxiv : paperLink;
+				const arxivLink = isSafeUrl(paper.links && paper.links.arxiv) ? paper.links.arxiv : '';
 				const codeLink = isSafeUrl(paper.links && paper.links.code) ? paper.links.code : '';
 				const homepageLink = isSafeUrl(paper.links && paper.links.homepage) ? paper.links.homepage : '';
 				const pdfLink = isSafeUrl(paper.links && paper.links.pdf) ? paper.links.pdf : '';
 				const titleHref = paperLink || arxivLink || '#';
 				const authorsList = Array.isArray(paper.authors) ? paper.authors : [];
 				const keywordsList = Array.isArray(paper.keywords) ? paper.keywords : [];
+				const contribution = authorsList[0] === 'Huanxuan Liao' ? 'first-author' : 'co-author';
+				const roleLabel = paper.role === 'Core Contributor' ? 'Co-author · Core Contributor' : (contribution === 'first-author' ? 'First author' : 'Co-author');
 				const citations = paper.citations || 0;
 				const paperId = String(paper.id || '').replace(/[^a-zA-Z0-9_-]/g, '');
 				const authorsHtml = authorsList.map(function (author) {
@@ -1038,19 +1050,20 @@
 				const keywordsHtml = keywordsList.map(function (keyword) {
 					return '<span class="keyword-tag">' + escapeHtml(keyword) + '</span>';
 				}).join('');
-				const searchHay = [paper.title, authorsList.join(' '), paper.venue, paper.year, paper.role]
+				const searchHay = [paper.title, authorsList.join(' '), paper.venue, paper.year, roleLabel, paper.researchArea, keywordsList.join(' ')]
 					.join(' ')
 					.toLowerCase();
 
-				return '<li class="publication-item' + (paper.highlighted ? ' highlighted-paper' : '') + '" data-year="' + escapeHtml(paper.year || '') + '" data-search="' + escapeHtml(searchHay) + '">' +
+				return '<li class="publication-item' + (paper.highlighted ? ' highlighted-paper' : '') + '" data-paper-id="' + escapeHtml(paperId) + '" data-type="' + escapeHtml(paper.type || '') + '" data-contribution="' + contribution + '" data-year="' + escapeHtml(paper.year || '') + '" data-search="' + escapeHtml(searchHay) + '">' +
 					(paper.highlighted ? '<div class="highlight-badge"><i class="fas fa-star"></i> Featured</div>' : '') +
 					'<div class="publication-header"><h3 class="publication-title"><a href="' + escapeHtml(titleHref) + '">' + escapeHtml(paper.title || 'Untitled') + '</a></h3>' +
 					'<div class="publication-authors">' + authorsHtml + '</div>' +
 					'<div class="publication-venue"><span class="news-badge pub-venue-badge ' + venueBadgeClass(paper.venue) + '">' + escapeHtml(paper.venue || 'Unknown Venue') + '</span>' +
-					(paper.role ? '<span class="role-badge">' + escapeHtml(paper.role) + '</span>' : '') +
+					'<span class="role-badge">' + escapeHtml(roleLabel) + '</span>' +
 					'<span class="year-badge">' + escapeHtml(paper.year || '') + '</span>' +
 					(citations > 0 ? '<span class="citation-badge"><i class="fas fa-quote-right"></i> ' + escapeHtml(citations) + '</span>' : '') +
 					'</div></div><div class="publication-links">' +
+					(paperLink ? '<a href="' + escapeHtml(paperLink) + '" class="pub-link"><i class="fas fa-file-alt"></i> Paper</a>' : '') +
 					(arxivLink ? '<a href="' + escapeHtml(arxivLink) + '" class="pub-link"><i class="ai ai-arxiv"></i> arXiv</a>' : '') +
 					(pdfLink ? '<a href="' + escapeHtml(pdfLink) + '" class="pub-link"><i class="fas fa-file-pdf"></i> PDF</a>' : '') +
 					(codeLink ? '<a href="' + escapeHtml(codeLink) + '" class="pub-link"><i class="fab fa-github"></i> Code</a>' : '') +
@@ -1084,10 +1097,21 @@
 
 		let activePubFilter = 'all';
 		let pubSearchQuery = '';
+		let activePubType = 'all';
+		let activePubContribution = 'all';
+		let publicationsLoaded = false;
 
 		function setupFilters() {
 			const filterButtons = document.querySelectorAll('.filter-btn');
 			const searchInput = document.getElementById('pub-search');
+			document.getElementById('pub-type').addEventListener('change', function () {
+				activePubType = this.value;
+				applyPublicationView();
+			});
+			document.getElementById('pub-contribution').addEventListener('change', function () {
+				activePubContribution = this.value;
+				applyPublicationView();
+			});
 			filterButtons.forEach(function (button) {
 				button.addEventListener('click', function () {
 					filterButtons.forEach(function (btn) {
@@ -1109,25 +1133,27 @@
 		}
 
 		function applyPublicationView() {
-			let anyVisible = false;
+			if (!publicationsLoaded) return;
+			let visiblePapers = 0;
+			let visibleAreas = 0;
 			document.querySelectorAll('.publication-category').forEach(function (category) {
-				const catMatch = activePubFilter === 'all' || category.dataset.category === activePubFilter;
-				if (!catMatch) {
-					category.style.display = 'none';
-					return;
-				}
-				let catVisible = false;
-				category.querySelectorAll('.publication-item').forEach(function (paper) {
+				const areaMatch = activePubFilter === 'all' || category.dataset.category === activePubFilter;
+				let count = 0;
+				category.querySelectorAll('.publication-item[data-paper-id]').forEach(function (paper) {
 					const hay = (paper.getAttribute('data-search') || '').toLowerCase();
-					const match = !pubSearchQuery || hay.indexOf(pubSearchQuery) !== -1;
-					paper.style.display = match ? '' : 'none';
-					if (match) catVisible = true;
+					const typeMatch = activePubType === 'all' || paper.dataset.type === activePubType;
+					const contributionMatch = activePubContribution === 'all' || paper.dataset.contribution === activePubContribution;
+					const match = areaMatch && typeMatch && contributionMatch && (!pubSearchQuery || hay.includes(pubSearchQuery));
+					paper.hidden = !match;
+					if (match) count++;
 				});
-				category.style.display = catVisible ? 'block' : 'none';
-				if (catVisible) anyVisible = true;
+				category.hidden = count === 0;
+				category.querySelector('.category-count').textContent = String(count);
+				visiblePapers += count;
+				if (count) visibleAreas++;
 			});
-			const empty = document.getElementById('pub-empty');
-			if (empty) empty.hidden = anyVisible;
+			document.getElementById('pub-empty').hidden = visiblePapers > 0;
+			document.getElementById('pub-summary').textContent = visiblePapers + (visiblePapers === 1 ? ' work' : ' works') + ' · ' + visibleAreas + (visibleAreas === 1 ? ' research area' : ' research areas');
 		}
 	</script>
 </body>
