@@ -13,6 +13,21 @@ Live site: https://xnhyacinth.github.io/
 - `projects/`: standalone project homepages and the project hub.
 - `sitemap.xml` and `robots.txt`: search engine discovery metadata.
 
+## CVs
+
+The website hosts exactly three CV documents:
+
+- `assets/CV.pdf`: the selected academic English CV opened by every homepage CV button.
+- `assets/CV_EN.pdf`: the detailed English CV, accessible by direct URL only.
+- `assets/CV_ZH.pdf`: the detailed Chinese CV, accessible by direct URL only.
+
+The selected CV follows [Yan Dai's CV](https://yandaichn.github.io/CV_Yan.pdf)
+with publications grouped by the homepage's three research areas, leading
+`[Venue'YY]` labels, and concise experience placed after publications and awards.
+Editable sources and the build/synchronization command live in the papers
+repository's `career/resume/` directory. Keep these deployment copies synchronized
+from those sources; avoid editing PDF text directly.
+
 ## Publications
 
 Each record in `data/publications.json` has one `researchArea` matching the

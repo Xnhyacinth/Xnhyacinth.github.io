@@ -143,14 +143,14 @@
     {
       "id": "aag",
       "researchArea": "knowledge-adaptation",
-      "title": "AAG: Learning to Awaken Internal Knowledge of Large Language Models for Question Answering",
+      "title": "Awakening Augmented Generation: Learning to Awaken Internal Knowledge of Large Language Models for Question Answering",
       "authors": [
         "Huanxuan Liao",
         "Shizhu He",
         "Yao Xu",
         "Yuanzhe Zhang",
-        "Kang Liu",
         "Shengping Liu",
+        "Kang Liu",
         "Jun Zhao"
       ],
       "venue": "COLING 2025",
