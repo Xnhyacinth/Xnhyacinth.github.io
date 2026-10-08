@@ -60,6 +60,7 @@
   --text-secondary: #3f474a;
   --text-muted: #5c656c;
   --text-on-accent: #ffffff;
+  --highlight-text: #b91c1c;
 
   --border: #e8e4dd;
   --border-light: rgba(232, 228, 221, 0.85);
@@ -116,6 +117,7 @@
   --text-secondary: #c5cad6;
   --text-muted: #a7adbb;
   --text-on-accent: #0c0e14;
+  --highlight-text: #fca5a5;
 
   --border: rgba(148, 163, 184, 0.18);
   --border-light: rgba(148, 163, 184, 0.12);
@@ -1609,7 +1611,7 @@ a.nav-dropdown-item {
 }
 
 .news-oral {
-  color: var(--accent);
+  color: var(--highlight-text);
   font-weight: 800;
 }
 
@@ -2204,7 +2206,7 @@ a.nav-dropdown-item {
 .publication-venue {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: flex-end;
   flex-wrap: wrap;
   grid-column: 1;
   grid-row: 1 / span 3;
@@ -2212,6 +2214,7 @@ a.nav-dropdown-item {
   font-size: 0.8125rem;
   color: var(--text-muted);
   padding-top: 0.125rem;
+  text-align: right;
 }
 
 .publication-venue > * {
@@ -2222,6 +2225,7 @@ a.nav-dropdown-item {
 .publication-venue-details {
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-end;
   gap: 0.375rem;
   font-size: 0.75rem;
   font-weight: 400;
@@ -2230,12 +2234,8 @@ a.nav-dropdown-item {
 }
 
 .venue-highlight {
-  color: #c2410c;
+  color: var(--highlight-text);
   font-weight: 700;
-}
-
-[data-theme="dark"] .venue-highlight {
-  color: #fdba74;
 }
 
 .publication-repo-note {
@@ -2246,16 +2246,18 @@ a.nav-dropdown-item {
 }
 
 .publication-repo-note span {
-  color: var(--accent);
-  font-weight: 500;
+  color: var(--highlight-text);
+  font-weight: 600;
 }
 
 .publication-repo-note a {
   display: block;
   width: fit-content;
-  font-weight: 500;
+  margin-left: auto;
+  color: var(--highlight-text);
+  font-weight: 600;
   text-decoration: underline;
-  text-decoration-color: var(--accent-stroke);
+  text-decoration-color: currentColor;
   text-underline-offset: 0.15em;
 }
 
@@ -2294,6 +2296,7 @@ a.nav-dropdown-item {
   .publication-venue {
     flex-direction: row;
     align-items: center;
+    justify-content: flex-end;
     grid-row: 1;
     margin-bottom: var(--sp-3);
     padding-top: 0;
@@ -2301,11 +2304,6 @@ a.nav-dropdown-item {
 
   .publication-repo-note {
     flex-basis: 100%;
-  }
-
-  .publication-repo-note a {
-    display: inline;
-    margin-right: var(--sp-2);
   }
 }
 
