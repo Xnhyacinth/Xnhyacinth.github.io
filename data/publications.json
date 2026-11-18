@@ -15,6 +15,7 @@
       "year": 2026,
       "type": "journal",
       "links": {
+        "paper": "https://doi.org/10.1145/3859881",
         "arxiv": "https://arxiv.org/abs/2505.15774",
         "code": "https://github.com/Xnhyacinth/HyCo2"
       },

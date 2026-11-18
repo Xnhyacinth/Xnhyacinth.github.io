@@ -22,16 +22,16 @@ The website hosts exactly three CV documents:
 - `assets/CV_ZH.pdf`: the detailed Chinese CV, accessible by direct URL only.
 
 The selected CV follows [Yan Dai's CV](https://yandaichn.github.io/CV_Yan.pdf)
-with publications grouped by the homepage's three research areas, leading
-`[Venue'YY]` labels, and concise experience placed after publications and awards.
+with publications grouped by research area and leading `[Venue'YY]` labels.
+The first page covers research interests and experience.
 Editable sources and the build/synchronization command live in the papers
 repository's `career/resume/` directory. Keep these deployment copies synchronized
 from those sources; avoid editing PDF text directly.
 
 ## Publications
 
-Each record in `data/publications.json` has one `researchArea` matching the
-Research statement: `long-context`, `knowledge-adaptation`, or `agent-learning`.
+Each record in `data/publications.json` has one `researchArea`:
+`long-context`, `knowledge-adaptation`, or `agent-learning`.
 Use the work's primary contribution; related topics remain searchable through
 its title, abstract keywords, and venue. The existing publication lists retain
 their metadata, while the page groups all works by research area and supports
