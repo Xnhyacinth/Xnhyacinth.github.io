@@ -804,14 +804,6 @@ a.nav-dropdown-item {
   margin-top: var(--sp-3);
 }
 
-.profile-statement-list p {
-  margin: 0;
-}
-
-.experience-period {
-  white-space: nowrap;
-}
-
 .profile-statement-list strong {
   color: var(--text);
   font-weight: 600;
@@ -3190,7 +3182,7 @@ a.star-count:hover {
   }
 
   .hero-column--content .hero-tagline {
-    order: 6;
+    order: 4;
     width: 100%;
     max-width: 32rem;
     margin: 0 auto;
@@ -3199,10 +3191,6 @@ a.star-count:hover {
 
   .hero-prose > .profile-statement {
     order: 4;
-  }
-
-  .hero-prose > #experience {
-    order: 6;
   }
 
   .hero-body-header {

@@ -59,11 +59,11 @@
 			} catch (e) { /* ignore */ }
 		})();
 	</script>
-	<link rel="preload" href="css/style.css?v=20261118-research-copy" as="style">
+	<link rel="preload" href="css/style.css?v=20261118-statement" as="style">
 	<link rel="preload" href="js/main.js" as="script">
 	<link rel="preload" href="assets/img/huanxuan-liao-profile-640.jpg" as="image" fetchpriority="high">
 
-	<link rel="stylesheet" href="css/style.css?v=20261118-research-copy">
+	<link rel="stylesheet" href="css/style.css?v=20261118-statement">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/css/academicons.min.css">
 
@@ -353,18 +353,19 @@
 						</aside>
 					</div>
 					<div class="hero-column hero-column--content">
+						<p class="hero-tagline">Better data &amp; architectures for <em>stronger models and longer horizons.</em></p>
 						<div class="hero-prose">
 							<div class="profile-statement">
-								<h2 class="profile-statement-title">Research</h2>
+								<h2 class="profile-statement-title">Research Statement</h2>
 								<p class="profile-bio">
-									My research focuses on <strong>foundation model pretraining and mid-training</strong>.
-									I study how data selection, synthetic supervision, and mixtures across context lengths shape long-context
-									retrieval and reasoning.
+									I study <strong>foundation model pretraining and mid-training</strong>. I examine how data composition, model architecture,
+									and training schedules shape capabilities across stages. A central question is which training choices remain effective
+									across a <strong>scaling ladder</strong> of model sizes and token budgets.
 								</p>
 								<ul class="profile-statement-list" role="list">
 									<li>
-										<strong>Data and Model Design.</strong> Training data and evaluation, efficient attention,
-										context and KV-cache compression, and adaptive visual input allocation
+										<strong>Data and Model Design.</strong> I use long-context training to study data mixtures and training schedules.
+										My modeling work covers efficient attention, context and KV-cache compression, and adaptive visual input allocation
 										(<a href="https://arxiv.org/abs/2503.17407">LCLM-Horizon</a>,
 										<a href="https://doi.org/10.1145/3859881">HyCo<sub>2</sub></a>,
 										<a href="https://ojs.aaai.org/index.php/AAAI/article/view/40466">SparK</a>,
@@ -394,43 +395,6 @@
 										<a href="https://github.com/Xnhyacinth/OPERATE">OPERATE</a>,
 										<a href="https://quantaalpha.com/Distill-Yourself/">Distill Yourself</a>,
 										<a href="https://github.com/Geniusyingmanji/ScientistsLastExam">SLE</a>).
-									</li>
-								</ul>
-							</div>
-							<div class="profile-statement" id="experience">
-								<h2 class="profile-statement-title">Research Experience</h2>
-								<ul class="profile-statement-list" role="list">
-									<li>
-										<strong><a href="https://iquestlab.github.io/">IQuest Research</a></strong>
-										<span class="experience-period">(<time datetime="2026-09">Sep. 2026</time>–Present)</span>
-										<p><em>Foundation Model Pretraining and Mid-Training</em></p>
-										<p>
-											I build long-context training data for retrieval and reasoning, including multi-QA MRCR data,
-											evidence-grounded QA, and aligned multilingual documents. I built evaluation sets covering MRCR, AA-LCR,
-											NoLiMa, HELMET, LongBench v2, RULER, GraphWalks, and CorpusQA for offline generation and training-time
-											teacher-forced NLL on supported tasks, and compared generation scores with NLL across checkpoints.
-										</p>
-									</li>
-									<li>
-										<strong>Tencent (Project UP)</strong>
-										<span class="experience-period">(<time datetime="2026-07">Jul.</time>–<time datetime="2026-09">Sep. 2026</time>)</span>
-										<p><em>Foundation Model Pretraining</em></p>
-										<p>
-											Designed a sparse-attention selector that cut 128K prefill latency by
-											<strong>19.9%</strong> versus native <a href="https://arxiv.org/abs/2509.24663">InfLLM-V2</a>
-											on MiniCPM4.1-8B at batch size four. Built SVG and sketch-to-web datasets for multimodal pretraining.
-										</p>
-									</li>
-									<li>
-										<strong>ByteDance</strong>
-										<span class="experience-period">(<time datetime="2025-06">Jun. 2025</time>–<time datetime="2026-06">Jun. 2026</time>)</span>
-										<p>Developed adaptive visual-input methods for long-video reasoning and retrieval,
-											and built OPERATE to evaluate agent decisions in changing environments.</p>
-									</li>
-									<li>
-										<strong>Ant Group</strong>
-										<span class="experience-period">(<time datetime="2025-02">Feb.</time>–<time datetime="2025-05">May 2025</time>)</span>
-										<p>Developed HyCo<sub>2</sub> to compress long inputs while preserving global meaning and relevant evidence.</p>
 									</li>
 								</ul>
 							</div>
