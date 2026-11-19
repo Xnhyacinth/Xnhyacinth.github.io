@@ -59,11 +59,11 @@
 			} catch (e) { /* ignore */ }
 		})();
 	</script>
-	<link rel="preload" href="css/style.css?v=20261118-statement" as="style">
+	<link rel="preload" href="css/style.css?v=20261119-research" as="style">
 	<link rel="preload" href="js/main.js" as="script">
 	<link rel="preload" href="assets/img/huanxuan-liao-profile-640.jpg" as="image" fetchpriority="high">
 
-	<link rel="stylesheet" href="css/style.css?v=20261118-statement">
+	<link rel="stylesheet" href="css/style.css?v=20261119-research">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/css/academicons.min.css">
 
@@ -358,43 +358,38 @@
 							<div class="profile-statement">
 								<h2 class="profile-statement-title">Research Statement</h2>
 								<p class="profile-bio">
-									I study <strong>foundation model pretraining and mid-training</strong>. I examine how data composition, model architecture,
-									and training schedules shape capabilities across stages. A central question is which training choices remain effective
-									across a <strong>scaling ladder</strong> of model sizes and token budgets.
+									My long-term goal is to build foundation models for <strong>long-horizon adaptive intelligence</strong> that
+									retain knowledge, transfer skills across tasks, and learn from extended interactions. My current focus is
+									<strong>foundation model pretraining and mid-training</strong>.
 								</p>
 								<ul class="profile-statement-list" role="list">
 									<li>
-										<strong>Data and Model Design.</strong> I use long-context training to study data mixtures and training schedules.
-										My modeling work covers efficient attention, context and KV-cache compression, and adaptive visual input allocation
-										(<a href="https://arxiv.org/abs/2503.17407">LCLM-Horizon</a>,
+										<strong>Data and Model Co-Design.</strong> I examine how synthetic supervision, data mixtures, and
+										model architecture jointly shape capability acquisition. My work spans verifiable data synthesis (LongWorld),
+										efficient context modeling (LUSA,
 										<a href="https://doi.org/10.1145/3859881">HyCo<sub>2</sub></a>,
-										<a href="https://ojs.aaai.org/index.php/AAAI/article/view/40466">SparK</a>,
-										<a href="projects/ResAdapt/">ResAdapt</a>,
+										<a href="https://ojs.aaai.org/index.php/AAAI/article/view/40466">SparK</a>), and adaptive visual input
+										allocation (<a href="projects/ResAdapt/">ResAdapt</a>,
 										<a href="https://arxiv.org/abs/2609.01778">AllocEmbed</a>).
+										I aim to identify which gains persist across a <strong>scaling ladder</strong> of model sizes and token budgets.
 									</li>
 								</ul>
 								<h3 class="profile-statement-title">Adaptation</h3>
 								<ul class="profile-statement-list" role="list">
 									<li>
-										<strong>Continual Adaptation.</strong> Knowledge transfer, skill retention, and generalization across tasks
-										(<a href="projects/TAGI/">TAGI</a>,
-										<a href="https://aclanthology.org/2026.acl-long.1269/">SHIP</a>,
-										<a href="https://arxiv.org/abs/2503.23895">DyPRAG</a>,
-										<a href="https://aclanthology.org/2025.coling-main.89/">AAG</a>,
-										<a href="https://arxiv.org/abs/2409.13203">NesyCD</a>,
-										<a href="https://aclanthology.org/2025.coling-main.215/">SKIntern</a>,
-										<a href="https://aclanthology.org/2026.acl-long.334/">SpaRTA</a>).
+										<strong>Continual Adaptation.</strong> I develop methods that let models learn new tasks while
+										retaining prior capabilities, through instruction-conditioned transfer (<a href="projects/TAGI/">TAGI</a>,
+										<a href="https://aclanthology.org/2026.acl-long.1269/">SHIP</a>), parametric knowledge adaptation
+										(<a href="https://arxiv.org/abs/2503.23895">DyPRAG</a>), and rehearsal-free continual learning
+										(<a href="https://aclanthology.org/2026.acl-long.334/">SpaRTA</a>).
 									</li>
 									<li>
-										<strong>Agent Learning.</strong> Memory, decision-making, and policy improvement
-										through interaction and feedback
-										(<a href="https://arxiv.org/abs/2409.13202">CITI</a>,
-										<a href="https://aclanthology.org/2026.findings-acl.710/">KATE</a>,
-										<a href="https://arxiv.org/abs/2512.19673">BuPO</a>,
-										<a href="https://arxiv.org/abs/2606.26027">Tool-RL-Box</a>,
-										<a href="https://github.com/Xnhyacinth/OPERATE">OPERATE</a>,
-										<a href="https://quantaalpha.com/Distill-Yourself/">Distill Yourself</a>,
-										<a href="https://github.com/Geniusyingmanji/ScientistsLastExam">SLE</a>).
+										<strong>Agent Learning.</strong> I study how agents learn to use tools (<a href="https://arxiv.org/abs/2409.13202">CITI</a>,
+										<a href="https://arxiv.org/abs/2606.26027">Tool-RL-Box</a>), reuse prior experience
+										(<a href="https://aclanthology.org/2026.findings-acl.710/">KATE</a>), and improve their policies
+										(<a href="https://arxiv.org/abs/2512.19673">BuPO</a>,
+										<a href="https://quantaalpha.com/Distill-Yourself/">Distill Yourself</a>). I also develop benchmarks
+										for interactive agent tasks (<a href="https://github.com/Xnhyacinth/OPERATE">OPERATE</a>).
 									</li>
 								</ul>
 							</div>
@@ -624,7 +619,7 @@
 					</div>
 					<div class="filter-controls" role="group" aria-label="Research area">
 						<button type="button" class="filter-btn active" data-filter="all" aria-pressed="true">All research</button>
-						<button type="button" class="filter-btn" data-filter="long-context" aria-pressed="false">Data and model design</button>
+						<button type="button" class="filter-btn" data-filter="long-context" aria-pressed="false">Data and model co-design</button>
 						<button type="button" class="filter-btn" data-filter="knowledge-adaptation" aria-pressed="false">Continual adaptation</button>
 						<button type="button" class="filter-btn" data-filter="agent-learning" aria-pressed="false">Agent learning</button>
 					</div>
@@ -652,7 +647,7 @@
 
 				<div class="publications-container">
 					<section class="publication-category" data-category="long-context" aria-labelledby="long-context-title">
-						<h3 class="category-title" id="long-context-title">Data and Model Design <span class="category-count"></span></h3>
+						<h3 class="category-title" id="long-context-title">Data and Model Co-Design <span class="category-count"></span></h3>
 						<p class="category-description">Training data, evaluation, model efficiency, and input allocation.</p>
 						<ul class="publication-list" id="long-context-papers"></ul>
 					</section>

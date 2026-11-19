@@ -3183,7 +3183,6 @@ a.star-count:hover {
 
   .hero-column--content .hero-tagline {
     order: 4;
-    width: 100%;
     max-width: 32rem;
     margin: 0 auto;
     text-align: center;
@@ -3195,11 +3194,6 @@ a.star-count:hover {
 
   .hero-body-header {
     text-align: center;
-  }
-
-  .hero-tagline {
-    max-width: 32rem;
-    margin-inline: auto;
   }
 
   .hero-kicker {
